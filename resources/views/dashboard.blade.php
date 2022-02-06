@@ -1,5 +1,5 @@
 @section('title', ' - ' . __('Dashboard'))
-<x-app-layout>
+<x-hrace009.layouts.app>
     <x-slot name="header">
         <div class="flex items-center justify-between px-4 py-4 border-b lg:py-6 dark:border-primary-darker">
             <h1 class="text-2xl font-semibold">{{ __('Dashboard') }}</h1>
@@ -13,4 +13,4 @@
             </div>
         </div>
     </div>
-</x-app-layout>
+</x-hrace009.layouts.app>
