@@ -141,7 +141,7 @@
         }
     })();
 
-    /* Make dynamic date appear */
+    /* Make dynamic copyright appear */
     (function () {
         if (document.getElementById("copyright-by")) {
             document.getElementById(
