@@ -16,12 +16,9 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\Component;
-use Jantinnerezo\LivewireAlert\LivewireAlert;
 
 class CharacterSelector extends Component
 {
-    use LivewireAlert;
-
     /**
      * Get the view / contents that represent the component.
      *
@@ -66,7 +63,7 @@ class CharacterSelector extends Component
                 $message = __('general.character.error.role');
             }
         }
-        $this->flash($type, $message);
+        //$this->flash($type, $message);
         return redirect()->back();
     }
 }
