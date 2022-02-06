@@ -1,5 +1,5 @@
 @section('title', ' - ' . __('auth.form.register') )
-<x-guest-layout>
+<x-hrace009.layouts.guest>
     <x-hrace009::auth.label-title>
         {{ __('auth.form.register') }}
     </x-hrace009::auth.label-title>
@@ -46,4 +46,4 @@
         {{__('auth.form.registered')}} <a href="{{ route('login') }}"
                                           class="text-blue-600 hover:underline">{{ __('auth.form.login') }}</a>
     </div>
-</x-guest-layout>
+</x-hrace009.layouts.guest>

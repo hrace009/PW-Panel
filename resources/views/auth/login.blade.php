@@ -1,5 +1,5 @@
 @section('title', ' - ' . __('auth.form.login') )
-<x-guest-layout>
+<x-hrace009.layouts.guest>
     <x-hrace009::auth.label-title>
         {{ __('auth.form.login') }}
     </x-hrace009::auth.label-title>
@@ -33,4 +33,4 @@
             {{ __('auth.form.login') }}
         </x-hrace009::button>
     </form>
-</x-guest-layout>
+</x-hrace009.layouts.guest>

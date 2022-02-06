@@ -1,5 +1,5 @@
 @section('title', ' - ' . __('auth.form.forgotPassword') )
-<x-guest-layout>
+<x-hrace009.layouts.guest>
     <x-hrace009::auth.label-title>
         {{ __('auth.form.forgotPassword') }}
     </x-hrace009::auth.label-title>
@@ -20,4 +20,4 @@
             {{ __('auth.form.sendLinkPassword') }}
         </x-hrace009::button>
     </form>
-</x-guest-layout>
+</x-hrace009.layouts.guest>
