@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3fd32921b078ac5bafe84e9cf94e420e",
+    "content-hash": "49c6ce9d8cd2c86575ba86671cb615b8",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1169,74 +1169,6 @@
                 "source": "https://github.com/hrace009/perfect-world-api"
             },
             "time": "2022-02-01T19:02:33+00:00"
-        },
-        {
-            "name": "jantinnerezo/livewire-alert",
-            "version": "2.2.3",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/jantinnerezo/livewire-alert.git",
-                "reference": "8225e494f6106f80719f23b5874b15c6bf76fa1d"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/jantinnerezo/livewire-alert/zipball/8225e494f6106f80719f23b5874b15c6bf76fa1d",
-                "reference": "8225e494f6106f80719f23b5874b15c6bf76fa1d",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/support": "^5.5 || ^6.0 || ^7.0 || ^8.0",
-                "livewire/livewire": "^2.0",
-                "php": "^7.4|^8.0"
-            },
-            "require-dev": {
-                "orchestra/testbench": "^6.15",
-                "phpunit/phpunit": "^9.5"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "Jantinnerezo\\LivewireAlert\\LivewireAlertServiceProvider"
-                    ],
-                    "aliases": {
-                        "LivewireAlert": "Jantinnerezo\\LivewireAlert\\LivewireAlertFacade"
-                    }
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Jantinnerezo\\LivewireAlert\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Jantinn Erezo",
-                    "email": "erezojantinn@gmail.com",
-                    "role": "Developer"
-                }
-            ],
-            "description": "This package provides a simple alert utilities for your livewire components.",
-            "homepage": "https://github.com/jantinnerezo/livewire-alert",
-            "keywords": [
-                "jantinnerezo",
-                "livewire-alert"
-            ],
-            "support": {
-                "issues": "https://github.com/jantinnerezo/livewire-alert/issues",
-                "source": "https://github.com/jantinnerezo/livewire-alert/tree/2.2.3"
-            },
-            "funding": [
-                {
-                    "url": "https://www.paypal.com/paypalme/jantinn",
-                    "type": "custom"
-                }
-            ],
-            "time": "2021-11-21T21:26:01+00:00"
         },
         {
             "name": "jaybizzle/crawler-detect",

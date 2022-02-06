@@ -14,7 +14,6 @@
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
         "hrace009/perfect-world-api": "^1.0",
-        "jantinnerezo/livewire-alert": "^2.2",
         "laravel/framework": "^8.75",
         "laravel/jetstream": "^2.6",
         "laravel/sanctum": "^2.11",
