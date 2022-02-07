@@ -11,6 +11,7 @@ namespace App\View\Components\Hrace009;
 
 use Closure;
 use Illuminate\Contracts\View\View;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\View\Component;
 
 class AdminButton extends Component
@@ -32,6 +33,11 @@ class AdminButton extends Component
      */
     public function render()
     {
-        return view('components.hrace009.admin-button');
+        if (Auth::user()->isAdministrator()) {
+            return view('components.hrace009.admin-button');
+        } else {
+            return false;
+        }
+
     }
 }
