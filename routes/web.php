@@ -49,9 +49,16 @@ Route::get('/', function () {
     return view('welcome');
 })->name('HOME');
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
+/***
+ * Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+ * return view('dashboard');
+ * })->name('dashboard');
+ ***/
+Route::group(['middleware' => ['web', 'auth:sanctum', 'verified']], function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+});
 
 Route::group(['middleware' => config('fortify.middleware', ['web'])], function () {
     $enableViews = config('fortify.views', true);
