@@ -56,6 +56,7 @@
                     <x-slot name="button">
                         <x-hrace009::dark-theme-button/>
                         <x-hrace009::mobile-language-menu/>
+                        <x-hrace009::character-selector/>
                         <x-hrace009::admin-button/>
                         <x-hrace009::mobile-user-avatar/>
                     </x-slot>
