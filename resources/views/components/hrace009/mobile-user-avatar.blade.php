@@ -38,6 +38,7 @@
         aria-orientation="vertical"
         aria-label="User menu"
     >
+        <x-hrace009::mobile-balance/>
         <a
             href="{{ route('profile.show') }}"
             role="menuitem"
