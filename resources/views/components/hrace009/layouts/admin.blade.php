@@ -38,7 +38,7 @@
                 <x-hrace009::mobile-menu-button/>
                 <x-hrace009::brand>
                     <x-slot name="brand">
-                        {{ config('app.name') }}
+                        {{ config('app.name') }} - Admin
                     </x-slot>
                 </x-hrace009::brand>
                 <x-hrace009::mobile-sub-menu-button/>
