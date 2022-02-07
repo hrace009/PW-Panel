@@ -47,9 +47,16 @@
         <a
             href="{{ route('dashboard') }}"
             role="menuitem"
-            class="block p-2 text-sm text-gray-{{ $text }} transition-colors duration-200 rounded-md dark:{{ $light }} dark:hover:text-light hover:text-gray-700"
+            class="block p-2 text-sm text-gray-{{ $dashText }} transition-colors duration-200 rounded-md dark:{{ $dashLight }} dark:hover:text-light hover:text-gray-700"
         >
             {{ __('general.menu.dashboard') }}
+        </a>
+        <a
+            href="{{ route('profile.show') }}"
+            role="menuitem"
+            class="block p-2 text-sm text-gray-{{ $profileText }} transition-colors duration-200 rounded-md dark:{{ $profileLight }} dark:hover:text-light hover:text-gray-700"
+        >
+            {{ __('general.dashboard.profile.header') }}
         </a>
     </div>
 </div>
