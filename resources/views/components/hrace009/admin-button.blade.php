@@ -1,17 +1,16 @@
-@if( Auth::user()->isAdministrator() )
-    <!-- Settings button -->
-    <button
-        onclick="window.location.href='{{ route('HOME') }}'"
-        title="{{ __('general.adminArea') }}"
-        class="p-2 transition-colors duration-200 rounded-full text-primary-lighter bg-primary-50 hover:text-primary hover:bg-primary-100 dark:hover:text-light dark:hover:bg-primary-dark dark:bg-dark focus:outline-none focus:bg-primary-100 dark:focus:bg-primary-dark focus:ring-primary-darker"
-    >
-        <span class="sr-only">Open admin panel</span>
-        <svg
-            class="w-7 h-7"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
+<!-- Settings button -->
+<button
+    onclick="window.location.href='{{ route('admin.dashboard') }}'"
+    title="{{ __('general.adminArea') }}"
+    class="p-2 transition-colors duration-200 rounded-full text-primary-lighter bg-primary-50 hover:text-primary hover:bg-primary-100 dark:hover:text-light dark:hover:bg-primary-dark dark:bg-dark focus:outline-none focus:bg-primary-100 dark:focus:bg-primary-dark focus:ring-primary-darker"
+>
+    <span class="sr-only">Open admin panel</span>
+    <svg
+        class="w-7 h-7"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
             aria-hidden="true"
         >
             <path
@@ -28,4 +27,3 @@
             />
         </svg>
     </button>
-@endif
