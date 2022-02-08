@@ -77,7 +77,7 @@
 
         <!-- Content -->
             <div class="mt-2">
-                {{ $slot }}
+                {{ $content }}
             </div>
         </main>
         <x-hrace009::footer/>
