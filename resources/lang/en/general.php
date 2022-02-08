@@ -44,5 +44,6 @@ return [
     'language' => 'Language',
     'logout' => 'Log Out',
     'adminArea' => 'Admin Area',
+    'memberArea' => 'Member Area',
     'balance' => 'Balance',
 ];
