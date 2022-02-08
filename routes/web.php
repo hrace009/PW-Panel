@@ -54,8 +54,8 @@ Route::get('/', function () {
  * return view('dashboard');
  * })->name('dashboard');
  ***/
-Route::group(['middleware' => ['web', 'auth:sanctum', 'verified']], function () {
-    Route::get('/dashboard', function () {
+Route::group(['prefix' => 'dashboard', 'middleware' => ['web', 'auth:sanctum', 'verified']], function () {
+    Route::get('/', function () {
         return view('dashboard');
     })->name('dashboard');
 });
@@ -232,4 +232,11 @@ Route::group(['middleware' => config('jetstream.middleware', ['web'])], function
 Route::group(['middleware' => ['web', 'auth', 'verified', 'server.online']], function () {
     /* Character */
     Route::get('character/select/{role_id}', [CharacterSelector::class, 'getSelect']);
+});
+
+/* Admin Page */
+Route::group(['prefix' => 'admin', 'middleware' => ['web', 'auth', 'verified', 'admin']], function () {
+    Route::get('/', function () {
+        return view('admin.dashboard');
+    })->name('admin.dashboard');
 });
