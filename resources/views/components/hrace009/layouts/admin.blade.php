@@ -36,19 +36,17 @@
         <x-hrace009::nav-bar>
             <x-slot name="navmenu">
                 <x-hrace009::mobile-menu-button/>
-                <x-hrace009::brand>
+                <x-hrace009::admin.brand>
                     <x-slot name="brand">
                         {{ config('app.name') }} - Admin
                     </x-slot>
-                </x-hrace009::brand>
+                </x-hrace009::admin.brand>
                 <x-hrace009::mobile-sub-menu-button/>
                 <x-hrace009::desktop-right-button>
                     <x-slot name="button">
                         <x-hrace009::dark-theme-button/>
                         <x-hrace009::language-button/>
-                        <x-hrace009::character-selector/>
-                        <x-hrace009::balance/>
-                        <x-hrace009::admin-button/>
+                        <x-hrace009::user-button/>
                         <x-hrace009::user-avatar/>
                     </x-slot>
                 </x-hrace009::desktop-right-button>
@@ -56,9 +54,8 @@
                     <x-slot name="button">
                         <x-hrace009::dark-theme-button/>
                         <x-hrace009::mobile-language-menu/>
-                        <x-hrace009::character-selector/>
-                        <x-hrace009::admin-button/>
-                        <x-hrace009::mobile-user-avatar/>
+                        <x-hrace009::user-button/>
+                        <x-hrace009::admin.mobile-user-avatar/>
                     </x-slot>
                 </x-hrace009.mobile-sub-menu>
             </x-slot>
