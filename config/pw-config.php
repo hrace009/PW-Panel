@@ -22,4 +22,6 @@ return [
     'teleport_y' => '219.61784',
     'teleport_z' => '1021.2097',
     'version' => '1.0',
+    'ignoreRoles' => '',
+    'ignoreFaction' => '',
 ];
