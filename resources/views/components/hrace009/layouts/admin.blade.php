@@ -33,7 +33,7 @@
         </x-slot>
     </x-hrace009::side-bar>
 
-    <div class="flex-1 h-full overflow-x-hidden overflow-y-auto">
+    <div class="flex flex-col flex-1 h-full overflow-x-hidden overflow-y-auto">
         <x-hrace009::nav-bar>
             <x-slot name="navmenu">
                 <x-hrace009::mobile-menu-button/>
@@ -70,7 +70,7 @@
         </x-hrace009::nav-bar>
 
         <!-- Main content -->
-        <main>
+        <main class="flex-1">
             <!-- Content header -->
         @if (isset($header))
             {{ $header }}

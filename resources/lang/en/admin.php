@@ -18,4 +18,14 @@ return [
         'apps' => 'Application',
         'settings' => 'Settings',
     ],
+    'application' => [
+        'news' => 'News',
+        'shop' => 'Shop',
+        'donate' => 'Donate',
+        'voucher' => 'Voucher',
+        'inGameService' => 'Ingame Service',
+        'ranking' => 'Ranking',
+        'vote' => 'Vote',
+        'bank' => 'Bank Transfer',
+    ],
 ];
