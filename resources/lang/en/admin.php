@@ -13,4 +13,9 @@ return [
     'accountRegistered' => 'Registered Account',
     'totalCharacter' => 'Character Created',
     'totalFaction' => 'Faction Created',
+    'menu' => [
+        'system' => 'System',
+        'apps' => 'Application',
+        'settings' => 'Settings',
+    ],
 ];
