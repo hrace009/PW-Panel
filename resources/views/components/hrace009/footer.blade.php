@@ -1,6 +1,6 @@
 <!-- Main footer -->
 <footer
-    class="flex items-center justify-between p-4 bg-white border-t dark:bg-darker dark:border-primary-darker"
+    class="flex items-center justify-between sticky bottom-0 z-10 p-4 bg-white border-t dark:bg-darker dark:border-primary-darker"
 >
     <div>Copyright © <span id="get-current-year"></span> <a href="{{ route('HOME') }}" target="_blank"
                                                             class="text-blue-500 hover:underline"
