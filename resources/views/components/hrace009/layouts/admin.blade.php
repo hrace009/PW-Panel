@@ -26,6 +26,7 @@
     <x-hrace009::side-bar>
         <x-slot name="links">
             <x-hrace009::admin.dashboard-link/>
+            <x-hrace009::admin.system-link/>
         </x-slot>
         <x-slot name="footer">
             <x-hrace009::side-bar-footer/>
