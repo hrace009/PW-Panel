@@ -37,7 +37,11 @@ class LanguageButton extends Component
         $languages = [];
         $folders = File::directories(base_path('resources/lang/'));
         foreach ($folders as $folder) {
-            $languages[] = str_replace('\\', '', last(explode('/', $folder)));
+            //Use this on Linux system
+            //$languages[] = str_replace('\\', '', last(explode('/', $folder)));
+
+            //Use this on Windows system
+            $languages[] = str_replace('lang\\', '', last(explode('/', $folder)));
         }
         return view('components.hrace009.language-button', [
             'languages' => $languages

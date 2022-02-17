@@ -7,90 +7,38 @@
     </x-slot>
 
     <x-slot name="content">
-        <form>
-            <div class="grid grid-cols-2 gap-8 p-4 lg:grid-cols-2 xl:grid-cols-3">
-                <!-- News Switch -->
-                <div class="flex items-center justify-between p-4 bg-white rounded-md dark:bg-darker">
-                    <h2
-                        class="text-xs font-medium leading-none tracking-wider text-gray-500 uppercase dark:text-primary-light"
-                    >
-                        {{ __('admin.application.news') }}
-                    </h2>
-                    <x-hrace009::check-box2 id="news-switch" name="news-switch"/>
-                </div>
+        <form method="post" action="{{ route('admin.application.post') }}">
+            {!! csrf_field() !!}
+            <div class="grid grid-cols-2 gap-8 p-4 lg:grid-cols-2 xl:grid-cols-4">
+                @foreach( $apps as $app => $value )
+                    <div class="flex items-center justify-between p-4 bg-white rounded-md dark:bg-darker">
+                        <h2
+                            class="text-xs font-medium leading-none tracking-wider text-gray-500 uppercase dark:text-primary-light"
+                        >
+                            {{ __('admin.application.' . $app ) }}
+                        </h2>
+                        <label class="flex items-center">
+                            <div class="relative inline-flex items-center">
+                                <input
+                                    id="{{ $app }}"
+                                    name="{{ $app }}"
+                                    value="{{ $value }}"
+                                    @if( $value ) checked @endif
+                                    type="checkbox"
+                                    class="w-12 h-5 transition bg-gray-200 border-none rounded-full shadow-inner outline-none appearance-none toggle checked:bg-primary-light disabled:bg-gray-200 focus:outline-none"
+                                />
+                                <span
+                                    class="absolute top-0 left-0 w-5 h-5 transition-all transform scale-150 bg-white rounded-full shadow-sm"
+                                ></span>
+                            </div>
+                        </label>
+                    </div>
+                @endforeach
+            </div>
 
-                <!-- Shop Switch -->
-                <div class="flex items-center justify-between p-4 bg-white rounded-md dark:bg-darker">
-                    <h2
-                        class="text-xs font-medium leading-none tracking-wider text-gray-500 uppercase dark:text-primary-light"
-                    >
-                        {{ __('admin.application.shop') }}
-                    </h2>
-                    <x-hrace009::check-box2 id="shop-switch" name="shop-switch"/>
-                </div>
-
-                <!-- Donate Switch -->
-                <div class="flex items-center justify-between p-4 bg-white rounded-md dark:bg-darker">
-                    <h2
-                        class="text-xs font-medium leading-none tracking-wider text-gray-500 uppercase dark:text-primary-light"
-                    >
-                        {{ __('admin.application.donate') }}
-                    </h2>
-                    <x-hrace009::check-box2 id="donate-switch" name="donate-switch"/>
-                </div>
-
-                <!-- Voucher Switch -->
-                <div class="flex items-center justify-between p-4 bg-white rounded-md dark:bg-darker">
-                    <h2
-                        class="text-xs font-medium leading-none tracking-wider text-gray-500 uppercase dark:text-primary-light"
-                    >
-                        {{ __('admin.application.voucher') }}
-                    </h2>
-                    <x-hrace009::check-box2 id="voucher-switch" name="voucher-switch"/>
-                </div>
-
-                <!-- In Game Service Switch -->
-                <div class="flex items-center justify-between p-4 bg-white rounded-md dark:bg-darker">
-                    <h2
-                        class="text-xs font-medium leading-none tracking-wider text-gray-500 uppercase dark:text-primary-light"
-                    >
-                        {{ __('admin.application.inGameService') }}
-                    </h2>
-                    <x-hrace009::check-box2 id="inGameService-switch" name="inGameService-switch"/>
-                </div>
-
-                <!-- Ranking Switch -->
-                <div class="flex items-center justify-between p-4 bg-white rounded-md dark:bg-darker">
-                    <h2
-                        class="text-xs font-medium leading-none tracking-wider text-gray-500 uppercase dark:text-primary-light"
-                    >
-                        {{ __('admin.application.ranking') }}
-                    </h2>
-                    <x-hrace009::check-box2 id="ranking-switch" name="ranking-switch"/>
-                </div>
-
-                <!-- Vote Switch -->
-                <div class="flex items-center justify-between p-4 bg-white rounded-md dark:bg-darker">
-                    <h2
-                        class="text-xs font-medium leading-none tracking-wider text-gray-500 uppercase dark:text-primary-light"
-                    >
-                        {{ __('admin.application.vote') }}
-                    </h2>
-                    <x-hrace009::check-box2 id="vote-switch" name="vote-switch"/>
-                </div>
-
-                <!-- Bank Transfer Switch -->
-                <div class="flex items-center justify-between p-4 bg-white rounded-md dark:bg-darker">
-                    <h2
-                        class="text-xs font-medium leading-none tracking-wider text-gray-500 uppercase dark:text-primary-light"
-                    >
-                        {{ __('admin.application.bank') }}
-                    </h2>
-                    <x-hrace009::check-box2 id="bank-switch" name="bank-switch"/>
-                </div>
-
+            <div class="gap-8 p-4">
                 <!-- Submit Button -->
-                <x-hrace009::button>
+                <x-hrace009::button class="w-auto">
                     {{ __('general.Save') }}
                 </x-hrace009::button>
             </div>

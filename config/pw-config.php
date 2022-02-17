@@ -24,4 +24,16 @@ return [
     'version' => '1.0',
     'ignoreRoles' => '',
     'ignoreFaction' => '',
+    'system' => [
+        'apps' => [
+            'news' => true,
+            'shop' => true,
+            'donate' => true,
+            'voucher' => true,
+            'inGameService' => true,
+            'ranking' => true,
+            'vote' => true,
+            'bank' => true,
+        ],
+    ],
 ];

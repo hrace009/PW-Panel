@@ -241,9 +241,16 @@ Route::group(['prefix' => 'admin', 'middleware' => ['web', 'auth', 'verified', '
     })->name('admin.dashboard');
 
     Route::group(['prefix' => 'system', 'middleware' => ['web', 'auth', 'verified', 'admin']], static function () {
-        Route::get('apps', static function () {
-            return view('admin.system.applications');
-        })->name('admin.application');
+        Route::get('apps', [
+            'as' => 'admin.application',
+            'uses' => 'App\Http\Controllers\Admin\SystemController@getApps'
+        ]);
+
+        Route::post('apps', [
+            'as' => 'admin.application.post',
+            'uses' => 'App\Http\Controllers\Admin\SystemController@saveApps'
+        ]);
+
 
         Route::get('settings', static function () {
             return view('admin.system.settings');
