@@ -4,7 +4,7 @@
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>{{ config('app.name', 'Laravel') }} @yield('title')</title>
+    <title>{{ config('pw-config.server_name', 'Laravel') }} @yield('title')</title>
 
     <link rel="shortcut icon" href="{{ asset(config('pw-config.logo')) }}"/>
     <link
@@ -38,7 +38,7 @@
                 <x-hrace009::mobile-menu-button/>
                 <x-hrace009::brand>
                     <x-slot name="brand">
-                        {{ config('app.name') }}
+                        {{ config('pw-config.server_name') }}
                     </x-slot>
                 </x-hrace009::brand>
                 <x-hrace009::mobile-sub-menu-button/>

@@ -4,7 +4,7 @@
 >
     <div>Copyright © <span id="get-current-year"></span> <a href="{{ route('HOME') }}" target="_blank"
                                                             class="text-blue-500 hover:underline"
-        >{{ config('app.name') }}
+        >{{ config('pw-config.server_name') }}
         </a></div>
     <div>
         <!--

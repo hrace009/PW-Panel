@@ -251,10 +251,15 @@ Route::group(['prefix' => 'admin', 'middleware' => ['web', 'auth', 'verified', '
             'uses' => 'App\Http\Controllers\Admin\SystemController@saveApps'
         ]);
 
+        Route::get('settings', [
+            'as' => 'admin.settings',
+            'uses' => 'App\Http\Controllers\Admin\SystemController@getSettings'
+        ]);
 
-        Route::get('settings', static function () {
-            return view('admin.system.settings');
-        })->name('admin.settings');
+        Route::post('settings', [
+            'as' => 'admin.settings.post',
+            'uses' => 'App\Http\Controllers\Admin\SystemController@saveSettings'
+        ]);
 
     });
 });

@@ -28,5 +28,17 @@ return [
         'vote' => 'Vote',
         'bank' => 'Bank Transfer',
     ],
-    'configSaved' => 'Configuration has been saved!'
+    'settings' => [
+        'server' => 'Server Name',
+        'currency' => 'Currency Name',
+        'ip' => 'Server Ip',
+        'version' => 'Server Version',
+        'encryption' => 'Encryption Type'
+    ],
+    'configSaved' => 'Configuration has been saved!',
+    'encryption_type' => [
+        'md5' => 'MD5',
+        'base64' => 'Base64',
+        'binsalt' => 'HexBin Salt',
+    ]
 ];
