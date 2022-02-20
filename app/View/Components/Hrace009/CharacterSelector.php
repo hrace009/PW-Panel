@@ -39,11 +39,11 @@ class CharacterSelector extends Component
     public function getSelect($role_id): RedirectResponse
     {
         $api = new API();
-        if (config('pw-config.server_version') == '07') {
+        if (config('pw-config.server_version') === '07') {
             $role_name = null;
             $roles = $api->getRoles(Auth::user()->ID);
             foreach ($roles['roles'] as $role) {
-                if ($role_id == $role['id']) {
+                if ($role_id === $role['id']) {
                     $role_name = $role['name'];
                 }
             }
@@ -63,7 +63,6 @@ class CharacterSelector extends Component
                 $message = __('general.character.error.role');
             }
         }
-        //$this->flash($type, $message);
-        return redirect()->back();
+        return redirect()->back()->with($type, $message);
     }
 }
