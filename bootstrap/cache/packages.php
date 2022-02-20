@@ -35,17 +35,6 @@
                     'Agent' => 'Jenssegers\\Agent\\Facades\\Agent',
                 ),
         ),
-    'laracasts/flash' =>
-        array(
-            'providers' =>
-                array(
-                    0 => 'Laracasts\\Flash\\FlashServiceProvider',
-                ),
-            'aliases' =>
-                array(
-                    'Flash' => 'Laracasts\\Flash\\Flash',
-                ),
-        ),
     'laravel/fortify' =>
         array(
             'providers' =>

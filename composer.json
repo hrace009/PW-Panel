@@ -15,7 +15,6 @@
         "guzzlehttp/guzzle": "^7.0.1",
         "hrace009/config-writer": "^1.1",
         "hrace009/perfect-world-api": "^1.0",
-        "laracasts/flash": "^3.2",
         "laravel/framework": "^8.75",
         "laravel/jetstream": "^2.6",
         "laravel/sanctum": "^2.11",
@@ -49,7 +48,8 @@
     "scripts": {
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
-            "@php artisan package:discover --ansi"
+            "@php artisan package:discover --ansi",
+            "@php artisan vendor:publish --force --tag=livewire:assets --ansi"
         ],
         "post-update-cmd": [
             "@php artisan vendor:publish --tag=laravel-assets --ansi --force"
