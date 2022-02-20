@@ -28,4 +28,5 @@ return [
         'vote' => 'Vote',
         'bank' => 'Bank Transfer',
     ],
+    'configSaved' => 'Configuration has been saved!'
 ];

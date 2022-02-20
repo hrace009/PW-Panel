@@ -21,7 +21,6 @@
     <x-hrace009::loading>
         {{ __('general.loading') }}
     </x-hrace009::loading>
-
     <!-- Sidebar -->
     <x-hrace009::side-bar>
         <x-slot name="links">
@@ -71,11 +70,11 @@
 
         <!-- Main content -->
         <main class="flex-1">
-            <!-- Content header -->
+
+        <!-- Content header -->
         @if (isset($header))
             {{ $header }}
         @endif
-
         <!-- Content -->
             <div class="mt-2">
                 {{ $content }}
@@ -83,7 +82,6 @@
         </main>
         <x-hrace009::footer/>
     </div>
-
     <!-- Panels -->
     <x-hrace009::settings-panel/>
 </x-hrace009::front.big-frame>

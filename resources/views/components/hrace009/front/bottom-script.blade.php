@@ -150,3 +150,4 @@
         }
     })();
 </script>
+<x-hrace009::flash-message/>
