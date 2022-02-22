@@ -8,6 +8,7 @@
 
     <x-slot name="content">
         <div class="max-w-2xl mx-auto mt-6">
+            <x-hrace009::admin.validation-error/>
             <form method="post" action="{{ route('admin.settings.post') }}">
                 {!! csrf_field() !!}
                 <div class="relative z-0 mb-6 w-full group">
