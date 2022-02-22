@@ -11,7 +11,7 @@
         If you respect my work, please keep this footer like this. I will really appreciate when you do that.
         Thanks
         -->
-        {{ __('Made with') }} <i class="ri-heart-fill"></i> {{ __('By') }}
+        {{ __('Made with') }} &#10084; {{ __('By') }}
         <a href="https://www.youtube.com/hrace009" target="_blank" class="text-blue-500 hover:underline"
         ><span id="copyright-by"></span>
         </a>
