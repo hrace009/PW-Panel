@@ -1,4 +1,4 @@
-<!-- System links -->
+<!-- Members links -->
 <div x-data="{ isActive: {{ $status }}, open: {{ $status }} }">
     <!-- active & hover classes 'bg-primary-100 dark:bg-primary' -->
     <a
@@ -21,12 +21,12 @@
                       <path
                           stroke-linecap="round"
                           stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M2.132 13.63a9.942 9.942 0 0 1 0-3.26c1.102.026 2.092-.502 2.477-1.431.385-.93.058-2.004-.74-2.763a9.942 9.942 0 0 1 2.306-2.307c.76.798 1.834 1.125 2.764.74.93-.385 1.457-1.376 1.43-2.477a9.942 9.942 0 0 1 3.262 0c-.027 1.102.501 2.092 1.43 2.477.93.385 2.004.058 2.763-.74a9.942 9.942 0 0 1 2.307 2.306c-.798.76-1.125 1.834-.74 2.764.385.93 1.376 1.457 2.477 1.43a9.942 9.942 0 0 1 0 3.262c-1.102-.027-2.092.501-2.477 1.43-.385.93-.058 2.004.74 2.763a9.942 9.942 0 0 1-2.306 2.307c-.76-.798-1.834-1.125-2.764-.74-.93.385-1.457 1.376-1.43 2.477a9.942 9.942 0 0 1-3.262 0c.027-1.102-.501-2.092-1.43-2.477-.93-.385-2.004-.058-2.763.74a9.942 9.942 0 0 1-2.307-2.306c.798-.76 1.125-1.834.74-2.764-.385-.93-1.376-1.457-2.477-1.43zM12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"
+                          stroke-width="1.5"
+                          d="M2 22a8 8 0 1 1 16 0H2zm8-9c-3.315 0-6-2.685-6-6s2.685-6 6-6 6 2.685 6 6-2.685 6-6 6zm7.363 2.233A7.505 7.505 0 0 1 22.983 22H20c0-2.61-1-4.986-2.637-6.767zm-2.023-2.276A7.98 7.98 0 0 0 18 7a7.964 7.964 0 0 0-1.015-3.903A5 5 0 0 1 21 8a4.999 4.999 0 0 1-5.66 4.957z"
                       />
                     </svg>
                   </span>
-        <span class="ml-2 text-sm"> {{ __('admin.menu.system') }} </span>
+        <span class="ml-2 text-sm"> {{ __('admin.menu.members') }} </span>
         <span class="ml-auto" aria-hidden="true">
                     <!-- active class 'rotate-180' -->
                     <svg
@@ -45,19 +45,11 @@
         <!-- active & hover classes 'text-gray-700 dark:text-light' -->
         <!-- inActive classes 'text-gray-400 dark:text-gray-400' -->
         <a
-            href="{{ route('admin.application') }}"
+            href="{{ route('admin.manage') }}"
             role="menuitem"
-            class="block p-2 text-sm text-gray-{{ $appText }} transition-colors duration-200 rounded-md dark:{{ $appLight }} dark:hover:text-light hover:text-gray-700"
+            class="block p-2 text-sm text-gray-{{ $text }} transition-colors duration-200 rounded-md dark:{{ $light }} dark:hover:text-light hover:text-gray-700"
         >
-            {{ __('admin.menu.apps') }}
-        </a>
-
-        <a
-            href="{{ route('admin.settings') }}"
-            role="menuitem"
-            class="block p-2 text-sm text-gray-{{ $settingsText }} transition-colors duration-200 rounded-md dark:{{ $settingsLight }} dark:hover:text-light hover:text-gray-700"
-        >
-            {{ __('admin.menu.settings') }}
+            {{ __('admin.menu.manage') }}
         </a>
     </div>
 </div>

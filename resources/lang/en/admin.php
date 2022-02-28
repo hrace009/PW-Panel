@@ -17,6 +17,8 @@ return [
         'system' => 'System',
         'apps' => 'Application',
         'settings' => 'Settings',
+        'members' => 'Members',
+        'manage' => 'Manage Members',
     ],
     'application' => [
         'news' => 'News',
@@ -35,10 +37,28 @@ return [
         'version' => 'Server Version',
         'encryption' => 'Encryption Type'
     ],
+    'members' => [
+        'id' => 'ID',
+        'name' => 'Login',
+        'truename' => 'Full Name',
+        'balance' => 'Balance',
+        'role' => 'Role',
+        'action' => 'Action',
+        'amount' => 'Amount to give',
+        'give' => 'Give',
+        'to' => 'To',
+        'add' => 'Coin Added!'
+    ],
     'configSaved' => 'Configuration has been saved!',
     'encryption_type' => [
         'md5' => 'MD5',
         'base64' => 'Base64',
         'binsalt' => 'HexBin Salt',
-    ]
+    ],
+    'pagination' => [
+        'showing' => 'Showing',
+        'to' => 'to',
+        'of' => 'of',
+        'results' => 'results',
+    ],
 ];

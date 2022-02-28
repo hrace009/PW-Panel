@@ -262,4 +262,21 @@ Route::group(['prefix' => 'admin', 'middleware' => ['web', 'auth', 'verified', '
         ]);
 
     });
+
+    Route::group(['prefix' => 'members', 'middleware' => ['web', 'auth', 'verified', 'admin']], static function () {
+        Route::get('manage', [
+            'as' => 'admin.manage',
+            'uses' => 'App\Http\Controllers\Admin\MembersController@show'
+        ]);
+
+        Route::get('search', [
+            'as' => 'admin.manage.search',
+            'uses' => 'App\Http\Controllers\Admin\MembersController@search'
+        ]);
+
+        Route::post('balance/{user}', [
+            'as' => 'admin.manage.balance',
+            'uses' => 'App\Http\Controllers\Admin\MembersController@addBalance'
+        ]);
+    });
 });

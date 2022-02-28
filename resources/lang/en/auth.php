@@ -49,5 +49,7 @@ return [
         'message' => 'We will not be responsible if anything unexpected happens to your account if you share this information with others.',
         'subject' => '[CONFIDENTIAL] New Password and Pin for'
     ],
-
+    'profile' => [
+        'invalidPassword' => 'This password does not match our records.'
+    ],
 ];

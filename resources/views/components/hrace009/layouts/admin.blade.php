@@ -26,6 +26,7 @@
         <x-slot name="links">
             <x-hrace009::admin.dashboard-link/>
             <x-hrace009::admin.system-link/>
+            <x-hrace009::admin.members-link/>
         </x-slot>
         <x-slot name="footer">
             <x-hrace009::side-bar-footer/>
@@ -63,6 +64,8 @@
                 <x-hrace009.mobile-main-menu>
                     <x-slot name="links">
                         <x-hrace009::admin.dashboard-link/>
+                        <x-hrace009::admin.system-link/>
+                        <x-hrace009::admin.members-link/>
                     </x-slot>
                 </x-hrace009.mobile-main-menu>
             </x-slot>
@@ -71,12 +74,12 @@
         <!-- Main content -->
         <main class="flex-1">
 
-        <!-- Content header -->
+            <!-- Content header -->
         @if (isset($header))
             {{ $header }}
         @endif
         <!-- Content -->
-            <div class="mt-2">
+            <div class="mt-2 pb-16">
                 {{ $content }}
             </div>
         </main>
@@ -85,6 +88,7 @@
     <!-- Panels -->
     <x-hrace009::settings-panel/>
 </x-hrace009::front.big-frame>
+@yield('footer')
 <x-hrace009::front.bottom-script/>
 </body>
 </html>

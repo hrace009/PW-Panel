@@ -31,7 +31,7 @@ class LogoutFromOtherBrowser extends LogoutOtherBrowserSessionsForm
 
         if (!Hash::check(Auth::user()->name . $this->password, Auth::user()->passwd)) {
             throw ValidationException::withMessages([
-                'password' => [__('profile.browserSession.modal.invalidPassword')],
+                'password' => [__('auth.profile.invalidPassword')],
             ]);
         }
 
