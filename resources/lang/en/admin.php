@@ -19,6 +19,7 @@ return [
         'settings' => 'Settings',
         'members' => 'Members',
         'manage' => 'Manage Members',
+        'news' => 'News'
     ],
     'application' => [
         'news' => 'News',
@@ -48,6 +49,11 @@ return [
         'give' => 'Give',
         'to' => 'To',
         'add' => 'Coin Added!'
+    ],
+    'news' => [
+        'create' => 'Create a News',
+        'view' => 'View News',
+        'settings' => 'Settings'
     ],
     'configSaved' => 'Configuration has been saved!',
     'encryption_type' => [

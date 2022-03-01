@@ -1,4 +1,4 @@
-<!-- Members links -->
+<!-- News links -->
 <div x-data="{ isActive: {{ $status }}, open: {{ $status }} }">
     <!-- active & hover classes 'bg-primary-100 dark:bg-primary' -->
     <a
@@ -22,11 +22,11 @@
                           stroke-linecap="round"
                           stroke-linejoin="round"
                           stroke-width="1.5"
-                          d="M2 22a8 8 0 1 1 16 0H2zm8-9c-3.315 0-6-2.685-6-6s2.685-6 6-6 6 2.685 6 6-2.685 6-6 6zm7.363 2.233A7.505 7.505 0 0 1 22.983 22H20c0-2.61-1-4.986-2.637-6.767zm-2.023-2.276A7.98 7.98 0 0 0 18 7a7.964 7.964 0 0 0-1.015-3.903A5 5 0 0 1 21 8a4.999 4.999 0 0 1-5.66 4.957z"
+                          d="M19 22H5a3 3 0 0 1-3-3V3a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v7h4v9a3 3 0 0 1-3 3zm-1-10v7a1 1 0 0 0 2 0v-7h-2zM5 6v6h6V6H5zm0 7v2h10v-2H5zm0 3v2h10v-2H5zm2-8h2v2H7V8z"
                       />
                     </svg>
                   </span>
-        <span class="ml-2 text-sm"> {{ __('admin.menu.members') }} </span>
+        <span class="ml-2 text-sm"> {{ __('admin.menu.news') }} </span>
         <span class="ml-auto" aria-hidden="true">
                     <!-- active class 'rotate-180' -->
                     <svg
@@ -41,15 +41,29 @@
                     </svg>
                   </span>
     </a>
-    <div role="menu" x-show="open" class="mt-2 space-y-2 px-7" aria-label="{{ __('admin.menu.members') }}">
+    <div role="menu" x-show="open" class="mt-2 space-y-2 px-7" aria-label="{{ __('admin.menu.news') }}">
         <!-- active & hover classes 'text-gray-700 dark:text-light' -->
         <!-- inActive classes 'text-gray-400 dark:text-gray-400' -->
         <a
-            href="{{ route('admin.manage') }}"
+            href="{{ route('admin.createNews') }}"
             role="menuitem"
-            class="block p-2 text-sm text-gray-{{ $text }} transition-colors duration-200 rounded-md dark:{{ $light }} dark:hover:text-light hover:text-gray-700"
+            class="block p-2 text-sm text-gray-{{ $createText }} transition-colors duration-200 rounded-md dark:{{ $createLight }} dark:hover:text-light hover:text-gray-700"
         >
-            {{ __('admin.menu.manage') }}
+            {{ __('admin.news.create') }}
+        </a>
+        <a
+            href="{{ route('admin.viewNews') }}"
+            role="menuitem"
+            class="block p-2 text-sm text-gray-{{ $viewText }} transition-colors duration-200 rounded-md dark:{{ $viewLight }} dark:hover:text-light hover:text-gray-700"
+        >
+            {{ __('admin.news.view') }}
+        </a>
+        <a
+            href="{{ route('admin.settingsNews') }}"
+            role="menuitem"
+            class="block p-2 text-sm text-gray-{{ $settingsText }} transition-colors duration-200 rounded-md dark:{{ $settingsLight }} dark:hover:text-light hover:text-gray-700"
+        >
+            {{ __('admin.news.settings') }}
         </a>
     </div>
 </div>

@@ -41,7 +41,7 @@
                     </svg>
                   </span>
     </a>
-    <div role="menu" x-show="open" class="mt-2 space-y-2 px-7" aria-label="{{ __('general.menu.dashboard') }}">
+    <div role="menu" x-show="open" class="mt-2 space-y-2 px-7" aria-label="{{ __('admin.menu.system') }}">
         <!-- active & hover classes 'text-gray-700 dark:text-light' -->
         <!-- inActive classes 'text-gray-400 dark:text-gray-400' -->
         <a

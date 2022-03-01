@@ -27,6 +27,7 @@
             <x-hrace009::admin.dashboard-link/>
             <x-hrace009::admin.system-link/>
             <x-hrace009::admin.members-link/>
+            <x-hrace009::admin.news-link/>
         </x-slot>
         <x-slot name="footer">
             <x-hrace009::side-bar-footer/>
@@ -66,6 +67,7 @@
                         <x-hrace009::admin.dashboard-link/>
                         <x-hrace009::admin.system-link/>
                         <x-hrace009::admin.members-link/>
+                        <x-hrace009::admin.news-link/>
                     </x-slot>
                 </x-hrace009.mobile-main-menu>
             </x-slot>
