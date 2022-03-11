@@ -24,6 +24,8 @@
         "tailwindcss": "^3.0.0"
     },
     "dependencies": {
-        "sweetalert2": "^11.4.2"
+        "sweetalert2": "^11.4.2",
+        "tinymce": "^5.10.3",
+        "trix": "^2.0.0-alpha.1"
     }
 }

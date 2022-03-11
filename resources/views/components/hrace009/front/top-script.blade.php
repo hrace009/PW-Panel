@@ -10,3 +10,7 @@
 
 <!-- Scripts -->
 <script src="{{ mix('js/app.js') }}" defer></script>
+
+@if( request()->routeIs('admin.createNews') )
+    <script src="{{ asset('vendor/tinymce/tinymce.js') }}"></script>
+@endif

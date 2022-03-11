@@ -297,5 +297,14 @@ Route::group(['prefix' => 'admin', 'middleware' => ['web', 'auth', 'verified', '
             'uses' => 'App\Http\Controllers\Admin\NewsController@showView'
         ]);
 
+        Route::post('upload', [
+            'as' => 'admin.uploadNews',
+            'uses' => 'App\Http\Controllers\Admin\NewsController@upload'
+        ])->withoutMiddleware([\App\Http\Middleware\VerifyCsrfToken::class]);
+
+        Route::post('postNews', [
+            'as' => 'admin.postNews',
+            'uses' => 'App\Http\Controllers\Admin\NewsController@store'
+        ]);
     });
 });

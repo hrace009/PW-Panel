@@ -53,7 +53,10 @@ return [
     'news' => [
         'create' => 'Create a News',
         'view' => 'View News',
-        'settings' => 'Settings'
+        'settings' => 'Settings',
+        'title' => 'Enter title',
+        'category' => 'Select Category',
+        'created' => 'News Created!'
     ],
     'configSaved' => 'Configuration has been saved!',
     'encryption_type' => [
