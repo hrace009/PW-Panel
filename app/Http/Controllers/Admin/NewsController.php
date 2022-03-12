@@ -26,11 +26,11 @@ class NewsController extends Controller
         return view('admin.news.settings');
     }
 
-    public function upload(Request $request)
+    public function upload(Request $request): JsonResponse
     {
         $fileName = $request->file('file')->getClientOriginalName();
         $path = $request->file('file')->storeAs('uploads', $fileName, 'public');
-        return response()->json(['location' => url('/storage/' . $path )]);
+        return response()->json(['location' => url('/storage/' . $path)]);
     }
 
     public function store(Request $request): RedirectResponse
