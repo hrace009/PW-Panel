@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\NewsRequest;
 use App\Models\News;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 
 class NewsController extends Controller
@@ -24,14 +26,14 @@ class NewsController extends Controller
         return view('admin.news.settings');
     }
 
-    public function upload(Request $request): \Illuminate\Http\JsonResponse
+    public function upload(Request $request)
     {
         $fileName = $request->file('file')->getClientOriginalName();
         $path = $request->file('file')->storeAs('uploads', $fileName, 'public');
-        return response()->json(['location' => "/storage/$path"]);
+        return response()->json(['location' => url('/storage/' . $path )]);
     }
 
-    public function store(Request $request)
+    public function store(Request $request): RedirectResponse
     {
         $request->validate([
             'title' => 'required|min:3|max:255',

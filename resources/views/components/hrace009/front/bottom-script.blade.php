@@ -155,10 +155,7 @@
     <script>
         tinymce.init({
             selector: 'textarea.content',
-
-            image_class_list: [
-                {title: 'img-responsive', value: 'img-responsive'},
-            ],
+            document_base_url: 'https://wwww.google.com/',
             height: 300,
             setup: function (editor) {
                 editor.on('init change', function () {
