@@ -48,6 +48,8 @@ class SystemController extends Controller
         foreach ($validate as $settings => $value) {
             Config::write('pw-config.' . $settings, $value);
         }
+        Config::write('app.name', $request->get('server_name'));
+        Config::set('app.name', $request->get('server_name'));
         return redirect()->back()->with('success', __('admin.configSaved'));
     }
 }
