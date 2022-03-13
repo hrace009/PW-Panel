@@ -107,11 +107,25 @@ class AddColumsToUsersTable extends Migration
         }
 
         Schema::table('users', function (Blueprint $table) {
-            $table->enum('role', ['administrator', 'gamemaster', 'player'])->default('player');
-            $table->string('language')->default(config('app.locale'));
-            $table->string('profile_photo_path', 2048)->nullable();
-            $table->text('two_factor_secret')->nullable();
-            $table->text('two_factor_recovery_codes')->nullable();
+            if (!Schema::hasColumn('users', 'role')) {
+                $table->enum('role', ['administrator', 'gamemaster', 'player'])->default('player');
+            }
+
+            if (!Schema::hasColumn('users', 'language')) {
+                $table->string('language')->default(config('app.locale'));
+            }
+
+            if (!Schema::hasColumn('users', 'profile_photo_path')) {
+                $table->string('profile_photo_path', 2048)->nullable();
+            }
+
+            if (!Schema::hasColumn('users', 'two_factor_secret')) {
+                $table->text('two_factor_secret')->nullable();
+            }
+
+            if (!Schema::hasColumn('users', 'two_factor_secret')) {
+                $table->text('two_factor_recovery_codes')->nullable();
+            }
             $table->rememberToken();
             $table->timestamps();
         });

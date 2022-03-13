@@ -19,7 +19,7 @@ class News extends Model
     /**
      * @var string[]
      */
-    public $fillable = ['title', 'content', 'category'];
+    public $fillable = ['title', 'og_image', 'description', 'keywords', 'content', 'category'];
 
     /**
      * @param $type

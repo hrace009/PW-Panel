@@ -8,7 +8,7 @@
     <x-slot name="content">
         <div class="max-w mx-auto mt-6 ml-6 mr-6">
             <x-hrace009::admin.validation-error/>
-            <form method="post" action="{{ route('admin.postNews') }}">
+            <form method="post" action="{{ route('admin.postNews') }}" enctype="multipart/form-data">
                 {!! csrf_field() !!}
                 <div class="relative z-0 mb-6 w-full group">
                     <x-hrace009::input id="title" name="title" required/>
@@ -36,6 +36,18 @@
                         </option>
                     </x-hrace009::select>
                     <x-hrace009::label for="category">{{ __('admin.news.category') }}</x-hrace009::label>
+                </div>
+                <div class="relative z-0 mb-6 w-full group">
+                    <x-hrace009::input id="description" name="description" required/>
+                    <x-hrace009::label for="description">{{ __('admin.news.description') }}</x-hrace009::label>
+                </div>
+                <div class="relative z-0 mb-6 w-full group">
+                    <x-hrace009::input id="keywords" name="keywords" required/>
+                    <x-hrace009::label for="keywords">{{ __('admin.news.keywords') }}</x-hrace009::label>
+                </div>
+                <div class="relative z-0 mb-6 w-full group">
+                    <x-hrace009::input id="og_image" name="og_image" type="file"/>
+                    <x-hrace009::label for="image">{{ __('admin.news.og_image') }}</x-hrace009::label>
                 </div>
                 <div class="relative z-0 mb-6 w-full group">
                     <textarea id="content" name="content" class="content"></textarea>

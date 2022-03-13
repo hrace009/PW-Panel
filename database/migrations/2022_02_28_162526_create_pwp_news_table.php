@@ -16,8 +16,12 @@ class CreatePwpNewsTable extends Migration
         Schema::create('pwp_news', function (Blueprint $table) {
             $table->id();
             $table->string('title');
+            $table->string('og_image');
+            $table->text('description');
+            $table->text('keywords');
             $table->text('content');
             $table->enum('category', ['update', 'maintenance', 'event', 'contest', 'other'])->default('other');
+            $table->integer('author');
             $table->timestamps();
         });
     }

@@ -56,7 +56,10 @@ return [
         'settings' => 'Settings',
         'title' => 'Enter title',
         'category' => 'Select Category',
-        'created' => 'News Created!'
+        'created' => 'News Created!',
+        'og_image' => 'Open Graph Image',
+        'description' => 'Description',
+        'keywords' => 'Keywords'
     ],
     'configSaved' => 'Configuration has been saved!',
     'encryption_type' => [

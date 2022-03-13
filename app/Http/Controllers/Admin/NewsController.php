@@ -36,10 +36,23 @@ class NewsController extends Controller
     {
         $request->validate([
             'title' => 'required|min:3|max:255',
+            'og_image' => 'required|image',
+            'description' => 'required|min:20|max:255',
+            'keywords' => 'required',
             'content' => 'required',
             'category' => 'required'
         ]);
-        News::create($request->all());
+        $image = $request->file('og_image')->getClientOriginalName();
+        $request->file('og_image')->storeAs('og_image', $image, 'public');
+
+        News::create([
+            'title' => $request->get('title'),
+            'og_image' => $image,
+            'description' => $request->get('description'),
+            'keywords' => $request->get('keywords'),
+            'content' => $request->get('content'),
+            'category' => $request->get('category')
+        ]);
         return redirect()->back()->with('success', __('admin.news.created'));
     }
 }
