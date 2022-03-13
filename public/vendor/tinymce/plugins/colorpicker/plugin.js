@@ -11,9 +11,9 @@
 
     var global = tinymce.util.Tools.resolve('tinymce.PluginManager');
 
-    function Plugin() {
-        global.add('colorpicker', function () {
-        });
+    function Plugin () {
+      global.add('colorpicker', function () {
+      });
     }
 
     Plugin();
