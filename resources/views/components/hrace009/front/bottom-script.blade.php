@@ -155,7 +155,9 @@
     <script>
         tinymce.init({
             selector: 'textarea.content',
-            document_base_url: 'https://wwww.google.com/',
+            relative_urls: false,
+            remove_script_host: false,
+            document_base_url: '{{ config('app.url') }}',
             height: 300,
             setup: function (editor) {
                 editor.on('init change', function () {
