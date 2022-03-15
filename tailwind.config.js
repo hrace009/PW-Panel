@@ -9,6 +9,18 @@ module.exports = {
         './resources/views/**/*.blade.php',
         './public/**/*.html',
     ],
+    safelist: [
+        'bg-primary',
+        'hover:bg-primary-darker',
+        'bg-red-700',
+        'hover:bg-red-500',
+        'bg-green-700',
+        'hover:bg-green-500',
+        'bg-yellow-700',
+        'hover:bg-yellow-500',
+        'bg-blue-700',
+        'hover:bg-blue-500'
+    ],
     mode: "jit",
     darkMode: 'class', // or 'm
     theme: {
