@@ -23,7 +23,7 @@ class NewsLink extends Component
      */
     public function render()
     {
-        if (request()->routeIs('admin.createNews')) {
+        if (request()->routeIs('news.create')) {
             $status = 'true';
             $createNewsText = '700';
             $CreateNewsLight = 'text-light';
@@ -31,7 +31,7 @@ class NewsLink extends Component
             $viewNewsLight = 'text-gray-400';
             $settingsNewsText = '400';
             $settingsNewsLight = 'text-gray-400';
-        } elseif (request()->routeIs('admin.viewNews')) {
+        } elseif (request()->routeIs('news.index')) {
             $status = 'true';
             $createNewsText = '400';
             $CreateNewsLight = 'text-gray-400';

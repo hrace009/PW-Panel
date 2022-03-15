@@ -19,7 +19,7 @@ class News extends Model
     /**
      * @var string[]
      */
-    public $fillable = ['title', 'og_image', 'description', 'keywords', 'content', 'category'];
+    public $fillable = ['title', 'og_image', 'description', 'keywords', 'content', 'category', 'author'];
 
     /**
      * @param $type
@@ -28,11 +28,11 @@ class News extends Model
     public function color($type): string
     {
         $colors = [
-            'update' => 'primary',
-            'maintenance' => 'danger',
-            'event' => 'success',
-            'contest' => 'warning',
-            'other' => 'default'
+            'update' => 'bg-primary hover:bg-primary-darker',
+            'maintenance' => 'bg-red-700 hover:bg-red-500',
+            'event' => 'bg-green-700 hover:bg-green-500',
+            'contest' => 'bg-yellow-700 hover:bg-yellow-500',
+            'other' => 'bg-blue-700 hover:bg-blue-500'
         ];
         return $colors[$type];
     }

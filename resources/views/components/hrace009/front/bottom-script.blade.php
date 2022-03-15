@@ -151,7 +151,30 @@
     })();
 </script>
 <x-hrace009::flash-message/>
-@if( request()->routeIs('admin.createNews') )
+<script>
+    document.addEventListener('alpine:init', () => {
+        Alpine.store('accordion', {
+            tab: 0
+        });
+
+        Alpine.data('accordion', (idx) => ({
+            init() {
+                this.idx = idx;
+            },
+            idx: -1,
+            handleClick() {
+                this.$store.accordion.tab = this.$store.accordion.tab === this.idx ? 0 : this.idx;
+            },
+            handleRotate() {
+                return this.$store.accordion.tab === this.idx ? 'rotate-180' : '';
+            },
+            handleToggle() {
+                return this.$store.accordion.tab === this.idx ? `max-height: ${this.$refs.tab.scrollHeight}px` : '';
+            }
+        }));
+    })
+</script>
+@if( request()->routeIs('news.create') || request()->routeIs('news.edit') )
     <script>
         tinymce.init({
             selector: 'textarea.content',
@@ -173,7 +196,7 @@
 
             image_title: true,
             automatic_uploads: true,
-            images_upload_url: '{{ route('admin.uploadNews') }}',
+            images_upload_url: '{{ route('news.upload') }}',
             file_picker_types: 'image',
             file_picker_callback: function (cb, value, meta) {
                 var input = document.createElement('input');

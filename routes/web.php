@@ -282,23 +282,13 @@ Route::group(['prefix' => 'admin', 'middleware' => ['web', 'auth', 'verified', '
 
     Route::group(['prefix' => 'news'], static function () {
 
-        Route::get('create', [
-            'as' => 'admin.createNews',
-            'uses' => 'App\Http\Controllers\Admin\NewsController@showCreate'
-        ]);
-
         Route::get('settings', [
             'as' => 'admin.settingsNews',
-            'uses' => 'App\Http\Controllers\Admin\NewsController@showSettings'
-        ]);
-
-        Route::get('view', [
-            'as' => 'admin.viewNews',
-            'uses' => 'App\Http\Controllers\Admin\NewsController@showView'
+            'uses' => 'App\Http\Controllers\Admin\NewsController@settings'
         ]);
 
         Route::post('upload', [
-            'as' => 'admin.uploadNews',
+            'as' => 'news.upload',
             'uses' => 'App\Http\Controllers\Admin\NewsController@upload'
         ])->withoutMiddleware([\App\Http\Middleware\VerifyCsrfToken::class]);
 
@@ -307,4 +297,5 @@ Route::group(['prefix' => 'admin', 'middleware' => ['web', 'auth', 'verified', '
             'uses' => 'App\Http\Controllers\Admin\NewsController@store'
         ]);
     });
+    Route::resource('news', 'App\Http\Controllers\Admin\NewsController');
 });

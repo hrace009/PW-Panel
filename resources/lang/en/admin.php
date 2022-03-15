@@ -52,6 +52,7 @@ return [
     ],
     'news' => [
         'create' => 'Create a News',
+        'edit' => 'Update a News',
         'view' => 'View News',
         'settings' => 'Settings',
         'title' => 'Enter title',
@@ -59,7 +60,9 @@ return [
         'created' => 'News Created!',
         'og_image' => 'Open Graph Image',
         'description' => 'Description',
-        'keywords' => 'Keywords'
+        'keywords' => 'Keywords',
+        'update' => 'News has been Updated!',
+        'destroy' => 'News delete!'
     ],
     'configSaved' => 'Configuration has been saved!',
     'encryption_type' => [

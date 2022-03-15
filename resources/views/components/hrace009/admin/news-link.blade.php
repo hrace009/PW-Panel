@@ -45,14 +45,14 @@
         <!-- active & hover classes 'text-gray-700 dark:text-light' -->
         <!-- inActive classes 'text-gray-400 dark:text-gray-400' -->
         <a
-            href="{{ route('admin.createNews') }}"
+            href="{{ route('news.create') }}"
             role="menuitem"
             class="block p-2 text-sm text-gray-{{ $createText }} transition-colors duration-200 rounded-md dark:{{ $createLight }} dark:hover:text-light hover:text-gray-700"
         >
             {{ __('admin.news.create') }}
         </a>
         <a
-            href="{{ route('admin.viewNews') }}"
+            href="{{ route('news.index') }}"
             role="menuitem"
             class="block p-2 text-sm text-gray-{{ $viewText }} transition-colors duration-200 rounded-md dark:{{ $viewLight }} dark:hover:text-light hover:text-gray-700"
         >

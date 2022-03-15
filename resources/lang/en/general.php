@@ -40,6 +40,7 @@ return [
     ],
     'saved' => 'Saved.',
     'Save' => 'Save',
+    'update' => 'Update',
     'serverOffline' => 'The server isn\'t online, please try again later.',
     'language' => 'Language',
     'logout' => 'Log Out',
