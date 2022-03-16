@@ -6,6 +6,20 @@
         </div>
     </x-slot>
     <x-slot name="content">
-        Content Settings
+        <div class="max-w-2xl mx-auto mt-6">
+            <x-hrace009::admin.validation-error/>
+            <form method="post" action="{{ route('admin.news.postSettings') }}">
+                {!! csrf_field() !!}
+                <div class="relative z-0 mb-6 w-full group">
+                    <x-hrace009::input id="article_page" name="article_page" value="{{ config('pw-config.news.page') }}"
+                                       placeholder=" " required/>
+                    <x-hrace009::label for="article_page">{{ __('admin.news.perPage') }}</x-hrace009::label>
+                </div>
+                <!-- Submit Button -->
+                <x-hrace009::button class="w-auto">
+                    {{ __('general.Save') }}
+                </x-hrace009::button>
+            </form>
+        </div>
     </x-slot>
 </x-hrace009.layouts.admin>

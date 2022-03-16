@@ -2,6 +2,9 @@
 
 namespace App\View\Components\Hrace009\Admin;
 
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
 class NewsLink extends Component
@@ -19,7 +22,7 @@ class NewsLink extends Component
     /**
      * Get the view / contents that represent the component.
      *
-     * @return \Illuminate\Contracts\View\View|\Closure|string
+     * @return Application|Factory|View
      */
     public function render()
     {
@@ -39,7 +42,7 @@ class NewsLink extends Component
             $viewNewsLight = 'text-light';
             $settingsNewsText = '400';
             $settingsNewsLight = 'text-gray-400';
-        } elseif (request()->routeIs('admin.settingsNews')) {
+        } elseif (request()->routeIs('admin.news.settings')) {
             $status = 'true';
             $createNewsText = '400';
             $CreateNewsLight = 'text-gray-400';
@@ -47,6 +50,14 @@ class NewsLink extends Component
             $viewNewsLight = 'text-gray-400';
             $settingsNewsText = '700';
             $settingsNewsLight = 'text-light';
+        } elseif (request()->routeIs('news.edit')) {
+            $status = 'true';
+            $createNewsText = '400';
+            $CreateNewsLight = 'text-gray-400';
+            $viewNewsText = '400';
+            $viewNewsLight = 'text-gray-400';
+            $settingsNewsText = '400';
+            $settingsNewsLight = 'text-gray-400';
         } else {
             $status = 'false';
             $createNewsText = '400';

@@ -7,6 +7,7 @@
  * @copyright Copyright (c) 2022.
  */
 
+use App\Http\Controllers\Admin\NewsController;
 use App\Http\Controllers\Auth\NewPasswordController;
 use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Front\UserProfileController;
@@ -283,19 +284,20 @@ Route::group(['prefix' => 'admin', 'middleware' => ['web', 'auth', 'verified', '
     Route::group(['prefix' => 'news'], static function () {
 
         Route::get('settings', [
-            'as' => 'admin.settingsNews',
+            'as' => 'admin.news.settings',
             'uses' => 'App\Http\Controllers\Admin\NewsController@settings'
         ]);
 
         Route::post('upload', [
-            'as' => 'news.upload',
+            'as' => 'admin.news.upload',
             'uses' => 'App\Http\Controllers\Admin\NewsController@upload'
         ])->withoutMiddleware([\App\Http\Middleware\VerifyCsrfToken::class]);
 
-        Route::post('postNews', [
-            'as' => 'admin.postNews',
-            'uses' => 'App\Http\Controllers\Admin\NewsController@store'
+        Route::post('updateSettings', [
+            'as' => 'admin.news.postSettings',
+            'uses' => 'App\Http\Controllers\Admin\NewsController@postSettings'
         ]);
+
     });
-    Route::resource('news', 'App\Http\Controllers\Admin\NewsController');
+    Route::resource('news', NewsController::class);
 });

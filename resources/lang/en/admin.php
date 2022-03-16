@@ -62,7 +62,12 @@ return [
         'description' => 'Description',
         'keywords' => 'Keywords',
         'update' => 'News has been Updated!',
-        'destroy' => 'News delete!'
+        'destroy' => 'News delete!',
+        'noNews' => 'No news here!',
+        'try' => 'Try to create it one',
+        'edit2' => 'Edit',
+        'delete' => 'Delete',
+        'perPage' => 'Articles Per Page'
     ],
     'configSaved' => 'Configuration has been saved!',
     'encryption_type' => [

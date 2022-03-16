@@ -196,7 +196,7 @@
 
             image_title: true,
             automatic_uploads: true,
-            images_upload_url: '{{ route('news.upload') }}',
+            images_upload_url: '{{ route('admin.news.upload') }}',
             file_picker_types: 'image',
             file_picker_callback: function (cb, value, meta) {
                 var input = document.createElement('input');

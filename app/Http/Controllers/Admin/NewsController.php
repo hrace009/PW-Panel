@@ -11,6 +11,7 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Config;
 
 class NewsController extends Controller
 {
@@ -21,7 +22,7 @@ class NewsController extends Controller
      */
     public function index()
     {
-        $news = News::paginate(15);
+        $news = News::paginate(config('pw-config.news.page'));
         $user = new User();
         return view('admin.news.view', [
             'news' => $news,
@@ -151,5 +152,14 @@ class NewsController extends Controller
     public function settings()
     {
         return view('admin.news.settings');
+    }
+
+    public function postSettings(Request $request)
+    {
+        $validate = $request->validate([
+            'article_page' => 'required|numeric'
+        ]);
+        Config::write('pw-config.news.page', $validate['article_page']);
+        return redirect()->back()->with('success', __('admin.configSaved'));
     }
 }
