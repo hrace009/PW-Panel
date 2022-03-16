@@ -7,6 +7,7 @@
  * @copyright Copyright (c) 2022.
  */
 
+use App\Http\Controllers\Admin\MembersController;
 use App\Http\Controllers\Admin\NewsController;
 use App\Http\Controllers\Auth\NewPasswordController;
 use App\Http\Controllers\Auth\PasswordResetLinkController;
@@ -265,10 +266,6 @@ Route::group(['prefix' => 'admin', 'middleware' => ['web', 'auth', 'verified', '
     });
 
     Route::group(['prefix' => 'members'], static function () {
-        Route::get('manage', [
-            'as' => 'admin.manage',
-            'uses' => 'App\Http\Controllers\Admin\MembersController@show'
-        ]);
 
         Route::get('search', [
             'as' => 'admin.manage.search',
@@ -280,6 +277,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['web', 'auth', 'verified', '
             'uses' => 'App\Http\Controllers\Admin\MembersController@addBalance'
         ]);
     });
+    Route::resource('members', MembersController::class);
 
     Route::group(['prefix' => 'news'], static function () {
 

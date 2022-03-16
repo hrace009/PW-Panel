@@ -45,7 +45,7 @@
         <!-- active & hover classes 'text-gray-700 dark:text-light' -->
         <!-- inActive classes 'text-gray-400 dark:text-gray-400' -->
         <a
-            href="{{ route('admin.manage') }}"
+            href="{{ route('members.index') }}"
             role="menuitem"
             class="block p-2 text-sm text-gray-{{ $text }} transition-colors duration-200 rounded-md dark:{{ $light }} dark:hover:text-light hover:text-gray-700"
         >

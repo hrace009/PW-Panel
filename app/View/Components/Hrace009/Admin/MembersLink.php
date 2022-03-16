@@ -23,7 +23,7 @@ class MembersLink extends Component
      */
     public function render()
     {
-        if (request()->routeIs('admin.manage') or request()->routeIs('admin.manage.search')) {
+        if (request()->routeIs('members.index') or request()->routeIs('admin.manage.search')) {
             $status = 'true';
             $text = '700';
             $light = 'text-light';
