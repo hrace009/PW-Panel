@@ -1,4 +1,15 @@
 <?php return array(
+    'andcarpi/laravel-popper' =>
+        array(
+            'providers' =>
+                array(
+                    0 => 'andcarpi\\Popper\\PopperServiceProvider',
+                ),
+            'aliases' =>
+                array(
+                    'Popper' => 'andcarpi\\Popper\\Facades\\Popper',
+                ),
+        ),
     'bonecms/laravel-captcha' =>
         array(
             'providers' =>

@@ -221,3 +221,4 @@
         });
     </script>
 @endif
+@include('popper::assets')
