@@ -48,7 +48,15 @@ return [
         'amount' => 'Amount to give',
         'give' => 'Give',
         'to' => 'To',
-        'add' => 'Coin Added!'
+        'add' => 'Coin Added!',
+        'resetPass' => 'Force Reset Password and Pin',
+        'enterNewPass' => 'Enter new password',
+        'resetPassPin' => 'Reset Password & Pin',
+        'confirm' => 'I confirm this action!',
+        'note' => 'Note',
+        'noteCaption' => 'New password and pin will be delivered to user email address.',
+        'PassPinReset' => 'Success!, please check please ask user to check their emaill address.',
+        'mustConfirm' => 'Failed!, Please confirm your action!'
     ],
     'news' => [
         'create' => 'Create a News',
@@ -80,5 +88,6 @@ return [
         'to' => 'to',
         'of' => 'of',
         'results' => 'results',
+        'for' => 'For'
     ],
 ];

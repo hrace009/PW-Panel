@@ -276,6 +276,11 @@ Route::group(['prefix' => 'admin', 'middleware' => ['web', 'auth', 'verified', '
             'as' => 'admin.manage.balance',
             'uses' => 'App\Http\Controllers\Admin\MembersController@addBalance'
         ]);
+
+        Route::post('resetPassPin/{user}', [
+            'as' => 'admin.manage.resetPassPin',
+            'uses' => 'App\Http\Controllers\Admin\MembersController@forceResetPasswordPin'
+        ]);
     });
     Route::resource('members', MembersController::class);
 
