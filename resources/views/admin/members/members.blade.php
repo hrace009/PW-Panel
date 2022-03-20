@@ -209,6 +209,7 @@
                                                                                 id="resetPassPin"
                                                                                 name="resetPassPin"
                                                                                 type="checkbox"
+                                                                                required
                                                                                 class="w-12 h-5 transition bg-gray-200 border-none rounded-full shadow-inner outline-none appearance-none toggle checked:bg-primary-light disabled:bg-gray-200 focus:outline-none"
                                                                             />
                                                                             <span
