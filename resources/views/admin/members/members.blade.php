@@ -83,7 +83,7 @@
                                                         class="w-auto ml-1"
                                                     >
                                                         <span @popper(
-                                                              {{ __('admin.members.give') . ' ' . config('pw-config.currency_name') }} )>
+                                                              {{ __('admin.members.give') . ' ' . config('pw-config.currency_name') . ' ' . __('admin.pagination.for') . ': ' . $user->name }} )>
                                                             <svg class="w-5 h-5"
                                                                  xmlns="http://www.w3.org/2000/svg"
                                                                  viewBox="0 0 24 24"
@@ -155,7 +155,8 @@
                                                         @click="{{ $user->name }}_Password = !{{ $user->name }}_Password"
                                                         class="w-auto ml-1"
                                                     >
-                                                        <span @popper( {{ __('admin.members.resetPass') }} )>
+                                                        <span @popper(
+                                                              {{ __('admin.members.resetPass') . ' ' . $user->name }} )>
                                                             <svg class="w-5 h-5"
                                                                  xmlns="http://www.w3.org/2000/svg"
                                                                  viewBox="0 0 24 24"
@@ -229,6 +230,81 @@
                                                                     class="flex flex-row justify-end px-6 py-4 dark:bg-dark text-right">
                                                                     <x-hrace009::button class="w-auto">
                                                                         {{ __('admin.members.resetPassPin')  }}
+                                                                    </x-hrace009::button>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div x-data="{ {{ $user->name }}_Email : false }">
+                                                    <!-- Button Change Email -->
+                                                    <x-hrace009::button
+                                                        @click="{{ $user->name }}_Email = !{{ $user->name }}_Email"
+                                                        class="w-auto ml-1"
+                                                    >
+                                                        <span @popper(
+                                                              {{ __('admin.members.changeEmail') . ' ' . $user->name }} )>
+                                                            <svg class="w-5 h-5"
+                                                                 xmlns="http://www.w3.org/2000/svg"
+                                                                 viewBox="0 0 24 24"
+                                                                 width="18"
+                                                                 height="18"
+                                                                 stroke="currentColor"
+                                                                 fill="none"
+                                                            >
+                                                            <path
+                                                                stroke-linecap="round"
+                                                                stroke-linejoin="round"
+                                                                stroke-width="1.5"
+                                                                d="M22 13.341A6 6 0 0 0 14.341 21H3a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h18a1 1 0 0 1 1 1v9.341zm-9.94-1.658L5.648 6.238 4.353 7.762l7.72 6.555 7.581-6.56-1.308-1.513-6.285 5.439zm4.99 7.865a3.017 3.017 0 0 1 0-1.096l-1.014-.586 1-1.732 1.014.586c.278-.238.599-.425.95-.55V15h2v1.17c.351.125.672.312.95.55l1.014-.586 1 1.732-1.014.586a3.017 3.017 0 0 1 0 1.096l1.014.586-1 1.732-1.014-.586a2.997 2.997 0 0 1-.95.55V23h-2v-1.17a2.997 2.997 0 0 1-.95-.55l-1.014.586-1-1.732 1.014-.586zM20 20a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"
+                                                            />
+                                                            </svg>
+                                                        </span>
+                                                    </x-hrace009::button>
+
+                                                    <!-- Modal Change Email -->
+                                                    <div
+                                                        x-show="{{ $user->name }}_Email"
+                                                        class="fixed dark:text-light flex items-center justify-center overflow-auto z-50 bg-gray-500 bg-opacity-40 left-0 right-0 top-0 bottom-0"
+                                                        x-transition:enter="ease-out duration-300"
+                                                        x-transition:enter-start="opacity-0"
+                                                        x-transition:enter-end="opacity-100"
+                                                        x-transition:leave="ease-in duration-200"
+                                                        x-transition:leave-start="opacity-100"
+                                                        x-transition:leave-end="opacity-0"
+                                                        style="display: none;"
+                                                    >
+                                                        <!-- Modal -->
+                                                        <div
+                                                            x-show="{{ $user->name }}_Email"
+                                                            class="dark:bg-dark rounded-xl shadow-2xl p-6 sm:w-full sm:max-w-lg mx-10"
+                                                            @click.away="{{ $user->name }}_Email = false"
+                                                            x-transition:enter="ease-out duration-300"
+                                                            x-transition:enter-start="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                                                            x-transition:enter-end="opacity-100 translate-y-0 sm:scale-100"
+                                                            x-transition:leave="ease-in duration-200"
+                                                            x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100"
+                                                            x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                                                            style="display: none;"
+                                                        >
+                                                            <div class="text-lg font-semibold">
+                                                                {{ __('admin.members.changeEmail') . ' ' . $user->name }}
+                                                            </div>
+                                                            <form
+                                                                action="{{ route('admin.manage.chEmail', $user->ID ) }}"
+                                                                method="post">
+                                                                {!! csrf_field() !!}
+                                                                <div class="mt-4">
+                                                                    <x-hrace009::input-box id="chEmail" name="chEmail"
+                                                                                           placeholder="{{ __('admin.members.email') }}"
+                                                                                           required
+                                                                                           type="email"
+                                                                    />
+                                                                </div>
+                                                                <div
+                                                                    class="flex flex-row justify-end px-6 py-4 dark:bg-dark text-right">
+                                                                    <x-hrace009::button class="w-auto">
+                                                                        {{ __('admin.members.btnChEmail') }}
                                                                     </x-hrace009::button>
                                                                 </div>
                                                             </form>

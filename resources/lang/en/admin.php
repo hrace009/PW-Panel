@@ -49,14 +49,19 @@ return [
         'give' => 'Give',
         'to' => 'To',
         'add' => 'Coin Added!',
-        'resetPass' => 'Force Reset Password and Pin',
+        'resetPass' => 'Force Reset Password and Pin for:',
         'enterNewPass' => 'Enter new password',
         'resetPassPin' => 'Reset Password & Pin',
         'confirm' => 'I confirm this action!',
         'note' => 'Note',
         'noteCaption' => 'New password and pin will be delivered to user email address.',
         'PassPinReset' => 'Success!, please check please ask user to check their emaill address.',
-        'mustConfirm' => 'Failed!, Please confirm your action!'
+        'mustConfirm' => 'Failed!, Please confirm your action!',
+        'email' => 'Enter new email',
+        'changeEmail' => 'Change email for:',
+        'btnChEmail' => 'Change Email!',
+        'successEMail' => 'Email has been change!'
+
     ],
     'news' => [
         'create' => 'Create a News',

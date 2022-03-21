@@ -147,4 +147,15 @@ class MembersController extends Controller
 
         return redirect()->back()->with('error', __('admin.members.mustConfirm'));
     }
+
+    public function changeEmail(Request $request, User $user): RedirectResponse
+    {
+        $this->validate($request, [
+            'chEmail' => 'required|email'
+        ]);
+
+        $user->email = $request->chEmail;
+        $user->save();
+        return redirect()->back()->with('success', __('admin.members.successEMail'));
+    }
 }

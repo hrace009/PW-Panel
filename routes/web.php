@@ -281,6 +281,11 @@ Route::group(['prefix' => 'admin', 'middleware' => ['web', 'auth', 'verified', '
             'as' => 'admin.manage.resetPassPin',
             'uses' => 'App\Http\Controllers\Admin\MembersController@forceResetPasswordPin'
         ]);
+
+        Route::post('changeEmail/{user}', [
+            'as' => 'admin.manage.chEmail',
+            'uses' => 'App\Http\Controllers\Admin\MembersController@changeEmail'
+        ]);
     });
     Route::resource('members', MembersController::class);
 
