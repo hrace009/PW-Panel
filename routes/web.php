@@ -289,7 +289,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['web', 'auth', 'verified', '
     });
     Route::resource('members', MembersController::class);
 
-    Route::group(['prefix' => 'news'], static function () {
+    Route::group(['prefix' => 'news', 'middleware' => 'news' ], static function () {
 
         Route::get('settings', [
             'as' => 'admin.news.settings',
@@ -307,5 +307,5 @@ Route::group(['prefix' => 'admin', 'middleware' => ['web', 'auth', 'verified', '
         ]);
 
     });
-    Route::resource('news', NewsController::class);
+    Route::resource('news', NewsController::class)->middleware('news');
 });

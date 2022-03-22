@@ -12,15 +12,15 @@ return [
     */
     'popper' => [
         'active' => true,
-        'mode' => 'cdn',
+        'mode' => 'asset',
         'cdn' => 'https://unpkg.com/popper.js@1',
-        'asset' => 'vendor/laravel-popper/popper.min.js',
+        'asset' => 'vendor/laravel-popper/popper-hrace009.min.js',
     ],
     'tippy' => [
         'active' => true,
         'mode' => 'cdn',
         'cdn' => 'https://unpkg.com/tippy.js@4',
-        'asset' => 'vendor/laravel-popper/index.all.min.js',
+        'asset' => 'vendor/laravel-popper/tippy-hrace009.min.js',
     ],
 
     /*
@@ -49,7 +49,7 @@ return [
          * Type can be 'sharp' or 'round'
          */
         'arrow' => [
-            'active' => false,
+            'active' => true,
             'type' => 'sharp',
         ],
 
@@ -79,7 +79,7 @@ return [
          */
         'trigger' => [
             'mouseenter' => true,
-            'focus' => true,
+            'focus' => false,
             'click' => false,
         ],
 
