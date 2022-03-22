@@ -18,7 +18,7 @@ return [
     ],
     'tippy' => [
         'active' => true,
-        'mode' => 'cdn',
+        'mode' => 'asset',
         'cdn' => 'https://unpkg.com/tippy.js@4',
         'asset' => 'vendor/laravel-popper/tippy-hrace009.min.js',
     ],
