@@ -14,7 +14,7 @@ return [
     'encryption_type' => 'md5',
     'level_up_cap' => '105',
     'logo' => 'img/logo/logo.png',
-    'server_ip' => '127.0.0.2',
+    'server_ip' => '127.0.0.1',
     'server_name' => 'Ko2World Dev',
     'server_version' => '156',
     'teleport_world_tag' => 1,
