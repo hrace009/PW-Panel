@@ -41,6 +41,7 @@ return [
     'members' => [
         'id' => 'ID',
         'name' => 'Login',
+        'userEmail' => 'Email',
         'truename' => 'Full Name',
         'balance' => 'Balance',
         'role' => 'Role',

@@ -28,40 +28,45 @@
                             </form>
                         </div>
 
-                        <table class="min-w-0">
-                            <thead class="dark:bg-darker dark:text-light border-b dark:border-primary-darker">
+                        <table class="min-w-0 text-xs font-medium">
+                            <thead class="dark:bg-darker dark:text-light border-b dark:border-primary-darker uppercase">
                             <tr>
                                 <th scope="col"
-                                    class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider border-r dark:border-primary-darker text-center">{{ __('admin.members.id') }}</th>
+                                    class="px-2 py-3 tracking-wider border-r dark:border-primary-darker text-center">{{ __('admin.members.id') }}</th>
                                 <th scope="col"
-                                    class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider border-r dark:border-primary-darker text-center">{{ __('admin.members.name') }}</th>
+                                    class="px-2 py-3 tracking-wider border-r dark:border-primary-darker text-center">{{ __('admin.members.name') }}</th>
                                 <th scope="col"
-                                    class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider border-r dark:border-primary-darker text-center">{{ __('admin.members.truename') }}</th>
+                                    class="px-2 py-3 tracking-wider border-r dark:border-primary-darker text-center">{{ __('admin.members.userEmail') }}</th>
                                 <th scope="col"
-                                    class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider border-r dark:border-primary-darker text-center">{{ __('admin.members.balance') }}</th>
+                                    class="px-2 py-3 tracking-wider border-r dark:border-primary-darker text-center">{{ __('admin.members.truename') }}</th>
                                 <th scope="col"
-                                    class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider border-r dark:border-primary-darker text-center">{{ __('admin.members.role') }}</th>
+                                    class="px-2 py-3 tracking-wider border-r dark:border-primary-darker text-center">{{ __('admin.members.balance') }}</th>
                                 <th scope="col"
-                                    class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-center">{{ __('admin.members.action') }}</th>
+                                    class="px-2 py-3 tracking-wider border-r dark:border-primary-darker text-center">{{ __('admin.members.role') }}</th>
+                                <th scope="col"
+                                    class="px-2 py-3 tracking-wider text-center">{{ __('admin.members.action') }}</th>
                             </tr>
                             </thead>
                             <tbody class="bg-transparent">
                             @if( $users ?? '' )
                                 @foreach( $users as $user )
                                     <tr>
-                                        <td class="px-6 py-4 whitespace-nowrap">
+                                        <td class="px-2 py-3 whitespace-nowrap">
                                             {{ $user->ID }}
                                         </td>
-                                        <td class="px-6 py-4 whitespace-nowrap">
+                                        <td class="px-2 py-3 whitespace-nowrap">
                                             {{ $user->name }}
                                         </td>
-                                        <td class="px-6 py-4 whitespace-nowrap">
+                                        <td class="px-2 py-3 whitespace-nowrap">
+                                            {{ $user->email }}
+                                        </td>
+                                        <td class="px-2 py-3 whitespace-nowrap">
                                             {{ ucwords($user->truename) }}
                                         </td>
-                                        <td class="px-6 py-4 whitespace-nowrap">
+                                        <td class="px-2 py-3 whitespace-nowrap">
                                             {{ $user->money }}
                                         </td>
-                                        <td class="px-6 py-4 whitespace-nowrap">
+                                        <td class="px-2 py-3 whitespace-nowrap">
                                             @if( $user->role === 'Administrator' )
                                                 <span
                                                     class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">{{ $user->role }}</span>
@@ -73,7 +78,7 @@
                                                     class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">{{ $user->role }}</span>
                                             @endif
                                         </td>
-                                        <td class="px-6 py-4 whitespace-nowrap">
+                                        <td class="px-2 py-3 whitespace-nowrap">
                                             <!-- Modal -->
                                             <div class="flex flex-row">
                                                 <!-- Give Coin Modal -->
@@ -322,39 +327,45 @@
                             @if( $searchUsers ?? '' )
                                 @foreach( $searchUsers as $searchUser )
                                     <tr>
-                                        <td class="px-6 py-4 whitespace-nowrap">
+                                        <td class="px-2 py-3 whitespace-nowrap">
                                             {{ $searchUser->ID }}
                                         </td>
-                                        <td class="px-6 py-4 whitespace-nowrap">
+                                        <td class="px-2 py-3 whitespace-nowrap">
                                             {{ $searchUser->name }}
                                         </td>
-                                        <td class="px-6 py-4 whitespace-nowrap">
+                                        <td class="px-2 py-3 whitespace-nowrap">
+                                            {{ $searchUser->email }}
+                                        </td>
+                                        <td class="px-2 py-3 whitespace-nowrap">
                                             {{ ucwords($searchUser->truename) }}
                                         </td>
-                                        <td class="px-6 py-4 whitespace-nowrap">
+                                        <td class="px-2 py-3 whitespace-nowrap">
                                             {{ $searchUser->money }}
                                         </td>
-                                        <td class="px-6 py-4 whitespace-nowrap">
+                                        <td class="px-2 py-3 whitespace-nowrap">
                                             @if( $searchUser->role === 'Administrator' )
                                                 <span
                                                     class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">{{ $searchUser->role }}</span>
+                                            @elseif ( $searchUser->role === 'Gamemaster')
+                                                <span
+                                                    class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">{{ $searchUser->role }}</span>
                                             @else
                                                 <span
                                                     class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">{{ $searchUser->role }}</span>
                                             @endif
                                         </td>
-                                        <td class="px-6 py-4 whitespace-nowrap">
+                                        <td class="px-2 py-3 whitespace-nowrap">
                                             <!-- Modal -->
                                             <div class="flex flex-row">
                                                 <!-- Give Coin Modal -->
                                                 <div x-data="{ {{ $searchUser->name }}_Coin : false }">
-                                                    <!-- Button -->
+                                                    <!-- Button Give Coin -->
                                                     <x-hrace009::button
                                                         @click="{{ $searchUser->name }}_Coin = !{{ $searchUser->name }}_Coin"
-                                                        class="w-auto"
+                                                        class="w-auto ml-1"
                                                     >
                                                         <span @popper(
-                                                              {{ __('admin.members.give') . ' ' . config('pw-config.currency_name') }} )>
+                                                              {{ __('admin.members.give') . ' ' . config('pw-config.currency_name') . ' ' . __('admin.pagination.for') . ': ' . $searchUser->name }} )>
                                                             <svg class="w-5 h-5"
                                                                  xmlns="http://www.w3.org/2000/svg"
                                                                  viewBox="0 0 24 24"
@@ -372,7 +383,8 @@
                                                         </svg>
                                                         </span>
                                                     </x-hrace009::button>
-                                                    <!-- Modal Background -->
+
+                                                    <!-- Modal Give Coin -->
                                                     <div
                                                         x-show="{{ $searchUser->name }}_Coin"
                                                         class="fixed dark:text-light flex items-center justify-center overflow-auto z-50 bg-gray-500 bg-opacity-40 left-0 right-0 top-0 bottom-0"
@@ -426,23 +438,24 @@
                                                         @click="{{ $searchUser->name }}_Password = !{{ $searchUser->name }}_Password"
                                                         class="w-auto ml-1"
                                                     >
-                                                            <span @popper( {{ __('admin.members.resetPass') }} )>
-                                                                <svg class="w-5 h-5"
-                                                                     xmlns="http://www.w3.org/2000/svg"
-                                                                     viewBox="0 0 24 24"
-                                                                     width="18"
-                                                                     height="18"
-                                                                     stroke="currentColor"
-                                                                     fill="none"
-                                                                >
-                                                                <path
-                                                                    stroke-linecap="round"
-                                                                    stroke-linejoin="round"
-                                                                    stroke-width="1.5"
-                                                                    d="M10.313 11.566l7.94-7.94 2.121 2.121-1.414 1.414 2.121 2.121-3.535 3.536-2.121-2.121-2.99 2.99a5.002 5.002 0 0 1-7.97 5.849 5 5 0 0 1 5.848-7.97zm-.899 5.848a2 2 0 1 0-2.828-2.828 2 2 0 0 0 2.828 2.828z"
-                                                                />
-                                                            </svg>
-                                                            </span>
+                                                        <span @popper(
+                                                              {{ __('admin.members.resetPass') . ' ' . $searchUser->name }} )>
+                                                            <svg class="w-5 h-5"
+                                                                 xmlns="http://www.w3.org/2000/svg"
+                                                                 viewBox="0 0 24 24"
+                                                                 width="18"
+                                                                 height="18"
+                                                                 stroke="currentColor"
+                                                                 fill="none"
+                                                            >
+                                                            <path
+                                                                stroke-linecap="round"
+                                                                stroke-linejoin="round"
+                                                                stroke-width="1.5"
+                                                                d="M10.313 11.566l7.94-7.94 2.121 2.121-1.414 1.414 2.121 2.121-3.535 3.536-2.121-2.121-2.99 2.99a5.002 5.002 0 0 1-7.97 5.849 5 5 0 0 1 5.848-7.97zm-.899 5.848a2 2 0 1 0-2.828-2.828 2 2 0 0 0 2.828 2.828z"
+                                                            />
+                                                        </svg>
+                                                        </span>
                                                     </x-hrace009::button>
                                                     <!-- Modal Reset Password -->
                                                     <div
