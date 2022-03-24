@@ -142,6 +142,12 @@ class NewsController extends Controller
         return redirect(route('news.index'))->with('success', __('admin.news.destroy'));
     }
 
+    /**
+     * Control the upload image from Tiny MCE Editor
+     *
+     * @param Request $request
+     * @return JsonResponse
+     */
     public function upload(Request $request): JsonResponse
     {
         $fileName = $request->file('file')->getClientOriginalName();
@@ -149,12 +155,23 @@ class NewsController extends Controller
         return response()->json(['location' => url('/storage/' . $path)]);
     }
 
+    /**
+     * Show news settings page
+     *
+     * @return Application|Factory|View
+     */
     public function settings()
     {
         return view('admin.news.settings');
     }
 
-    public function postSettings(Request $request)
+    /**
+     * Post settings to config file
+     *
+     * @param Request $request
+     * @return RedirectResponse
+     */
+    public function postSettings(Request $request): RedirectResponse
     {
         $validate = $request->validate([
             'article_page' => 'required|numeric'

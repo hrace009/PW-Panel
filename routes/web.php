@@ -9,9 +9,11 @@
 
 use App\Http\Controllers\Admin\MembersController;
 use App\Http\Controllers\Admin\NewsController;
+use App\Http\Controllers\Admin\ShopController;
 use App\Http\Controllers\Auth\NewPasswordController;
 use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Front\UserProfileController;
+use App\Http\Middleware\VerifyCsrfToken;
 use App\View\Components\Hrace009\CharacterSelector;
 use Illuminate\Support\Facades\Route;
 use Laravel\Fortify\Features;
@@ -299,7 +301,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['web', 'auth', 'verified', '
         Route::post('upload', [
             'as' => 'admin.news.upload',
             'uses' => 'App\Http\Controllers\Admin\NewsController@upload'
-        ])->withoutMiddleware([\App\Http\Middleware\VerifyCsrfToken::class]);
+        ])->withoutMiddleware([VerifyCsrfToken::class]);
 
         Route::post('updateSettings', [
             'as' => 'admin.news.postSettings',
@@ -308,4 +310,19 @@ Route::group(['prefix' => 'admin', 'middleware' => ['web', 'auth', 'verified', '
 
     });
     Route::resource('news', NewsController::class)->middleware('news');
+
+    Route::group(['prefix' => 'shop', 'middleware' => 'shop'], static function () {
+
+        Route::get('settings', [
+            'as' => 'admin.shop.settings',
+            'uses' => 'App\Http\Controllers\Admin\ShopController@settings'
+        ]);
+
+        Route::post('upload', [
+            'as' => 'admin.shop.upload',
+            'uses' => 'App\Http\Controllers\Admin\ShopController@upload'
+        ])->withoutMiddleware([VerifyCsrfToken::class]);
+
+    });
+    Route::resource('shop', ShopController::class)->middleware('shop');
 });

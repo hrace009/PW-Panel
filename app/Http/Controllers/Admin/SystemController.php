@@ -3,12 +3,20 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Config;
 
 class SystemController extends Controller
 {
+    /**
+     * Show apps page
+     *
+     * @return Application|Factory|View
+     */
     public function getApps()
     {
         $apps = config('pw-config.system.apps');
@@ -17,11 +25,22 @@ class SystemController extends Controller
         ]);
     }
 
+    /**
+     * Show settings page
+     *
+     * @return Application|Factory|View
+     */
     public function getSettings()
     {
         return view('admin.system.settings');
     }
 
+    /**
+     * Save configuration
+     *
+     * @param Request $request
+     * @return RedirectResponse
+     */
     public function saveApps(Request $request): RedirectResponse
     {
         $apps = config('pw-config.system.apps');
@@ -35,6 +54,12 @@ class SystemController extends Controller
         return redirect()->back()->with('success', __('admin.configSaved'));
     }
 
+    /**
+     * Save settings
+     *
+     * @param Request $request
+     * @return RedirectResponse
+     */
     public function saveSettings(Request $request): RedirectResponse
     {
         $validate = $request->validate([

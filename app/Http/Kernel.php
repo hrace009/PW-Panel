@@ -17,6 +17,7 @@ use App\Http\Middleware\PreventRequestsDuringMaintenance;
 use App\Http\Middleware\RedirectIfAuthenticated;
 use App\Http\Middleware\ServerOnline;
 use App\Http\Middleware\SetLanguage;
+use App\Http\Middleware\ShopActive;
 use App\Http\Middleware\TrimStrings;
 use App\Http\Middleware\TrustProxies;
 use App\Http\Middleware\VerifyCsrfToken;
@@ -103,5 +104,6 @@ class Kernel extends HttpKernel
         'server.online' => ServerOnline::class,
         'admin' => isAdministrator::class,
         'news' => NewsActive::class,
+        'shop' => ShopActive::class,
     ];
 }

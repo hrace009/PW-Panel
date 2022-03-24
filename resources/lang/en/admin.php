@@ -19,7 +19,8 @@ return [
         'settings' => 'Settings',
         'members' => 'Members',
         'manage' => 'Manage Members',
-        'news' => 'News'
+        'news' => 'News',
+        'shop' => 'Shop'
     ],
     'application' => [
         'news' => 'News',
@@ -82,6 +83,23 @@ return [
         'edit2' => 'Edit',
         'delete' => 'Delete',
         'perPage' => 'Articles Per Page'
+    ],
+    'shop' => [
+        'create' => 'Add Item',
+        'view' => 'Show Items',
+        'settings' => 'Settings',
+        'itemName' => 'Item Name',
+        'itemPrice' => 'Price',
+        'itemID' => 'Item ID',
+        'itemOctets' => 'Octets',
+        'itemMask' => 'Mask',
+        'itemCount' => 'Count',
+        'itemMaxCount' => 'Max Count',
+        'itemProc' => 'Protection Type',
+        'itemExpire' => 'Expire Date',
+        'itemDiscount' => 'Discount',
+        'itemShare' => 'Shareable',
+        'itemCreated' => 'Item Created!'
     ],
     'configSaved' => 'Configuration has been saved!',
     'encryption_type' => [

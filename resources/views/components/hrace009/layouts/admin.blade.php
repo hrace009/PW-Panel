@@ -30,6 +30,9 @@
             @if( config('pw-config.system.apps.news') )
                 <x-hrace009::admin.news-link/>
             @endif
+            @if( config('pw-config.system.apps.shop') )
+                <x-hrace009::admin.shop-link/>
+            @endif
         </x-slot>
         <x-slot name="footer">
             <x-hrace009::side-bar-footer/>

@@ -174,10 +174,16 @@
         }));
     })
 </script>
-@if( request()->routeIs('news.create') || request()->routeIs('news.edit') )
+@if( request()->routeIs('news.create') || request()->routeIs('news.edit') || request()->routeIs('shop.create') || request()->routeIs('shop.edit') )
     <script>
         tinymce.init({
+            @if( request()->routeIs('news.create') || request()->routeIs('news.edit')  )
             selector: 'textarea.content',
+            @endif
+
+                @if( request()->routeIs('shop.create') || request()->routeIs('shop.edit')  )
+            selector: 'textarea.description',
+            @endif
             relative_urls: false,
             remove_script_host: false,
             document_base_url: '{{ config('app.url') }}',
@@ -196,7 +202,12 @@
 
             image_title: true,
             automatic_uploads: true,
+            @if( request()->routeIs('news.create') || request()->routeIs('news.edit')  )
             images_upload_url: '{{ route('admin.news.upload') }}',
+            @endif
+                @if( request()->routeIs('shop.create') || request()->routeIs('shop.edit')  )
+            images_upload_url: '{{ route('admin.shop.upload') }}',
+            @endif
             file_picker_types: 'image',
             file_picker_callback: function (cb, value, meta) {
                 var input = document.createElement('input');

@@ -98,6 +98,12 @@ class MembersController extends Controller
         //
     }
 
+    /**
+     * Search form Controller
+     *
+     * @param Request $request
+     * @return Application|Factory|View
+     */
     public function search(Request $request)
     {
         $this->validate($request, [
@@ -108,6 +114,13 @@ class MembersController extends Controller
         return view('admin.members.members', ['searchUsers' => $searchUsers]);
     }
 
+    /**
+     * Add balance to user account
+     *
+     * @param Request $request
+     * @param User $user
+     * @return RedirectResponse
+     */
     public function addBalance(Request $request, User $user): RedirectResponse
     {
         $this->validate($request, [
@@ -119,6 +132,13 @@ class MembersController extends Controller
         return redirect()->back()->with('success', __('admin.members.add'));
     }
 
+    /**
+     * Force reset password and pin
+     *
+     * @param Request $request
+     * @param User $user
+     * @return RedirectResponse
+     */
     public function forceResetPasswordPin(Request $request, User $user): RedirectResponse
     {
         $confirm = $request->has('resetPassPin');
@@ -148,6 +168,13 @@ class MembersController extends Controller
         return redirect()->back()->with('error', __('admin.members.mustConfirm'));
     }
 
+    /**
+     * Force change email
+     *
+     * @param Request $request
+     * @param User $user
+     * @return RedirectResponse
+     */
     public function changeEmail(Request $request, User $user): RedirectResponse
     {
         $this->validate($request, [
