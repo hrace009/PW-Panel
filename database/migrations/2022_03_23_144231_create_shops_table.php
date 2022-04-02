@@ -16,6 +16,8 @@ class CreateShopsTable extends Migration
         Schema::create('pwp_shops', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('image');
+            $table->string('icon');
             $table->text('description');
             $table->integer('price');
             $table->integer('discount');

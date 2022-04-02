@@ -7,7 +7,9 @@ return [
     | Shop Language Lines
     |--------------------------------------------------------------------------
     */
+    'title' => 'Shop',
     'all' => 'All',
+    'general' => 'General',
     'equipment' => 'Equipment',
     'fashion' => 'Fashion',
     'accessories' => 'Accessories',
@@ -69,6 +71,8 @@ return [
 
     'fields' => [
         'name' => 'Name',
+        'icon' => 'Icon',
+        'image' => 'Image',
         'price' => 'Price',
         'item_id' => 'Item ID',
         'octet' => 'Octets',
@@ -78,6 +82,7 @@ return [
         'protection_type' => 'Protection Type',
         'expire_date' => 'Expire Date',
         'discount' => 'Discount',
+        'total' => 'Total',
         'shareable' => [
             'title' => 'Shareable',
             'yes' => 'Yes',
@@ -88,18 +93,25 @@ return [
 
     'index' => 'Viewing Items',
     'add' => 'Add Item',
-    'edit' => 'Edit Item: :name',
+    'edit' => 'Edit',
     'view' => 'View Items',
+    'delete' => 'Delete',
     'create' => 'Create New Item',
     'create_success' => 'Your item has been created!',
     'edit_success' => 'Your changes have been saved!',
     'add_button' => 'Create Item',
     'update_button' => 'Update Item',
     'items_per_page' => 'Items Per Page',
+    'destroy' => 'Item delete!',
     'items_per_page_desc' => 'The number of items to display per page.',
     'missing' => [
         'title' => 'Missing Icon',
         'body' => 'To fix this, upload <b>:id.gif</b> to <b>:path</b>.'
-    ]
+    ],
+    'empty' => [
+        'noItem' => 'No item to sell here! ',
+        'pleaseSell' => 'Please create item to sell!',
+    ],
+    'configuration' => 'Configuration',
 
 ];

@@ -16,7 +16,7 @@
     <x-hrace009::front.top-script/>
 
 </head>
-<body>
+<body class="antialiased">
 <x-hrace009::front.big-frame>
     <x-hrace009::loading>
         {{ __('general.loading') }}

@@ -24,7 +24,7 @@
     <!-- Scripts -->
     <script src="{{ mix('js/app.js') }}" defer></script>
 </head>
-<body>
+<body class="antialiased">
 <x-hrace009::auth.general-frame>
     <!-- Loading screen -->
     <x-hrace009::loading>{{ __('general.loading') }}</x-hrace009::loading>

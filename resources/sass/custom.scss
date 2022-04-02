@@ -1,0 +1,17 @@
+/*!
+ * @author Harris Marfel <hrace009@gmail.com>
+ * @link https://www.hrace009.com
+ * @copyright Copyright (c) 2022.
+ */
+
+.c-card {
+    img {
+        transition: transform .3s ease-in-out;
+    }
+
+    &:hover {
+        img {
+            transform: scale(1.05)
+        }
+    }
+}

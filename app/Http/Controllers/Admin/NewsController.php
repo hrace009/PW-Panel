@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\NewsRequest;
 use App\Models\News;
 use App\Models\User;
 use Illuminate\Contracts\Foundation\Application;
@@ -43,31 +44,18 @@ class NewsController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param Request $request
+     * @param NewsRequest $request
      * @return RedirectResponse
      */
-    public function store(Request $request): RedirectResponse
+    public function store(NewsRequest $request): RedirectResponse
     {
-        $request->validate([
-            'title' => 'required|min:3|max:255',
-            'og_image' => 'required|image',
-            'description' => 'required|min:20|max:255',
-            'keywords' => 'required',
-            'content' => 'required',
-            'category' => 'required'
-        ]);
         $image = $request->file('og_image')->getClientOriginalName();
         $request->file('og_image')->storeAs('og_image', $image, 'public');
 
-        News::create([
-            'title' => $request->get('title'),
-            'og_image' => $image,
-            'description' => $request->get('description'),
-            'keywords' => $request->get('keywords'),
-            'content' => $request->get('content'),
-            'category' => $request->get('category'),
-            'author' => $request->get('author'),
-        ]);
+        $input = $request->all();
+        $input['og_image'] = $image;
+
+        News::create($input);
         return redirect(route('news.index'))->with('success', __('admin.news.created'));
     }
 
@@ -88,7 +76,7 @@ class NewsController extends Controller
      * @param int $id
      * @return Application|Factory|View
      */
-    public function edit($id)
+    public function edit(int $id)
     {
         $article = News::findOrFail($id);
         return view('admin.news.edit', [
@@ -99,20 +87,12 @@ class NewsController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param Request $request
+     * @param NewsRequest $request
      * @param int $id
      * @return RedirectResponse
      */
-    public function update(Request $request, int $id): RedirectResponse
+    public function update(NewsRequest $request, int $id): RedirectResponse
     {
-        $request->validate([
-            'title' => 'required|min:3|max:255',
-            'og_image' => 'required|image',
-            'description' => 'required|min:20|max:255',
-            'keywords' => 'required',
-            'content' => 'required',
-            'category' => 'required'
-        ]);
         $image = $request->file('og_image')->getClientOriginalName();
         $request->file('og_image')->storeAs('og_image', $image, 'public');
 

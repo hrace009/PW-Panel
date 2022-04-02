@@ -26,7 +26,7 @@
                       />
                     </svg>
                   </span>
-        <span class="ml-2 text-sm"> {{ __('admin.menu.shop') }} </span>
+        <span class="ml-2 text-sm"> {{ __('shop.title') }} </span>
         <span class="ml-auto" aria-hidden="true">
                     <!-- active class 'rotate-180' -->
                     <svg
@@ -41,7 +41,7 @@
                     </svg>
                   </span>
     </a>
-    <div role="menu" x-show="open" class="mt-2 space-y-2 px-7" aria-label="{{ __('admin.menu.shop') }}">
+    <div role="menu" x-show="open" class="mt-2 space-y-2 px-7" aria-label="{{ __('shop.title') }}">
         <!-- active & hover classes 'text-gray-700 dark:text-light' -->
         <!-- inActive classes 'text-gray-400 dark:text-gray-400' -->
         <a
@@ -49,21 +49,21 @@
             role="menuitem"
             class="block p-2 text-sm text-gray-{{ $createText }} transition-colors duration-200 rounded-md dark:{{ $createLight }} dark:hover:text-light hover:text-gray-700"
         >
-            {{ __('admin.shop.create') }}
+            {{ __('shop.create') }}
         </a>
         <a
             href="{{ route('shop.index') }}"
             role="menuitem"
             class="block p-2 text-sm text-gray-{{ $viewText }} transition-colors duration-200 rounded-md dark:{{ $viewLight }} dark:hover:text-light hover:text-gray-700"
         >
-            {{ __('admin.shop.view') }}
+            {{ __('shop.view') }}
         </a>
         <a
             href="{{ route('admin.shop.settings') }}"
             role="menuitem"
             class="block p-2 text-sm text-gray-{{ $settingsText }} transition-colors duration-200 rounded-md dark:{{ $settingsLight }} dark:hover:text-light hover:text-gray-700"
         >
-            {{ __('admin.shop.settings') }}
+            {{ __('shop.configuration') }}
         </a>
     </div>
 </div>

@@ -318,6 +318,11 @@ Route::group(['prefix' => 'admin', 'middleware' => ['web', 'auth', 'verified', '
             'uses' => 'App\Http\Controllers\Admin\ShopController@settings'
         ]);
 
+        Route::post('updateSettings', [
+            'as' => 'admin.shop.postSettings',
+            'uses' => 'App\Http\Controllers\Admin\ShopController@saveSettings'
+        ]);
+
         Route::post('upload', [
             'as' => 'admin.shop.upload',
             'uses' => 'App\Http\Controllers\Admin\ShopController@upload'

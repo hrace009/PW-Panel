@@ -48,7 +48,7 @@
                 </div>
                 <div class="relative z-0 mb-6 w-full group">
                     <x-hrace009::input id="og_image" name="og_image" type="file"/>
-                    <x-hrace009::label for="image">{{ __('admin.news.og_image') }}</x-hrace009::label>
+                    <x-hrace009::label for="og_image">{{ __('admin.news.og_image') }}</x-hrace009::label>
                 </div>
                 <div class="relative z-0 mb-6 w-full group">
                     <textarea id="content" name="content" class="content"></textarea>
