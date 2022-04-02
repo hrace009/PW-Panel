@@ -58,7 +58,7 @@ class ShopController extends Controller
         $input['shareable'] = $request->has('shareable');
         Shop::create($input);
 
-        return redirect(route('shop.index'))->with('success', __('admin.shop.itemCreated'));
+        return redirect(route('shop.index'))->with('success', __('shop.create_success'));
     }
 
     /**
@@ -107,7 +107,7 @@ class ShopController extends Controller
 
         Shop::whereId($id)->update($input);
 
-        return redirect(route('shop.index'))->with('success', __('admin.shop.itemEdited'));
+        return redirect(route('shop.index'))->with('success', __('shop.edit_success'));
     }
 
     /**

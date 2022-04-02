@@ -20,7 +20,6 @@ return [
         'members' => 'Members',
         'manage' => 'Manage Members',
         'news' => 'News',
-        'shop' => 'Shop'
     ],
     'application' => [
         'news' => 'News',
