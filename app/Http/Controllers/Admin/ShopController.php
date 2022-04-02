@@ -135,7 +135,11 @@ class ShopController extends Controller
         return view('admin.shop.settings');
     }
 
-    public function saveSettings(Request $request)
+    /**
+     * @param Request $request
+     * @return RedirectResponse
+     */
+    public function saveSettings(Request $request): RedirectResponse
     {
         $validate = $request->validate([
             'item_page' => 'required|numeric'
