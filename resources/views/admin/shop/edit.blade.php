@@ -24,11 +24,11 @@
                     <x-hrace009::label for="image">{{ __('shop.fields.image') }}</x-hrace009::label>
                 </div>
                 <div class="relative z-0 mb-6 w-full group">
-                    <x-hrace009::input id="price" name="price" value="{{ $shops->price }}" type="number"/>
+                    <x-hrace009::input id="price" name="price" value="{{ $shops->price }}" type="text"/>
                     <x-hrace009::label for="price">{{ __('shop.fields.price') }}</x-hrace009::label>
                 </div>
                 <div class="relative z-0 mb-6 w-full group">
-                    <x-hrace009::input id="item_id" name="item_id" value="{{ $shops->item_id }}" type="number"/>
+                    <x-hrace009::input id="item_id" name="item_id" value="{{ $shops->item_id }}" type="text"/>
                     <x-hrace009::label for="item_id">{{ __('shop.fields.item_id') }}</x-hrace009::label>
                 </div>
                 <div class="relative z-0 mb-6 w-full group">
@@ -59,26 +59,26 @@
                     <x-hrace009::label for="mask">{{ __('shop.fields.mask') }}</x-hrace009::label>
                 </div>
                 <div class="relative z-0 mb-6 w-full group">
-                    <x-hrace009::input id="count" name="count" value="{{ $shops->count }}" type="number"/>
+                    <x-hrace009::input id="count" name="count" value="{{ $shops->count }}" type="text"/>
                     <x-hrace009::label for="count">{{ __('shop.fields.count') }}</x-hrace009::label>
                 </div>
                 <div class="relative z-0 mb-6 w-full group">
-                    <x-hrace009::input id="max_count" name="max_count" value="{{ $shops->max_count }}" type="number"/>
+                    <x-hrace009::input id="max_count" name="max_count" value="{{ $shops->max_count }}" type="text"/>
                     <x-hrace009::label for="max_count">{{ __('shop.fields.max_count') }}</x-hrace009::label>
                 </div>
                 <div class="relative z-0 mb-6 w-full group">
                     <x-hrace009::input id="protection_type" name="protection_type" value="{{ $shops->protection_type }}"
-                                       type="number"/>
+                                       type="text"/>
                     <x-hrace009::label for="protection_type">{{ __('shop.fields.protection_type') }}</x-hrace009::label>
                 </div>
                 <div class="relative z-0 mb-6 w-full group">
                     <x-hrace009::input id="expire_date" name="expire_date" value="{{ $shops->expire_date }}"
-                                       type="number"/>
+                                       type="text"/>
                     <x-hrace009::label for="expire_date">{{ __('shop.fields.expire_date') }}</x-hrace009::label>
                 </div>
                 <div class="relative z-0 mb-6 w-full group">
-                    <x-hrace009::input id="discount" name="discount" value="{{ $shops->discount }}" type="number"/>
-                    <x-hrace009::label for="discount">{{ __('shop.fields.discount') }}%</x-hrace009::label>
+                    <x-hrace009::input id="discount" name="discount" value="{{ $shops->discount }}" type="text"/>
+                    <x-hrace009::label for="discount">{{ __('shop.fields.discount') }} %</x-hrace009::label>
                 </div>
                 <div class="relative z-0 mb-6 w-full group">
                     <div class="flex">
