@@ -53,14 +53,16 @@
                                 </div>
                                 <div class="p-3 flex items-center justify-between mt-4">
                                     <div class="flex items-center">
-                                        <x-hrace009::button
+                                        <x-hrace009::button-with-popover
+                                            popover="{{ __('news.edit_desc', ['news' => $article->title ]) }}"
                                             onclick="window.location.href='{{ route('news.edit', $article->id) }}'"
-                                            class="mr-2">{{ __('news.edit') }}</x-hrace009::button>
+                                            class="mr-2">{{ __('news.edit') }}</x-hrace009::button-with-popover>
                                         <form action="{{ route('news.destroy', $article->id)}}" method="post">
                                             {!! csrf_field() !!}
                                             @method('DELETE')
-                                            <x-hrace009::button
-                                                type="submit">{{ __('general.delete') }}</x-hrace009::button>
+                                            <x-hrace009::button-with-popover
+                                                popover="{{ __('general.delete') }}"
+                                                type="submit">{{ __('general.delete') }}</x-hrace009::button-with-popover>
                                         </form>
                                     </div>
                                     <div class="flex items-center">

@@ -39,9 +39,9 @@
 
             <div class="gap-8 p-4">
                 <!-- Submit Button -->
-                <x-hrace009::button class="w-auto">
+                <x-hrace009::button-with-popover class="w-auto" popover="{{ __('general.config_save_desc') }}">
                     {{ __('general.Save') }}
-                </x-hrace009::button>
+                </x-hrace009::button-with-popover>
             </div>
         </form>
     </x-slot>

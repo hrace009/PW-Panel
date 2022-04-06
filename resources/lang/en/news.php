@@ -16,6 +16,7 @@ return [
     'create' => 'Create a News',
     'index' => 'Viewing News',
     'edit' => 'Edit News',
+    'edit_desc' => 'Edit :news',
     'fields' => [
         'title' => 'Title',
         'title_desc' => 'Enter news title / headline.',

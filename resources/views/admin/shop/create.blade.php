@@ -112,9 +112,9 @@
                 <div class="relative z-0 mb-6 w-full group">
                     <textarea id="description" name="description" class="description"></textarea>
                 </div>
-                <x-hrace009::button class="w-auto">
-                    {{ __('general.Save') }}
-                </x-hrace009::button>
+                <x-hrace009::button-with-popover popover="{{ __('shop.create') }}" class="w-auto">
+                    {{ __('shop.add_button') }}
+                </x-hrace009::button-with-popover>
             </form>
         </div>
     </x-slot>

@@ -117,9 +117,9 @@
                     <textarea id="description" name="description"
                               class="description">{{ $shops->description }}</textarea>
                 </div>
-                <x-hrace009::button class="w-auto">
-                    {{ __('general.Save') }}
-                </x-hrace009::button>
+                <x-hrace009::button-with-popover popover="{{ __('shop.edit') }}" class="w-auto">
+                    {{ __('shop.update_button') }}
+                </x-hrace009::button-with-popover>
             </form>
         </div>
     </x-slot>

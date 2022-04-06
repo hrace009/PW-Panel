@@ -17,9 +17,9 @@
                     <x-hrace009::label for="item_page">{{ __('shop.items_per_page') }}</x-hrace009::label>
                 </div>
                 <!-- Submit Button -->
-                <x-hrace009::button class="w-auto">
+                <x-hrace009::button-with-popover class="w-auto" popover="{{ __('general.config_save_desc') }}">
                     {{ __('general.Save') }}
-                </x-hrace009::button>
+                </x-hrace009::button-with-popover>
             </form>
         </div>
     </x-slot>

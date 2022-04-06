@@ -48,4 +48,5 @@ return [
     'adminArea' => 'Admin Area',
     'memberArea' => 'Member Area',
     'balance' => 'Balance',
+    'config_save_desc' => 'Save configuration.'
 ];
