@@ -110,7 +110,7 @@ class MembersController extends Controller
             'searchInput' => 'alpha_num|regex:/^[a-z0-9]+$/'
         ]);
 
-        $searchUsers = User::where('name', 'LIKE', '%' . $request->searchInput . '%')->paginate(15);
+        $searchUsers = User::where('name', 'LIKE', '%' . $request->searchInput . '%')->get();
         return view('admin.members.members', ['searchUsers' => $searchUsers]);
     }
 
@@ -129,7 +129,7 @@ class MembersController extends Controller
 
         $user->money += $request->amount;
         $user->save();
-        return redirect()->back()->with('success', __('admin.members.add'));
+        return redirect()->back()->with('success', __('members.actions.add'));
     }
 
     /**
@@ -162,10 +162,10 @@ class MembersController extends Controller
             ];
             Mail::to($pwusers['email'])->locale($user->language)->send(new ResetPasswordPinMail($pwusers));
 
-            return redirect()->back()->with('success', __('admin.members.PassPinReset'));
+            return redirect()->back()->with('success', __('members.actions.PassPinReset'));
         }
 
-        return redirect()->back()->with('error', __('admin.members.mustConfirm'));
+        return redirect()->back()->with('error', __('members.actions.mustConfirm'));
     }
 
     /**
@@ -183,6 +183,6 @@ class MembersController extends Controller
 
         $user->email = $request->chEmail;
         $user->save();
-        return redirect()->back()->with('success', __('admin.members.successEMail'));
+        return redirect()->back()->with('success', __('members.actions.successEMail'));
     }
 }

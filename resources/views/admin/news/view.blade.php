@@ -1,16 +1,16 @@
-@section('title', ' - ' . __('admin.menu.news'))
+@section('title', ' - ' . __('news.title'))
 <x-hrace009.layouts.admin>
     <x-slot name="header">
         <div class="flex items-center justify-between px-4 py-4 border-b lg:py-6 dark:border-primary-darker">
-            <h1 class="text-2xl font-semibold">{{ __('admin.news.view') }}</h1>
+            <h1 class="text-2xl font-semibold">{{ __('news.index') }}</h1>
         </div>
     </x-slot>
     <x-slot name="content">
         <div class="max-w mx-auto mt-2 ml-2 mr-2">
             @if( !$news->items() )
                 <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
-                    <strong class="font-bold">{{ __('admin.news.noNews') }}</strong>
-                    <span class="block sm:inline">{{ __('admin.news.try') }}</span>
+                    <strong class="font-bold">{{ __('news.noNews') }}</strong>
+                    <span class="block sm:inline">{{ __('news.try') }}</span>
                 </div>
             @else
                 <ul class="max-w-screen-xl px-8 py-4 mx-auto  mb-6">
@@ -23,7 +23,7 @@
                                 <span
                                     class="text-sm dark:text-light">#{{ $article->id . ' ' . strtoupper($article->title) }}</span>
                                 <div
-                                    class="flex flex-row px-3 py-1 justify-between items-center text-sm font-bold text-gray-100 transition-colors duration-200 transform rounded cursor-pointer {{ $article->color($article->category) }}">{{ strtoupper($article->category) }}
+                                    class="flex flex-row px-3 py-1 justify-between items-center text-sm font-bold text-gray-100 transition-colors duration-200 transform rounded cursor-pointer {{ $article->color($article->category) }}">{{ strtoupper( __('news.category.' . $article->category ) ) }}
                                     <svg
                                         :class="handleRotate()"
                                         class="fill-current h-6 w-6 transform transition-transform duration-500"
@@ -55,12 +55,12 @@
                                     <div class="flex items-center">
                                         <x-hrace009::button
                                             onclick="window.location.href='{{ route('news.edit', $article->id) }}'"
-                                            class="mr-2">{{ __('admin.news.edit2') }}</x-hrace009::button>
+                                            class="mr-2">{{ __('news.edit') }}</x-hrace009::button>
                                         <form action="{{ route('news.destroy', $article->id)}}" method="post">
                                             {!! csrf_field() !!}
                                             @method('DELETE')
                                             <x-hrace009::button
-                                                type="submit">{{ __('admin.news.delete') }}</x-hrace009::button>
+                                                type="submit">{{ __('general.delete') }}</x-hrace009::button>
                                         </form>
                                     </div>
                                     <div class="flex items-center">

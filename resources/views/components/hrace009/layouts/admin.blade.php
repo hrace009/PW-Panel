@@ -72,7 +72,12 @@
                         <x-hrace009::admin.dashboard-link/>
                         <x-hrace009::admin.system-link/>
                         <x-hrace009::admin.members-link/>
-                        <x-hrace009::admin.news-link/>
+                        @if( config('pw-config.system.apps.news') )
+                            <x-hrace009::admin.news-link/>
+                        @endif
+                        @if( config('pw-config.system.apps.shop') )
+                            <x-hrace009::admin.shop-link/>
+                        @endif
                     </x-slot>
                 </x-hrace009.mobile-main-menu>
             </x-slot>

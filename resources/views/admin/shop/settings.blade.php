@@ -11,8 +11,9 @@
             <form method="post" action="{{ route('admin.shop.postSettings') }}">
                 {!! csrf_field() !!}
                 <div class="relative z-0 mb-6 w-full group">
-                    <x-hrace009::input id="item_page" name="item_page" value="{{ config('pw-config.shop.page') }}"
-                                       placeholder=" " required/>
+                    <x-hrace009::input-with-popover popover="{{ __('shop.items_per_page_desc') }}" id="item_page"
+                                                    name="item_page" value="{{ config('pw-config.shop.page') }}"
+                                                    placeholder=" " required/>
                     <x-hrace009::label for="item_page">{{ __('shop.items_per_page') }}</x-hrace009::label>
                 </div>
                 <!-- Submit Button -->

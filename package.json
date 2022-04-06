@@ -25,6 +25,7 @@
     },
     "dependencies": {
         "@popperjs/core": "^2.11.4",
+        "pretty-checkbox": "^3.0.3",
         "sweetalert2": "^11.4.2",
         "tinymce": "^5.10.3",
         "trix": "^2.0.0-alpha.1"

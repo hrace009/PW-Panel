@@ -1,8 +1,8 @@
-@section('title', ' - ' . __('admin.menu.members'))
+@section('title', ' - ' . __('members.title'))
 <x-hrace009.layouts.admin>
     <x-slot name="header">
         <div class="flex items-center justify-between px-4 py-4 border-b lg:py-6 dark:border-primary-darker">
-            <h1 class="text-2xl font-semibold">{{ __('admin.menu.manage') }}</h1>
+            <h1 class="text-2xl font-semibold">{{ __('members.manage') }}</h1>
         </div>
     </x-slot>
 
@@ -23,7 +23,7 @@
                             <form method="get" action="{{ route('admin.manage.search') }}">
                                 <input id="searchInput" name="searchInput" x-ref="searchInput" type="text"
                                        class="w-full py-2 pl-10 pr-4 border rounded-full dark:bg-darker dark:border-transparent dark:text-light focus:outline-none focus:ring"
-                                       placeholder="Search...">
+                                       placeholder="{{ __('members.fields.search.placeholder') }}">
                                 <x-hrace009::admin.validation-error/>
                             </form>
                         </div>
@@ -32,19 +32,19 @@
                             <thead class="dark:bg-darker dark:text-light border-b dark:border-primary-darker uppercase">
                             <tr>
                                 <th scope="col"
-                                    class="px-2 py-3 tracking-wider border-r dark:border-primary-darker text-center">{{ __('admin.members.id') }}</th>
+                                    class="px-2 py-3 tracking-wider border-r dark:border-primary-darker text-center">{{ __('members.table.id') }}</th>
                                 <th scope="col"
-                                    class="px-2 py-3 tracking-wider border-r dark:border-primary-darker text-center">{{ __('admin.members.name') }}</th>
+                                    class="px-2 py-3 tracking-wider border-r dark:border-primary-darker text-center">{{ __('members.table.name') }}</th>
                                 <th scope="col"
-                                    class="px-2 py-3 tracking-wider border-r dark:border-primary-darker text-center">{{ __('admin.members.userEmail') }}</th>
+                                    class="px-2 py-3 tracking-wider border-r dark:border-primary-darker text-center">{{ __('members.table.email') }}</th>
                                 <th scope="col"
-                                    class="px-2 py-3 tracking-wider border-r dark:border-primary-darker text-center">{{ __('admin.members.truename') }}</th>
+                                    class="px-2 py-3 tracking-wider border-r dark:border-primary-darker text-center">{{ __('members.table.truename') }}</th>
                                 <th scope="col"
-                                    class="px-2 py-3 tracking-wider border-r dark:border-primary-darker text-center">{{ __('admin.members.balance') }}</th>
+                                    class="px-2 py-3 tracking-wider border-r dark:border-primary-darker text-center">{{ __('members.table.balance') }}</th>
                                 <th scope="col"
-                                    class="px-2 py-3 tracking-wider border-r dark:border-primary-darker text-center">{{ __('admin.members.role') }}</th>
+                                    class="px-2 py-3 tracking-wider border-r dark:border-primary-darker text-center">{{ __('members.table.role') }}</th>
                                 <th scope="col"
-                                    class="px-2 py-3 tracking-wider text-center">{{ __('admin.members.action') }}</th>
+                                    class="px-2 py-3 tracking-wider text-center">{{ __('members.table.actions') }}</th>
                             </tr>
                             </thead>
                             <tbody class="bg-transparent">
@@ -89,7 +89,7 @@
                                                         class="w-auto ml-1"
                                                     >
                                                         <span @popper(
-                                                              {{ __('admin.members.give') . ' ' . config('pw-config.currency_name') . ' ' . __('admin.pagination.for') . ': ' . $user->name }} )>
+                                                              {{ __('members.actions.give', ['currency' => config('pw-config.currency_name')]) . ': ' . $user->name }} )>
                                                             <svg class="w-5 h-5"
                                                                  xmlns="http://www.w3.org/2000/svg"
                                                                  viewBox="0 0 24 24"
@@ -134,7 +134,7 @@
                                                             style="display: none;"
                                                         >
                                                             <div class="text-lg font-semibold">
-                                                                {{ __('admin.members.give') . ' ' . config('pw-config.currency_name') . ': ' . __('admin.pagination.to') . ' ' . $user->name }}
+                                                                {{ __('members.actions.give', ['currency' => config('pw-config.currency_name')]) . ': ' . $user->name }}
                                                             </div>
                                                             <form
                                                                 action="{{ route('admin.manage.balance', $user->ID ) }}"
@@ -142,13 +142,13 @@
                                                                 {!! csrf_field() !!}
                                                                 <div class="mt-4">
                                                                     <x-hrace009::input-box id="amount" name="amount"
-                                                                                           placeholder="{{ __('admin.members.amount') }}"
+                                                                                           placeholder="{{ __('members.fields.amount.label') }}"
                                                                                            required/>
                                                                 </div>
                                                                 <div
                                                                     class="flex flex-row justify-end px-6 py-4 dark:bg-dark text-right">
                                                                     <x-hrace009::button class="w-auto">
-                                                                        {{ __('admin.members.give') . ' ' . config('pw-config.currency_name') }}
+                                                                        {{ __('members.actions.give', ['currency' => config('pw-config.currency_name')])  }}
                                                                     </x-hrace009::button>
                                                                 </div>
                                                             </form>
@@ -163,7 +163,7 @@
                                                         class="w-auto ml-1"
                                                     >
                                                         <span @popper(
-                                                              {{ __('admin.members.resetPass') . ' ' . $user->name }} )>
+                                                              {{ __('members.actions.resetPass') . ' ' . $user->name }} )>
                                                             <svg class="w-5 h-5"
                                                                  xmlns="http://www.w3.org/2000/svg"
                                                                  viewBox="0 0 24 24"
@@ -207,7 +207,7 @@
                                                             style="display: none;"
                                                         >
                                                             <div class="text-lg font-semibold">
-                                                                {{ __('admin.members.resetPass') . ' ' .  __('admin.pagination.for') . ' ' . $user->name }}
+                                                                {{ __('members.actions.resetPass') . ' ' . $user->name }}
                                                             </div>
                                                             <form
                                                                 action="{{ route('admin.manage.resetPassPin', $user->ID ) }}"
@@ -224,19 +224,20 @@
                                                                                 class="w-12 h-5 transition bg-gray-200 border-none rounded-full shadow-inner outline-none appearance-none toggle checked:bg-primary-light disabled:bg-gray-200 focus:outline-none"
                                                                             />
                                                                             <span
+                                                                                @popper({{ __('members.actions.confirm') }})
                                                                                 class="absolute top-0 left-0 w-5 h-5 transition-all transform scale-150 bg-white rounded-full shadow-sm"
                                                                             ></span>
                                                                         </div>
                                                                     </label>
                                                                     <span
-                                                                        class="ml-2">{{ __('admin.members.confirm') }}</span>
+                                                                        class="ml-2">{{ __('members.actions.confirm') }}</span>
                                                                 </div>
-                                                                <span class="dark:text-red-500 font-bold">{{ __('admin.members.note') }}:</span>
-                                                                <span>{{ __('admin.members.noteCaption') }}</span>
+                                                                <span class="dark:text-red-500 font-bold">{{ __('members.actions.note') }}:</span>
+                                                                <span>{{ __('members.actions.noteCaption') }}</span>
                                                                 <div
                                                                     class="flex flex-row justify-end px-6 py-4 dark:bg-dark text-right">
                                                                     <x-hrace009::button class="w-auto">
-                                                                        {{ __('admin.members.resetPassPin')  }}
+                                                                        {{ __('members.actions.resetPassPin')  }}
                                                                     </x-hrace009::button>
                                                                 </div>
                                                             </form>
@@ -251,7 +252,7 @@
                                                         class="w-auto ml-1"
                                                     >
                                                         <span @popper(
-                                                              {{ __('admin.members.changeEmail') . ' ' . $user->name }} )>
+                                                              {{ __('members.actions.changeEmail') . ' ' . $user->name }} )>
                                                             <svg class="w-5 h-5"
                                                                  xmlns="http://www.w3.org/2000/svg"
                                                                  viewBox="0 0 24 24"
@@ -296,7 +297,7 @@
                                                             style="display: none;"
                                                         >
                                                             <div class="text-lg font-semibold">
-                                                                {{ __('admin.members.changeEmail') . ' ' . $user->name }}
+                                                                {{ __('members.actions.changeEmail') . ' ' . $user->name }}
                                                             </div>
                                                             <form
                                                                 action="{{ route('admin.manage.chEmail', $user->ID ) }}"
@@ -304,7 +305,7 @@
                                                                 {!! csrf_field() !!}
                                                                 <div class="mt-4">
                                                                     <x-hrace009::input-box id="chEmail" name="chEmail"
-                                                                                           placeholder="{{ __('admin.members.email') }}"
+                                                                                           placeholder="{{ __('members.actions.email') }}"
                                                                                            required
                                                                                            type="email"
                                                                     />
@@ -312,7 +313,7 @@
                                                                 <div
                                                                     class="flex flex-row justify-end px-6 py-4 dark:bg-dark text-right">
                                                                     <x-hrace009::button class="w-auto">
-                                                                        {{ __('admin.members.btnChEmail') }}
+                                                                        {{ __('members.actions.btnChEmail') }}
                                                                     </x-hrace009::button>
                                                                 </div>
                                                             </form>
@@ -365,7 +366,7 @@
                                                         class="w-auto ml-1"
                                                     >
                                                         <span @popper(
-                                                              {{ __('admin.members.give') . ' ' . config('pw-config.currency_name') . ' ' . __('admin.pagination.for') . ': ' . $searchUser->name }} )>
+                                                              {{ __('members.actions.give', ['currency' => config('pw-config.currency_name')]) . ' ' . __('admin.pagination.for') . ': ' . $searchUser->name }} )>
                                                             <svg class="w-5 h-5"
                                                                  xmlns="http://www.w3.org/2000/svg"
                                                                  viewBox="0 0 24 24"
@@ -410,7 +411,7 @@
                                                             style="display: none;"
                                                         >
                                                             <div class="text-lg font-semibold">
-                                                                {{ __('admin.members.give') . ' ' . config('pw-config.currency_name') . ': ' . __('admin.pagination.to') . ' ' . $searchUser->name }}
+                                                                {{ __('members.actions.give', ['currency' => config('pw-config.currency_name')]) .': ' .  $searchUser->name }}
                                                             </div>
                                                             <form
                                                                 action="{{ route('admin.manage.balance', $searchUser->ID ) }}"
@@ -418,13 +419,13 @@
                                                                 {!! csrf_field() !!}
                                                                 <div class="mt-4">
                                                                     <x-hrace009::input-box id="amount" name="amount"
-                                                                                           placeholder="{{ __('admin.members.amount') }}"
+                                                                                           placeholder="{{ __('members.fields.amount.label') }}"
                                                                                            required/>
                                                                 </div>
                                                                 <div
                                                                     class="flex flex-row justify-end px-6 py-4 dark:bg-dark text-right">
                                                                     <x-hrace009::button class="w-auto">
-                                                                        {{ __('admin.members.give') . ' ' . config('pw-config.currency_name') }}
+                                                                        {{ __('members.actions.give', ['currency' => config('pw-config.currency_name')])  }}
                                                                     </x-hrace009::button>
                                                                 </div>
                                                             </form>
@@ -439,7 +440,7 @@
                                                         class="w-auto ml-1"
                                                     >
                                                         <span @popper(
-                                                              {{ __('admin.members.resetPass') . ' ' . $searchUser->name }} )>
+                                                              {{ __('members.actions.resetPass') . ' ' . $searchUser->name }} )>
                                                             <svg class="w-5 h-5"
                                                                  xmlns="http://www.w3.org/2000/svg"
                                                                  viewBox="0 0 24 24"
@@ -483,7 +484,7 @@
                                                             style="display: none;"
                                                         >
                                                             <div class="text-lg font-semibold">
-                                                                {{ __('admin.members.resetPass') . ' ' .  __('admin.pagination.for') . ' ' . $searchUser->name }}
+                                                                {{ __('members.actions.resetPass') . ' ' .  __('admin.pagination.for') . ' ' . $searchUser->name }}
                                                             </div>
                                                             <form
                                                                 action="{{ route('admin.manage.resetPassPin', $searchUser->ID ) }}"
@@ -500,19 +501,20 @@
                                                                                 class="w-12 h-5 transition bg-gray-200 border-none rounded-full shadow-inner outline-none appearance-none toggle checked:bg-primary-light disabled:bg-gray-200 focus:outline-none"
                                                                             />
                                                                             <span
+                                                                                @popper({{ __('members.actions.confirm') }})
                                                                                 class="absolute top-0 left-0 w-5 h-5 transition-all transform scale-150 bg-white rounded-full shadow-sm"
                                                                             ></span>
                                                                         </div>
                                                                     </label>
                                                                     <span
-                                                                        class="ml-2">{{ __('admin.members.confirm') }}</span>
+                                                                        class="ml-2">{{ __('members.actions.confirm') }}</span>
                                                                 </div>
-                                                                <span class="dark:text-red-500 font-bold">{{ __('admin.members.note') }}:</span>
-                                                                <span>{{ __('admin.members.noteCaption') }}</span>
+                                                                <span class="dark:text-red-500 font-bold">{{ __('members.actions.note') }}:</span>
+                                                                <span>{{ __('members.actions.noteCaption') }}</span>
                                                                 <div
                                                                     class="flex flex-row justify-end px-6 py-4 dark:bg-dark text-right">
                                                                     <x-hrace009::button class="w-auto">
-                                                                        {{ __('admin.members.resetPassPin')  }}
+                                                                        {{ __('members.actions.resetPassPin')  }}
                                                                     </x-hrace009::button>
                                                                 </div>
                                                             </form>
@@ -527,7 +529,7 @@
                                                         class="w-auto ml-1"
                                                     >
                                                         <span @popper(
-                                                              {{ __('admin.members.changeEmail') . ' ' . $searchUser->name }} )>
+                                                              {{ __('members.actions.changeEmail') . ' ' . $searchUser->name }} )>
                                                             <svg class="w-5 h-5"
                                                                  xmlns="http://www.w3.org/2000/svg"
                                                                  viewBox="0 0 24 24"
@@ -572,7 +574,7 @@
                                                             style="display: none;"
                                                         >
                                                             <div class="text-lg font-semibold">
-                                                                {{ __('admin.members.changeEmail') . ' ' . $searchUser->name }}
+                                                                {{ __('members.actions.changeEmail') . ' ' . $searchUser->name }}
                                                             </div>
                                                             <form
                                                                 action="{{ route('admin.manage.chEmail', $searchUser->ID ) }}"
@@ -580,7 +582,7 @@
                                                                 {!! csrf_field() !!}
                                                                 <div class="mt-4">
                                                                     <x-hrace009::input-box id="chEmail" name="chEmail"
-                                                                                           placeholder="{{ __('admin.members.email') }}"
+                                                                                           placeholder="{{ __('members.actions.email') }}"
                                                                                            required
                                                                                            type="email"
                                                                     />
@@ -588,7 +590,7 @@
                                                                 <div
                                                                     class="flex flex-row justify-end px-6 py-4 dark:bg-dark text-right">
                                                                     <x-hrace009::button class="w-auto">
-                                                                        {{ __('admin.members.btnChEmail') }}
+                                                                        {{ __('members.actions.btnChEmail') }}
                                                                     </x-hrace009::button>
                                                                 </div>
                                                             </form>
@@ -609,9 +611,6 @@
         <div class="mt-2 ml-2 mr-2 items-center justify-between">
             @if( $users ?? '' )
                 {{ $users->links() }}
-            @endif
-            @if( $searchUsers ?? '' )
-                {{ $searchUsers->links() }}
             @endif
         </div>
     </x-slot>

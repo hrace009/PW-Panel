@@ -26,7 +26,7 @@
                       />
                     </svg>
                   </span>
-        <span class="ml-2 text-sm"> {{ __('admin.menu.members') }} </span>
+        <span class="ml-2 text-sm"> {{ __('members.title') }} </span>
         <span class="ml-auto" aria-hidden="true">
                     <!-- active class 'rotate-180' -->
                     <svg
@@ -41,7 +41,7 @@
                     </svg>
                   </span>
     </a>
-    <div role="menu" x-show="open" class="mt-2 space-y-2 px-7" aria-label="{{ __('admin.menu.members') }}">
+    <div role="menu" x-show="open" class="mt-2 space-y-2 px-7" aria-label="{{ __('members.title') }}">
         <!-- active & hover classes 'text-gray-700 dark:text-light' -->
         <!-- inActive classes 'text-gray-400 dark:text-gray-400' -->
         <a
@@ -49,7 +49,7 @@
             role="menuitem"
             class="block p-2 text-sm text-gray-{{ $text }} transition-colors duration-200 rounded-md dark:{{ $light }} dark:hover:text-light hover:text-gray-700"
         >
-            {{ __('admin.menu.manage') }}
+            {{ __('members.manage') }}
         </a>
     </div>
 </div>

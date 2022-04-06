@@ -1,8 +1,8 @@
-@section('title', ' - ' . __('admin.menu.system'))
+@section('title', ' - ' . __('system.title'))
 <x-hrace009.layouts.admin>
     <x-slot name="header">
         <div class="flex items-center justify-between px-4 py-4 border-b lg:py-6 dark:border-primary-darker">
-            <h1 class="text-2xl font-semibold">{{ __('admin.menu.apps') }}</h1>
+            <h1 class="text-2xl font-semibold">{{ __('system.apps') }}</h1>
         </div>
     </x-slot>
 
@@ -15,7 +15,7 @@
                         <h2
                             class="text-xs font-medium leading-none tracking-wider text-gray-500 uppercase dark:text-primary-light"
                         >
-                            {{ __('admin.application.' . $app ) }}
+                            {{ __('system.application.' . $app ) }}
                         </h2>
                         <label class="flex items-center">
                             <div class="relative inline-flex items-center">
@@ -28,6 +28,7 @@
                                     class="w-12 h-5 transition bg-gray-200 border-none rounded-full shadow-inner outline-none appearance-none toggle checked:bg-primary-light disabled:bg-gray-200 focus:outline-none"
                                 />
                                 <span
+                                    @popper({{ __('system.application_desc.' . $app ) }})
                                     class="absolute top-0 left-0 w-5 h-5 transition-all transform scale-150 bg-white rounded-full shadow-sm"
                                 ></span>
                             </div>

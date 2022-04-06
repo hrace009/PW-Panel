@@ -56,7 +56,7 @@ class NewsController extends Controller
         $input['og_image'] = $image;
 
         News::create($input);
-        return redirect(route('news.index'))->with('success', __('admin.news.created'));
+        return redirect(route('news.index'))->with('success', __('news.create_success'));
     }
 
     /**
@@ -105,7 +105,7 @@ class NewsController extends Controller
             'category' => $request->get('category'),
             'author' => $request->get('author'),
         ]);
-        return redirect(route('news.index'))->with('success', __('admin.news.update'));
+        return redirect(route('news.index'))->with('success', __('news.edit_success'));
     }
 
     /**
@@ -119,7 +119,7 @@ class NewsController extends Controller
         $article = News::findOrFail($id);
         $article->delete();
 
-        return redirect(route('news.index'))->with('success', __('admin.news.destroy'));
+        return redirect(route('news.index'))->with('success', __('news.remove_success'));
     }
 
     /**

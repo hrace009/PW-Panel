@@ -1,8 +1,8 @@
-@section('title', ' - ' . __('admin.menu.news'))
+@section('title', ' - ' . __('news.title'))
 <x-hrace009.layouts.admin>
     <x-slot name="header">
         <div class="flex items-center justify-between px-4 py-4 border-b lg:py-6 dark:border-primary-darker">
-            <h1 class="text-2xl font-semibold">{{ __('admin.news.settings') }}</h1>
+            <h1 class="text-2xl font-semibold">{{ __('news.config') }}</h1>
         </div>
     </x-slot>
     <x-slot name="content">
@@ -11,9 +11,11 @@
             <form method="post" action="{{ route('admin.news.postSettings') }}">
                 {!! csrf_field() !!}
                 <div class="relative z-0 mb-6 w-full group">
-                    <x-hrace009::input id="article_page" name="article_page" value="{{ config('pw-config.news.page') }}"
-                                       placeholder=" " required/>
-                    <x-hrace009::label for="article_page">{{ __('admin.news.perPage') }}</x-hrace009::label>
+                    <x-hrace009::input-with-popover id="article_page" name="article_page"
+                                                    value="{{ config('pw-config.news.page') }}"
+                                                    placeholder=" " required
+                                                    :popover="__('news.articles_per_page_desc')"/>
+                    <x-hrace009::label for="article_page">{{ __('news.articles_per_page') }}</x-hrace009::label>
                 </div>
                 <!-- Submit Button -->
                 <x-hrace009::button class="w-auto">
