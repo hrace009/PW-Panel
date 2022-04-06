@@ -40,6 +40,11 @@
                                             class="dark:text-light font-semibold text-xs font-poppins">{{ __('shop.fields.discount') . ' ' . $item->discount }}
                                             %
                                         </div>
+                                        <div
+                                            class="dark:text-light font-semibold text-xs font-poppins">
+                                            {{ __('shop.fields.shareable.title') }}
+                                            : {{ $item->shareable ? __('shop.fields.shareable.yes') : __('shop.fields.shareable.no') }}
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="flex justify-center items-center px-2 pb-2">

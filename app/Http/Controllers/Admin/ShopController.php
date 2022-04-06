@@ -55,7 +55,11 @@ class ShopController extends Controller
         $input = $request->all();
         $input['image'] = $image;
         $input['icon'] = $icon;
-        $input['shareable'] = $request->has('shareable');
+        if ($request->get('shareable') === 'yes') {
+            $input['shareable'] = 1;
+        } else {
+            $input['shareable'] = 0;
+        }
         Shop::create($input);
 
         return redirect(route('shop.index'))->with('success', __('shop.create_success'));
@@ -103,8 +107,11 @@ class ShopController extends Controller
         $input = $request->except(['_token', '_method']);
         $input['image'] = $image;
         $input['icon'] = $icon;
-        $input['shareable'] = $request->has('shareable');
-
+        if ($request->get('shareable') === 'yes') {
+            $input['shareable'] = 1;
+        } else {
+            $input['shareable'] = 0;
+        }
         Shop::whereId($id)->update($input);
 
         return redirect(route('shop.index'))->with('success', __('shop.edit_success'));
