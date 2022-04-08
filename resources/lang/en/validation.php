@@ -164,6 +164,24 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'widget_code' => __('donate.paymentwall_link'),
+        'widget_width' => __('donate.paymentwall_widget_width'),
+        'widget_high' => __('donate.paymentwall_widget_high'),
+        'project_key' => __('donate.paymentwall_project_key'),
+        'secret_key' => __('donate.paymentwall_key'),
+
+        'accountOwner' => __('donate.bank.owner'),
+        'bankName1' => __('donate.bank.bankName1'),
+        'bankName2' => __('donate.bank.bankName2'),
+        'bankName3' => __('donate.bank.bankName3'),
+        'bankAccountNo1' => __('donate.bank.bankAccountNo1'),
+        'bankAccountNo2' => __('donate.bank.bankAccountNo2'),
+        'bankAccountNo3' => __('donate.bank.bankAccountNo3'),
+        'multiply' => __('donate.bank.multiply'),
+        'limit' => __('donate.bank.limit'),
+        'CurrencySign' => __('donate.bank.CurrencySign'),
+        'payment_price' => __('donate.bank.payment_price', ['coinName' => config('pw-config.currency_name')])
+    ],
 
 ];

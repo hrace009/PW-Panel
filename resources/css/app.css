@@ -2,3 +2,10 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 @import './kamona-wd.css';
+
+@layer base {
+    ul, ol {
+        list-style: revert;
+        margin-left: 1rem;
+    }
+}

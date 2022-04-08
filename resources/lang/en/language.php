@@ -9,5 +9,4 @@
 
 return [
     'en' => 'English',
-    'id' => 'Indonesia',
 ];

@@ -10,6 +10,7 @@
 namespace App\Http;
 
 use App\Http\Middleware\Authenticate;
+use App\Http\Middleware\DonateActive;
 use App\Http\Middleware\EncryptCookies;
 use App\Http\Middleware\isAdministrator;
 use App\Http\Middleware\NewsActive;
@@ -105,5 +106,6 @@ class Kernel extends HttpKernel
         'admin' => isAdministrator::class,
         'news' => NewsActive::class,
         'shop' => ShopActive::class,
+        'donate' => DonateActive::class,
     ];
 }

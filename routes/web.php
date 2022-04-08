@@ -330,4 +330,27 @@ Route::group(['prefix' => 'admin', 'middleware' => ['web', 'auth', 'verified', '
 
     });
     Route::resource('shop', ShopController::class)->middleware('shop');
+
+    Route::group(['prefix' => 'donate', 'middleware' => 'donate'], static function () {
+
+        Route::get('paymentwall', [
+            'as' => 'admin.donate.paymentwall',
+            'uses' => 'App\Http\Controllers\Admin\DonateController@showPaymentwall'
+        ]);
+
+        Route::get('banktransfer', [
+            'as' => 'admin.donate.banktransfer',
+            'uses' => 'App\Http\Controllers\Admin\DonateController@showBank'
+        ]);
+
+        Route::post('paymentwallPost', [
+            'as' => 'admin.donate.paymentwall.post',
+            'uses' => 'App\Http\Controllers\Admin\DonateController@postPaymentwall'
+        ]);
+
+        Route::post('bankPost', [
+            'as' => 'admin.donate.bank.post',
+            'uses' => 'App\Http\Controllers\Admin\DonateController@postBank'
+        ]);
+    });
 });

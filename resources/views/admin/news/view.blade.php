@@ -13,7 +13,7 @@
                     <span class="block sm:inline">{{ __('news.try') }}</span>
                 </div>
             @else
-                <ul class="max-w-screen-xl px-8 py-4 mx-auto  mb-6">
+                <ul class="max-w-screen-xl px-8 py-4 mx-auto  mb-6 list-none">
                     @foreach( $news as $article )
                         <li class="dark:bg-darker my-2 rounded-lg shadow-lg" x-data="accordion({{$article->id}})">
                             <h2

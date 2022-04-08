@@ -33,7 +33,6 @@ return [
             'inGameService' => true,
             'ranking' => true,
             'vote' => true,
-            'bank' => true,
         ],
     ],
     'news' => [
@@ -41,5 +40,31 @@ return [
     ],
     'shop' => [
         'page' => '15'
+    ],
+    'payment' => [
+        'paymentwall' => [
+            'status' => true,
+            'widget_code' => 'p4_1',
+            'widget_width' => '371',
+            'widget_high' => '450',
+            'project_key' => '21f130c3ba2c505e637a2fccbe3b3b62',
+            'secret_key' => '57e0b3a2a7325f393446ca93b21e6778',
+            'pingback_path' => 'donate/paymentwall'
+        ],
+        'bank_transfer' => [
+            'status' => true,
+            'double' => true,
+            'accountOwner' => 'harris yogasara',
+            'bankAccountNo1' => '342234234324342',
+            'bankName1' => 'mandiri',
+            'bankAccountNo2' => '324234',
+            'bankName2' => 'bca',
+            'bankAccountNo3' => '21321332131',
+            'bankName3' => 'btpn',
+            'multiply' => '100000',
+            'limit' => '5000000',
+            'CurrencySign' => 'Rp.',
+            'payment_price' => '1000',
+        ],
     ],
 ];
