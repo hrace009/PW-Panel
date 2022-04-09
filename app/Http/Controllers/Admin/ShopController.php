@@ -94,7 +94,7 @@ class ShopController extends Controller
      * Update the specified resource in storage.
      *
      * @param ShopRequest $request
-     * @param $id
+     * @param int $id
      * @return Application|Redirector|RedirectResponse
      */
     public function update(ShopRequest $request, int $id)

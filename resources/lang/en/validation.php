@@ -181,7 +181,10 @@ return [
         'multiply' => __('donate.bank.multiply'),
         'limit' => __('donate.bank.limit'),
         'CurrencySign' => __('donate.bank.CurrencySign'),
-        'payment_price' => __('donate.bank.payment_price', ['coinName' => config('pw-config.currency_name')])
+        'payment_price' => __('donate.bank.payment_price', ['coinName' => config('pw-config.currency_name')]),
+
+        'code' => __('voucher.code'),
+        'amount' => __('voucher.amount', ['currency' => config('pw-config.currency_name')])
     ],
 
 ];

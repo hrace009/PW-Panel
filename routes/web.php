@@ -10,6 +10,7 @@
 use App\Http\Controllers\Admin\MembersController;
 use App\Http\Controllers\Admin\NewsController;
 use App\Http\Controllers\Admin\ShopController;
+use App\Http\Controllers\Admin\VoucherController;
 use App\Http\Controllers\Auth\NewPasswordController;
 use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Front\UserProfileController;
@@ -353,4 +354,6 @@ Route::group(['prefix' => 'admin', 'middleware' => ['web', 'auth', 'verified', '
             'uses' => 'App\Http\Controllers\Admin\DonateController@postBank'
         ]);
     });
+
+    Route::resource('voucher', VoucherController::class)->middleware('voucher');
 });

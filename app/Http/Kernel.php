@@ -22,6 +22,8 @@ use App\Http\Middleware\ShopActive;
 use App\Http\Middleware\TrimStrings;
 use App\Http\Middleware\TrustProxies;
 use App\Http\Middleware\VerifyCsrfToken;
+use App\Http\Middleware\VoteActive;
+use App\Http\Middleware\VoucherActive;
 use Fruitcake\Cors\HandleCors;
 use Illuminate\Auth\Middleware\AuthenticateWithBasicAuth;
 use Illuminate\Auth\Middleware\Authorize;
@@ -107,5 +109,7 @@ class Kernel extends HttpKernel
         'news' => NewsActive::class,
         'shop' => ShopActive::class,
         'donate' => DonateActive::class,
+        'voucher' => VoucherActive::class,
+        'vote' => VoteActive::class,
     ];
 }
