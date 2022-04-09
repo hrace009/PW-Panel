@@ -6,9 +6,12 @@
         </div>
     </x-slot>
     <x-slot name="content">
-        <div class="max-w mx-auto">
-            @if( ! $vouchers )
-                {{ __('voucher.emtpy') }}
+        <div class="max-w mx-auto mt-2 ml-2 mr-2">
+            @if( ! $vouchers->items() )
+                <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+                    <strong class="font-bold">{{ __('voucher.emtpy') }}</strong>
+                    <span class="block sm:inline">{{ __('news.try') }}</span>
+                </div>
             @else
                 <div class="flex flex-col pl-6 pr-6">
                     <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
