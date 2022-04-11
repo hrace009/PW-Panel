@@ -48,5 +48,10 @@ return [
     'adminArea' => 'Admin Area',
     'memberArea' => 'Member Area',
     'balance' => 'Balance',
-    'config_save_desc' => 'Save configuration.'
+    'config_save_desc' => 'Save configuration.',
+    'cron' => [
+        'add' => 'Automate Your Panel',
+        'info' => 'Adding this cron job will automate the voting transfer and ranking updates.',
+        'job' => '* * * * * php ' . base_path('artisan') . ' schedule:run >> /dev/null 2>&1'
+    ],
 ];

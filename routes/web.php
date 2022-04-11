@@ -10,6 +10,7 @@
 use App\Http\Controllers\Admin\MembersController;
 use App\Http\Controllers\Admin\NewsController;
 use App\Http\Controllers\Admin\ShopController;
+use App\Http\Controllers\Admin\VoteController;
 use App\Http\Controllers\Admin\VoucherController;
 use App\Http\Controllers\Auth\NewPasswordController;
 use App\Http\Controllers\Auth\PasswordResetLinkController;
@@ -356,4 +357,6 @@ Route::group(['prefix' => 'admin', 'middleware' => ['web', 'auth', 'verified', '
     });
 
     Route::resource('voucher', VoucherController::class)->middleware('voucher');
+
+    Route::resource('vote', VoteController::class)->middleware('vote');
 });

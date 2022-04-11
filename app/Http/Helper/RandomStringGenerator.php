@@ -12,19 +12,31 @@ namespace App\Http\Helper;
 
 class RandomStringGenerator
 {
-    public static function getRandomAlphaNum($length = 16): bool|string
+    /**
+     * @param int $length
+     * @return string
+     */
+    public static function getRandomAlphaNum(int $length = 16): string
     {
         $pool = '123456789abcdefghijklmnpqrstuvwxyz';
         return substr(str_shuffle(str_repeat($pool, $length)), 0, $length);
     }
 
-    public static function getRandomNum($length = 16): bool|string
+    /**
+     * @param int $length
+     * @return string
+     */
+    public static function getRandomNum(int $length = 16): string
     {
         $pool = '123456789';
         return substr(str_shuffle(str_repeat($pool, $length)), 0, $length);
     }
 
-    public static function getVoucherCode($length = 6): bool|string
+    /**
+     * @param int $length
+     * @return string
+     */
+    public static function getVoucherCode(int $length = 6): string
     {
         $pool = '123456789ABCDEFHJKMNPRSTWXYZ';
         return substr(str_shuffle(str_repeat($pool, $length)), 0, $length);
