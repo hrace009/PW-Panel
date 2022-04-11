@@ -9,6 +9,7 @@
 
 namespace App\Providers;
 
+use App\Actions\Fortify\ConfirmPassword;
 use App\Actions\Fortify\CreateNewUser;
 use App\Actions\Fortify\PasswordValidationRules;
 use App\Actions\Fortify\ResetUserPassword;
@@ -49,6 +50,9 @@ class FortifyServiceProvider extends ServiceProvider
         Fortify::updateUserProfileInformationUsing(UpdateUserProfileInformation::class);
         Fortify::updateUserPasswordsUsing(UpdateUserPassword::class);
         Fortify::resetUserPasswordsUsing(ResetUserPassword::class);
+        Fortify::confirmPasswordsUsing(static function ($user, string $password) {
+            return Hash::check($user->name . $password, $user->passwd);
+        });
 
         Fortify::authenticateUsing(function (Request $request) {
             $this->validateLogin($request);
