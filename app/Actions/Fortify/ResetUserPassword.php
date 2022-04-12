@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 use Laravel\Fortify\Contracts\ResetsUserPasswords;
+use Laravel\Fortify\Features;
 
 class ResetUserPassword implements ResetsUserPasswords
 {
@@ -28,25 +29,44 @@ class ResetUserPassword implements ResetsUserPasswords
      */
     public function reset($user, array $input)
     {
-        Validator::make($input, [
-            'password' => $this->ResetPasswordPagePasswordRules(),
-            'pin' => $this->ResetPasswordPagePinRules()
-        ])->validate();
+        if (Features::enabled(Features::twoFactorAuthentication())) {
+            Validator::make($input, [
+                'password' => $this->ResetPasswordPagePasswordRules(),
+            ])->validate();
 
-        $user->forceFill([
-            'passwd' => Hash::make($user['name'] . $input['password']),
-            'passwd2' => Hash::make($user['name'] . $input['password']),
-            'answer' => $input['password'],
-            'qq' => $input['pin'],
-        ])->save();
+            $user->forceFill([
+                'passwd' => Hash::make($user['name'] . $input['password']),
+                'passwd2' => Hash::make($user['name'] . $input['password']),
+                'answer' => $input['password'],
+            ])->save();
 
-        $pwusers = [
-            'login' => $user->name,
-            'password' => $input['password'],
-            'email' => $user->email,
-            'pin' => $input['pin'],
-            'fullname' => $user->truename
-        ];
+            $pwusers = [
+                'login' => $user->name,
+                'password' => $input['password'],
+                'email' => $user->email,
+                'fullname' => $user->truename
+            ];
+        } else {
+            Validator::make($input, [
+                'password' => $this->ResetPasswordPagePasswordRules(),
+                'pin' => $this->ResetPasswordPagePinRules()
+            ])->validate();
+
+            $user->forceFill([
+                'passwd' => Hash::make($user['name'] . $input['password']),
+                'passwd2' => Hash::make($user['name'] . $input['password']),
+                'answer' => $input['password'],
+                'qq' => $input['pin'],
+            ])->save();
+
+            $pwusers = [
+                'login' => $user->name,
+                'password' => $input['password'],
+                'email' => $user->email,
+                'pin' => $input['pin'],
+                'fullname' => $user->truename
+            ];
+        }
         Mail::to($pwusers['email'])->locale($user->language)->send(new ResetPasswordPinMail($pwusers));
     }
 }

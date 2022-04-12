@@ -22,6 +22,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\ServiceProvider;
+use Laravel\Fortify\Features;
 use Laravel\Fortify\Fortify;
 
 class FortifyServiceProvider extends ServiceProvider
@@ -57,22 +58,38 @@ class FortifyServiceProvider extends ServiceProvider
         Fortify::authenticateUsing(function (Request $request) {
             $this->validateLogin($request);
             $user = User::where('name', $request->name)->first();
-            if ($user &&
-                Hash::check($request->name . $request->password, $user->passwd) &&
-                $user->qq === $request->pin
-            ) {
-                return $user;
+            if (Features::enabled(Features::twoFactorAuthentication())) {
+                if ($user &&
+                    Hash::check($request->name . $request->password, $user->passwd)
+                ) {
+                    return $user;
+                }
+            } else {
+                if ($user &&
+                    Hash::check($request->name . $request->password, $user->passwd) &&
+                    $user->qq === $request->pin
+                ) {
+                    return $user;
+                }
             }
         });
 
-        Fortify::resetPasswordView(function ($request) {
-            $RandPass = RandomStringGenerator::getRandomAlphaNum(6);
-            $RandPin = RandomStringGenerator::getRandomNum(6);
-            return view('auth.reset-password', [
-                'request' => $request,
-                'password' => $RandPass,
-                'pin' => $RandPin
-            ]);
+        Fortify::resetPasswordView(static function ($request) {
+            if (Features::enabled(Features::twoFactorAuthentication())) {
+                $RandPass = RandomStringGenerator::getRandomAlphaNum(6);
+                return view('auth.reset-password', [
+                    'request' => $request,
+                    'password' => $RandPass,
+                ]);
+            } else {
+                $RandPass = RandomStringGenerator::getRandomAlphaNum(6);
+                $RandPin = RandomStringGenerator::getRandomNum(6);
+                return view('auth.reset-password', [
+                    'request' => $request,
+                    'password' => $RandPass,
+                    'pin' => $RandPin
+                ]);
+            }
         });
 
         RateLimiter::for('login', function (Request $request) {
@@ -89,13 +106,21 @@ class FortifyServiceProvider extends ServiceProvider
     /**
      * @param Request $request
      */
-    protected function validateLogin(Request $request)
+    protected function validateLogin(Request $request): void
     {
-        $request->validate([
-            'name' => $this->LoginPageUserNameRules(),
-            'password' => $this->LoginPagePasswordRules(),
-            'pin' => $this->LoginPagePinRules(),
-            'captcha' => $this->captchaRules(),
-        ]);
+        if (Features::enabled(Features::twoFactorAuthentication())) {
+            $request->validate([
+                'name' => $this->LoginPageUserNameRules(),
+                'password' => $this->LoginPagePasswordRules(),
+                'captcha' => $this->captchaRules(),
+            ]);
+        } else {
+            $request->validate([
+                'name' => $this->LoginPageUserNameRules(),
+                'password' => $this->LoginPagePasswordRules(),
+                'pin' => $this->LoginPagePinRules(),
+                'captcha' => $this->captchaRules(),
+            ]);
+        }
     }
 }

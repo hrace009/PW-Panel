@@ -8,7 +8,9 @@
         @csrf
         <input type="hidden" name="token" value="{{ $request->route('token') }}">
         <input type="hidden" id="password" name="password" value="{{ $password }}">
-        <input type="hidden" id="pin" name="pin" value="{{ $pin }}">
+        @if (! Laravel\Fortify\Features::enabled(Laravel\Fortify\Features::twoFactorAuthentication()))
+            <input type="hidden" id="pin" name="pin" value="{{ $pin }}">
+        @endif
         <input type="hidden" id="email" name="email" value="{{ $request->email }}">
         <x-hrace009::captcha/>
 

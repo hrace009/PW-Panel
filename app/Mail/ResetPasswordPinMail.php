@@ -13,6 +13,7 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
+use Laravel\Fortify\Features;
 
 class ResetPasswordPinMail extends Mailable implements ShouldQueue
 {
@@ -37,14 +38,25 @@ class ResetPasswordPinMail extends Mailable implements ShouldQueue
     public function build(): ResetPasswordPinMail
     {
         $pwusers = (object)$this->pwusers;
-        return $this->subject(__('auth.email.subject') . ' ' . $pwusers->fullname)
-            ->markdown('emails.reset-password-pin')
-            ->with([
-                'login' => $pwusers->login,
-                'password' => $pwusers->password,
-                'email' => $pwusers->email,
-                'pin' => $pwusers->pin,
-                'fullname' => $pwusers->fullname
-            ]);
+        if (Features::enabled(Features::twoFactorAuthentication())) {
+            return $this->subject(__('auth.email.subject') . ' ' . $pwusers->fullname)
+                ->markdown('emails.reset-password-pin')
+                ->with([
+                    'login' => $pwusers->login,
+                    'password' => $pwusers->password,
+                    'email' => $pwusers->email,
+                    'fullname' => $pwusers->fullname
+                ]);
+        } else {
+            return $this->subject(__('auth.email.subject') . ' ' . $pwusers->fullname)
+                ->markdown('emails.reset-password-pin')
+                ->with([
+                    'login' => $pwusers->login,
+                    'password' => $pwusers->password,
+                    'email' => $pwusers->email,
+                    'pin' => $pwusers->pin,
+                    'fullname' => $pwusers->fullname
+                ]);
+        }
     }
 }

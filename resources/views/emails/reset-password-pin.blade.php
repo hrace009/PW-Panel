@@ -14,11 +14,13 @@
             <td>:</td>
             <td>{{ $password }}</td>
         </tr>
-        <tr>
-            <td>@lang('auth.email.pin')</td>
-            <td>:</td>
-            <td>{{ $pin }}</td>
-        </tr>
+        @if (! Laravel\Fortify\Features::enabled(Laravel\Fortify\Features::twoFactorAuthentication()))
+            <tr>
+                <td>@lang('auth.email.pin')</td>
+                <td>:</td>
+                <td>{{ $pin }}</td>
+            </tr>
+        @endif
         <tr>
             <td>@lang('auth.email.email')</td>
             <td>:</td>

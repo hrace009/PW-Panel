@@ -23,9 +23,11 @@
                                placeholder="{{ __('auth.form.confirmPassword') }}" autofocus
                                required autocomplete="new-password"/>
 
-        <x-hrace009::input-box id="pin" type="password" name="pin"
-                               placeholder="{{ __('auth.form.pin') }}" autofocus
-                               required autocomplete="new-pin"/>
+        @if (! Laravel\Fortify\Features::enabled(Laravel\Fortify\Features::twoFactorAuthentication()))
+            <x-hrace009::input-box id="pin" type="password" name="pin"
+                                   placeholder="{{ __('auth.form.pin') }}" autofocus
+                                   required autocomplete="new-pin"/>
+        @endif
 
         <x-hrace009::input-box id="truename" type="text" name="truename" :value="old('truename')"
                                placeholder="{{ __('auth.form.trueName') }}" autofocus

@@ -18,9 +18,11 @@
                                autocomplete="current-password"
                                placeholder="{{ __('auth.form.password') }}"/>
 
-        <x-hrace009::input-box id="pin" type="password" name="pin" required
-                               autocomplete="current-pin"
-                               placeholder="{{ __('auth.form.pin') }}"/>
+        @if (! Laravel\Fortify\Features::enabled(Laravel\Fortify\Features::twoFactorAuthentication()))
+            <x-hrace009::input-box id="pin" type="password" name="pin" required
+                                   autocomplete="current-pin"
+                                   placeholder="{{ __('auth.form.pin') }}"/>
+        @endif
         <x-hrace009::captcha/>
         <div class="flex items-center justify-between">
             <x-hrace009::auth.remember-me/>
