@@ -1,17 +1,10 @@
 <?php
 
-
-/*
- * @author Harris Marfel <hrace009@gmail.com>
- * @link https://www.hrace009.com
- * @copyright Copyright (c) 2022.
- */
-
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePwpFactionRankTable extends Migration
+class CreateFactionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -20,7 +13,7 @@ class CreatePwpFactionRankTable extends Migration
      */
     public function up()
     {
-        Schema::create('pwp_faction_rank', function (Blueprint $table) {
+        Schema::create('pwp_factions', static function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
             $table->integer('level');
@@ -46,6 +39,6 @@ class CreatePwpFactionRankTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pwp_faction_rank');
+        Schema::dropIfExists('pwp_factions');
     }
 }

@@ -6,11 +6,24 @@ use Illuminate\Database\Eloquent\Model;
 
 class Faction extends Model
 {
-    protected $table = 'pwp_faction_rank';
+    /**
+     * The database table used by the model.
+     *
+     * @var string
+     */
+    protected $table = 'pwp_factions';
 
+    /**
+     * @var string[]
+     */
     protected $fillable = ['id', 'name', 'level', 'master', 'master_name', 'members', 'time_used', 'pk_count', 'announce', 'sys_info', 'last_op_time', 'territories', 'contribution'];
 
-    public function scopeSubType($query, $sub)
+    /**
+     * @param $query
+     * @param $sub
+     * @return mixed
+     */
+    public function scopeSubType($query, $sub): mixed
     {
         $column = [
             'level' => 'level',

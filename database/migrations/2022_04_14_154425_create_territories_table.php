@@ -1,17 +1,10 @@
 <?php
 
-
-/*
- * @author Harris Marfel <hrace009@gmail.com>
- * @link https://www.hrace009.com
- * @copyright Copyright (c) 2022.
- */
-
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePwpTerritoriesRankTable extends Migration
+class CreateTerritoriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -20,7 +13,7 @@ class CreatePwpTerritoriesRankTable extends Migration
      */
     public function up()
     {
-        Schema::create('pwp_territories_rank', function (Blueprint $table) {
+        Schema::create('pwp_territories', static function (Blueprint $table) {
             $table->increments('id');
             $table->integer('level');
             $table->integer('owner');
@@ -47,8 +40,8 @@ class CreatePwpTerritoriesRankTable extends Migration
      *
      * @return void
      */
-    public function down()
+    public function down(): void
     {
-        Schema::dropIfExists('pwp_territories_rank');
+        Schema::dropIfExists('pwp_territories');
     }
 }

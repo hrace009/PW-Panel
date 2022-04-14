@@ -3,14 +3,28 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use LaravelIdea\Helper\App\Models\_IH_Player_C;
 
 class Player extends Model
 {
-    protected $table = 'pwp_player_rank';
+    /**
+     * The database table used by the model.
+     *
+     * @var string
+     */
+    protected $table = 'pwp_players';
 
+    /**
+     * @var string[]
+     */
     protected $fillable = ['id', 'name', 'cls', 'gender', 'spouse', 'level', 'level2', 'hp', 'mp', 'pariah_time', 'reputation', 'time_used', 'pk_count', 'dead_flag', 'force_id', 'title_id', 'faction_id', 'faction_name', 'faction_role', 'faction_contrib', 'faction_feat', 'equipment'];
 
-    public function scopeSubType($query, $sub)
+    /**
+     * @param $query
+     * @param $sub
+     * @return mixed
+     */
+    public function scopeSubType($query, $sub): mixed
     {
         $column = [
             'level' => 'level',
@@ -24,7 +38,11 @@ class Player extends Model
             ->orderBy($column[$sub] ?? 'level', 'desc');
     }
 
-    public function getSpouse($id)
+    /**
+     * @param $id
+     * @return Player|Player[]|_IH_Player_C|null
+     */
+    public function getSpouse($id): Player|array|_IH_Player_C|null
     {
         return $this->find($id);
     }
