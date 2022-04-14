@@ -9,6 +9,7 @@
 
 use App\Http\Controllers\Admin\MembersController;
 use App\Http\Controllers\Admin\NewsController;
+use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\ShopController;
 use App\Http\Controllers\Admin\VoteController;
 use App\Http\Controllers\Admin\VoucherController;
@@ -359,4 +360,17 @@ Route::group(['prefix' => 'admin', 'middleware' => ['web', 'auth', 'verified', '
     Route::resource('voucher', VoucherController::class)->middleware('voucher');
 
     Route::resource('vote', VoteController::class)->middleware('vote');
+
+    Route::group(['prefix' => 'service', 'middleware' => 'service'], static function () {
+        Route::get('settings', [
+            'as' => 'admin.service.settings',
+            'uses' => 'App\Http\Controllers\Admin\ServiceController@settings'
+        ]);
+
+        Route::post('updateSettings', [
+            'as' => 'admin.service.updateSettings',
+            'uses' => 'App\Http\Controllers\Admin\ServiceController@updateSettings'
+        ]);
+    });
+    Route::resource('service', ServiceController::class)->middleware('service');
 });

@@ -184,7 +184,18 @@ return [
         'payment_price' => __('donate.bank.payment_price', ['coinName' => config('pw-config.currency_name')]),
 
         'code' => __('voucher.code'),
-        'amount' => __('voucher.amount', ['currency' => config('pw-config.currency_name')])
+        'amount' => __('voucher.amount', ['currency' => config('pw-config.currency_name')]),
+
+        'broadcast_price' => __('service.label.broadcast'),
+        'virtual_to_cubi_price' => __('service.label.virtual_to_cubi'),
+        'cultivation_change_price' => __('service.label.cultivation_change'),
+        'gold_to_virtual_price' => __('service.label.gold_to_virtual'),
+        'level_up_price' => __('service.label.level_up'),
+        'max_meridian_price' => __('service.label.max_meridian'),
+        'reset_exp_price' => __('service.label.reset_exp'),
+        'reset_sp_price' => __('service.label.reset_sp'),
+        'reset_stash_password_price' => __('service.label.reset_stash_password'),
+        'teleport_price' => __('service.label.teleport')
     ],
 
 ];

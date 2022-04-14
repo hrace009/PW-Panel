@@ -12,6 +12,7 @@ namespace App\Http;
 use App\Http\Middleware\Authenticate;
 use App\Http\Middleware\DonateActive;
 use App\Http\Middleware\EncryptCookies;
+use App\Http\Middleware\IngameService;
 use App\Http\Middleware\isAdministrator;
 use App\Http\Middleware\NewsActive;
 use App\Http\Middleware\PreventRequestsDuringMaintenance;
@@ -111,5 +112,6 @@ class Kernel extends HttpKernel
         'donate' => DonateActive::class,
         'voucher' => VoucherActive::class,
         'vote' => VoteActive::class,
+        'service' => IngameService::class,
     ];
 }
