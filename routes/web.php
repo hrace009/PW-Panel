@@ -52,7 +52,7 @@ use Laravel\Jetstream\Jetstream;
 |
 */
 
-Route::get('/', function () {
+Route::get('/', static function () {
     return view('welcome');
 })->name('HOME');
 
@@ -61,13 +61,13 @@ Route::get('/', function () {
  * return view('dashboard');
  * })->name('dashboard');
  ***/
-Route::group(['prefix' => 'dashboard', 'middleware' => ['web', 'auth:sanctum', 'verified']], function () {
-    Route::get('/', function () {
+Route::group(['prefix' => 'dashboard', 'middleware' => ['web', 'auth:sanctum', 'verified']], static function () {
+    Route::get('/', static function () {
         return view('dashboard');
     })->name('dashboard');
 });
 
-Route::group(['middleware' => config('fortify.middleware', ['web'])], function () {
+Route::group(['middleware' => config('fortify.middleware', ['web'])], static function () {
     $enableViews = config('fortify.views', true);
 
     // Authentication...
@@ -207,13 +207,13 @@ Route::group(['middleware' => config('fortify.middleware', ['web'])], function (
     }
 });
 
-Route::group(['middleware' => config('jetstream.middleware', ['web'])], function () {
+Route::group(['middleware' => config('jetstream.middleware', ['web'])], static function () {
     if (Jetstream::hasTermsAndPrivacyPolicyFeature()) {
         Route::get('/terms-of-service', [TermsOfServiceController::class, 'show'])->name('terms.show');
         Route::get('/privacy-policy', [PrivacyPolicyController::class, 'show'])->name('policy.show');
     }
 
-    Route::group(['middleware' => ['auth', 'verified']], function () {
+    Route::group(['middleware' => ['auth', 'verified']], static function () {
         // User & Profile...
         Route::get('/user/profile', [UserProfileController::class, 'show'])
             ->name('profile.show');
@@ -373,4 +373,31 @@ Route::group(['prefix' => 'admin', 'middleware' => ['web', 'auth', 'verified', '
         ]);
     });
     Route::resource('service', ServiceController::class)->middleware('service');
+
+    Route::group(['prefix' => 'ranking', 'middleware' => 'ranking'], static function () {
+        Route::get('settings', [
+            'as' => 'admin.ranking.settings',
+            'uses' => 'App\Http\Controllers\Admin\RankingController@getSettings'
+        ]);
+
+        Route::post('updateSettings', [
+            'as' => 'admin.ranking.postSettings',
+            'uses' => 'App\Http\Controllers\Admin\RankingController@postSettings'
+        ]);
+
+        Route::get('updatePlayers', [
+            'as' => 'admin.ranking.updatePlayers',
+            'uses' => 'App\Http\Controllers\Admin\RankingController@updatePlayer'
+        ]);
+
+        Route::get('updateFaction', [
+            'as' => 'admin.ranking.updateFaction',
+            'uses' => 'App\Http\Controllers\Admin\RankingController@updateFaction'
+        ]);
+
+        Route::get('updateTerritories', [
+            'as' => 'admin.ranking.updateTerritories',
+            'uses' => 'App\Http\Controllers\Admin\RankingController@updateTerritories'
+        ]);
+    });
 });

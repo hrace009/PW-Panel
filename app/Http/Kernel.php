@@ -16,6 +16,7 @@ use App\Http\Middleware\IngameService;
 use App\Http\Middleware\isAdministrator;
 use App\Http\Middleware\NewsActive;
 use App\Http\Middleware\PreventRequestsDuringMaintenance;
+use App\Http\Middleware\RankingActive;
 use App\Http\Middleware\RedirectIfAuthenticated;
 use App\Http\Middleware\ServerOnline;
 use App\Http\Middleware\SetLanguage;
@@ -113,5 +114,6 @@ class Kernel extends HttpKernel
         'voucher' => VoucherActive::class,
         'vote' => VoteActive::class,
         'service' => IngameService::class,
+        'ranking' => RankingActive::class,
     ];
 }
