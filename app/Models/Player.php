@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use LaravelIdea\Helper\App\Models\_IH_Player_C;
 
 class Player extends Model
 {
@@ -38,11 +37,7 @@ class Player extends Model
             ->orderBy($column[$sub] ?? 'level', 'desc');
     }
 
-    /**
-     * @param $id
-     * @return Player|Player[]|_IH_Player_C|null
-     */
-    public function getSpouse($id): Player|array|_IH_Player_C|null
+    public function getSpouse($id)
     {
         return $this->find($id);
     }
