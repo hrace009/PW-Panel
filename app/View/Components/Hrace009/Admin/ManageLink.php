@@ -29,18 +29,32 @@ class ManageLink extends Component
             $lightBroadcast = 'text-light';
             $textMailer = '400';
             $lightMailer = 'text-gray-400';
+            $textForbid = '400';
+            $lightForbid = 'text-gray-400';
         } elseif (request()->routeIs('admin.ingamemanage.mailer')) {
             $status = 'true';
             $textBroadcast = '400';
             $lightBroadcast = 'text-gray-400';
             $textMailer = '700';
             $lightMailer = 'text-light';
+            $textForbid = '400';
+            $lightForbid = 'text-gray-400';
+        } elseif (request()->routeIs('admin.ingamemanage.forbid')) {
+            $status = 'true';
+            $textBroadcast = '400';
+            $lightBroadcast = 'text-gray-400';
+            $textMailer = '400';
+            $lightMailer = 'text-gray-400';
+            $textForbid = '700';
+            $lightForbid = 'text-light';
         } else {
             $status = 'false';
             $textBroadcast = '400';
             $lightBroadcast = 'text-gray-400';
             $textMailer = '400';
             $lightMailer = 'text-gray-400';
+            $textForbid = '400';
+            $lightForbid = 'text-gray-400';
         }
 
         return view('components.hrace009.admin.manage-link', [
@@ -48,7 +62,9 @@ class ManageLink extends Component
             'textBroadcast' => $textBroadcast,
             'lightBroadcast' => $lightBroadcast,
             'textMailer' => $textMailer,
-            'lightMailer' => $lightMailer
+            'lightMailer' => $lightMailer,
+            'textForbid' => $textForbid,
+            'lightForbid' => $lightForbid
         ]);
     }
 }

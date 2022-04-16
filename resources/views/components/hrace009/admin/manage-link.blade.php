@@ -58,5 +58,12 @@
         >
             {{ __('manage.mailer') }}
         </a>
+        <a
+            href="{{ route('admin.ingamemanage.forbid') }}"
+            role="menuitem"
+            class="block p-2 text-sm text-gray-{{ $textForbid }} transition-colors duration-200 rounded-md dark:{{ $lightForbid }} dark:hover:text-light hover:text-gray-700"
+        >
+            {{ __('manage.forbid') }}
+        </a>
     </div>
 </div>

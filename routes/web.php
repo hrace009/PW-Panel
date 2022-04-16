@@ -421,5 +421,15 @@ Route::group(['prefix' => 'admin', 'middleware' => ['web', 'auth', 'verified', '
             'as' => 'admin.ingamemanage.postMailer',
             'uses' => 'App\Http\Controllers\Admin\ManageController@postMailer'
         ]);
+
+        Route::get('forbid', [
+            'as' => 'admin.ingamemanage.forbid',
+            'uses' => 'App\Http\Controllers\Admin\ManageController@getForbid'
+        ]);
+
+        Route::post('forbid', [
+            'as' => 'admin.ingamemanage.postForbid',
+            'uses' => 'App\Http\Controllers\Admin\ManageController@postForbid'
+        ]);
     });
 });

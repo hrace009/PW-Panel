@@ -165,6 +165,12 @@ return [
     */
 
     'attributes' => [
+        'server_name' => __('system.server_name'),
+        'currency_name' => __('system.currency_name'),
+        'server_ip' => __('system.server_ip'),
+        'server_version' => __('system.server_version'),
+        'encryption_type' => __('system.encrypt_type'),
+
         'widget_code' => __('donate.paymentwall_link'),
         'widget_width' => __('donate.paymentwall_widget_width'),
         'widget_high' => __('donate.paymentwall_widget_high'),

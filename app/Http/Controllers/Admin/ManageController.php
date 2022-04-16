@@ -5,6 +5,10 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use hrace009\PerfectWorldAPI\API;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 
 class ManageController extends Controller
@@ -15,15 +19,28 @@ class ManageController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('server.online', ['only' => ['postBroadcast', 'postMailer']]);
+        $this->middleware('server.online', [
+            'only' => [
+                'postBroadcast',
+                'postMailer',
+                'postForbid'
+            ]
+        ]);
     }
 
+    /**
+     * @return Application|Factory|View
+     */
     public function getBroadcast()
     {
         return view('admin.manage.broadcast');
     }
 
-    public function postBroadcast(Request $request)
+    /**
+     * @param Request $request
+     * @return RedirectResponse
+     */
+    public function postBroadcast(Request $request): RedirectResponse
     {
         $this->validate($request, [
             'user' => 'numeric|min:32',
@@ -38,12 +55,19 @@ class ManageController extends Controller
         return redirect()->back()->with('success', __('manage.complete.broadcast'));
     }
 
+    /**
+     * @return Application|Factory|View
+     */
     public function getMailer()
     {
         return view('admin.manage.mailer');
     }
 
-    public function postMailer(Request $request)
+    /**
+     * @param Request $request
+     * @return RedirectResponse
+     */
+    public function postMailer(Request $request): RedirectResponse
     {
         $this->validate($request, [
             'item_id' => 'required|numeric|min:1',
@@ -107,6 +131,53 @@ class ManageController extends Controller
                 }
                 $status = 'success';
                 $message = __('manage.complete.mailer.online');
+                break;
+        }
+        return redirect()->back()->with($status, $message);
+    }
+
+    /**
+     * @return Application|Factory|View
+     */
+    public function getForbid()
+    {
+        return view('admin.manage.forbid');
+    }
+
+    public function postForbid(Request $request)
+    {
+        $this->validate($request, [
+            'user_id' => 'required|numeric|min:1',
+            'length' => 'required|numeric|min:1',
+            'reason' => 'required'
+        ]);
+
+        $api = new API();
+        $status = null;
+        $message = null;
+        switch ($request->type) {
+            case 'ban_acc':
+                $api->forbidAcc($request->user_id, $request->length, $request->reason);
+                $status = 'success';
+                $message = __('manage.complete.forbid.ban.account', ['user' => $request->user_id, 'seconds' => $request->length]);
+                break;
+
+            case 'ban_char':
+                $api->forbidRole($request->user_id, $request->length, $request->reason);
+                $status = 'success';
+                $message = __('manage.complete.forbid.ban.character', ['user' => $request->user_id, 'seconds' => $request->length]);
+                break;
+
+            case 'mute_acc':
+                $api->muteAcc($request->user_id, $request->length, $request->reason);
+                $status = 'success';
+                $message = __('manage.complete.forbid.mute.account', ['user' => $request->user_id, 'seconds' => $request->length]);
+                break;
+
+            case 'mute_char':
+                $api->muteRole($request->user_id, $request->length, $request->reason);
+                $status = 'success';
+                $message = __('manage.complete.forbid.mute.character', ['user' => $request->user_id, 'seconds' => $request->length]);
                 break;
         }
         return redirect()->back()->with($status, $message);
