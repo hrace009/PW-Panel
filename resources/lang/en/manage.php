@@ -84,7 +84,8 @@ return [
             'user_id_desc' => 'Account or Role ID',
             'length' => 'Length',
             'length_desc' => 'In seconds',
-            'reason' => 'Reason'
+            'reason' => 'Reason',
+            'reason_desc' => 'Enter reason why you pusnish this account / character.'
         ],
         'gm' => [
             'account_id' => 'Account ID'

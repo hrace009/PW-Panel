@@ -32,7 +32,7 @@
                 </div>
                 <div class="relative z-0 mb-6 w-full group">
                     <x-hrace009::input-with-popover id="reason" name="reason"
-                                                    placeholder=" " :popover="__('manage.fields.forbid.reason')"/>
+                                                    placeholder=" " :popover="__('manage.fields.forbid.reason_desc')"/>
                     <x-hrace009::label for="reason">{{ __('manage.fields.forbid.reason') }}</x-hrace009::label>
                 </div>
                 <!-- Submit Button -->
