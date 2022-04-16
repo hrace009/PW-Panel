@@ -42,9 +42,10 @@
             38 => 'App\\Providers\\FortifyServiceProvider',
             39 => 'App\\Providers\\JetstreamServiceProvider',
             40 => 'App\\Providers\\Hrace009ServiceProvider',
-            41 => 'App\\Providers\\HashServiceProvider',
-            42 => 'hrace009\\PerfectWorldAPI\\ServiceProvider',
-            43 => 'hrace009\\ConfigWriter\\ServiceProvider',
+            41 => 'App\\Providers\\Hrace009Validation',
+            42 => 'App\\Providers\\HashServiceProvider',
+            43 => 'hrace009\\PerfectWorldAPI\\ServiceProvider',
+            44 => 'hrace009\\ConfigWriter\\ServiceProvider',
         ),
     'eager' =>
         array(
@@ -76,9 +77,10 @@
             25 => 'App\\Providers\\FortifyServiceProvider',
             26 => 'App\\Providers\\JetstreamServiceProvider',
             27 => 'App\\Providers\\Hrace009ServiceProvider',
-            28 => 'App\\Providers\\HashServiceProvider',
-            29 => 'hrace009\\PerfectWorldAPI\\ServiceProvider',
-            30 => 'hrace009\\ConfigWriter\\ServiceProvider',
+            28 => 'App\\Providers\\Hrace009Validation',
+            29 => 'App\\Providers\\HashServiceProvider',
+            30 => 'hrace009\\PerfectWorldAPI\\ServiceProvider',
+            31 => 'hrace009\\ConfigWriter\\ServiceProvider',
         ),
     'deferred' =>
         array(

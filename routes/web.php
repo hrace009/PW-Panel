@@ -400,4 +400,26 @@ Route::group(['prefix' => 'admin', 'middleware' => ['web', 'auth', 'verified', '
             'uses' => 'App\Http\Controllers\Admin\RankingController@updateTerritories'
         ]);
     });
+
+    Route::group(['prefix' => 'manage'], static function () {
+        Route::get('broadcast', [
+            'as' => 'admin.ingamemanage.broadcast',
+            'uses' => 'App\Http\Controllers\Admin\ManageController@getBroadcast'
+        ]);
+
+        Route::post('broadcast', [
+            'as' => 'admin.ingamemanage.postBroadcast',
+            'uses' => 'App\Http\Controllers\Admin\ManageController@postBroadcast'
+        ]);
+
+        Route::get('mailer', [
+            'as' => 'admin.ingamemanage.mailer',
+            'uses' => 'App\Http\Controllers\Admin\ManageController@getMailer'
+        ]);
+
+        Route::post('mailer', [
+            'as' => 'admin.ingamemanage.postMailer',
+            'uses' => 'App\Http\Controllers\Admin\ManageController@postMailer'
+        ]);
+    });
 });

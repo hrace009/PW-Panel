@@ -29,7 +29,7 @@ class ServerOnline
         $api = new API();
         if (!$api->online) {
             $status = __('general.serverOffline');
-            return redirect()->back();
+            return redirect()->back()->with('error', $status);
         }
         return $next($request);
     }

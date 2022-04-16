@@ -33,7 +33,7 @@ class Hrace009ServiceProvider extends ServiceProvider
     {
         Blade::componentNamespace('App\View\Components\Hrace009', 'hrace009');
 
-        view()->composer(['admin.shop.create', 'admin.shop.edit'], function ($view) {
+        view()->composer(['admin.shop.create', 'admin.shop.edit', 'admin.manage.mailer'], function ($view) {
             $masks = [
                 0 => trans('shop.masks.0'),
                 1 => trans('shop.masks.1'),

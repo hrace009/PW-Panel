@@ -48,6 +48,7 @@
             @if( config('pw-config.system.apps.ranking') )
                 <x-hrace009::admin.ranking-link/>
             @endif
+            <x-hrace009::admin.manage-link/>
         </x-slot>
         <x-slot name="footer">
             <x-hrace009::side-bar-footer/>
@@ -108,6 +109,7 @@
                         @if( config('pw-config.system.apps.ranking') )
                             <x-hrace009::admin.ranking-link/>
                         @endif
+                        <x-hrace009::admin.manage-link/>
                     </x-slot>
                 </x-hrace009.mobile-main-menu>
             </x-slot>

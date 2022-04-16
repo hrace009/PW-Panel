@@ -188,6 +188,7 @@ return [
          * Perfect World Service Provider
          */
         App\Providers\Hrace009ServiceProvider::class,
+        App\Providers\Hrace009Validation::class,
         App\Providers\HashServiceProvider::class,
         hrace009\PerfectWorldAPI\ServiceProvider::class,
         hrace009\ConfigWriter\ServiceProvider::class,
