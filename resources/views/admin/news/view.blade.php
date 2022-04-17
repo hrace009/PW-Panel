@@ -41,7 +41,7 @@
                             >
                                 <div class="p-3">
                                     <img class="flex flex-row rounded-md shadow-lg"
-                                         src="{{ asset('storage/og_image') . '/' . $article->og_image }}"
+                                         src="{{ asset('uploads/og_image') . '/' . $article->og_image }}"
                                          alt="{{ strtoupper( $article->title ) }}"/>
                                     <div class="flex items-center justify-between dark:text-light mt-1">
                                     <span

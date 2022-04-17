@@ -18,7 +18,7 @@
                         <div class="w-full md:w-1/2 p-2">
                             <div class="dark:bg-darker shadow-lg hover:shadow-xl rounded-lg ">
                                 <div class="bg-gray-400 h-64 rounded-t-lg p-4 bg-no-repeat bg-center bg-cover"
-                                     style="background-image: url({{ asset('storage/shops/image') . '/' . $item->image }})">
+                                     style="background-image: url({{ asset('uploads/shops/image') . '/' . $item->image }})">
                                     <div class="text-right">
                                         <span
                                             class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full font-bold text-gray-100 transition-colors duration-200 transform rounded cursor-pointer {{ __(Arr::get($item->maskType($item->mask), 'color')) }}">{{ __(Arr::get($item->maskType($item->mask), 'category')) . ' > ' . __(Arr::get($item->maskType($item->mask), 'item')) }}</span>

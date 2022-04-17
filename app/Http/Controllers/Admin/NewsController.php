@@ -50,7 +50,7 @@ class NewsController extends Controller
     public function store(NewsRequest $request): RedirectResponse
     {
         $image = $request->file('og_image')->getClientOriginalName();
-        $request->file('og_image')->storeAs('og_image', $image, 'public');
+        $request->file('og_image')->storeAs('og_image', $image, config('filesystems.default'));
 
         $input = $request->all();
         $input['og_image'] = $image;
@@ -94,7 +94,7 @@ class NewsController extends Controller
     public function update(NewsRequest $request, int $id): RedirectResponse
     {
         $image = $request->file('og_image')->getClientOriginalName();
-        $request->file('og_image')->storeAs('og_image', $image, 'public');
+        $request->file('og_image')->storeAs('og_image', $image, config('filesystems.default'));
 
         News::whereId($id)->update([
             'title' => $request->get('title'),
@@ -131,8 +131,10 @@ class NewsController extends Controller
     public function upload(Request $request): JsonResponse
     {
         $fileName = $request->file('file')->getClientOriginalName();
-        $path = $request->file('file')->storeAs('uploads', $fileName, 'public');
-        return response()->json(['location' => url('/storage/' . $path)]);
+        $path = $request->file('file')->storeAs('content', $fileName, config('filesystems.default'));
+        return response()->json([
+            'location' => url('/uploads/' . $path)
+        ]);
     }
 
     /**
