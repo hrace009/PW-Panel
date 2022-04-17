@@ -65,5 +65,12 @@
         >
             {{ __('manage.forbid') }}
         </a>
+        <a
+            href="{{ route('admin.ingamemanage.gm') }}"
+            role="menuitem"
+            class="block p-2 text-sm text-gray-{{ $textGM }} transition-colors duration-200 rounded-md dark:{{ $lightGM }} dark:hover:text-light hover:text-gray-700"
+        >
+            {{ __('manage.gm') }}
+        </a>
     </div>
 </div>

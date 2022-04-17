@@ -31,6 +31,8 @@ class ManageLink extends Component
             $lightMailer = 'text-gray-400';
             $textForbid = '400';
             $lightForbid = 'text-gray-400';
+            $textGM = '400';
+            $lightGM = 'text-gray-400';
         } elseif (request()->routeIs('admin.ingamemanage.mailer')) {
             $status = 'true';
             $textBroadcast = '400';
@@ -39,6 +41,8 @@ class ManageLink extends Component
             $lightMailer = 'text-light';
             $textForbid = '400';
             $lightForbid = 'text-gray-400';
+            $textGM = '400';
+            $lightGM = 'text-gray-400';
         } elseif (request()->routeIs('admin.ingamemanage.forbid')) {
             $status = 'true';
             $textBroadcast = '400';
@@ -47,6 +51,18 @@ class ManageLink extends Component
             $lightMailer = 'text-gray-400';
             $textForbid = '700';
             $lightForbid = 'text-light';
+            $textGM = '400';
+            $lightGM = 'text-gray-400';
+        } elseif (request()->routeIs('admin.ingamemanage.gm')) {
+            $status = 'true';
+            $textBroadcast = '400';
+            $lightBroadcast = 'text-gray-400';
+            $textMailer = '400';
+            $lightMailer = 'text-gray-400';
+            $textForbid = '400';
+            $lightForbid = 'text-gray-400';
+            $textGM = '700';
+            $lightGM = 'text-light';
         } else {
             $status = 'false';
             $textBroadcast = '400';
@@ -55,6 +71,8 @@ class ManageLink extends Component
             $lightMailer = 'text-gray-400';
             $textForbid = '400';
             $lightForbid = 'text-gray-400';
+            $textGM = '400';
+            $lightGM = 'text-gray-400';
         }
 
         return view('components.hrace009.admin.manage-link', [
@@ -64,7 +82,9 @@ class ManageLink extends Component
             'textMailer' => $textMailer,
             'lightMailer' => $lightMailer,
             'textForbid' => $textForbid,
-            'lightForbid' => $lightForbid
+            'lightForbid' => $lightForbid,
+            'textGM' => $textGM,
+            'lightGM' => $lightGM
         ]);
     }
 }

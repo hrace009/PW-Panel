@@ -88,7 +88,8 @@ return [
             'reason_desc' => 'Enter reason why you pusnish this account / character.'
         ],
         'gm' => [
-            'account_id' => 'Account ID'
+            'account_id' => 'Account ID',
+            'account_id_desc' => 'Enter account ID to be a GM, make sure you trust him / her.'
         ],
         'chat' => [
             'path' => 'Log Folder Path',
@@ -101,7 +102,8 @@ return [
         'forbid' => 'Submit',
         'gm' => [
             'add' => 'Add GM',
-            'save' => 'Save Permissions'
+            'save' => 'Save Permissions',
+            'destroy' => 'Remove GM'
         ]
     ],
     'error' => [

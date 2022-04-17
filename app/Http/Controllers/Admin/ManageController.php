@@ -10,6 +10,7 @@ use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ManageController extends Controller
 {
@@ -180,6 +181,87 @@ class ManageController extends Controller
                 $message = __('manage.complete.forbid.mute.character', ['user' => $request->user_id, 'seconds' => $request->length]);
                 break;
         }
+        return redirect()->back()->with($status, $message);
+    }
+
+    public function getGM()
+    {
+        $gms = DB::table('auth')->select('userid')->distinct()->get();
+        return view('admin.manage.gm.index', [
+            'gms' => $gms
+        ]);
+    }
+
+    public function postGM(Request $request)
+    {
+        $this->validate($request, [
+            'account_id' => 'required|numeric|min:1'
+        ]);
+
+        $status = null;
+        $message = null;
+        if ($user = User::find($request->account_id)) {
+            if (DB::table('auth')->where('userid', $request->account_id)->count() === 0) {
+                DB::statement("call addGM({$request->account_id}, 1)");
+                $status = 'success';
+                $message = __('manage.complete.gm.add', ['acc' => $user->name]);
+
+            } else {
+                $status = 'success';
+                $message = __('manage.error.gm.already_gm', ['acc' => $user->name]);
+            }
+        } else {
+            $status = 'success';
+            $message = __('manage.error.gm.no_user', ['acc' => $request->account_id]);
+        }
+        return redirect()->back()->with($status, $message);
+    }
+
+    public function getGMEdit(User $user)
+    {
+        $permissions = DB::table('auth')->where('userid', $user->ID)->get();
+
+        foreach ($permissions as $permission) {
+            foreach ($permission as $k => $v) {
+                if ($k === 'rid') {
+                    $user_rights[$v] = $v;
+                }
+            }
+        }
+
+        $rights = __('manage.gm_permissions');
+        return view('admin.manage.gm.edit', [
+            'user_rights' => $user_rights,
+            'rights' => $rights,
+            'user' => $user
+        ]);
+    }
+
+    public function postGMEdit(Request $request, User $user)
+    {
+        foreach ($request->gm_rights as $k => $v) {
+            if ($v) {
+                if (DB::table('auth')->where('userid', $user->ID)->where('rid', $k)->count() === 0) {
+                    DB::table('auth')->insert([
+                        'userid' => $user->ID,
+                        'zoneid' => 1,
+                        'rid' => $k
+                    ]);
+                }
+            } else {
+                DB::table('auth')->where('userid', $user->ID)->where('rid', $k)->delete();
+            }
+        }
+        $status = 'success';
+        $message = __('manage.complete.gm.edit', ['acc' => $user->name]);
+        return redirect(route('admin.ingamemanage.gm'))->with($status, $message);
+    }
+
+    public function getGMRemove(User $user)
+    {
+        DB::table('auth')->where('userid', $user->ID)->delete();
+        $status = 'success';
+        $message = __('manage.complete.gm.remove', ['acc' => $user->name]);
         return redirect()->back()->with($status, $message);
     }
 }

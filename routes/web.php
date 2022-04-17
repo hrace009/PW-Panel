@@ -431,5 +431,30 @@ Route::group(['prefix' => 'admin', 'middleware' => ['web', 'auth', 'verified', '
             'as' => 'admin.ingamemanage.postForbid',
             'uses' => 'App\Http\Controllers\Admin\ManageController@postForbid'
         ]);
+
+        Route::get('gm', [
+            'as' => 'admin.ingamemanage.gm',
+            'uses' => 'App\Http\Controllers\Admin\ManageController@getGM'
+        ]);
+
+        Route::post('gm', [
+            'as' => 'admin.ingamemanage.postGM',
+            'uses' => 'App\Http\Controllers\Admin\ManageController@postGM'
+        ]);
+
+        Route::get('gm/edit/{user}', [
+            'as' => 'admin.management.gm.edit',
+            'uses' => 'App\Http\Controllers\Admin\ManageController@getGMEdit'
+        ]);
+
+        Route::post('gm/edit/{user}', [
+            'as' => 'admin.management.gm.postGMEdit',
+            'uses' => 'App\Http\Controllers\Admin\ManageController@postGMEdit'
+        ]);
+
+        Route::get('gm/revoke/{user}', [
+            'as' => 'admin.management.gm.revoke',
+            'uses' => 'App\Http\Controllers\Admin\ManageController@getGMRemove'
+        ]);
     });
 });
