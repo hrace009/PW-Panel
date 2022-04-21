@@ -457,4 +457,32 @@ Route::group(['prefix' => 'admin', 'middleware' => ['web', 'auth', 'verified', '
             'uses' => 'App\Http\Controllers\Admin\ManageController@getGMRemove'
         ]);
     });
+
+    Route::group(['prefix' => 'chat'], static function () {
+        Route::get('watch', [
+            'as' => 'admin.chat.watch',
+            'uses' => 'App\Http\Controllers\Admin\ChatController@getChat'
+        ]);
+        Route::get('config', [
+            'as' => 'admin.chat.settings',
+            'uses' => 'App\Http\Controllers\Admin\ChatController@getSettings'
+        ]);
+
+        Route::post('postConfig', [
+            'as' => 'admin.chat.postSettings',
+            'uses' => 'App\Http\Controllers\Admin\ChatController@postChatConfig'
+        ]);
+
+        Route::post('postlogs', [
+            'as' => 'admin.chat.postLogs',
+            'uses' => 'App\Http\Controllers\Admin\ChatController@postChatLogs'
+        ]);
+
+        if (env('APP_DEBUG') === true) {
+            Route::get('getlogs', [
+                'as' => 'admin.chat.getLogs',
+                'uses' => 'App\Http\Controllers\Admin\ChatController@postChatLogs'
+            ]);
+        }
+    });
 });

@@ -7,6 +7,7 @@ return [
     'gm' => 'Manage GM\'s',
     'chat' => 'Live Chat',
     'watch' => 'Watch',
+    'loading' => 'Loading...',
 
     'edit_gm' => 'Changing :user\'s Permissions',
     'change_permissions' => 'Change Permissions',

@@ -9,7 +9,7 @@
  */
 
 return [
-    'chat_log_path' => '/home/logs/',
+    'chat_log_path' => '/home/ko2world/Core/Wanmei2015/logs',
     'currency_name' => 'Ko2Coin',
     'encryption_type' => 'md5',
     'level_up_cap' => '105',
@@ -22,8 +22,8 @@ return [
     'teleport_y' => '219.61784',
     'teleport_z' => '1021.2097',
     'version' => '1.0',
-    'ignoreRoles' => '',
-    'ignoreFaction' => '',
+    'ignoreRoles' => '1,2,3',
+    'ignoreFaction' => '16,60',
     'system' => [
         'apps' => [
             'news' => true,
