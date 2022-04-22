@@ -10,7 +10,6 @@
 namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
-use hrace009\PerfectWorldAPI\API;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -26,7 +25,6 @@ class UserProfileController extends Controller
      */
     public function show(Request $request)
     {
-        $api = new API();
         return view('profile.show', [
             'request' => $request,
             'user' => $request->user()

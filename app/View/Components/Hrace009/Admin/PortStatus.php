@@ -2,7 +2,6 @@
 
 namespace App\View\Components\Hrace009\Admin;
 
-use hrace009\PerfectWorldAPI\API;
 use Illuminate\View\Component;
 
 class PortStatus extends Component
@@ -24,8 +23,6 @@ class PortStatus extends Component
      */
     public function render()
     {
-        return view('components.hrace009.admin.port-status', [
-            'api' => new API(),
-        ]);
+        return view('components.hrace009.admin.port-status');
     }
 }
