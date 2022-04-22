@@ -37,7 +37,7 @@ class Player extends Model
             ->orderBy($column[$sub] ?? 'level', 'desc');
     }
 
-    public function getSpouse($id)
+    public function getPlayer($id)
     {
         return $this->find($id);
     }
