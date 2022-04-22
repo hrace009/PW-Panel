@@ -26,10 +26,7 @@ class CharacterSelector extends Component
      */
     public function render()
     {
-        return view('components.hrace009.character-selector', [
-            'api' => new API(),
-            'roles' => Auth::user()->roles(),
-        ]);
+        return view('components.hrace009.character-selector');
     }
 
     /**

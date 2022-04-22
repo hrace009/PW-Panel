@@ -9,6 +9,8 @@
 
 namespace App\Providers;
 
+use hrace009\PerfectWorldAPI\API;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 
@@ -33,7 +35,7 @@ class Hrace009ServiceProvider extends ServiceProvider
     {
         Blade::componentNamespace('App\View\Components\Hrace009', 'hrace009');
 
-        view()->composer(['admin.shop.create', 'admin.shop.edit', 'admin.manage.mailer'], function ($view) {
+        view()->composer(['admin.shop.create', 'admin.shop.edit', 'admin.manage.mailer'], static function ($view) {
             $masks = [
                 0 => trans('shop.masks.0'),
                 1 => trans('shop.masks.1'),
@@ -68,6 +70,15 @@ class Hrace009ServiceProvider extends ServiceProvider
                 4096 => trans('shop.masks.4096')
             ];
             $view->with('masks', $masks);
+        });
+
+        view()->composer('*', static function ($view) {
+            $api = new API();
+            $roles = Auth::user()->roles();
+            $view->with([
+                'api' => $api,
+                'roles' => $roles
+            ]);
         });
     }
 }

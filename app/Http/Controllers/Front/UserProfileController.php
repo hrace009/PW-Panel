@@ -29,8 +29,7 @@ class UserProfileController extends Controller
         $api = new API();
         return view('profile.show', [
             'request' => $request,
-            'user' => $request->user(),
-            'api' => $api
+            'user' => $request->user()
         ]);
     }
 }

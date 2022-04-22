@@ -37,7 +37,7 @@ class ChatController extends Controller
         $status = 'success';
         $message = __('admin.configSaved');
 
-        return redirect()->back()->with($status, $message);
+        return redirect()->route('admin.chat.watch')->with($status, $message);
     }
 
     public function postChatLogs()

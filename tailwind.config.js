@@ -25,7 +25,9 @@ module.exports = {
         'text-green-400',
         'text-pink-400',
         'text-orange-400',
-        'text-red-400'
+        'text-red-400',
+        'text-blue-400',
+        'text-indigo-400'
     ],
     mode: "jit",
     darkMode: 'class', // or 'm

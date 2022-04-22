@@ -9,15 +9,12 @@
 
 namespace App\Http\Livewire\Profile;
 
-use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 class ListCharacter extends Component
 {
     public function render()
     {
-        return view('livewire.profile.list-character', [
-            'roles' => Auth::user()->roles(),
-        ]);
+        return view('livewire.profile.list-character');
     }
 }
