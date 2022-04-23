@@ -6,11 +6,16 @@
         </div>
     </x-slot>
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-                <x-jet-welcome/>
+    <x-slot name="content">
+        <div class="max-w mx-6 my-6">
+            <div class="grid grid-cols-2 md:grid-cols-2 xl:grid-cols-4 gap-4">
+                <div class="col-span-3">
+                    AAAAA
+                </div>
+                <div>
+                    <x-hrace009::front.widget/>
+                </div>
             </div>
         </div>
-    </div>
+    </x-slot>
 </x-hrace009.layouts.app>
