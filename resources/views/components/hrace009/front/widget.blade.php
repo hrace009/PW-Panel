@@ -35,31 +35,23 @@
 </div>
 <div class="py-4 w-64">
     <div class="flex flex-col bg-white rounded-md dark:bg-darker border dark:border-primary">
-        <div class="p-2 border-b dark:border-primary">
-            <h1
-                class="text-sm font-medium leading-none tracking-wider text-gray-500 uppercase dark:text-primary-light"
-            >
-                {{ __('widget.table.server_status') }}
-            </h1>
-        </div>
         <div class="flex align-middle items-center justify-between p-2">
             <div>
                 <h6
                     class="text-xs font-medium leading-none tracking-wider text-gray-500 uppercase dark:text-primary-light"
                 >
-                    {{ __('widget.port') }}
+                    {{ __('widget.table.server_status') }}
                 </h6>
-                <span class="text-xl font-semibold">29000</span>
                 <span
-                    class="inline-block px-2 py-px ml-2 text-xs {{ $api->online ? 'text-green-500' : 'text-red-500' }} {{ $api->online ? 'bg-green-100' : 'bg-red-100' }} rounded-md">
+                    class="inline-block px-2 py-px text-xs {{ $api->online ? 'text-green-500' : 'text-red-500' }} {{ $api->online ? 'bg-green-100' : 'bg-red-100' }} font-semibold rounded-md">
                       {{ $api->online ? 'Online' : 'Offline' }}
-            </span>
+                </span>
             </div>
             <div>
                 @if( $api->online )
                     <span>
                       <svg
-                          class="w-12 h-12 text-gray-300 dark:text-primary-dark"
+                          class="w-12 h-12 text-gray-300 dark:text-green-500"
                           xmlns="http://www.w3.org/2000/svg"
                           fill="none"
                           viewBox="0 0 24 24"
@@ -76,7 +68,7 @@
                 @else
                     <span>
                       <svg
-                          class="w-12 h-12 text-gray-300 dark:text-primary-dark"
+                          class="w-12 h-12 text-gray-300 dark:text-red-500"
                           xmlns="http://www.w3.org/2000/svg"
                           fill="none"
                           viewBox="0 0 24 24"
