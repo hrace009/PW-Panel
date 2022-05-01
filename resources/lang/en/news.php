@@ -17,6 +17,8 @@ return [
     'index' => 'Viewing News',
     'edit' => 'Edit News',
     'edit_desc' => 'Edit :news',
+    'readmore' => 'More...',
+    'readmore_desc' => 'Read more about this news..',
     'fields' => [
         'title' => 'Title',
         'title_desc' => 'Enter news title / headline.',

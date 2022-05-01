@@ -8,4 +8,9 @@
         list-style: revert;
         margin-left: 1rem;
     }
+
+    p {
+        margin-top: 16px;
+        margin-bottom: 16px;
+    }
 }
