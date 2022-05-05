@@ -1,3 +1,4 @@
+<!-- GM's Widget -->
 <div class="py-4 w-64">
     <div class="flex-col bg-white rounded-md dark:bg-darker border dark:border-primary">
         <div class="p-2 border-b dark:border-primary">
@@ -33,6 +34,8 @@
         </div>
     </div>
 </div>
+
+<!-- Server Status Widget -->
 <div class="py-4 w-64">
     <div class="flex flex-col bg-white rounded-md dark:bg-darker border dark:border-primary">
         <div class="flex align-middle items-center justify-between p-2">

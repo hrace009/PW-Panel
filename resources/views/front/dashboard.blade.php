@@ -52,8 +52,8 @@
                                     <span
                                         class="text-sm font-light">{{ date_format($article->created_at, 'F j, Y @h:m A') }}</span>
                                             </div>
-                                            <a href="/{{ $article->id }}"
-                                               class="text-2xl font-bold text-gray-700 dark:text-white hover:text-gray-600 dark:hover:text-gray-200 hover:underline">{{ strtoupper($article->title) }}</a>
+                                            <div
+                                                class="text-2xl font-bold text-gray-700 dark:text-white hover:text-gray-600 dark:hover:text-gray-200 hover:underline">{{ strtoupper($article->title) }}</div>
                                             <p class="mt-2 text-gray-600 dark:text-gray-300">{!! $article->description !!}</p>
                                         </div>
                                         <div class="p-3 flex items-center justify-between mt-4">
@@ -106,7 +106,8 @@
                                                 <img class="hidden object-cover w-10 h-10 rounded-full sm:block"
                                                      src="{{ $user->find($article->author)->profile_photo_url }}"
                                                      alt="{{ $user->find($article->author)->truename }}">
-                                                <a class="font-bold text-gray-700 cursor-pointer dark:text-gray-200">{{ ucwords($user->find($article->author)->truename) }}</a>
+                                                <div
+                                                    class="font-bold text-gray-700 dark:text-gray-200">{{ ucwords($user->find($article->author)->truename) }}</div>
                                             </div>
                                         </div>
                                     </div>
