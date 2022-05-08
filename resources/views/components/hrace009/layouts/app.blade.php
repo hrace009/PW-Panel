@@ -26,6 +26,7 @@
     <x-hrace009::side-bar>
         <x-slot name="links">
             <x-hrace009::front.dashboard-link/>
+            <x-hrace009::front.shop-link/>
         </x-slot>
         <x-slot name="footer">
             <x-hrace009::side-bar-footer/>
@@ -66,6 +67,7 @@
                 <x-hrace009.mobile-main-menu>
                     <x-slot name="links">
                         <x-hrace009::front.dashboard-link/>
+                        <x-hrace009::front.shop-link/>
                     </x-slot>
                 </x-hrace009.mobile-main-menu>
             </x-slot>

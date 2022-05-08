@@ -37,6 +37,7 @@ return [
     ],
     'menu' => [
         'dashboard' => 'Dashboard',
+        'shop' => 'Shop',
     ],
     'saved' => 'Saved.',
     'Save' => 'Save',
@@ -54,4 +55,5 @@ return [
         'info' => 'Adding this cron job will automate the voting transfer and ranking updates.',
         'job' => '* * * * * php ' . base_path('artisan') . ' schedule:run >> /dev/null 2>&1'
     ],
+    'not_enough' => 'You don\'t have enough :currency.',
 ];

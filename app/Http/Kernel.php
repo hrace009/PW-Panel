@@ -18,6 +18,7 @@ use App\Http\Middleware\NewsActive;
 use App\Http\Middleware\PreventRequestsDuringMaintenance;
 use App\Http\Middleware\RankingActive;
 use App\Http\Middleware\RedirectIfAuthenticated;
+use App\Http\Middleware\SelectedCharacter;
 use App\Http\Middleware\ServerOnline;
 use App\Http\Middleware\SetLanguage;
 use App\Http\Middleware\ShopActive;
@@ -115,5 +116,6 @@ class Kernel extends HttpKernel
         'vote' => VoteActive::class,
         'service' => IngameService::class,
         'ranking' => RankingActive::class,
+        'selected.character' => SelectedCharacter::class,
     ];
 }

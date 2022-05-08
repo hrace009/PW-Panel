@@ -66,7 +66,7 @@ return [
         262144 => 'Heaven Book/Tome',
         524288 => 'Chat Smiley',
         8388608 => 'Genie',
-        -2147483585 => 'War Avatar',
+        2147483711 => 'War Avatar',
     ],
 
     'fields' => [

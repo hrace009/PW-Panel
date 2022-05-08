@@ -63,6 +63,29 @@ Route::group(['prefix' => 'dashboard', 'middleware' => ['web', 'auth:sanctum', '
         'as' => 'app.dashboard',
         'uses' => 'App\Http\Controllers\Front\Dashboard@getIndex'
     ]);
+
+    /***
+     * Shop Routing
+     */
+    Route::group(['prefix' => 'shop'], static function () {
+        Route::get('/', [
+            'as' => 'app.shop.index',
+            'uses' => 'App\Http\Controllers\Front\ShopController@getIndex'
+        ]);
+        Route::post('purchase/{shop}', [
+            'as' => 'app.shop.purchase.post',
+            'uses' => 'App\Http\Controllers\Front\ShopController@postPurchase'
+        ]);
+        Route::post('gift/{shop}', [
+            'as' => 'app.shop.gift.post',
+            'uses' => 'App\http\Controllers\Front\ShopController@postGift'
+        ]);
+        Route::get('mask/{shop_mask}', [
+            'as' => 'app.shop.mask',
+            'uses' => 'App\Http\Controllers\Front\ShopController@getMask'
+        ]);
+    });
+
 });
 
 /* Character Route */
