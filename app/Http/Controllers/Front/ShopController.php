@@ -36,9 +36,10 @@ class ShopController extends Controller
         ]);
     }
 
-    public function postPurchase(Shop $item): RedirectResponse
+    public function postPurchase(Shop $shop): RedirectResponse
     {
         $user = Auth::user();
+        $item = $shop;
         $item_price = ($item->discount > 0) ? $item->price - ($item->price / 100 * $item->discount) : $item->price;
 
         if ($user->money >= $item_price) {
@@ -61,7 +62,7 @@ class ShopController extends Controller
                 ),
             );
             $api->sendMail(Auth::user()->characterId(), $mail['title'], $mail['message'], $mail['item'], $mail['money']);
-            $user->money = $user->money - $item_price;
+            $user->money -= $item_price;
             $user->save();
             $status = 'success';
             $message = __('shop.purchase_complete', ['name' => $item->name]);
@@ -72,7 +73,7 @@ class ShopController extends Controller
         return redirect()->back()->with($status, $message);
     }
 
-    public function postGift(Request $request, Shop $item)
+    public function postGift(Request $request, Shop $item): RedirectResponse
     {
         $this->validate($request, [
             'friends' => 'required|array|min:1'
@@ -103,7 +104,7 @@ class ShopController extends Controller
             );
             foreach ($request->friends as $friend) {
                 if ($api->sendMail($friend, $mail['title'], $mail['message'], $mail['item'], $mail['money'])) {
-                    $user->money = $user->money - $item_price;
+                    $user->money -= $item_price;
                     $user->save();
                     $status = 'success';
                     $message = __('shop.gift_complete', ['name' => $item->name, 'count' => count($request->friends)]);

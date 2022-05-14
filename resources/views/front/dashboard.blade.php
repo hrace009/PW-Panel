@@ -7,9 +7,6 @@
     </x-slot>
 
     <x-slot name="content">
-        <div class="max-w mx-6 my-6">
-            <div class="grid grid-cols-2 md:grid-cols-2 xl:grid-cols-4 gap-4">
-                <div class="col-span-3">
                     @if( !$news->items() )
                         <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative"
                              role="alert">
@@ -116,11 +113,5 @@
                         </ul>
                     @endif
                     {{ $news->links() }}
-                </div>
-                <div>
-                    <x-hrace009::front.widget/>
-                </div>
-            </div>
-        </div>
     </x-slot>
 </x-hrace009.layouts.app>

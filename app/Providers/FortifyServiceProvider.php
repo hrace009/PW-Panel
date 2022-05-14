@@ -109,18 +109,34 @@ class FortifyServiceProvider extends ServiceProvider
     protected function validateLogin(Request $request): void
     {
         if (Features::enabled(Features::twoFactorAuthentication())) {
-            $request->validate([
-                'name' => $this->LoginPageUserNameRules(),
-                'password' => $this->LoginPagePasswordRules(),
-                'captcha' => $this->captchaRules(),
-            ]);
+            if (!config('app.debug') === true) {
+                $request->validate([
+                    'name' => $this->LoginPageUserNameRules(),
+                    'password' => $this->LoginPagePasswordRules(),
+                    'captcha' => $this->captchaRules(),
+                ]);
+            } else {
+                $request->validate([
+                    'name' => $this->LoginPageUserNameRules(),
+                    'password' => $this->LoginPagePasswordRules(),
+                ]);
+            }
+
         } else {
-            $request->validate([
-                'name' => $this->LoginPageUserNameRules(),
-                'password' => $this->LoginPagePasswordRules(),
-                'pin' => $this->LoginPagePinRules(),
-                'captcha' => $this->captchaRules(),
-            ]);
+            if (!config('app.debug') === true) {
+                $request->validate([
+                    'name' => $this->LoginPageUserNameRules(),
+                    'password' => $this->LoginPagePasswordRules(),
+                    'pin' => $this->LoginPagePinRules(),
+                    'captcha' => $this->captchaRules(),
+                ]);
+            } else {
+                $request->validate([
+                    'name' => $this->LoginPageUserNameRules(),
+                    'password' => $this->LoginPagePasswordRules(),
+                    'pin' => $this->LoginPagePinRules(),
+                ]);
+            }
         }
     }
 }

@@ -82,7 +82,16 @@
         @endif
         <!-- Content -->
             <div class="mt-2 pb-16">
-                {{ $content }}
+                <div class="max-w mx-6 my-6">
+                    <div class="grid grid-cols-2 md:grid-cols-2 xl:grid-cols-4 gap-4">
+                        <div class="col-span-3">
+                            {{ $content }}
+                        </div>
+                        <div>
+                            <x-hrace009::front.widget/>
+                        </div>
+                    </div>
+                </div>
             </div>
         </main>
         <x-hrace009::footer/>

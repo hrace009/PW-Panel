@@ -30,14 +30,25 @@ class CreateNewUser implements CreatesNewUsers
     public function create(array $input)
     {
         if (Features::enabled(Features::twoFactorAuthentication())) {
-            Validator::make($input, [
-                'name' => $this->RegisterPageUserNameRules(),
-                'email' => $this->RegisterPageEmailRules(),
-                'password' => $this->RegisterPagePasswordRules(),
-                'truename' => $this->RegisterPageFullNameRules(),
-                'captcha' => $this->captchaRules(),
-                'terms' => Jetstream::hasTermsAndPrivacyPolicyFeature() ? ['required', 'accepted'] : '',
-            ])->validate();
+            if (!config('app.debug') === true) {
+                Validator::make($input, [
+                    'name' => $this->RegisterPageUserNameRules(),
+                    'email' => $this->RegisterPageEmailRules(),
+                    'password' => $this->RegisterPagePasswordRules(),
+                    'truename' => $this->RegisterPageFullNameRules(),
+                    'captcha' => $this->captchaRules(),
+                    'terms' => Jetstream::hasTermsAndPrivacyPolicyFeature() ? ['required', 'accepted'] : '',
+                ])->validate();
+            } else {
+                Validator::make($input, [
+                    'name' => $this->RegisterPageUserNameRules(),
+                    'email' => $this->RegisterPageEmailRules(),
+                    'password' => $this->RegisterPagePasswordRules(),
+                    'truename' => $this->RegisterPageFullNameRules(),
+                    'terms' => Jetstream::hasTermsAndPrivacyPolicyFeature() ? ['required', 'accepted'] : '',
+                ])->validate();
+            }
+
 
             return User::create([
                 'ID' => (User::all()->count() > 0) ? User::orderBy('ID', 'desc')->first()->ID + 16 : 1024,
@@ -50,17 +61,26 @@ class CreateNewUser implements CreatesNewUsers
                 'creatime' => Carbon::now(),
             ]);
         } else {
-            Validator::make($input, [
-                'name' => $this->RegisterPageUserNameRules(),
-                'email' => $this->RegisterPageEmailRules(),
-                'password' => $this->RegisterPagePasswordRules(),
-                'pin' => $this->RegisterPagePinRules(),
-                'truename' => $this->RegisterPageFullNameRules(),
-                'captcha' => $this->captchaRules(),
-                'terms' => Jetstream::hasTermsAndPrivacyPolicyFeature() ? ['required', 'accepted'] : '',
-            ])->validate();
-
-
+            if (!config('app.debug') === true) {
+                Validator::make($input, [
+                    'name' => $this->RegisterPageUserNameRules(),
+                    'email' => $this->RegisterPageEmailRules(),
+                    'password' => $this->RegisterPagePasswordRules(),
+                    'pin' => $this->RegisterPagePinRules(),
+                    'truename' => $this->RegisterPageFullNameRules(),
+                    'captcha' => $this->captchaRules(),
+                    'terms' => Jetstream::hasTermsAndPrivacyPolicyFeature() ? ['required', 'accepted'] : '',
+                ])->validate();
+            } else {
+                Validator::make($input, [
+                    'name' => $this->RegisterPageUserNameRules(),
+                    'email' => $this->RegisterPageEmailRules(),
+                    'password' => $this->RegisterPagePasswordRules(),
+                    'pin' => $this->RegisterPagePinRules(),
+                    'truename' => $this->RegisterPageFullNameRules(),
+                    'terms' => Jetstream::hasTermsAndPrivacyPolicyFeature() ? ['required', 'accepted'] : '',
+                ])->validate();
+            }
             return User::create([
                 'ID' => (User::all()->count() > 0) ? User::orderBy('ID', 'desc')->first()->ID + 16 : 1024,
                 'name' => $input['name'],

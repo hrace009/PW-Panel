@@ -23,7 +23,11 @@
                                    autocomplete="current-pin"
                                    placeholder="{{ __('auth.form.pin') }}"/>
         @endif
-        <x-hrace009::captcha/>
+
+        @if( !config('app.debug') === true )
+            <x-hrace009::captcha/>
+        @endif
+
         <div class="flex items-center justify-between">
             <x-hrace009::auth.remember-me/>
             @if (Route::has('password.request'))

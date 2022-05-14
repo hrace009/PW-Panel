@@ -33,7 +33,9 @@
                                placeholder="{{ __('auth.form.trueName') }}" autofocus
                                required autocomplete="truename"/>
 
-        <x-hrace009::captcha/>
+        @if( ! config('app.debug') === true )
+            <x-hrace009::captcha/>
+        @endif
 
         <div class="flex items-center justify-between">
             @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
