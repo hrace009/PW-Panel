@@ -14,13 +14,20 @@
                         <div class="dark:bg-darker shadow-lg hover:shadow-xl rounded-lg ">
                             <div class="bg-gray-400 h-64 rounded-t-lg p-4 bg-no-repeat bg-center bg-cover"
                                  style="background-image: url({{ asset('uploads/shops/image') . '/' . $item->image }})">
-                                <div class="text-right">
+                                <div class="flex flex-row justify-center justify-between">
+                                    <div class="text-left">
+                                        <img width="32"
+                                             src="{{ url( asset('uploads/shops/icon') . '/' . $item->icon ) }}"
+                                             alt="{{ $item->name }}"/>
+                                    </div>
+                                    <div class="text-right">
                                         <span
                                             class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full font-bold text-gray-100 transition-colors duration-200 transform rounded cursor-pointer {{ __(Arr::get($item->maskType($item->mask), 'color')) }}">{{ __(Arr::get($item->maskType($item->mask), 'category')) . ' > ' . __(Arr::get($item->maskType($item->mask), 'item')) }}</span>
+                                    </div>
                                 </div>
                             </div>
                             <div class="flex justify-between items-start px-2 pt-2">
-                                <div class="p-2 flex-grow">
+                                <div class="p-2 flex-1">
                                     <h1 class="font-extrabold text-xl font-poppins dark:text-cyan-400">{{ $item->name }}</h1>
                                     <p class="text-gray-500 font-nunito">{!! $item->description !!}</p>
                                 </div>
@@ -42,20 +49,103 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="flex justify-center items-center px-2 pb-2">
-                                <div class="w-1/2 p-2">
-                                    <form action="{{ route( 'app.shop.purchase.post', $item->id ) }}" method="post">
-                                        @method('POST')
-                                        {!! csrf_field() !!}
-                                        <x-hrace009::button
-                                            class="mr-2"
-                                            type="submit">{{ __('shop.buy') }}</x-hrace009::button>
-                                    </form>
+                            @if( Auth::user()->characterId() )
+                                <div class="flex justify-center items-center px-2 pb-2">
+                                    <div class="w-1/2 p-2">
+                                        <form action="{{ route( 'app.shop.purchase.post', $item->id ) }}" method="post">
+                                            @method('POST')
+                                            {!! csrf_field() !!}
+                                            <x-hrace009::button
+                                                class="mr-2"
+                                                type="submit">{{ __('shop.buy') }}</x-hrace009::button>
+                                        </form>
+                                    </div>
+                                    @if ( $item->shareable )
+                                        <div class="w-1/2 p-2">
+                                            <div x-data="{ gift_{{ $item->id }} : false }">
+                                                <!-- Button View -->
+                                                <x-hrace009::button
+                                                    @click="gift_{{ $item->id }} = !gift_{{ $item->id }}"
+                                                    class="ml-1"
+                                                >
+                                                    {{ __('shop.gift') }}
+                                                </x-hrace009::button>
+
+                                                <!-- Modal View News -->
+                                                <div
+                                                    x-show="gift_{{ $item->id }}"
+                                                    class="fixed dark:text-light flex items-center justify-center overflow-auto z-50 bg-gray-500 bg-opacity-40 left-0 right-0 top-0 bottom-0"
+                                                    x-transition:enter="ease-out duration-300"
+                                                    x-transition:enter-start="opacity-0"
+                                                    x-transition:enter-end="opacity-100"
+                                                    x-transition:leave="ease-in duration-200"
+                                                    x-transition:leave-start="opacity-100"
+                                                    x-transition:leave-end="opacity-0"
+                                                    style="display: none;"
+                                                >
+                                                    <!-- Modal -->
+                                                    <div
+                                                        x-show="gift_{{ $item->id }}"
+                                                        class="bg-white dark:bg-dark rounded shadow p-6 w-auto mx-10"
+                                                        @click.away="gift_{{ $item->id }} = false"
+                                                        x-transition:enter="ease-out duration-300"
+                                                        x-transition:enter-start="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                                                        x-transition:enter-end="opacity-100 translate-y-0 sm:scale-100"
+                                                        x-transition:leave="ease-in duration-200"
+                                                        x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100"
+                                                        x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                                                        style="display: none;"
+                                                    >
+                                                        <div class="text-xl font-bold">
+                                                            {{ __('shop.listFriend', ['character' => Auth::user()->characterName() ]) }}
+                                                        </div>
+                                                        <div class="text-lg my-2 ">
+                                                            @if( ! $friends )
+                                                                <p class="text-xl dark:text-cyan-400 font-bold">{{ __('shop.no_friends') }}</p>
+                                                            @else
+                                                                <p class="text-xl dark:text-cyan-400 font-bold">{{ __('shop.recently_added_friends') }}</p>
+                                                                <form method="post"
+                                                                      action="{{ route('app.shop.gift.post', $item->id ) }}">
+                                                                    @method('POST')
+                                                                    {!! csrf_field() !!}
+                                                                    <div
+                                                                        class="grid grid-cols-2 gap-1 lg:grid-cols-2 xl:grid-cols-4">
+                                                                        @foreach( $friends as $friend )
+                                                                            @foreach( $friend as $key => $value )
+                                                                                <div id="{{ $value['rid'] }}"
+                                                                                     class="flex my-2">
+                                                                                    <div
+                                                                                        class="pretty p-default p-thick p-curve p-smooth">
+                                                                                        <input type="checkbox"
+                                                                                               id="{{ $value['rid'] }}"
+                                                                                               name="friends[]"
+                                                                                               value="{{ $value['rid'] }}"
+                                                                                        />
+                                                                                        <div class="state p-info">
+                                                                                            <label
+                                                                                                for="{{ $value['rid'] }}">{{ $value['name'] }}</label>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            @endforeach
+                                                                        @endforeach
+                                                                    </div>
+                                                                    <div class="flex flex-col">
+                                                                        <div class="w-auto mt-2">
+                                                                            <x-hrace009::button
+                                                                                type="submit">{{ __('shop.send_gift') }}</x-hrace009::button>
+                                                                        </div>
+                                                                    </div>
+                                                                </form>
+                                                            @endif
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endif
                                 </div>
-                                <div class="w-1/2 p-2">
-                                    Gift Button Here
-                                </div>
-                            </div>
+                            @endif
                         </div>
                     </div>
                 @endforeach

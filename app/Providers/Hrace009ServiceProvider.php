@@ -45,7 +45,9 @@ class Hrace009ServiceProvider extends ServiceProvider
                     64 => __('shop.masks.armor.64'),
                     128 => __('shop.masks.armor.128'),
                     256 => __('shop.masks.armor.256'),
-                    8 => __('shop.masks.armor.8')
+                    8 => __('shop.masks.armor.8'),
+                    //1073741826 => __('shop.masks.armor.1073741826'),
+                    //1073741832 => __('shop.masks.armor.1073741832'),
                 ],
                 __('shop.fashion') => [
                     8192 => __('shop.masks.fashion.8192'),

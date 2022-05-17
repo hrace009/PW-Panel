@@ -24,15 +24,19 @@ class ShopController extends Controller
 
     public function getIndex()
     {
+        $api = new API();
         return view('front.shops.index', [
-            'items' => Shop::paginate(config('pw-config.shop.page'))
+            'items' => Shop::paginate(config('pw-config.shop.page')),
+            'friends' => $api->getRoleFriends(Auth::user()->characterId()),
         ]);
     }
 
     public function getMask($mask)
     {
+        $api = new API();
         return view('front.shops.index', [
             'items' => Shop::where('mask', $mask)->paginate(config('pw-config.shop.page')),
+            'friends' => $api->getRoleFriends(Auth::user()->characterId()),
         ]);
     }
 
@@ -73,12 +77,13 @@ class ShopController extends Controller
         return redirect()->back()->with($status, $message);
     }
 
-    public function postGift(Request $request, Shop $item): RedirectResponse
+    public function postGift(Request $request, Shop $shop): RedirectResponse
     {
         $this->validate($request, [
             'friends' => 'required|array|min:1'
         ]);
         $user = Auth::user();
+        $item = $shop;
         $item_price = ($item->discount > 0) ? ($item->price - ($item->price / 100 * $item->discount)) : $item->price;
         $status = '';
         $message = '';

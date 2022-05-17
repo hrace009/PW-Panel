@@ -19,7 +19,7 @@ return [
     'send_gift' => 'Send Gift',
     'gift_title' => 'Send :name To:',
     'select_char_first' => 'You must first select a character to view your friends list.',
-    'recently_added_friends' => 'If you\'ve recently added a friend and don\'t see them on the list, re-log in-game.',
+    'recently_added_friends' => 'If you\'ve recently added a friend and don\'t see them on the list, please re-log in-game.',
     'not_logged_in' => 'You need to be logged in to purchase this item.',
     'no_friends' => 'It seems that your friends list is empty.',
     'purchase_complete' => 'You\'ve successfully purchased :name.',
@@ -42,6 +42,8 @@ return [
             128 => 'Feet',
             256 => 'Arms',
             8 => 'Robe',
+            1073741826 => 'Red Helmet',
+            1073741832 => 'Red Robe',
         ],
         'fashion' => [
             8192 => 'Chest',
@@ -127,5 +129,6 @@ return [
         'pleaseSell' => 'Please create item to sell!',
     ],
     'configuration' => 'Configuration',
+    'listFriend' => 'List friend for :character'
 
 ];

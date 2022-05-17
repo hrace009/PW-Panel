@@ -19,9 +19,16 @@
                             <div class="dark:bg-darker shadow-lg hover:shadow-xl rounded-lg ">
                                 <div class="bg-gray-400 h-64 rounded-t-lg p-4 bg-no-repeat bg-center bg-cover"
                                      style="background-image: url({{ asset('uploads/shops/image') . '/' . $item->image }})">
-                                    <div class="text-right">
+                                    <div class="flex flex-row justify-center justify-between">
+                                        <div class="text-left">
+                                            <img width="32"
+                                                 src="{{ url( asset('uploads/shops/icon') . '/' . $item->icon ) }}"
+                                                 alt="{{ $item->name }}"/>
+                                        </div>
+                                        <div class="text-right">
                                         <span
                                             class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full font-bold text-gray-100 transition-colors duration-200 transform rounded cursor-pointer {{ __(Arr::get($item->maskType($item->mask), 'color')) }}">{{ __(Arr::get($item->maskType($item->mask), 'category')) . ' > ' . __(Arr::get($item->maskType($item->mask), 'item')) }}</span>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="flex justify-between items-start px-2 pt-2">
