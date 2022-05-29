@@ -67,7 +67,7 @@ Route::group(['prefix' => 'dashboard', 'middleware' => ['web', 'auth:sanctum', '
     /***
      * Shop Routing
      */
-    Route::group(['prefix' => 'shop'], static function () {
+    Route::group(['prefix' => 'shop', 'middleware' => 'shop'], static function () {
         Route::get('/', [
             'as' => 'app.shop.index',
             'uses' => 'App\Http\Controllers\Front\ShopController@getIndex'
@@ -86,6 +86,30 @@ Route::group(['prefix' => 'dashboard', 'middleware' => ['web', 'auth:sanctum', '
         ]);
     });
 
+    /***
+     * Donate Routing
+     */
+    Route::group(['prefix' => 'donate', 'middleware' => 'donate'], static function () {
+        Route::get('bank', [
+            'as' => 'app.donate.bank',
+            'middleware' => 'bank.active.form',
+            'uses' => 'App\Http\Controllers\Front\DonateController@getBankIndex'
+        ]);
+        Route::post('postBank', [
+            'as' => 'app.donate.bank.post',
+            'middleware' => 'donate.anti.spam',
+            'uses' => 'App\Http\Controllers\Front\DonateController@postBank'
+        ]);
+        Route::get('paymentwall', [
+            'as' => 'app.donate.paymentwall',
+            'middleware' => 'paymentwall.active',
+            'uses' => 'App\Http\Controllers\Front\DonateController@getPaymentwallIndex'
+        ]);
+        Route::get('history', [
+            'as' => 'app.donate.history',
+            'uses' => 'App\Http\Controllers\Front\DonateController@getHistoryIndex'
+        ]);
+    });
 });
 
 /* Character Route */
@@ -197,6 +221,16 @@ Route::group(['prefix' => 'admin', 'middleware' => ['web', 'auth', 'verified', '
         Route::get('banktransfer', [
             'as' => 'admin.donate.banktransfer',
             'uses' => 'App\Http\Controllers\Admin\DonateController@showBank'
+        ]);
+
+        Route::get('confirm', [
+            'as' => 'admin.donate.bankconfirm',
+            'uses' => 'App\Http\Controllers\Admin\DonateController@showConfirm'
+        ]);
+
+        Route::post('updateConfirm/{id}', [
+            'as' => 'admin.donate.updateconfirm',
+            'uses' => 'App\Http\Controllers\Admin\DonateController@updateBankLog'
         ]);
 
         Route::post('paymentwallPost', [

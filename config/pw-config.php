@@ -9,7 +9,7 @@
  */
 
 return [
-    'chat_log_path' => '/home/ko2world/Core/Wanmei2015/logs',
+    'chat_log_path' => '/home/ko2world/Core/Wanmei2015/logs/',
     'currency_name' => 'Ko2Coin',
     'encryption_type' => 'md5',
     'level_up_cap' => '105',
@@ -17,7 +17,7 @@ return [
     'server_ip' => '127.0.0.1',
     'server_name' => 'Ko2World Dev',
     'server_version' => '156',
-    'teleport_world_tag' => 1,
+    'teleport_world_tag' => '1',
     'teleport_x' => '1280.6788',
     'teleport_y' => '219.61784',
     'teleport_z' => '1021.2097',
@@ -54,13 +54,13 @@ return [
         'bank_transfer' => [
             'status' => true,
             'double' => true,
-            'accountOwner' => 'harris yogasara',
+            'accountOwner' => 'Harris Yogasara',
             'bankAccountNo1' => '342234234324342',
-            'bankName1' => 'mandiri',
-            'bankAccountNo2' => '324234',
-            'bankName2' => 'bca',
+            'bankName1' => 'MANDIRI',
+            'bankAccountNo2' => '22132131',
+            'bankName2' => 'BCA',
             'bankAccountNo3' => '21321332131',
-            'bankName3' => 'btpn',
+            'bankName3' => 'BTPN',
             'multiply' => '100000',
             'limit' => '5000000',
             'CurrencySign' => 'Rp.',

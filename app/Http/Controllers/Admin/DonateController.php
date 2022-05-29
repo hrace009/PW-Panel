@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\BankLog;
+use App\Models\User;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -56,6 +58,55 @@ class DonateController extends Controller
     public function showBank()
     {
         return view('admin.donate.banktransfer');
+    }
+
+    /**
+     * @return Application|Factory|View
+     */
+    public function showConfirm()
+    {
+        $logs = BankLog::paginate();
+        $user = new User();
+        return view('admin.donate.bankconfirm', [
+            'logs' => $logs,
+            'user' => $user,
+        ]);
+    }
+
+    /**
+     * Update the specified transfer history.
+     *
+     * @param Request $request
+     * @param int $id
+     * @return RedirectResponse
+     */
+    public function updateBankLog(Request $request, int $id): RedirectResponse
+    {
+        $input = $this->validate($request, [
+            'status' => 'required|string',
+            'reason' => 'required|string',
+        ]);
+
+
+        $BankLog = BankLog::whereId($id);
+        $data = $BankLog->get(['amount', 'gameID'])->firstOrFail();
+        $user = User::whereId($data->gameID)->firstOrFail();
+        $amount = $data->amount;
+        if (config('pw-config.payment.bank_transfer.double')) {
+            $amount *= 2;
+        }
+
+        $BankLog->update([
+            'status' => $input['status'],
+            'reason' => $input['reason'],
+        ]);
+
+        if ($input['status'] === 'accept') {
+            $user->update([
+                'money' => $user->money += $amount,
+            ]);
+        }
+        return redirect()->back()->with('success', __('donate.history.success'));
     }
 
     /**

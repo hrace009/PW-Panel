@@ -15,6 +15,7 @@ return [
     'paymentwall_title' => 'Paymentwall',
     'paymentwall_desc' => 'Move switch to the right for activating Paymentwall',
     'no_methods' => 'Donation methods haven\'t been setup yet, please contact an administrator.',
+    'submit' => 'Send',
     'error' => [
         'title' => 'Error',
         'message' => 'Please enter the dollar amount you would like to donate <b>OR</b> the amount of :currency you would like to receive.',
@@ -44,7 +45,55 @@ return [
             5 => 'Set PINGBACK SIGNATURE VERSION to \'1\''
         ]
     ],
+    'guide' => [
+        'paymentwall' => [
+            'title' => 'Reload :currency with Paymentwall',
+            'guide' => 'Guide',
+            'text1' => 'Fund from reload :currency will be used for server maintenance, paying internet bills, building rent, advertisement and buying tools and the latest file server. If you like this game, please help us to keep the finance stable, so we can keep serving you.',
+        ],
+        'bank' => [
+            'title' => 'Reload :currency with Bank Transfer',
+            'noData' => 'No bank holder data available, please contact Administrator!',
+            'text1' => 'Donation is use for server maintenance and buying some tools to create a good update for you. To do donation, please follow guide bellow :',
+            'text2' => 'Transfer amount of money to one of our bank account bellow.',
+            'bankHolder' => 'Bank Account Holder Name : :name',
+            'limit' => 'Donation limit: :sign :number',
+            'price_coin' => '1 :coin = :sign:currency',
+            'multiply' => 'Multiple :currencySign:number',
+            'text3' => 'Then, full fill form bellow, and sit tight wait until GM refill your wallet balance.',
+            'text4' => 'After GM fill your wallet balance, you can buy anything you like in the store.',
+            'form' => [
+                'fullname' => 'Full Name',
+                'fullname_desc' => 'Make sure this name is the same name with your bank account (This field is autofill).',
+                'banknum' => 'Bank Account Number',
+                'banknum_desc' => 'Enter your bank account number.',
+                'loginid' => 'Login ID',
+                'loginid_desc' => 'Your login ID will autofill by system.',
+                'email' => 'Email',
+                'email_desc' => 'Your email will autofill by system',
+                'phone' => 'Phone',
+                'phone_desc' => 'Enter your valid phone number, this will required if something bad happen.',
+                'type' => 'Payment Type',
+                'type_desc' => 'Select your payment type.',
+                'inet' => 'Internet Banking',
+                'atm' => 'Automatic Teller Machine (ATM)',
+                'cod' => 'Cash On Delivery',
+                'bankname' => 'Transfer to',
+                'bankname_desc' => 'Select transfer destination.',
+                'other' => 'Other',
+                'amount' => 'Amount',
+                'amount_desc' => 'Choose the amount of money you send.',
+                'success' => 'Your donation form has been sent to Game Master. Please wait until he / she approve your purchase.',
+                'unfinish' => 'You still have unfinish transaction, please complete the previous transaction.'
+            ],
+            'email' => [
+                'subject' => '[:bank] New transaction from :name',
+                'greeting' => 'Please check my transaction bellow.'
+            ]
+        ]
+    ],
     'bank' => [
+        'caption' => 'Bank',
         'title' => 'Manual Bank Transfer',
         'status' => 'Status',
         'status_desc' => 'Move switch to the right for activating Manual Bank Transfer',
@@ -67,6 +116,42 @@ return [
         'CurrencySign_desc' => 'Enter the currency symbol you are using.<br>Example: Rp., $, IDR, USD',
         'payment_price' => 'Price per 1 :coinName',
         'payment_price_desc' => 'Enter the price per 1 :coinName',
+        'confirm' => 'Bank Confirm'
+    ],
+    'history' => [
+        'title' => 'Transaction History',
+        'bank' => 'Bank',
+        'ingame' => 'Ingame',
+        'paymentwall' => 'Paymentwall',
+        'store' => 'Store',
+        'table' => [
+            'trid' => 'Tr. ID',
+            'date' => 'Date',
+            'details' => 'Details',
+            'fullname' => 'Name',
+            'loginid' => 'Login',
+            'contact' => [
+                'caption' => 'Contact',
+                'email' => 'Email',
+                'phone' => 'Phone',
+            ],
+            'bankname' => 'Destination',
+            'banknum' => 'Bank Number',
+            'amount' => 'Amount',
+            'type' => 'Type',
+            'status' => 'Status',
+            'reason' => 'Remarks',
+            'action' => 'Action',
+            'change' => 'Make change for transaction id #:id'
+        ],
+        'success' => 'Your change has been saved!',
+        'accept' => 'Accept',
+        'reject' => 'Reject',
+        'pending' => 'Pending',
+        'reason' => 'Leave a message to user for transaction id #:id',
+        'change' => [
+            'status' => 'Change payment status'
+        ]
     ],
     'settings' => 'Configuration',
     'currency' => [

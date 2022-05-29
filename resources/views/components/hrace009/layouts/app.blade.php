@@ -26,7 +26,13 @@
     <x-hrace009::side-bar>
         <x-slot name="links">
             <x-hrace009::front.dashboard-link/>
-            <x-hrace009::front.shop-link/>
+            @if( config('pw-config.system.apps.shop') )
+                <x-hrace009::front.shop-link/>
+            @endif
+
+            @if( config('pw-config.system.apps.donate') )
+                <x-hrace009::front.donate-link/>
+            @endif
         </x-slot>
         <x-slot name="footer">
             <x-hrace009::side-bar-footer/>
@@ -67,7 +73,13 @@
                 <x-hrace009.mobile-main-menu>
                     <x-slot name="links">
                         <x-hrace009::front.dashboard-link/>
-                        <x-hrace009::front.shop-link/>
+                        @if( config('pw-config.system.apps.shop') )
+                            <x-hrace009::front.shop-link/>
+                        @endif
+
+                        @if( config('pw-config.system.apps.donate') )
+                            <x-hrace009::front.donate-link/>
+                        @endif
                     </x-slot>
                 </x-hrace009.mobile-main-menu>
             </x-slot>
@@ -77,7 +89,7 @@
         <main class="flex-1">
 
             <!-- Content header -->
-        @if (isset($header))
+            @if (isset($header))
             {{ $header }}
         @endif
         <!-- Content -->

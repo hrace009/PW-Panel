@@ -1,4 +1,4 @@
-<!-- Members links -->
+<!-- Shop links -->
 <div x-data="{ isActive: {{ $status }}, open: {{ $status }} }">
     <!-- active & hover classes 'bg-primary-100 dark:bg-primary' -->
     <a
@@ -44,26 +44,30 @@
     <div role="menu" x-show="open" class="mt-2 space-y-2 px-7" aria-label="{{ __('donate.title') }}">
         <!-- active & hover classes 'text-gray-700 dark:text-light' -->
         <!-- inActive classes 'text-gray-400 dark:text-gray-400' -->
+        @if ( config('pw-config.payment.paymentwall.status') )
+            <a
+                href="{{ route('app.donate.paymentwall') }}"
+                role="menuitem"
+                class="block p-2 text-sm text-gray-{{ $PWIndexText }} transition-colors duration-200 rounded-md dark:{{ $PWIndexLight }} dark:hover:text-light hover:text-gray-700"
+            >
+                {{ __('donate.paymentwall_title') }}
+            </a>
+        @endif
+        @if( config('pw-config.payment.bank_transfer.status') )
+            <a
+                href="{{ route('app.donate.bank') }}"
+                role="menuitem"
+                class="block p-2 text-sm text-gray-{{ $BankIndexText }} transition-colors duration-200 rounded-md dark:{{ $BankIndexLight }} dark:hover:text-light hover:text-gray-700"
+            >
+                {{ __('donate.bank.title') }}
+            </a>
+        @endif
         <a
-            href="{{ route('admin.donate.paymentwall') }}"
+            href="{{ route('app.donate.history') }}"
             role="menuitem"
-            class="block p-2 text-sm text-gray-{{ $textPaymentwall }} transition-colors duration-200 rounded-md dark:{{ $lightPaymentwall }} dark:hover:text-light hover:text-gray-700"
+            class="block p-2 text-sm text-gray-{{ $HistoryIndexText }} transition-colors duration-200 rounded-md dark:{{ $HistoryIndexLight }} dark:hover:text-light hover:text-gray-700"
         >
-            {{ __('donate.paymentwall_title') }}
-        </a>
-        <a
-            href="{{ route('admin.donate.banktransfer') }}"
-            role="menuitem"
-            class="block p-2 text-sm text-gray-{{ $textBank }} transition-colors duration-200 rounded-md dark:{{ $lightBank }} dark:hover:text-light hover:text-gray-700"
-        >
-            {{ __('donate.bank.title') }}
-        </a>
-        <a
-            href="{{ route('admin.donate.bankconfirm') }}"
-            role="menuitem"
-            class="block p-2 text-sm text-gray-{{ $textConfirm }} transition-colors duration-200 rounded-md dark:{{ $lightConfirm }} dark:hover:text-light hover:text-gray-700"
-        >
-            {{ __('donate.bank.confirm') }}
+            {{ __('donate.history.title') }}
         </a>
     </div>
 </div>

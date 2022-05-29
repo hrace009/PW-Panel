@@ -10,11 +10,14 @@
 namespace App\Http;
 
 use App\Http\Middleware\Authenticate;
+use App\Http\Middleware\BankTransferActive;
 use App\Http\Middleware\DonateActive;
+use App\Http\Middleware\DonateAntiSpam;
 use App\Http\Middleware\EncryptCookies;
 use App\Http\Middleware\IngameService;
 use App\Http\Middleware\isAdministrator;
 use App\Http\Middleware\NewsActive;
+use App\Http\Middleware\PaymentwallActive;
 use App\Http\Middleware\PreventRequestsDuringMaintenance;
 use App\Http\Middleware\RankingActive;
 use App\Http\Middleware\RedirectIfAuthenticated;
@@ -117,5 +120,8 @@ class Kernel extends HttpKernel
         'service' => IngameService::class,
         'ranking' => RankingActive::class,
         'selected.character' => SelectedCharacter::class,
+        'donate.anti.spam' => DonateAntiSpam::class,
+        'bank.active.form' => BankTransferActive::class,
+        'paymentwall.active' => PaymentwallActive::class,
     ];
 }
