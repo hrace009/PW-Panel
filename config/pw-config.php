@@ -49,7 +49,7 @@ return [
             'widget_high' => '450',
             'project_key' => '21f130c3ba2c505e637a2fccbe3b3b62',
             'secret_key' => '57e0b3a2a7325f393446ca93b21e6778',
-            'pingback_path' => 'donate/paymentwall'
+            'pingback_path' => 'pingback/paymentwall'
         ],
         'bank_transfer' => [
             'status' => true,

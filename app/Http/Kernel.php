@@ -18,6 +18,7 @@ use App\Http\Middleware\IngameService;
 use App\Http\Middleware\isAdministrator;
 use App\Http\Middleware\NewsActive;
 use App\Http\Middleware\PaymentwallActive;
+use App\Http\Middleware\PaymentwallPingback;
 use App\Http\Middleware\PreventRequestsDuringMaintenance;
 use App\Http\Middleware\RankingActive;
 use App\Http\Middleware\RedirectIfAuthenticated;
@@ -123,5 +124,6 @@ class Kernel extends HttpKernel
         'donate.anti.spam' => DonateAntiSpam::class,
         'bank.active.form' => BankTransferActive::class,
         'paymentwall.active' => PaymentwallActive::class,
+        'paymentwall.pingback' => PaymentwallPingback::class,
     ];
 }

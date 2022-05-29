@@ -56,6 +56,12 @@ Route::get('/', static function () {
     return view('welcome');
 })->name('HOME');
 
+Route::get('pingback/paymentwall', [
+    'as' => 'pingback.paymentwall',
+    'middleware' => ['web', 'paymentwall.pingback'],
+    'uses' => 'App\Http\Controllers\Pingback@paymentwall'
+]);
+
 /* App Page */
 Route::group(['prefix' => 'dashboard', 'middleware' => ['web', 'auth:sanctum', 'verified']], static function () {
 
