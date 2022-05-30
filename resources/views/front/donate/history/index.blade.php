@@ -24,13 +24,68 @@
             <!-- Tab Contents -->
             <div id="tab-contents"
                  class="flex inline-flex ml-4 w-full px-1 pt-2 bg-transparent border-l border-r border-b dark:border-primary-darker">
-                <div id="ingame" class="p-4">
+                <div id="ingame" class="hidden p-4 mx-auto">
                     ingame tab
                 </div>
-                <div id="paymentwall" class="hidden p-4">
-                    paymentwall tab
+                <div id="paymentwall" class="hidden p-4 mx-auto">
+                    <div
+                        class="bg-white dark:bg-primary shadow-md rounded border border-gray-300 dark:border-primary-light justify-items-center">
+                        <table class="w-full table-auto">
+                            <thead>
+                            <tr class="bg-gray-200 dark:bg-primary dark:text-light text-gray-600 uppercase text-xs leading-normal">
+                                <th class="py-3 px-6 text-left">{{ __('donate.history.table.Paymentwall.no') }}</th>
+                                <th class="py-3 px-6 text-left">{{ __('donate.history.table.Paymentwall.refid') }}</th>
+                                <th class="py-3 px-6 text-left">{{ __('donate.history.table.Paymentwall.date') }}</th>
+                                <th class="py-3 px-6 text-left">{{ __('donate.history.table.Paymentwall.userid') }}</th>
+                                <th class="py-3 px-6 text-left">{{ __('donate.history.table.Paymentwall.amount') }}</th>
+                                <th class="py-3 px-6 text-left">{{ __('donate.history.table.Paymentwall.status') }}</th>
+                            </tr>
+                            </thead>
+                            <tbody class="text-gray-600 text-xs dark:text-light">
+                            @for( $i=1; $i<=$pws->count(); )
+                                @foreach( $pws->sortByDesc('created_at')  as $pw )
+                                    <tr class="border-b border-gray-200 bg-gray-50 hover:bg-gray-100 dark:border-primary dark:bg-darker dark:hover:bg-primary-dark">
+                                        <td class="py-3 px-6 text-left">
+                                            <div class="flex items-center">
+                                                <span>{{ $i++ }}</span>
+                                            </div>
+                                        </td>
+                                        <td class="py-3 px-6 text-left">
+                                            <div class="flex items-center">
+                                                <span>{{ $pw->refid }}</span>
+                                            </div>
+                                        </td>
+                                        <td class="py-3 px-6 text-left">
+                                            <div class="flex items-center">
+                                                <span>{{ date_format($pw->created_at, 'F j, Y')  }}</span>
+                                            </div>
+                                        </td>
+                                        <td class="py-3 px-6 text-left">
+                                            <div class="flex items-center">
+                                                <span>{{ $user->whereId($pw->userID)->get()->firstOrFail()->name  }}</span>
+                                            </div>
+                                        </td>
+                                        <td class="py-3 px-6 text-left">
+                                            <div class="flex items-center">
+                                                <span>{{ $pw->amount  }}</span>
+                                            </div>
+                                        </td>
+                                        <td class="py-3 px-6 text-left">
+                                            <div class="flex items-center">
+                                                <span>{!! $pw->color($pw->type) !!}</span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            @endfor
+                            </tbody>
+                        </table>
+                        @if( $pws->items() )
+                            {{ $pws->render() }}
+                        @endif
+                    </div>
                 </div>
-                <div id="store" class="hidden p-4">
+                <div id="store" class="hidden p-4 mx-auto">
                     store tab
                 </div>
                 <div id="bank" class="hidden p-4 mx-auto">
@@ -48,7 +103,7 @@
                             </tr>
                             </thead>
                             <tbody class="text-gray-600 text-xs dark:text-light">
-                            @foreach( $banks as $bank)
+                            @foreach( $banks->sortByDesc('created_at') as $bank)
                                 <tr class="border-b border-gray-200 bg-gray-50 hover:bg-gray-100 dark:border-primary dark:bg-darker dark:hover:bg-primary-dark">
                                     <td class="py-3 px-6 text-left">
                                         <div class="flex items-center">

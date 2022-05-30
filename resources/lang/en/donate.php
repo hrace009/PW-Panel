@@ -42,7 +42,7 @@ return [
             2 => 'Go to My Projects > Settings',
             3 => 'Change pingback type to URL',
             4 => 'Change URL to <code class="dark:text-cyan-400">' . url(config('pw-config.payment.paymentwall.pingback_path')) . '</code>',
-            5 => 'Set PINGBACK SIGNATURE VERSION to \'1\''
+            5 => 'Set PINGBACK SIGNATURE VERSION to \'2\''
         ]
     ],
     'guide' => [
@@ -142,7 +142,20 @@ return [
             'status' => 'Status',
             'reason' => 'Remarks',
             'action' => 'Action',
-            'change' => 'Make change for transaction id #:id'
+            'change' => 'Make change for transaction id #:id',
+            'Paymentwall' => [
+                'no' => 'No.',
+                'refid' => 'Transaction ID',
+                'date' => 'Date',
+                'userid' => 'User ID',
+                'amount' => 'Amount',
+                'status' => 'Status',
+                'color' => [
+                    'success' => 'Success',
+                    'cs' => 'CS',
+                    'failed' => 'Failed'
+                ]
+            ]
         ],
         'success' => 'Your change has been saved!',
         'accept' => 'Accept',

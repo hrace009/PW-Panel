@@ -16,11 +16,6 @@ class Pingback extends Controller
             'public_key' => config('pw-config.payment.paymentwall.project_key'),
             'private_key' => config('pw-config.payment.paymentwall.secret_key')
         ]);
-        /*
-        Paymentwall_Base::setApiType(Paymentwall_Config::API_VC);
-        Paymentwall_Base::setAppKey(config('pw-config.payment.paymentwall.project_key'));
-        Paymentwall_Base::setSecretKey(config('pw-config.payment.paymentwall.secret_key'));
-        */
 
         $pingback = new Paymentwall_Pingback($_GET, $_SERVER['REMOTE_ADDR']);
 

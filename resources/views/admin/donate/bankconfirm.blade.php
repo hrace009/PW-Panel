@@ -25,7 +25,7 @@
                     </tr>
                     </thead>
                     <tbody class="text-gray-600 text-xs dark:text-light">
-                    @foreach( $logs as $log)
+                    @foreach( $logs->sortByDesc('created_at') as $log)
                         <tr class="border-b border-gray-200 bg-gray-50 hover:bg-gray-100 dark:border-primary dark:bg-darker dark:hover:bg-primary-dark">
                             <td class="py-3 px-2 text-left">
                                 <div class="flex flex-row items-center">

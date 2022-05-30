@@ -56,4 +56,5 @@ return [
         'job' => '* * * * * php ' . base_path('artisan') . ' schedule:run >> /dev/null 2>&1'
     ],
     'not_enough' => 'You don\'t have enough :currency.',
+    'restricted' => 'Restricted area!'
 ];
