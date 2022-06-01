@@ -26,10 +26,13 @@ class MembersController extends Controller
      */
     public function index()
     {
+        /*
         $users = User::paginate(15);
         return view('admin.members.members', [
             'users' => $users,
         ]);
+        */
+        return view('admin.members.members');
     }
 
     /**

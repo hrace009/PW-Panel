@@ -19,6 +19,9 @@ return [
         'role' => 'Role',
         'actions' => 'Actions'
     ],
+    'search' => 'Looking for a user...',
+    'empty' => 'Enter a term to search for users.',
+    'notfound' => 'No matching result was found.',
     'modal' => [
         'title' => 'Give :currency to: :user',
         'close' => 'Close',
