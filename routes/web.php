@@ -96,6 +96,18 @@ Route::group(['prefix' => 'dashboard', 'middleware' => ['web', 'auth:sanctum', '
      * Donate Routing
      */
     Route::group(['prefix' => 'donate', 'middleware' => 'donate'], static function () {
+        Route::get('paypal', [
+            'as' => 'app.donate.paypal',
+            'middleware' => 'paypal.active',
+            'uses' => 'App\Http\Controllers\Front\DonateController@getPaypalIndex'
+        ]);
+
+        Route::post('paypal/submit', [
+            'as' => 'app.donate.paypal.submit',
+            'middleware' => 'paypal.active',
+            'uses' => 'App\Http\Controllers\Front\DonateController@paypalSubmit'
+        ]);
+
         Route::get('bank', [
             'as' => 'app.donate.bank',
             'middleware' => 'bank.active.form',
@@ -114,6 +126,26 @@ Route::group(['prefix' => 'dashboard', 'middleware' => ['web', 'auth:sanctum', '
         Route::get('history', [
             'as' => 'app.donate.history',
             'uses' => 'App\Http\Controllers\Front\DonateController@getHistoryIndex'
+        ]);
+    });
+
+    /***
+     * Vote Routing
+     */
+    Route::group(['prefix' => 'vote', 'middleware' => 'vote'], static function () {
+        Route::get('/', [
+            'as' => 'app.vote.index',
+            'uses' => 'App\Http\Controllers\Front\VoteController@getIndex'
+        ]);
+
+        Route::post('check/{vote}', [
+            'as' => 'app.vote.check',
+            'uses' => 'App\Http\Controllers\Front\VoteController@postCheck'
+        ]);
+
+        Route::get('success/{vote}', [
+            'as' => 'app.vote.success',
+            'uses' => 'App\Http\Controllers\Front\VoteController@getSuccess'
         ]);
     });
 });
@@ -247,6 +279,16 @@ Route::group(['prefix' => 'admin', 'middleware' => ['web', 'auth', 'verified', '
         Route::post('bankPost', [
             'as' => 'admin.donate.bank.post',
             'uses' => 'App\Http\Controllers\Admin\DonateController@postBank'
+        ]);
+
+        Route::get('paypal', [
+            'as' => 'admin.donate.paypal',
+            'uses' => 'App\Http\Controllers\Admin\DonateController@showPaypal'
+        ]);
+
+        Route::post('paypalPost', [
+            'as' => 'admin.donate.paypal.post',
+            'uses' => 'App\Http\Controllers\Admin\DonateController@postPaypal'
         ]);
     });
 

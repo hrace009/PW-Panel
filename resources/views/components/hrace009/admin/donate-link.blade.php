@@ -45,6 +45,13 @@
         <!-- active & hover classes 'text-gray-700 dark:text-light' -->
         <!-- inActive classes 'text-gray-400 dark:text-gray-400' -->
         <a
+            href="{{ route('admin.donate.paypal') }}"
+            role="menuitem"
+            class="block p-2 text-sm text-gray-{{ $textPaypal }} transition-colors duration-200 rounded-md dark:{{ $lightPaypal }} dark:hover:text-light hover:text-gray-700"
+        >
+            {{ __('donate.paypal.title') }}
+        </a>
+        <a
             href="{{ route('admin.donate.paymentwall') }}"
             role="menuitem"
             class="block p-2 text-sm text-gray-{{ $textPaymentwall }} transition-colors duration-200 rounded-md dark:{{ $lightPaymentwall }} dark:hover:text-light hover:text-gray-700"

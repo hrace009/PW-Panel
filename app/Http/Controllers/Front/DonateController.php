@@ -83,4 +83,15 @@ class DonateController extends Controller
             'user' => $user
         ]);
     }
+
+    public function getPaypalIndex()
+    {
+        return view('front.donate.paypal.index');
+    }
+
+    public function paypalSubmit()
+    {
+        return redirect()->back()->with('error', 'This method still unfinish yet!');
+    }
+
 }

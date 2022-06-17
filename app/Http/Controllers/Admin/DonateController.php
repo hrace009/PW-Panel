@@ -153,4 +153,43 @@ class DonateController extends Controller
         }
         return redirect()->back()->with('success', __('admin.configSaved'));
     }
+
+    public function showPaypal()
+    {
+        return view('admin.donate.paypal');
+    }
+
+    public function postPaypal(Request $request)
+    {
+        if ($request->has('status')) {
+            Config::write('pw-config.payment.paypal.status', true);
+        } else {
+            Config::write('pw-config.payment.paypal.status', false);
+        }
+
+        if ($request->has('double')) {
+            Config::write('pw-config.payment.paypal.double', true);
+        } else {
+            Config::write('pw-config.payment.paypal.double', false);
+        }
+
+        if (config('pw-config.payment.paypal.status') === true) {
+            $configs = $request->validate([
+                'client_id' => 'required|string',
+                'secret' => 'required|string',
+                'currency' => 'required|string',
+                'currency_per' => 'required|numeric',
+                'minimum' => 'required|numeric',
+            ]);
+
+            foreach ($configs as $config => $value) {
+                if (!$value) {
+                    Config::write('pw-config.payment.paypal.' . $config, '');
+                } else {
+                    Config::write('pw-config.payment.paypal.' . $config, $value);
+                }
+            }
+        }
+        return redirect()->back()->with('success', __('admin.configSaved'));
+    }
 }

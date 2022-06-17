@@ -2,9 +2,14 @@
 
 return [
     'title' => 'Vote',
+    'button' => 'Vote on :name',
     'add' => 'Create Site',
     'add_success' => 'Vote site has been created.',
     'destroy_success' => 'Vote site has been deleted!',
+    'no_sites' => 'There aren\'t any sites to vote for, please contact an administrator.',
+    'already_voted' => 'Sorry, but you\'ve already voted for this site.',
+    'cooldown' => 'You can vote again in...',
+    'cooldown_done' => 'You can vote again!',
     'index' => [
         'sidemenu' => 'Vote Sites',
         'header' => 'Viewing Vote Sites',
@@ -34,6 +39,17 @@ return [
         'modify' => 'Modify',
         'modify_desc' => 'Save your change!',
         'modify_success' => 'You change has been saved!'
+    ],
+    'time' => [
+        'hours' => 'hours',
+        'minutes' => 'minutes',
+        'seconds' => 'seconds'
+    ],
+    'success' => [
+        'title' => 'Success',
+        'continue' => 'Click below to continue!',
+        'notice' => 'Enter the code on the next page accurately or you will <b>NOT</b> get your reward!',
+        'button' => 'Continue'
     ],
 ];
 

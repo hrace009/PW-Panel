@@ -118,6 +118,23 @@ return [
         'payment_price_desc' => 'Enter the price per 1 :coinName',
         'confirm' => 'Bank Confirm'
     ],
+    'paypal' => [
+        'title' => 'Paypal',
+        'status' => 'Status',
+        'status_desc' => 'Move switch to the right for activating paypal',
+        'double' => 'Double',
+        'double_desc' => 'Active double donation.',
+        'client_id' => 'Client ID',
+        'client_id_desc' => 'Enter your client ID',
+        'secret' => 'Secret Key',
+        'secret_desc' => 'Enter your secret key',
+        'currency' => 'Currency',
+        'currency_desc' => 'Select your currency',
+        'currency_per' => 'Currency per :currency',
+        'currency_per_desc' => 'Enter amount :coin per :currency',
+        'minimum' => 'Minimum amount',
+        'minimum_desc' => 'Minimum amount to donate'
+    ],
     'history' => [
         'title' => 'Transaction History',
         'bank' => 'Bank',

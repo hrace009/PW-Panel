@@ -20,8 +20,11 @@
         "laravel/jetstream": "^2.6",
         "laravel/sanctum": "^2.11",
         "laravel/tinker": "^2.5",
+        "league/omnipay": "^3.2",
         "livewire/livewire": "^2.5",
-        "paymentwall/paymentwall-php": "^2.2"
+        "omnipay/paypal": "^3.0",
+        "paymentwall/paymentwall-php": "^2.2",
+        "wadeshuler/php-paypal-ipn": "^2.5"
     },
     "require-dev": {
         "facade/ignition": "^2.5",

@@ -44,6 +44,15 @@
     <div role="menu" x-show="open" class="mt-2 space-y-2 px-7" aria-label="{{ __('donate.title') }}">
         <!-- active & hover classes 'text-gray-700 dark:text-light' -->
         <!-- inActive classes 'text-gray-400 dark:text-gray-400' -->
+        @if ( config('pw-config.payment.paypal.status') )
+            <a
+                href="{{ route('app.donate.paypal') }}"
+                role="menuitem"
+                class="block p-2 text-sm text-gray-{{ $PaypalText }} transition-colors duration-200 rounded-md dark:{{ $PaypalLight }} dark:hover:text-light hover:text-gray-700"
+            >
+                {{ __('donate.paypal.title') }}
+            </a>
+        @endif
         @if ( config('pw-config.payment.paymentwall.status') )
             <a
                 href="{{ route('app.donate.paymentwall') }}"

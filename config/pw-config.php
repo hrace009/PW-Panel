@@ -66,5 +66,14 @@ return [
             'CurrencySign' => 'Rp.',
             'payment_price' => '1000',
         ],
+        'paypal' => [
+            'status' => true,
+            'double' => false,
+            'client_id' => 'AfxQiO1ycaknL2cIDnhb_0C72apBxiPCMzccgkQR-Z1USdM6cHrER9s7nUWvi1KhfyE14-44CoKlihQZ',
+            'secret' => 'EICI9jHYkE3nxB8_j3D1QPai-Z6d3dIVsM19zdflWFeLKEvGf1WWP61websXrCYdlaa6rUmb-uW5BcT1',
+            'currency' => 'USD',
+            'currency_per' => '1',
+            'minimum' => '1'
+        ]
     ],
 ];

@@ -38,6 +38,7 @@ return [
     'menu' => [
         'dashboard' => 'Dashboard',
         'shop' => 'Shop',
+        'vote' => 'Vote'
     ],
     'saved' => 'Saved.',
     'Save' => 'Save',

@@ -33,6 +33,10 @@
             @if( config('pw-config.system.apps.donate') )
                 <x-hrace009::front.donate-link/>
             @endif
+
+            @if( config('pw-config.system.apps.vote') )
+                <x-hrace009::front.vote-link/>
+            @endif
         </x-slot>
         <x-slot name="footer">
             <x-hrace009::side-bar-footer/>
@@ -79,6 +83,10 @@
 
                         @if( config('pw-config.system.apps.donate') )
                             <x-hrace009::front.donate-link/>
+                        @endif
+
+                        @if( config('pw-config.system.apps.vote') )
+                            <x-hrace009::front.vote-link/>
                         @endif
                     </x-slot>
                 </x-hrace009.mobile-main-menu>

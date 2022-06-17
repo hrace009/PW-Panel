@@ -31,6 +31,8 @@ class DonateLink extends Component
             $lightBank = 'text-gray-400';
             $textConfirm = '400';
             $lightConfirm = 'text-gray-400';
+            $textPaypal = '400';
+            $lightPaypal = 'text-gray-400';
         } elseif (request()->routeIs('admin.donate.banktransfer')) {
             $status = 'true';
             $textPaymentwall = '400';
@@ -39,6 +41,8 @@ class DonateLink extends Component
             $lightBank = 'text-light';
             $textConfirm = '400';
             $lightConfirm = 'text-gray-400';
+            $textPaypal = '400';
+            $lightPaypal = 'text-gray-400';
         } elseif (request()->routeIs('admin.donate.bankconfirm')) {
             $status = 'true';
             $textPaymentwall = '400';
@@ -47,6 +51,18 @@ class DonateLink extends Component
             $lightBank = 'text-gray-400';
             $textConfirm = '700';
             $lightConfirm = 'text-light';
+            $textPaypal = '400';
+            $lightPaypal = 'text-gray-400';
+        } elseif (request()->routeIs('admin.donate.paypal')) {
+            $status = 'true';
+            $textPaymentwall = '400';
+            $lightPaymentwall = 'text-gray-400';
+            $textBank = '400';
+            $lightBank = 'text-gray-400';
+            $textConfirm = '400';
+            $lightConfirm = 'text-gray-400';
+            $textPaypal = '700';
+            $lightPaypal = 'text-light';
         } else {
             $status = 'false';
             $textPaymentwall = '400';
@@ -55,6 +71,8 @@ class DonateLink extends Component
             $lightBank = 'text-gray-400';
             $textConfirm = '400';
             $lightConfirm = 'text-gray-400';
+            $textPaypal = '400';
+            $lightPaypal = 'text-gray-400';
         }
 
         return view('components.hrace009.admin.donate-link', [
@@ -65,6 +83,8 @@ class DonateLink extends Component
             'lightBank' => $lightBank,
             'textConfirm' => $textConfirm,
             'lightConfirm' => $lightConfirm,
+            'textPaypal' => $textPaypal,
+            'lightPaypal' => $lightPaypal
         ]);
     }
 }
