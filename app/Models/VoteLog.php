@@ -2,12 +2,13 @@
 
 namespace App\Models;
 
+
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class VoteLogs extends Model
+class VoteLog extends Model
 {
     /**
      * The database table used by the model.
@@ -23,13 +24,13 @@ class VoteLogs extends Model
      */
     protected $fillable = ['user_id', 'ip_address', 'reward', 'site_id'];
 
-    public function scopeRecent($query, Request $request, Vote $vote)
+    public function scopeRecent($query, Request $request, VoteSite $site)
     {
         return $query
-            ->where('site_id', $vote->id)
+            ->where('site_id', $site->id)
             ->where('user_id', Auth::user()->ID)
             ->where('ip_address', $request->ip())
-            ->where('created_at', '>=', Carbon::now()->subHours($vote->hour_limit));
+            ->where('created_at', '>=', Carbon::now()->subHours($site->hour_limit));
     }
 
     public function scopeOnCooldown($query, Request $request, $id)

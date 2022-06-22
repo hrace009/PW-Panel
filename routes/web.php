@@ -138,14 +138,19 @@ Route::group(['prefix' => 'dashboard', 'middleware' => ['web', 'auth:sanctum', '
             'uses' => 'App\Http\Controllers\Front\VoteController@getIndex'
         ]);
 
-        Route::post('check/{vote}', [
+        Route::post('check/{site}', [
             'as' => 'app.vote.check',
             'uses' => 'App\Http\Controllers\Front\VoteController@postCheck'
         ]);
 
-        Route::get('success/{vote}', [
+        Route::get('success/{site}', [
             'as' => 'app.vote.success',
             'uses' => 'App\Http\Controllers\Front\VoteController@getSuccess'
+        ]);
+
+        Route::post('submit/{site}', [
+            'as' => 'app.vote.submit',
+            'uses' => 'App\Http\Controllers\Front\VoteController@postSubmit'
         ]);
     });
 });
@@ -294,7 +299,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['web', 'auth', 'verified', '
 
     Route::resource('voucher', VoucherController::class)->middleware('voucher');
 
-    Route::resource('vote', VoteController::class)->middleware('vote');
+    Route::resource('vote', VoteController::class)->parameter('vote', 'site')->middleware('vote');
 
     Route::group(['prefix' => 'service', 'middleware' => 'service'], static function () {
         Route::get('settings', [

@@ -1,21 +1,15 @@
 <?php
-/*
- * @author Harris Marfel <hrace009@gmail.com>
- * @link https://www.hrace009.com
- * @copyright Copyright (c) 2022.
- */
 
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreVoteRequest;
-use App\Http\Requests\UpdateVoteRequest;
 use App\Http\Requests\VoteRequest;
-use App\Models\Vote;
+use App\Models\VoteSite;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
 use Illuminate\Routing\Redirector;
 
 class VoteController extends Controller
@@ -27,7 +21,7 @@ class VoteController extends Controller
      */
     public function index()
     {
-        $sites = Vote::paginate();
+        $sites = VoteSite::paginate();
         return view('admin.vote.index', [
             'sites' => $sites
         ]);
@@ -51,17 +45,17 @@ class VoteController extends Controller
      */
     public function store(VoteRequest $request)
     {
-        Vote::create($request->all());
+        VoteSite::create($request->all());
         return redirect(route('vote.index'))->with('success', __('vote.add_success'));
     }
 
     /**
      * Display the specified resource.
      *
-     * @param Vote $vote
-     * @return \Illuminate\Http\Response
+     * @param VoteSite $site
+     * @return void
      */
-    public function show(Vote $vote)
+    public function show(VoteSite $site)
     {
         //
     }
@@ -69,38 +63,38 @@ class VoteController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param Vote $vote
+     * @param VoteSite $site
      * @return Application|Factory|View
      */
-    public function edit(Vote $vote)
+    public function edit(VoteSite $site)
     {
         return view('admin.vote.edit', [
-            'vote' => $vote
+            'site' => $site
         ]);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param VoteRequest $request
-     * @param Vote $vote
+     * @param Request $request
+     * @param VoteSite $site
      * @return Application|Redirector|RedirectResponse
      */
-    public function update(VoteRequest $request, Vote $vote)
+    public function update(Request $request, VoteSite $site)
     {
-        $vote->update($request->all());
+        $site->update($request->all());
         return redirect(route('vote.index'))->with('success', __('vote.edit.modify_success'));
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param Vote $vote
+     * @param VoteSite $site
      * @return Application|Redirector|RedirectResponse
      */
-    public function destroy(Vote $vote)
+    public function destroy(VoteSite $site)
     {
-        $vote->delete();
+        $site->delete();
         return redirect(route('vote.index'))->with('success', __('vote.destroy_success'));
     }
 }

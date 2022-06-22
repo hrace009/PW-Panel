@@ -7,7 +7,7 @@ return [
     'add_success' => 'Vote site has been created.',
     'destroy_success' => 'Vote site has been deleted!',
     'no_sites' => 'There aren\'t any sites to vote for, please contact an administrator.',
-    'already_voted' => 'Sorry, but you\'ve already voted for this site.',
+    'already_voted' => 'Sorry, but you\'ve already voted for :site.',
     'cooldown' => 'You can vote again in...',
     'cooldown_done' => 'You can vote again!',
     'index' => [

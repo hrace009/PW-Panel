@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
 use App\Models\Transfer;
-use App\Models\Vote;
-use App\Models\VoteLogs;
+use App\Models\VoteLog;
+use App\Models\VoteSite;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -15,63 +15,69 @@ class VoteController extends Controller
     public function getIndex(Request $request)
     {
         $vote_info = [];
-        $votes = Vote::all();
+        $sites = VoteSite::all();
 
-        foreach ($votes as $vote) {
-            $log = VoteLogs::onCooldown($request, $vote->id);
+        foreach ($sites as $site) {
+            $log = VoteLog::onCooldown($request, $site->id);
 
             if ($log->exists()) {
                 $log = $log->first();
-                if (time() < ($log->created_at->getTimestamp() + (3600 * $vote->hour_limit))) {
-                    $vote_info[$vote->id]['end_time'] = $log->created_at->addHours($vote->hour_limit)->getTimestamp() - Carbon::now()->getTimestamp();
-                    $vote_info[$vote->id]['status'] = FALSE;
+                if (time() < ($log->created_at->getTimestamp() + (3600 * $site->hour_limit))) {
+                    $vote_info[$site->id]['end_time'] = $log->created_at->addHours($site->hour_limit)->getTimestamp() - Carbon::now()->getTimestamp();
+                    $vote_info[$site->id]['status'] = FALSE;
                 } else {
-                    $vote_info[$vote->id]['status'] = TRUE;
+                    $vote_info[$site->id]['status'] = TRUE;
                 }
             } else {
-                $vote_info[$vote->id]['status'] = TRUE;
+                $vote_info[$site->id]['status'] = TRUE;
             }
         }
 
         return view('front.vote.index', [
-            'votes' => $votes,
+            'sites' => $sites,
             'vote_info' => $vote_info
         ]);
     }
 
-    public function getSuccess(Vote $vote)
+    public function getSuccess(VoteSite $site)
     {
         return view('front.vote.success', [
-            'vote' => $vote,
+            'site' => $site,
         ]);
     }
 
-    public function postCheck(Request $request, Vote $vote)
+    public function postCheck(Request $request, VoteSite $site)
     {
-        if (!VoteLogs::recent($request, $vote)->exists()) {
-            switch ($vote->type) {
+        return redirect()->route('app.vote.success', $site->id);
+    }
+
+    public function postSubmit(Request $request, VoteSite $site)
+    {
+        if (!VoteLog::recent($request, $site)->exists()) {
+            switch ($site->type) {
                 case 'virtual':
                     $user = Auth::user();
-                    $user->money = $vote->reward_amount + $user->money;
+                    $user->money = $site->reward_amount + $user->money;
                     $user->save();
                     break;
+
                 case 'cubi':
                     Transfer::create([
                         'user_id' => Auth::user()->ID,
                         'zone_id' => 1,
-                        'cash' => $vote->reward_amount
+                        'cash' => $site->reward_amount
                     ]);
                     break;
             }
-            VoteLogs::create([
+            VoteLog::create([
                 'user_id' => Auth::user()->ID,
                 'ip_address' => $request->ip(),
-                'reward' => $vote->reward_amount,
-                'site_id' => $vote->id
+                'reward' => $site->reward_amount,
+                'site_id' => $site->id
             ]);
-            return redirect()->route('app.vote.success', $vote->id);
+            return redirect()->to($site->link);
         } else {
-            return redirect()->back()->with('error', __('vote.already_voted'));
+            return redirect()->route('app.vote.index')->with('error', __('vote.already_voted', ['site' => $site->name]));
         }
     }
 }

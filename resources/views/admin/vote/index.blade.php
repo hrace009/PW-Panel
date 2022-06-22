@@ -36,7 +36,7 @@
                         >
                             <div class="p-3">
                                 <div class="grid grid-cols-2 gap-4">
-                                    <div>{{ __('vote.create.link') }}: {{ $site->link }}</div>
+                                    <div>{{ __('vote.create.link') }}: {!! $site->link !!}</div>
                                     <div>{{ __('vote.create.type') }}
                                         : {{ $site->type === 'virtual' ? __('vote.create.type_virtual', ['currency' => config('pw-config.currency_name')]) : __('vote.create.type_cubi') }}</div>
                                     <div>{{ __('vote.create.reward_amount') }}
