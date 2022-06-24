@@ -299,6 +299,18 @@ Route::group(['prefix' => 'admin', 'middleware' => ['web', 'auth', 'verified', '
 
     Route::resource('voucher', VoucherController::class)->middleware('voucher');
 
+    Route::group(['prefix' => 'vote', 'middleware' => 'vote'], static function () {
+        Route::get('arena', [
+            'as' => 'admin.vote.arena',
+            'uses' => 'App\Http\Controllers\Admin\VoteController@getArena'
+        ]);
+
+        Route::post('submitArena', [
+            'as' => 'admin.vote.arena.submit',
+            'uses' => 'App\Http\Controllers\Admin\VoteController@postArena',
+        ]);
+    });
+
     Route::resource('vote', VoteController::class)->parameter('vote', 'site')->middleware('vote');
 
     Route::group(['prefix' => 'service', 'middleware' => 'service'], static function () {

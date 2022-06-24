@@ -76,4 +76,12 @@ return [
             'minimum' => '1'
         ]
     ],
+    'vote' => [
+        'arena' => [
+            'status' => true,
+            'arena_username' => 'hrace009',
+            'type' => 'virtual',
+            'reward_amount' => '100'
+        ],
+    ],
 ];

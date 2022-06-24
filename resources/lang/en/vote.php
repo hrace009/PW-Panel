@@ -10,6 +10,9 @@ return [
     'already_voted' => 'Sorry, but you\'ve already voted for :site.',
     'cooldown' => 'You can vote again in...',
     'cooldown_done' => 'You can vote again!',
+    'on' => 'On',
+    'off' => 'Off',
+    'status' => 'Status',
     'index' => [
         'sidemenu' => 'Vote Sites',
         'header' => 'Viewing Vote Sites',
@@ -50,6 +53,13 @@ return [
         'continue' => 'Click below to continue!',
         'notice' => 'Enter the code on the next page accurately or you will <b>NOT</b> get your reward!',
         'button' => 'Continue'
+    ],
+    'arena' => [
+        'title' => 'Arena Top 100',
+        'header' => 'Arena Top 100 Configuration',
+        'status_desc' => 'Move switch to the right for activating Arena Top 100',
+        'arena_username' => 'User Name',
+        'arena_username_desc' => 'Enter your Arena Top 100 User Name.'
     ],
 ];
 
