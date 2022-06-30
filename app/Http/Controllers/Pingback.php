@@ -9,6 +9,24 @@ use Paymentwall_Pingback;
 
 class Pingback extends Controller
 {
+    public function updateMoney($ID, $amount): void
+    {
+        $user = User::whereId($ID)->firstOrFail();
+        $user->update([
+            'money' => $user->money += $amount
+        ]);
+    }
+
+    public function createLog($id, $amount, $refid, $type): void
+    {
+        Paymentwall::create([
+            'userID' => $id,
+            'amount' => $amount,
+            'refid' => $refid,
+            'type' => $type
+        ]);
+    }
+
     public function paymentwall()
     {
         Paymentwall_Config::getInstance()->set([
@@ -44,23 +62,5 @@ class Pingback extends Controller
         } else {
             return $pingback->getErrorSummary();
         }
-    }
-
-    public function updateMoney($ID, $amount): void
-    {
-        $user = User::whereId($ID)->firstOrFail();
-        $user->update([
-            'money' => $user->money += $amount
-        ]);
-    }
-
-    public function createLog($id, $amount, $refid, $type): void
-    {
-        Paymentwall::create([
-            'userID' => $id,
-            'amount' => $amount,
-            'refid' => $refid,
-            'type' => $type
-        ]);
     }
 }

@@ -58,12 +58,5 @@
         >
             {{ __('vote.index.sidemenu') }}
         </a>
-        <a
-            href="{{ route('admin.vote.arena') }}"
-            role="menuitem"
-            class="block p-2 text-sm text-gray-{{ $textArena }} transition-colors duration-200 rounded-md dark:{{ $lightArena }} dark:hover:text-light hover:text-gray-700"
-        >
-            {{ __('vote.arena.title') }}
-        </a>
     </div>
 </div>

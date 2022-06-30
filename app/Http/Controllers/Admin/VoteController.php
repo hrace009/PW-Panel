@@ -11,7 +11,6 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Redirector;
-use Illuminate\Support\Facades\Config;
 
 class VoteController extends Controller
 {
@@ -97,33 +96,5 @@ class VoteController extends Controller
     {
         $site->delete();
         return redirect(route('vote.index'))->with('success', __('vote.destroy_success'));
-    }
-
-    public function getArena()
-    {
-        return view('admin.vote.arena');
-    }
-
-    public function postArena(Request $request)
-    {
-        if ($request->has('status')) {
-            Config::write('pw-config.vote.arena.status', true);
-        } else {
-            Config::write('pw-config.vote.arena.status', false);
-        }
-        $configs = $request->validate([
-            'arena_username' => 'alpha_num',
-            'type' => 'string',
-            'reward_amount' => 'numeric|required'
-        ]);
-        foreach ($configs as $config => $value) {
-            if (!$value) {
-                Config::write('pw-config.vote.arena.' . $config, '');
-            } else {
-                Config::write('pw-config.vote.arena.' . $config, $value);
-            }
-        }
-
-        return redirect()->back()->with('success', __('admin.configSaved'));
     }
 }

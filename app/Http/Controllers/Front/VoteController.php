@@ -46,7 +46,7 @@ class VoteController extends Controller
         ]);
     }
 
-    public function postCheck(Request $request, VoteSite $site)
+    public function postCheck(VoteSite $site)
     {
         return redirect()->route('app.vote.success', $site->id);
     }
