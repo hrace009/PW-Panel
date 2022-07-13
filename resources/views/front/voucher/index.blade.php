@@ -65,6 +65,11 @@
                             </tbody>
                         </table>
                     </div>
+                    <div class="mt-2 ml-2 mr-2 items-center justify-between">
+                        @if( $voucher_logs->items() ?? '' )
+                            {{ $voucher_logs->links() }}
+                        @endif
+                    </div>
                 </div>
             </div>
         @endif
