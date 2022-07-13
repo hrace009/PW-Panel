@@ -29,14 +29,44 @@
                 </form>
             </div>
         </div>
-        {{ dd($voucher_logs) }}
-        <div class="dark:bg-darker shadow-lg hover:shadow-xl rounded-lg mb-6 border dark:border-primary-light">
-            <div class="p-2 dark:text-primary-light border-b dark:border-primary-light">
-                <h2 class="text-2xl font-semibold">{{ __('voucher.redem') }}</h2>
+        @if ( count($voucher_logs->items()) > 0 )
+            <div class="dark:bg-darker shadow-lg hover:shadow-xl rounded-lg mb-6 border dark:border-primary-light">
+                <div class="p-2 dark:text-primary-light border-b dark:border-primary-light">
+                    <h2 class="text-2xl font-semibold">{{ __('voucher.redem') }}</h2>
+                </div>
+                <div class="p-2 mt-2">
+                    <div class="shadow overflow-hidden border dark:border-primary-darker sm:rounded-lg">
+                        <table class="min-w-full text-xs font-medium">
+                            <thead
+                                class="dark:bg-darker dark:text-light border-b dark:border-primary-darker uppercase">
+                            <tr>
+                                <th scope="col"
+                                    class="px-2 py-3 tracking-wider border-r dark:border-primary-darker text-center">{{ __('voucher.code') }}</th>
+                                <th scope="col"
+                                    class="px-2 py-3 tracking-wider border-r dark:border-primary-darker text-center">{{ __('voucher.amount', ['currency' => config('pw-config.currency_name')]) }}</th>
+                                <th scope="col"
+                                    class="px-2 py-3 tracking-wider text-center">{{ __('voucher.redemed') }}</th>
+                            </tr>
+                            </thead>
+                            <tbody class="bg-transparent">
+                            @foreach( $voucher_logs as $log )
+                                <tr>
+                                    <td class="px-2 py-3 whitespace-nowrap dark:border-primary-darker text-center border-r">
+                                        {{ $log->voucher->code }}
+                                    </td>
+                                    <td class="px-2 py-3 whitespace-nowrap dark:border-primary-darker text-center border-r">
+                                        {{ $log->voucher->amount  }}
+                                    </td>
+                                    <td class="px-2 py-3 whitespace-nowrap text-center">
+                                        {{ $log->created_at->format('F j, Y @h:m A') }}
+                                    </td>
+                                </tr>
+                            @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
-            <div class="p-2 mt-2">
-                Logs Here
-            </div>
-        </div>
+        @endif
     </x-slot>
 </x-hrace009.layouts.app>

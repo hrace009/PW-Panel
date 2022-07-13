@@ -13,7 +13,7 @@ class VoucherController extends Controller
 
     public function getIndex()
     {
-        $voucher_logs = Auth::user()->voucher_logs();
+        $voucher_logs = Auth::user()->voucher_logs()->paginate(15);
         return view('front.voucher.index', [
             'voucher_logs' => $voucher_logs,
         ]);

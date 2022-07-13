@@ -14,6 +14,7 @@ return [
     'code' => 'Voucher Code',
     'code_desc' => 'Random generate Alphanumeric will automaticaly load, write it, and give to your desire player.',
     'amount' => 'Amount :currency',
+    'count' => 'Count',
     'amount_desc' => 'Amount :currency to give.',
     'times_redeemed' => 'Times Redeemed',
     'action' => 'Action',
@@ -30,5 +31,6 @@ return [
     'enter_code' => 'Enter voucher code!',
     'successfully_redeemed' => 'You\'ve successfully redeemed the voucher.',
     'already_redeemed' => 'Sorry, but you\'ve already redeemed this voucher.',
-    'code_not_found' => 'Sorry, the request code is not available.'
+    'code_not_found' => 'Sorry, the request code is not available.',
+    'redemed' => 'Redeemed On'
 ];
