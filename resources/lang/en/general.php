@@ -38,7 +38,14 @@ return [
     'menu' => [
         'dashboard' => 'Dashboard',
         'shop' => 'Shop',
-        'vote' => 'Vote'
+        'donate' => [
+            'bank' => 'Manual Bank Transfer',
+            'history' => 'Transaction History',
+            'paymentwall' => 'Paymentwall',
+            'paypal' => 'Paypal'
+        ],
+        'vote' => 'Vote',
+        'voucher' => 'Voucher'
     ],
     'saved' => 'Saved.',
     'Save' => 'Save',

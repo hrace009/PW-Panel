@@ -25,5 +25,10 @@ return [
     'destroy_success' => 'Voucher has been delete!',
     'update_success' => 'Voucher has been update!',
     'update' => 'Update',
-    'update_desc' => 'Update and modify your change!'
+    'update_desc' => 'Update and modify your change!',
+    'redem' => 'Redeem Code',
+    'enter_code' => 'Enter voucher code!',
+    'successfully_redeemed' => 'You\'ve successfully redeemed the voucher.',
+    'already_redeemed' => 'Sorry, but you\'ve already redeemed this voucher.',
+    'code_not_found' => 'Sorry, the request code is not available.'
 ];

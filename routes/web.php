@@ -155,6 +155,21 @@ Route::group(['prefix' => 'dashboard', 'middleware' => ['web', 'auth:sanctum', '
             'uses' => 'App\Http\Controllers\Front\VoteController@postSubmit'
         ]);
     });
+
+    /***
+     * Voucher
+     */
+    Route::group(['prefix' => 'voucher', 'middleware' => 'voucher'], static function () {
+        Route::get('/', [
+            'as' => 'app.voucher.index',
+            'uses' => 'App\Http\Controllers\Front\VoucherController@getIndex'
+        ]);
+
+        Route::post('redem', [
+            'as' => 'app.voucher.postRedem',
+            'uses' => 'App\Http\Controllers\Front\VoucherController@postRedem'
+        ]);
+    });
 });
 
 /* Character Route */

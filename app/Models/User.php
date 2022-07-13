@@ -11,6 +11,7 @@ namespace App\Models;
 
 use hrace009\PerfectWorldAPI\API;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\DB;
@@ -99,6 +100,9 @@ class User extends Authenticatable
         'profile_photo_url',
     ];
 
+    /**
+     * @var array|string[]
+     */
     protected array $searchable = [
         'name',
         'email',
@@ -200,5 +204,10 @@ class User extends Authenticatable
     public function isAdministrator(): bool
     {
         return $this->role === 'Administrator';
+    }
+
+    public function voucher_logs(): HasMany
+    {
+        return $this->hasMany('App\Models\VoucherLog');
     }
 }
