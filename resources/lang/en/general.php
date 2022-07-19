@@ -45,7 +45,8 @@ return [
             'paypal' => 'Paypal'
         ],
         'vote' => 'Vote',
-        'voucher' => 'Voucher'
+        'voucher' => 'Voucher',
+        'services' => 'Ingame Services'
     ],
     'saved' => 'Saved.',
     'Save' => 'Save',
@@ -64,5 +65,7 @@ return [
         'job' => '* * * * * php ' . base_path('artisan') . ' schedule:run >> /dev/null 2>&1'
     ],
     'not_enough' => 'You don\'t have enough :currency.',
-    'restricted' => 'Restricted area!'
+    'not_enough_gold' => 'You don\'t have enough gold.',
+    'restricted' => 'Restricted area!',
+    'buy' => 'Buy'
 ];

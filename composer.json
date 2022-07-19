@@ -10,6 +10,7 @@
     "require": {
         "php": "^7.3|^8.0",
         "ext-gd": "*",
+        "ext-http": "*",
         "andcarpi/laravel-popper": "^0.9.4",
         "bonecms/laravel-captcha": "^2.2",
         "fruitcake/laravel-cors": "^2.0",

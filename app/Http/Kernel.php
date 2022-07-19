@@ -25,6 +25,7 @@ use App\Http\Middleware\RankingActive;
 use App\Http\Middleware\RedirectIfAuthenticated;
 use App\Http\Middleware\SelectedCharacter;
 use App\Http\Middleware\ServerOnline;
+use App\Http\Middleware\ServiceEnabled;
 use App\Http\Middleware\SetLanguage;
 use App\Http\Middleware\ShopActive;
 use App\Http\Middleware\TrimStrings;
@@ -126,6 +127,7 @@ class Kernel extends HttpKernel
         'bank.active.form' => BankTransferActive::class,
         'paymentwall.active' => PaymentwallActive::class,
         'paymentwall.pingback' => PaymentwallPingback::class,
-        'paypal.active' => PaypalActive::class
+        'paypal.active' => PaypalActive::class,
+        'service.enable' => ServiceEnabled::class,
     ];
 }

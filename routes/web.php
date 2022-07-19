@@ -170,6 +170,21 @@ Route::group(['prefix' => 'dashboard', 'middleware' => ['web', 'auth:sanctum', '
             'uses' => 'App\Http\Controllers\Front\VoucherController@postRedem'
         ]);
     });
+
+    /***
+     * Services
+     */
+    Route::group(['prefix' => 'services', 'middleware' => 'service'], static function () {
+        Route::get('/', [
+            'as' => 'app.services.index',
+            'uses' => 'App\Http\Controllers\Front\ServiceController@getIndex'
+        ]);
+
+        Route::post('{service}', [
+            'as' => 'app.services.post',
+            'uses' => 'App\Http\Controllers\Front\ServiceController@postPurchase'
+        ]);
+    });
 });
 
 /* Character Route */
