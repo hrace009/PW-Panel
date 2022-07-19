@@ -16,7 +16,7 @@ class UpdateFactionCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'pw:updateFaction';
+    protected $signature = 'pw:update-faction';
 
     /**
      * The console command description.

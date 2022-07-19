@@ -14,7 +14,7 @@ class UpdatePlayersCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'pw:updatePlayers';
+    protected $signature = 'pw:update-players';
 
     /**
      * The console command description.

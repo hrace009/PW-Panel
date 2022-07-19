@@ -13,7 +13,7 @@ class UpdateTerritoriesCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'pw:updateTerritories';
+    protected $signature = 'pw:update-territories';
 
     /**
      * The console command description.
