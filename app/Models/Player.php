@@ -41,4 +41,9 @@ class Player extends Model
     {
         return $this->find($id);
     }
+
+    public function getSpouse($id)
+    {
+        return $this->find($id);
+    }
 }

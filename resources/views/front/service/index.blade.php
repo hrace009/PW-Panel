@@ -8,7 +8,7 @@
 
     <x-slot name="content">
         <x-hrace009::validation-errors/>
-        <div class="grid gap-4 p-2 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2">
+        <div class="grid gap-4 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2">
             @foreach( $services as $service )
                 @if ( $service->enabled )
                     <form action="{{ route('app.services.post', $service->key ) }}" method="post">

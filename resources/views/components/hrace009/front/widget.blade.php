@@ -1,5 +1,5 @@
 <!-- GM's Widget -->
-<div class="py-4 w-64">
+<div class="w-64">
     <div class="flex-col bg-white rounded-md dark:bg-darker border dark:border-primary">
         <div class="p-2 border-b dark:border-primary">
             <h1

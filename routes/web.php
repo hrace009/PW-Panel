@@ -185,6 +185,26 @@ Route::group(['prefix' => 'dashboard', 'middleware' => ['web', 'auth:sanctum', '
             'uses' => 'App\Http\Controllers\Front\ServiceController@postPurchase'
         ]);
     });
+
+    /***
+     * Ranking
+     */
+    Route::group(['prefix' => 'ranking', 'middleware' => 'ranking'], static function () {
+        Route::get('/', [
+            'as' => 'app.ranking.index',
+            'uses' => 'App\Http\Controllers\Front\RankingController@getIndex'
+        ]);
+
+        Route::get('player/{sub}', [
+            'as' => 'app.ranking.player',
+            'uses' => 'App\Http\Controllers\Front\RankingController@getPlayers'
+        ]);
+
+        Route::get('faction/{sub}', [
+            'as' => 'app.ranking.faction',
+            'uses' => 'App\Http\Controllers\Front\RankingController@getFactions'
+        ]);
+    });
 });
 
 /* Character Route */
@@ -371,16 +391,19 @@ Route::group(['prefix' => 'admin', 'middleware' => ['web', 'auth', 'verified', '
 
         Route::get('updatePlayers', [
             'as' => 'admin.ranking.updatePlayers',
+            'middleware' => 'server.online',
             'uses' => 'App\Http\Controllers\Admin\RankingController@updatePlayer'
         ]);
 
         Route::get('updateFaction', [
             'as' => 'admin.ranking.updateFaction',
+            'middleware' => 'server.online',
             'uses' => 'App\Http\Controllers\Admin\RankingController@updateFaction'
         ]);
 
         Route::get('updateTerritories', [
             'as' => 'admin.ranking.updateTerritories',
+            'middleware' => 'server.online',
             'uses' => 'App\Http\Controllers\Admin\RankingController@updateTerritories'
         ]);
     });

@@ -9,14 +9,14 @@
     <x-slot name="content">
         @if( count( $sites ) === 0 )
             <div
-                class="flex flex-row z-0 p-4 my-4  w-full bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded"
+                class="flex flex-row z-0 p-4 w-full bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded"
                 role="alert"
             >
                 <span class="block sm:inline">{!! __('vote.no_sites') !!}</span>
             </div>
         @else
             @foreach( $sites as $site )
-                <div class="my-4">
+                <div>
                     <div
                         class="flex flex-row justify-between py-2 px-4 w-full bg-gray-200 border-gray-400 dark:bg-darker dark:border-primary border rounded rounded-b-none">
                         <span class="dark:text-primary-light">{{ $site->name }}</span>

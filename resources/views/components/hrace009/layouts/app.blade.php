@@ -45,6 +45,10 @@
             @if ( config('pw-config.system.apps.inGameService') )
                 <x-hrace009::front.services-link/>
             @endif
+
+            @if( config('pw-config.system.apps.ranking') )
+                <x-hrace009::front.ranking-link/>
+            @endif
         </x-slot>
         <x-slot name="footer">
             <x-hrace009::side-bar-footer/>
@@ -103,6 +107,10 @@
 
                         @if ( config('pw-config.system.apps.inGameService') )
                             <x-hrace009::front.services-link/>
+                        @endif
+
+                        @if( config('pw-config.system.apps.ranking') )
+                            <x-hrace009::front.ranking-link/>
                         @endif
                     </x-slot>
                 </x-hrace009.mobile-main-menu>

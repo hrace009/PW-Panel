@@ -7,7 +7,7 @@
     </x-slot>
 
     <x-slot name="content">
-        <div class="mx-auto mt-4 rounded max-w-3xl xl:-mx-4">
+        <div class="mx-auto rounded max-w-3xl xl:-mx-4">
             <!-- Tabs -->
             <ul id="tabs"
                 class="flex inline-flex w-full list-none px-1 pt-2 bg-transparent border rounded-t dark:border-primary-darker">

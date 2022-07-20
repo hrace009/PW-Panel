@@ -46,7 +46,12 @@ return [
         ],
         'vote' => 'Vote',
         'voucher' => 'Voucher',
-        'services' => 'Ingame Services'
+        'services' => 'Ingame Services',
+        'ranking' => [
+            'title' => 'Ranking',
+            'players' => 'Players Rank',
+            'faction' => 'Faction Rank'
+        ]
     ],
     'saved' => 'Saved.',
     'Save' => 'Save',

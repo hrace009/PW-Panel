@@ -26,5 +26,35 @@ return [
         'failed' => 'Server offline, please try again later',
     ],
     'process' => 'Process!',
-    'process_desc' => 'Execute the request!'
+    'process_desc' => 'Execute the request!',
+    'name' => 'Name',
+    'class' => 'Class',
+    'guild' => 'Guild',
+    'members' => 'Members',
+    'leader' => 'Leader',
+    'player' => 'Player',
+    'factions' => 'Faction',
+    'type' => [
+        'level' => 'Level',
+        'rep' => 'Reputation',
+        'time' => 'Time Online',
+        'pvp' => 'PvP Kills',
+        'members' => 'Members',
+        'territories' => 'Territories'
+    ],
+    'time' => [
+        'days' => 'Days',
+        'day' => 'Day',
+        'hours' => 'Hours',
+        'hour' => 'Hour'
+    ],
+    'gender' => [
+        'caption' => 'Gender',
+        '0' => 'Male',
+        '1' => 'Female'
+    ],
+    'spouse' => [
+        'caption' => 'Spouse',
+        '4everalone' => '4 Ever Alone',
+    ],
 ];
