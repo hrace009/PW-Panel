@@ -40,7 +40,8 @@ return [
         'time' => 'Time Online',
         'pvp' => 'PvP Kills',
         'members' => 'Members',
-        'territories' => 'Territories'
+        'territories' => 'Territories',
+        'pariah_time' => 'Wanted Time'
     ],
     'time' => [
         'days' => 'Days',

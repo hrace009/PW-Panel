@@ -7,7 +7,7 @@
     </x-slot>
 
     <x-slot name="content">
-        <div class="mx-auto rounded max-w-3xl xl:-mx-4">
+        <div class="mx-auto rounded max-w-3xl xl:-mx-4 px-4">
             <div class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start mb-4">
                 <div class="hidden sm:block bg-gray-200 dark:bg-darker p-2 rounded">
                     <div class="flex space-x-4">
@@ -69,10 +69,10 @@
                             <td class="py-3 px-6 text-left">
                                 <div class="flex items-center">
                                     @if( $rank->spouse )
-                                        @if( !$players->getSpouse($rank->spouse) )
+                                        @if( !$players->getPlayer($rank->spouse) )
                                             {{ __('ranking.spouse.4everalone') }}
                                         @else
-                                            {{ $players->getSpouse($rank->spouse)->name }}
+                                            {{ $players->getPlayer($rank->spouse)->name }}
                                         @endif
                                     @else
                                         {{ __('ranking.spouse.4everalone') }}
@@ -89,6 +89,8 @@
                                         {{ $timeMaker->makeTime($rank->time_used) }}
                                     @elseif ( Request::is( '*/pvp' ) )
                                         {{ $rank->pk_count }}
+                                    @elseif ( Request::is( '*/pariah_time' ) )
+                                        {{ $timeMaker->makeTime($rank->pariah_time) }}
                                     @endif
                                 </div>
                             </td>
