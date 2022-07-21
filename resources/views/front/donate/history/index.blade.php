@@ -145,7 +145,50 @@
                     @endif
                 </div>
                 <div id="store" class="hidden p-4 mx-auto">
-                    store tab
+                    @if( $shoplogs->items() )
+                        <div
+                            class="bg-white dark:bg-primary shadow-md rounded border border-gray-300 dark:border-primary-light justify-items-center">
+                            <table class="w-full table-auto">
+                                <thead>
+                                <tr class="bg-gray-200 dark:bg-primary dark:text-light text-gray-600 uppercase text-xs leading-normal">
+                                    <th class="py-3 px-6 text-left">{{ __('donate.history.table.shop.id') }}</th>
+                                    <th class="py-3 px-6 text-left">{{ __('donate.history.table.shop.item_name') }}</th>
+                                    <th class="py-3 px-6 text-left">{{ __('donate.history.table.shop.price') }}</th>
+                                    <th class="py-3 px-6 text-left">{{ __('donate.history.table.shop.date') }}</th>
+                                </tr>
+                                </thead>
+                                <tbody class="text-gray-600 text-xs dark:text-light">
+                                @foreach( $shoplogs->sortByDesc('created_at') as $shoplog )
+                                    <tr class="border-b border-gray-200 bg-gray-50 hover:bg-gray-100 dark:border-primary dark:bg-darker dark:hover:bg-primary-dark">
+                                        <td class="py-3 px-6 text-left">
+                                            <div class="flex items-center">
+                                                {{ $shoplog->id }}
+                                            </div>
+                                        </td>
+                                        <td class="py-3 px-6 text-left">
+                                            <div class="flex items-center">
+                                                {{ '[' .$shoplog->item_id . '] ' . $shoplog->item_name }}
+                                            </div>
+                                        </td>
+                                        <td class="py-3 px-6 text-left">
+                                            <div class="flex items-center">
+                                                {{ $shoplog->price }}
+                                            </div>
+                                        </td>
+                                        <td class="py-3 px-6 text-left">
+                                            <div class="flex items-center">
+                                                {{ date_format($shoplog->created_at, 'F j, Y')  }}
+                                            </div>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                                </tbody>
+                            </table>
+                            {{ $shoplogs->render() }}
+                        </div>
+                    @else
+                        {{ __('donate.empty') }}
+                    @endif
                 </div>
                 <div id="bank" class="hidden p-4 mx-auto">
                     @if( $banks->items() )

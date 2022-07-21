@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
 use App\Models\Shop;
+use App\Models\ShopLog;
 use hrace009\PerfectWorldAPI\API;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -68,6 +69,14 @@ class ShopController extends Controller
             $api->sendMail(Auth::user()->characterId(), $mail['title'], $mail['message'], $mail['item'], $mail['money']);
             $user->money -= $item_price;
             $user->save();
+
+            ShopLog::create([
+                'userid' => $user->ID,
+                'item_name' => $item->name,
+                'item_id' => $item->item_id,
+                'price' => $item->price
+            ]);
+
             $status = 'success';
             $message = __('shop.purchase_complete', ['name' => $item->name]);
         } else {

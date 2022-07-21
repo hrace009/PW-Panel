@@ -179,6 +179,12 @@ return [
                 'curr_type' => 'Currency Type',
                 'price' => 'Amount',
                 'date' => 'Date'
+            ],
+            'shop' => [
+                'id' => 'Tr ID',
+                'item_name' => 'Item Name',
+                'price' => 'Amount',
+                'date' => 'Date'
             ]
         ],
         'success' => 'Your change has been saved!',
