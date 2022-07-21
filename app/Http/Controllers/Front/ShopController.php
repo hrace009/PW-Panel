@@ -70,7 +70,7 @@ class ShopController extends Controller
             $user->money -= $item_price;
             $user->save();
 
-            $item->times_bought = +1;
+            $item->times_bought += 1;
             $item->save();
 
             ShopLog::create([
