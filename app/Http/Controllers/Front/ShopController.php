@@ -123,6 +123,17 @@ class ShopController extends Controller
                 if ($api->sendMail($friend, $mail['title'], $mail['message'], $mail['item'], $mail['money'])) {
                     $user->money -= $item_price;
                     $user->save();
+
+                    $item->times_bought += 1;
+                    $item->save();
+
+                    ShopLog::create([
+                        'userid' => $user->ID,
+                        'item_name' => $item->name,
+                        'item_id' => $item->item_id,
+                        'price' => $item->price
+                    ]);
+
                     $status = 'success';
                     $message = __('shop.gift_complete', ['name' => $item->name, 'count' => count($request->friends)]);
                 } else {
