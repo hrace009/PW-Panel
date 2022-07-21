@@ -46,6 +46,13 @@
         >
             {{ __('general.dashboard.profile.header') }}
         </a>
+        <a
+            href="{{ route('app.donate.history') }}"
+            role="menuitem"
+            class="block px-4 py-2 text-sm text-gray-700 transition-colors hover:bg-gray-100 dark:text-light dark:hover:bg-primary"
+        >
+            {{ __('general.menu.donate.history') }}
+        </a>
         @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
             <a
                 href="{{ route('api-tokens.index') }}"

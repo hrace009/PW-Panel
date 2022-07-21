@@ -18,6 +18,9 @@
         <x-hrace009::drop-down-link href="{{ route('profile.show') }}">
             {{ __('general.dashboard.profile.header') }}
         </x-hrace009::drop-down-link>
+        <x-hrace009::drop-down-link href="{{ route('app.donate.history') }}">
+            {{ __('general.menu.donate.history') }}
+        </x-hrace009::drop-down-link>
         @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
             <x-hrace009::drop-down-link href="{{ route('api-tokens.index') }}">
                 {{ __('API Tokens') }}
