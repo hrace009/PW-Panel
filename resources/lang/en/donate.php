@@ -172,6 +172,13 @@ return [
                     'cs' => 'CS',
                     'failed' => 'Failed'
                 ]
+            ],
+            'service' => [
+                'id' => 'Tr ID',
+                'services' => 'Services',
+                'curr_type' => 'Currency Type',
+                'price' => 'Amount',
+                'date' => 'Date'
             ]
         ],
         'success' => 'Your change has been saved!',
@@ -210,5 +217,7 @@ return [
         'THB' => "Thai Baht",
         'TRY' => "Turkish Lira",
         'USD' => "U.S. Dollar",
-    ]
+    ],
+    'free' => 'Free',
+    'empty' => 'You not made any transaction yet!'
 ];

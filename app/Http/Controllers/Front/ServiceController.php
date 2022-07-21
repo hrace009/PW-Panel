@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
 use App\Models\Service;
+use App\Models\ServiceLog;
 use App\Models\Transfer;
 use hrace009\PerfectWorldAPI\API;
 use Illuminate\Http\Request;
@@ -51,6 +52,12 @@ class ServiceController extends Controller
                     $user->money = $user->money - $service->price;
                     $user->save();
 
+                    ServiceLog::create([
+                        'userid' => $user->ID,
+                        'key' => $service->key,
+                        'currency_type' => $service->currency_type,
+                        'price' => $service->price
+                    ]);
 
                     $type = 'success';
                     $note = __('service.ingame.' . $service->key . '.complete');
@@ -98,6 +105,13 @@ class ServiceController extends Controller
                 $user->money = $user->money - ($request->quantity * $service->price);
                 $user->save();
 
+                ServiceLog::create([
+                    'userid' => $user->ID,
+                    'key' => $service->key,
+                    'currency_type' => $service->currency_type,
+                    'price' => ($request->quantity * $service->price)
+                ]);
+
                 Transfer::create([
                     'user_id' => $user->ID,
                     'zone_id' => 1,
@@ -132,6 +146,13 @@ class ServiceController extends Controller
                         if ($api->putRole($role, $role_data)) {
                             $user->money = $user->money - $service->price;
                             $user->save();
+
+                            ServiceLog::create([
+                                'userid' => $user->ID,
+                                'key' => $service->key,
+                                'currency_type' => $service->currency_type,
+                                'price' => $service->price
+                            ]);
 
                             $type = 'success';
                             $note = __('service.ingame.' . $service->key . '.complete');
@@ -176,6 +197,13 @@ class ServiceController extends Controller
                     if ($api->putRole($role, $role_data)) {
                         $user->money = $user->money + $request->quantity;
                         $user->save();
+
+                        ServiceLog::create([
+                            'userid' => $user->ID,
+                            'key' => $service->key,
+                            'currency_type' => $service->currency_type,
+                            'price' => ($request->quantity * $service->price)
+                        ]);
 
                         $type = 'success';
                         $note = __('service.ingame.' . $service->key . '.complete', ['quantity' => $request->quantity, 'currency' => config('pw-config.currency_name')]);
@@ -231,6 +259,13 @@ class ServiceController extends Controller
                             $user->money = $user->money - ($request->quantity * $service->price);
                             $user->save();
 
+                            ServiceLog::create([
+                                'userid' => $user->ID,
+                                'key' => $service->key,
+                                'currency_type' => $service->currency_type,
+                                'price' => ($request->quantity * $service->price)
+                            ]);
+
                             $type = 'success';
                             $note = __('service.ingame.' . $service->key . '.complete', ['quantity' => $request->quantity]);
                         } else {
@@ -274,6 +309,13 @@ class ServiceController extends Controller
                             if ($api->putRole($role, $role_data)) {
                                 $user->money = $user->money - $service->price;
                                 $user->save();
+
+                                ServiceLog::create([
+                                    'userid' => $user->ID,
+                                    'key' => $service->key,
+                                    'currency_type' => $service->currency_type,
+                                    'price' => $service->price
+                                ]);
 
                                 $type = 'success';
                                 $note = __('service.ingame.' . $service->key . '.complete');
@@ -320,6 +362,13 @@ class ServiceController extends Controller
                         $user->money = $user->money - $service->price;
                         $user->save();
 
+                        ServiceLog::create([
+                            'userid' => $user->ID,
+                            'key' => $service->key,
+                            'currency_type' => $service->currency_type,
+                            'price' => $service->price
+                        ]);
+
                         $type = 'success';
                         $note = __('service.ingame.' . $service->key . '.complete');
                     } else {
@@ -356,6 +405,13 @@ class ServiceController extends Controller
                     if ($api->putRole($role, $role_data)) {
                         $user->money = $user->money - $service->price;
                         $user->save();
+
+                        ServiceLog::create([
+                            'userid' => $user->ID,
+                            'key' => $service->key,
+                            'currency_type' => $service->currency_type,
+                            'price' => $service->price
+                        ]);
 
                         $type = 'success';
                         $note = __('service.ingame.' . $service->key . '.complete');
@@ -394,6 +450,13 @@ class ServiceController extends Controller
                         if ($api->putRole($role, $role_data)) {
                             $user->money = $user->money - $service->price;
                             $user->save();
+
+                            ServiceLog::create([
+                                'userid' => $user->ID,
+                                'key' => $service->key,
+                                'currency_type' => $service->currency_type,
+                                'price' => $service->price
+                            ]);
 
                             $type = 'success';
                             $note = __('service.ingame.' . $service->key . '.complete');
@@ -438,6 +501,13 @@ class ServiceController extends Controller
                     if ($api->putRole($role, $role_data)) {
                         $user->money = $user->money - $service->price;
                         $user->save();
+
+                        ServiceLog::create([
+                            'userid' => $user->ID,
+                            'key' => $service->key,
+                            'currency_type' => $service->currency_type,
+                            'price' => $service->price
+                        ]);
 
                         $type = 'success';
                         $note = __('service.ingame.' . $service->key . '.complete');

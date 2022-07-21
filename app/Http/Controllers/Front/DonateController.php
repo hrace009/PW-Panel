@@ -7,6 +7,7 @@ use App\Http\Requests\BanklogRequest;
 use App\Mail\BankTransfer;
 use App\Models\BankLog;
 use App\Models\Paymentwall;
+use App\Models\ServiceLog;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
@@ -74,13 +75,15 @@ class DonateController extends Controller
 
     public function getHistoryIndex()
     {
-        $logbank = BankLog::whereGameid(Auth::user()->ID)->paginate();
-        $pws = Paymentwall::whereUserid(Auth::user()->ID)->paginate();
+        $logbank = BankLog::whereGameid(Auth::user()->ID)->paginate(10);
+        $pws = Paymentwall::whereUserid(Auth::user()->ID)->paginate(10);
+        $ingamelogs = ServiceLog::whereUserid(Auth::user()->ID)->paginate(10);
         $user = new User();
         return view('front.donate.history.index', [
             'banks' => $logbank,
             'pws' => $pws,
-            'user' => $user
+            'user' => $user,
+            'ingamelogs' => $ingamelogs
         ]);
     }
 

@@ -11,7 +11,7 @@ class ServiceLog extends Model
      *
      * @var string
      */
-    protected $table = 'pwp_services_log';
+    protected $table = 'pwp_services_logs';
 
     /**
      * The attributes that are mass assignable.

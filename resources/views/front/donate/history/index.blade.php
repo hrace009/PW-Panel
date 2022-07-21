@@ -25,20 +25,78 @@
             <div id="tab-contents"
                  class="flex inline-flex ml-4 w-full px-1 pt-2 bg-transparent border-l border-r border-b dark:border-primary-darker">
                 <div id="ingame" class="hidden p-4 mx-auto">
-                    ingame tab
+                    @if( $ingamelogs->items() )
+                        <div
+                            class="bg-white dark:bg-primary shadow-md rounded border border-gray-300 dark:border-primary-light justify-items-center">
+                            <table class="w-full table-auto">
+                                <thead>
+                                <tr class="bg-gray-200 dark:bg-primary dark:text-light text-gray-600 uppercase text-xs leading-normal">
+                                    <th class="py-3 px-6 text-left">{{ __('donate.history.table.service.id') }}</th>
+                                    <th class="py-3 px-6 text-left">{{ __('donate.history.table.service.services') }}</th>
+                                    <th class="py-3 px-6 text-left">{{ __('donate.history.table.service.curr_type') }}</th>
+                                    <th class="py-3 px-6 text-left">{{ __('donate.history.table.service.price') }}</th>
+                                    <th class="py-3 px-6 text-left">{{ __('donate.history.table.service.date') }}</th>
+                                </tr>
+                                </thead>
+                                <tbody class="text-gray-600 text-xs dark:text-light">
+                                @foreach( $ingamelogs->sortByDesc('created_at') as $ingamelog )
+                                    <tr class="border-b border-gray-200 bg-gray-50 hover:bg-gray-100 dark:border-primary dark:bg-darker dark:hover:bg-primary-dark">
+                                        <td class="py-3 px-6 text-left">
+                                            <div class="flex items-center">
+                                                {{ $ingamelog->id }}
+                                            </div>
+                                        </td>
+                                        <td class="py-3 px-6 text-left">
+                                            <div class="flex items-center">
+                                                {{ __('service.ingame.' . $ingamelog->key . '.title') }}
+                                            </div>
+                                        </td>
+                                        <td class="py-3 px-6 text-left">
+                                            <div class="flex items-center">
+                                                {{ strtoupper($ingamelog->currency_type) }}
+                                            </div>
+                                        </td>
+                                        <td class="py-3 px-6 text-left">
+                                            <div class="flex items-center">
+                                                @if( $ingamelog->price === 0 )
+                                                    {{ __('donate.free') }}
+                                                @else
+                                                    @if( $ingamelog->currency_type === 'virtual')
+                                                        {{ number_format(( $ingamelog->price ),0,'','.') . ' '. config('pw-config.currency_name')  }}
+                                                    @else
+                                                        {{ number_format(( $ingamelog->price ),0,'','.') . ' Gold' }}
+                                                    @endif
+                                                @endif
+                                            </div>
+                                        </td>
+                                        <td class="py-3 px-6 text-left">
+                                            <div class="flex items-center">
+                                                {{ date_format($ingamelog->created_at, 'F j, Y') }}
+                                            </div>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                                </tbody>
+                            </table>
+                            {{ $ingamelogs->render() }}
+                        </div>
+                    @else
+                        {{ __('donate.empty') }}
+                    @endif
                 </div>
                 <div id="paymentwall" class="hidden p-4 mx-auto">
-                    <div
-                        class="bg-white dark:bg-primary shadow-md rounded border border-gray-300 dark:border-primary-light justify-items-center">
-                        <table class="w-full table-auto">
-                            <thead>
-                            <tr class="bg-gray-200 dark:bg-primary dark:text-light text-gray-600 uppercase text-xs leading-normal">
-                                <th class="py-3 px-6 text-left">{{ __('donate.history.table.Paymentwall.no') }}</th>
-                                <th class="py-3 px-6 text-left">{{ __('donate.history.table.Paymentwall.refid') }}</th>
-                                <th class="py-3 px-6 text-left">{{ __('donate.history.table.Paymentwall.date') }}</th>
-                                <th class="py-3 px-6 text-left">{{ __('donate.history.table.Paymentwall.userid') }}</th>
-                                <th class="py-3 px-6 text-left">{{ __('donate.history.table.Paymentwall.amount') }}</th>
-                                <th class="py-3 px-6 text-left">{{ __('donate.history.table.Paymentwall.status') }}</th>
+                    @if( $pws->items() )
+                        <div
+                            class="bg-white dark:bg-primary shadow-md rounded border border-gray-300 dark:border-primary-light justify-items-center">
+                            <table class="w-full table-auto">
+                                <thead>
+                                <tr class="bg-gray-200 dark:bg-primary dark:text-light text-gray-600 uppercase text-xs leading-normal">
+                                    <th class="py-3 px-6 text-left">{{ __('donate.history.table.Paymentwall.no') }}</th>
+                                    <th class="py-3 px-6 text-left">{{ __('donate.history.table.Paymentwall.refid') }}</th>
+                                    <th class="py-3 px-6 text-left">{{ __('donate.history.table.Paymentwall.date') }}</th>
+                                    <th class="py-3 px-6 text-left">{{ __('donate.history.table.Paymentwall.userid') }}</th>
+                                    <th class="py-3 px-6 text-left">{{ __('donate.history.table.Paymentwall.amount') }}</th>
+                                    <th class="py-3 px-6 text-left">{{ __('donate.history.table.Paymentwall.status') }}</th>
                             </tr>
                             </thead>
                             <tbody class="text-gray-600 text-xs dark:text-light">
@@ -79,27 +137,29 @@
                                 @endforeach
                             @endfor
                             </tbody>
-                        </table>
-                        @if( $pws->items() )
+                            </table>
                             {{ $pws->render() }}
-                        @endif
-                    </div>
+                        </div>
+                    @else
+                        {{ __('donate.empty') }}
+                    @endif
                 </div>
                 <div id="store" class="hidden p-4 mx-auto">
                     store tab
                 </div>
                 <div id="bank" class="hidden p-4 mx-auto">
-                    <div
-                        class="bg-white dark:bg-primary shadow-md rounded border border-gray-300 dark:border-primary-light justify-items-center">
-                        <table class="w-full table-auto">
-                            <thead>
-                            <tr class="bg-gray-200 dark:bg-primary dark:text-light text-gray-600 uppercase text-xs leading-normal">
-                                <th class="py-3 px-6 text-left">{{ __('donate.history.table.trid') }}</th>
-                                <th class="py-3 px-6 text-left">{{ __('donate.history.table.date') }}</th>
-                                <th class="py-3 px-6 text-left">{{ __('donate.history.table.bankname') }}</th>
-                                <th class="py-3 px-6 text-left">{{ __('donate.history.table.amount') }}</th>
-                                <th class="py-3 px-6 text-left">{{ __('donate.history.table.status') }}</th>
-                                <th class="py-3 px-6 text-left">{{ __('donate.history.table.reason') }}</th>
+                    @if( $banks->items() )
+                        <div
+                            class="bg-white dark:bg-primary shadow-md rounded border border-gray-300 dark:border-primary-light justify-items-center">
+                            <table class="w-full table-auto">
+                                <thead>
+                                <tr class="bg-gray-200 dark:bg-primary dark:text-light text-gray-600 uppercase text-xs leading-normal">
+                                    <th class="py-3 px-6 text-left">{{ __('donate.history.table.trid') }}</th>
+                                    <th class="py-3 px-6 text-left">{{ __('donate.history.table.date') }}</th>
+                                    <th class="py-3 px-6 text-left">{{ __('donate.history.table.bankname') }}</th>
+                                    <th class="py-3 px-6 text-left">{{ __('donate.history.table.amount') }}</th>
+                                    <th class="py-3 px-6 text-left">{{ __('donate.history.table.status') }}</th>
+                                    <th class="py-3 px-6 text-left">{{ __('donate.history.table.reason') }}</th>
                             </tr>
                             </thead>
                             <tbody class="text-gray-600 text-xs dark:text-light">
@@ -143,11 +203,12 @@
                                 </tr>
                             @endforeach
                             </tbody>
-                        </table>
-                        @if( $banks->items() )
+                            </table>
                             {{ $banks->render() }}
-                        @endif
-                    </div>
+                        </div>
+                    @else
+                        {{ __('donate.empty') }}
+                    @endif
                 </div>
             </div>
         </div>
