@@ -47,6 +47,11 @@
                                         {{ __('shop.fields.shareable.title') }}
                                         : {{ $item->shareable ? __('shop.fields.shareable.yes') : __('shop.fields.shareable.no') }}
                                     </div>
+                                    <div
+                                        class="dark:text-light font-semibold text-xs font-poppins">
+                                        {{ __('shop.times_bought') }}
+                                        : {{ $item->times_bought }}
+                                    </div>
                                 </div>
                             </div>
                             @if( Auth::user()->characterId() )

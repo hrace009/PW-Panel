@@ -129,6 +129,8 @@ return [
         'pleaseSell' => 'Please create item to sell!',
     ],
     'configuration' => 'Configuration',
-    'listFriend' => 'List friend for :character'
+    'listFriend' => 'List friend for :character',
+
+    'times_bought' => 'Times Bought'
 
 ];
