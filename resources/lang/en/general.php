@@ -72,5 +72,20 @@ return [
     'not_enough' => 'You don\'t have enough :currency.',
     'not_enough_gold' => 'You don\'t have enough gold.',
     'restricted' => 'Restricted area!',
-    'buy' => 'Buy'
+    'buy' => 'Buy',
+    /* Class Names */
+    'classes' => [
+        0 => 'Blademaster',
+        1 => 'Wizard',
+        2 => 'Psychic',
+        3 => 'Venomancer',
+        4 => 'Barbarian',
+        5 => 'Assassin',
+        6 => 'Archer',
+        7 => 'Cleric',
+        8 => 'Seeker',
+        9 => 'Mystic',
+        10 => 'Duskblade',
+        11 => 'Stormbringer'
+    ],
 ];

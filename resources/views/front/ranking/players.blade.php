@@ -13,8 +13,7 @@
                     <div class="flex space-x-4">
                         <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
                         <a href="{{ route('app.ranking.player', 'level') }}"
-                           class="{{ (request()->is('*/level') ) ? 'bg-gray-900 dark:bg-primary text-white' : 'text-gray-500 hover:bg-gray-700 hover:text-white dark:hover:bg-primary' }} px-3 py-2 rounded-md text-sm font-medium"
-                           aria-current="page">{{ __('ranking.type.level') }}</a>
+                           class="{{ (request()->is('*/level') ) ? 'bg-gray-900 dark:bg-primary text-white' : 'text-gray-500 hover:bg-gray-700 hover:text-white dark:hover:bg-primary' }} px-3 py-2 rounded-md text-sm font-medium">{{ __('ranking.type.level') }}</a>
 
                         <a href="{{ route('app.ranking.player', 'rep') }}"
                            class="{{ (request()->is('*/rep') ) ? 'bg-gray-900 dark:bg-primary text-white' : 'text-gray-500 hover:bg-gray-700 hover:text-white dark:hover:bg-primary' }} px-3 py-2 rounded-md text-sm font-medium">{{ __('ranking.type.rep') }}</a>
@@ -24,6 +23,8 @@
 
                         <a href="{{ route('app.ranking.player', 'pvp') }}"
                            class="{{ (request()->is('*/pvp') ) ? 'bg-gray-900 dark:bg-primary text-white' : 'text-gray-500 hover:bg-gray-700 hover:text-white dark:hover:bg-primary' }} px-3 py-2 rounded-md text-sm font-medium">{{ __('ranking.type.pvp') }}</a>
+                        <a href="{{ route('app.ranking.player', 'pariah_time') }}"
+                           class="{{ (request()->is('*/pariah_time') ) ? 'bg-gray-900 dark:bg-primary text-white' : 'text-gray-500 hover:bg-gray-700 hover:text-white dark:hover:bg-primary' }} px-3 py-2 rounded-md text-sm font-medium">{{ __('ranking.type.pariah_time') }}</a>
                     </div>
                 </div>
             </div>
@@ -57,13 +58,14 @@
                             </td>
                             <td class="py-3 px-6 text-left">
                                 <div class="flex items-center">
-                                    <span class="class s-16 c{{ $rank->cls }}"></span>
+                                    <span @popper({{ __( 'general.classes.' . $rank->cls ) }})
+                                          class="class s-16 c{{ $rank->cls }}"></span>
                                 </div>
                             </td>
                             <td class="py-3 px-6 text-left">
                                 <div class="flex items-center">
-                                    <span><img
-                                            src="/img/gender/{{ $rank->gender }}.png"></span> {{ __('ranking.gender.' . $rank->gender ) }}
+                                    <span @popper({{ __('ranking.gender.' . $rank->gender ) }})><img
+                                            src="/img/gender/{{ $rank->gender }}.png"></span>
                                 </div>
                             </td>
                             <td class="py-3 px-6 text-left">

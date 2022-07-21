@@ -29,7 +29,8 @@ class Player extends Model
             'level' => 'level',
             'rep' => 'reputation',
             'time' => 'time_used',
-            'pvp' => 'pk_count'
+            'pvp' => 'pk_count',
+            'pariah_time' => 'pariah_time'
         ];
 
         return $query
