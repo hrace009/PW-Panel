@@ -29,7 +29,7 @@ class RankingController extends Controller
 
     public function getFactions(Request $request)
     {
-        $ranks = Faction::subtype($request->segment(3))->paginate();
+        $ranks = Faction::subtype($request->segment(4))->paginate();
         return view('front.ranking.factions', [
             'ranks' => $ranks
         ]);
