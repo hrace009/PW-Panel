@@ -12,6 +12,8 @@ return [
     'panel' => 'Panel',
     'widget' => 'Widget',
     'apps' => 'Applications',
+    'logo' => 'Logo',
+    'logo_desc' => 'Upload your logo!',
     'application' => [
         'news' => 'News',
         'shop' => 'Shop',

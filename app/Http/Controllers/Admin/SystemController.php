@@ -69,6 +69,13 @@ class SystemController extends Controller
             'server_version' => 'required|string',
             'encryption_type' => 'required|string',
         ]);
+
+        if ($request->hasFile('logo')) {
+            $logo = $request->file('logo')->getClientOriginalName();
+            Config::write('pw-config.logo', $logo);
+            $request->file('logo')->storeAs('logo', $logo, config('filesystems.default'));
+        }
+
         foreach ($validate as $settings => $value) {
             Config::write('pw-config.' . $settings, $value);
         }

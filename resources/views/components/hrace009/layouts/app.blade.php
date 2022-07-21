@@ -6,12 +6,21 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ config('pw-config.server_name', 'Laravel') }} @yield('title')</title>
 
-    <link rel="shortcut icon" href="{{ asset(config('pw-config.logo')) }}"/>
-    <link
-        rel="apple-touch-icon"
-        sizes="76x76"
-        href="{{ asset(config('pw-config.logo')) }}"
-    />
+    @if( config('pw-config.logo') === 'img/logo/logo.png' )
+        <link rel="shortcut icon" href="{{ asset(config('pw-config.logo')) }}"/>
+        <link
+            rel="apple-touch-icon"
+            sizes="76x76"
+            href="{{ asset(config('pw-config.logo')) }}"
+        />
+    @else
+        <link rel="shortcut icon" href="{{ asset('uploads/logo/' . config('pw-config.logo') ) }}"/>
+        <link
+            rel="apple-touch-icon"
+            sizes="76x76"
+            href="{{ asset('uploads/logo/' . config('pw-config.logo') ) }}"
+        />
+    @endif
 
     <x-hrace009::front.top-script/>
 

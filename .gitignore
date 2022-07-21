@@ -15,4 +15,8 @@ yarn-error.log
 /.vscode
 composer.lock
 package-lock.json
-/public/img/custom-logo
+/public/uploads/logo
+/public/uploads/content
+/public/uploads/livewire-tmp
+/public/uploads/og_image
+/public/uploads/shops

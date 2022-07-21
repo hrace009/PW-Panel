@@ -9,8 +9,13 @@
     <x-slot name="content">
         <div class="max-w-sm mx-auto mt-6">
             <x-hrace009::admin.validation-error/>
-            <form method="post" action="{{ route('admin.settings.post') }}">
+            <form method="post" action="{{ route('admin.settings.post') }}" enctype="multipart/form-data">
                 {!! csrf_field() !!}
+                <div class="relative z-0 mb-6 w-full group">
+                    <x-hrace009::input-with-popover popover="{{ __('system.logo_desc') }}" id="logo" name="logo"
+                                                    type="file"/>
+                    <x-hrace009::label for="logo">{{ __('system.logo') }}</x-hrace009::label>
+                </div>
                 <div class="relative z-0 mb-6 w-full group">
                     <x-hrace009::input-with-popover id="server_name" name="server_name"
                                                     value="{{ config('pw-config.server_name') }}"
