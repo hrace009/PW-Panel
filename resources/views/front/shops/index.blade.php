@@ -145,6 +145,10 @@
                                         </div>
                                     @endif
                                 </div>
+                            @else
+                                <div class="flex justify-center items-center px-2 pb-2">
+                                    {{ __('general.character.error.not_selected') }}
+                                </div>
                             @endif
                         </div>
                     </div>
