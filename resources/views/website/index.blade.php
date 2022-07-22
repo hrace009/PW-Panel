@@ -343,7 +343,6 @@
                                 </a> {{ __('website.made') }} <i class="icofont-heart"></i> {{ __('website.by') }} <a
                                     target="_blank" href="https://www.youtube.com/hrace009">Harris Marfel</a></p>
                         </div>
-
                         <div class="footer_bottom_link_menu">
                             <ul class="d-flex">
                                 <li><a href="{{ route('terms.show') }}">{{ __('website.term') }}</a></li>
