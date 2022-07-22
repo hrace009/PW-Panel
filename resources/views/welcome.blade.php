@@ -6,6 +6,22 @@
 
     <title>Laravel</title>
 
+    @if( config('pw-config.logo') === 'img/logo/logo.png' )
+        <link rel="shortcut icon" href="{{ asset(config('pw-config.logo')) }}"/>
+        <link
+            rel="apple-touch-icon"
+            sizes="76x76"
+            href="{{ asset(config('pw-config.logo')) }}"
+        />
+    @else
+        <link rel="shortcut icon" href="{{ asset('uploads/logo/' . config('pw-config.logo') ) }}"/>
+        <link
+            rel="apple-touch-icon"
+            sizes="76x76"
+            href="{{ asset('uploads/logo/' . config('pw-config.logo') ) }}"
+        />
+    @endif
+
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 

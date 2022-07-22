@@ -52,9 +52,12 @@ use Laravel\Jetstream\Jetstream;
 |
 */
 
-Route::get('/', static function () {
-    return view('welcome');
-})->name('HOME');
+Route::group(['middleware' => 'web'], static function () {
+    Route::get('/', [
+        'as' => 'HOME',
+        'uses' => 'App\Http\Controllers\Website\Home@index'
+    ]);
+});
 
 Route::group(['prefix' => 'pingback', 'middleware' => 'web'], static function () {
     Route::get('paymentwall', [
@@ -65,7 +68,7 @@ Route::group(['prefix' => 'pingback', 'middleware' => 'web'], static function ()
 });
 
 /* App Page */
-Route::group(['prefix' => 'dashboard', 'middleware' => ['web', 'auth:sanctum', 'verified']], static function () {
+Route::group(['prefix' => 'dashboard', 'middleware' => ['web', 'auth', 'verified']], static function () {
 
     Route::get('/', [
         'as' => 'app.dashboard',
