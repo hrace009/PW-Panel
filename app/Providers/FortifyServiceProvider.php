@@ -109,7 +109,7 @@ class FortifyServiceProvider extends ServiceProvider
     protected function validateLogin(Request $request): void
     {
         if (Features::enabled(Features::twoFactorAuthentication())) {
-            if (!config('app.debug') === true) {
+            if (config('pw-config.system.apps.captcha')) {
                 $request->validate([
                     'name' => $this->LoginPageUserNameRules(),
                     'password' => $this->LoginPagePasswordRules(),
@@ -123,7 +123,7 @@ class FortifyServiceProvider extends ServiceProvider
             }
 
         } else {
-            if (!config('app.debug') === true) {
+            if (config('pw-config.system.apps.captcha')) {
                 $request->validate([
                     'name' => $this->LoginPageUserNameRules(),
                     'password' => $this->LoginPagePasswordRules(),

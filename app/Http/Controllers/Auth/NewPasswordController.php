@@ -32,12 +32,21 @@ class NewPasswordController extends GetNewPasswordController
      */
     public function store(Request $request): Responsable
     {
-        $request->validate([
-            'token' => 'required',
-            Fortify::email() => $this->NewPasswordPageEmailRules(),
-            'password' => $this->NewPasswordPagePasswordRules(),
-            'captcha' => $this->captchaRules()
-        ]);
+        if (config('pw-config.system.apps.captcha')) {
+            $request->validate([
+                'token' => 'required',
+                Fortify::email() => $this->NewPasswordPageEmailRules(),
+                'password' => $this->NewPasswordPagePasswordRules(),
+                'captcha' => $this->captchaRules()
+            ]);
+        } else {
+            $request->validate([
+                'token' => 'required',
+                Fortify::email() => $this->NewPasswordPageEmailRules(),
+                'password' => $this->NewPasswordPagePasswordRules()
+            ]);
+        }
+
 
         // Here we will attempt to reset the user's password. If it is successful we
         // will update the password on an actual user model and persist it to the

@@ -30,7 +30,7 @@ class CreateNewUser implements CreatesNewUsers
     public function create(array $input)
     {
         if (Features::enabled(Features::twoFactorAuthentication())) {
-            if (!config('app.debug') === true) {
+            if (config('pw-config.system.apps.captcha')) {
                 Validator::make($input, [
                     'name' => $this->RegisterPageUserNameRules(),
                     'email' => $this->RegisterPageEmailRules(),
@@ -61,7 +61,7 @@ class CreateNewUser implements CreatesNewUsers
                 'creatime' => Carbon::now(),
             ]);
         } else {
-            if (!config('app.debug') === true) {
+            if (config('pw-config.system.apps.captcha')) {
                 Validator::make($input, [
                     'name' => $this->RegisterPageUserNameRules(),
                     'email' => $this->RegisterPageEmailRules(),

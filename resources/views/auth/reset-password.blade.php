@@ -12,7 +12,9 @@
             <input type="hidden" id="pin" name="pin" value="{{ $pin }}">
         @endif
         <input type="hidden" id="email" name="email" value="{{ $request->email }}">
-        <x-hrace009::captcha/>
+        @if( config('pw-config.system.apps.captcha') )
+            <x-hrace009::captcha/>
+        @endif
 
         <x-hrace009::button>
             {{ __('auth.form.resetPassword') }}

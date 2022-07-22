@@ -33,7 +33,7 @@
                                placeholder="{{ __('auth.form.trueName') }}" autofocus
                                required autocomplete="truename"/>
 
-        @if( ! config('app.debug') === true )
+        @if( config('pw-config.system.apps.captcha') )
             <x-hrace009::captcha/>
         @endif
 

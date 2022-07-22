@@ -15,7 +15,9 @@
         @csrf
         <x-hrace009::input-box id="email" type="email" name="email" :value="old('email')" required autofocus
                                placeholder="{{ __('auth.form.email') }}"/>
-        <x-hrace009::captcha/>
+        @if( config('pw-config.system.apps.captcha') )
+            <x-hrace009::captcha/>
+        @endif
         <x-hrace009::button>
             {{ __('auth.form.sendLinkPassword') }}
         </x-hrace009::button>

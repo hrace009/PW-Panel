@@ -24,7 +24,7 @@
                                    placeholder="{{ __('auth.form.pin') }}"/>
         @endif
 
-        @if( !config('app.debug') === true )
+        @if( config('pw-config.system.apps.captcha') )
             <x-hrace009::captcha/>
         @endif
 

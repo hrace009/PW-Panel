@@ -23,6 +23,7 @@ return [
         'ranking' => 'Ranking',
         'vote' => 'Vote',
         'bank' => 'Bank Transfer',
+        'captcha' => 'Captcha'
     ],
     'application_desc' => [
         'news' => 'Enable / Disable news to write your information for players.',
@@ -33,6 +34,7 @@ return [
         'ranking' => 'Enable / Disable live ranking',
         'vote' => 'Enable / Disable vote rank',
         'bank' => 'Enable / Disable manual bank transfer form.',
+        'captcha' => 'Enable / Disable captcha'
     ],
     'configuration' => 'Configuration',
     'apps_edit_success' => 'Your application settings have been saved.',

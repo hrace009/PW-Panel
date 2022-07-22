@@ -30,10 +30,16 @@ class PasswordResetLinkController extends GetPasswordLinkController
      */
     public function store(Request $request): Responsable
     {
-        $request->validate([
-            Fortify::email() => $this->PasswordResetLinkPageEmailRules(),
-            'captcha' => $this->captchaRules(),
-        ]);
+        if (config('pw-config.system.apps.captcha')) {
+            $request->validate([
+                Fortify::email() => $this->PasswordResetLinkPageEmailRules(),
+                'captcha' => $this->captchaRules(),
+            ]);
+        } else {
+            $request->validate([
+                Fortify::email() => $this->PasswordResetLinkPageEmailRules()
+            ]);
+        }
 
         // We will send the password reset link to this user. Once we have attempted
         // to send the link, we will examine the response then see the message we

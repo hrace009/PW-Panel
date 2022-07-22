@@ -9,20 +9,20 @@
  */
 
 return [
-    'chat_log_path' => '/home/ko2world/Core/Wanmei2015/logs/',
-    'currency_name' => 'Ko2Coin',
+    'chat_log_path' => '/home/hrace009/Core/Wanmei2015/logs/',
+    'currency_name' => 'GT Coin',
     'encryption_type' => 'md5',
-    'level_up_cap' => '105',
-    'logo' => 'img/logo/logo.png',
+    'level_up_cap' => '150',
+    'logo' => 'GamerTua.png',
     'server_ip' => '127.0.0.1',
-    'server_name' => 'Ko2World Dev',
+    'server_name' => 'Gamer Tua',
     'server_version' => '156',
     'teleport_world_tag' => '1',
     'teleport_x' => '1280.6788',
     'teleport_y' => '219.61784',
     'teleport_z' => '1021.2097',
     'version' => '1.0',
-    'ignoreRoles' => '1,2,3',
+    'ignoreRoles' => '1024',
     'ignoreFaction' => '16,60',
     'system' => [
         'apps' => [
@@ -33,6 +33,7 @@ return [
             'inGameService' => true,
             'ranking' => true,
             'vote' => true,
+            'captcha' => true
         ],
     ],
     'news' => [
@@ -67,7 +68,7 @@ return [
             'payment_price' => '1000',
         ],
         'paypal' => [
-            'status' => true,
+            'status' => false,
             'double' => false,
             'client_id' => 'AfxQiO1ycaknL2cIDnhb_0C72apBxiPCMzccgkQR-Z1USdM6cHrER9s7nUWvi1KhfyE14-44CoKlihQZ',
             'secret' => 'EICI9jHYkE3nxB8_j3D1QPai-Z6d3dIVsM19zdflWFeLKEvGf1WWP61websXrCYdlaa6rUmb-uW5BcT1',
