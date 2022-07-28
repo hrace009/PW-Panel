@@ -7,12 +7,5 @@
 
 
 return [
-    'home' => 'Home',
-    'contact' => 'Contact',
-    'location' => 'Location',
-    'phone' => 'Phone',
-    'made' => 'Made with',
-    'by' => 'By',
-    'term' => 'Terms & Condition',
-    'privacy' => 'Privacy Policy'
+
 ];
