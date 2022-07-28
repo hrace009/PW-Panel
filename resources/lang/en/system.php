@@ -37,6 +37,7 @@ return [
         'captcha' => 'Enable / Disable captcha'
     ],
     'configuration' => 'Configuration',
+    'email_config' => 'Email Configuration',
     'apps_edit_success' => 'Your application settings have been saved.',
     'server_name' => 'Server Name',
     'server_name_desc' => 'Name of your server.',
