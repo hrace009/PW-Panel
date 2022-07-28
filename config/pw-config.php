@@ -33,7 +33,7 @@ return [
             'inGameService' => true,
             'ranking' => true,
             'vote' => true,
-            'captcha' => true
+            'captcha' => false
         ],
     ],
     'news' => [
