@@ -10,7 +10,7 @@
 
 return [
     'chat_log_path' => '/home/hrace009/Core/Wanmei2015/logs/',
-    'currency_name' => 'GT Coin',
+    'currency_name' => 'Coin',
     'encryption_type' => 'md5',
     'level_up_cap' => '150',
     'logo' => 'img/logo/logo.png',
@@ -22,7 +22,7 @@ return [
     'teleport_y' => '219.61784',
     'teleport_z' => '1021.2097',
     'version' => '1.0',
-    'ignoreRoles' => '1024',
+    'ignoreRoles' => '1024,1040',
     'ignoreFaction' => '16,60',
     'system' => [
         'apps' => [
@@ -44,34 +44,34 @@ return [
     ],
     'payment' => [
         'paymentwall' => [
-            'status' => true,
+            'status' => false,
             'widget_code' => 'p4_1',
             'widget_width' => '371',
             'widget_high' => '450',
-            'project_key' => '21f130c3ba2c505e637a2fccbe3b3b62',
-            'secret_key' => '57e0b3a2a7325f393446ca93b21e6778',
+            'project_key' => '',
+            'secret_key' => '',
             'pingback_path' => 'pingback/paymentwall'
         ],
         'bank_transfer' => [
-            'status' => true,
-            'double' => true,
-            'accountOwner' => 'Harris Yogasara',
-            'bankAccountNo1' => '342234234324342',
-            'bankName1' => 'MANDIRI',
-            'bankAccountNo2' => '22132131',
-            'bankName2' => 'BCA',
-            'bankAccountNo3' => '21321332131',
-            'bankName3' => 'BTPN',
+            'status' => false,
+            'double' => false,
+            'accountOwner' => '',
+            'bankAccountNo1' => '',
+            'bankName1' => '',
+            'bankAccountNo2' => '',
+            'bankName2' => '',
+            'bankAccountNo3' => '',
+            'bankName3' => '',
             'multiply' => '100000',
             'limit' => '5000000',
             'CurrencySign' => 'Rp.',
-            'payment_price' => '1000',
+            'payment_price' => '1750',
         ],
         'paypal' => [
             'status' => false,
             'double' => false,
-            'client_id' => 'AfxQiO1ycaknL2cIDnhb_0C72apBxiPCMzccgkQR-Z1USdM6cHrER9s7nUWvi1KhfyE14-44CoKlihQZ',
-            'secret' => 'EICI9jHYkE3nxB8_j3D1QPai-Z6d3dIVsM19zdflWFeLKEvGf1WWP61websXrCYdlaa6rUmb-uW5BcT1',
+            'client_id' => '',
+            'secret' => '',
             'currency' => 'USD',
             'currency_per' => '1',
             'minimum' => '1'

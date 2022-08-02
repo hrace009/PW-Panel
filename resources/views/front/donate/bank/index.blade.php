@@ -12,9 +12,9 @@
                 <h2 class="text-2xl font-semibold">{{ __('donate.guide.bank.title', ['currency' => config('pw-config.currency_name')]) }}</h2>
             </div>
             <div class="p-2">
-                <p class="text-sm">{{ __('donate.guide.bank.text1') }}</p>
-                <div class="text-sm">{{ __('donate.guide.bank.text2') }}</div>
                 @if( config('pw-config.payment.bank_transfer.accountOwner') )
+                    <p class="text-sm">{{ __('donate.guide.bank.text1') }}</p>
+                    <div class="text-sm">{{ __('donate.guide.bank.text2') }}</div>
                     <div
                         class="text-sm font-semibold">{{ __('donate.guide.bank.bankHolder', ['name' => config('pw-config.payment.bank_transfer.accountOwner')]) }}</div>
                     <ul class="font-semibold">
