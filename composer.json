@@ -12,6 +12,7 @@
         "ext-gd": "*",
         "andcarpi/laravel-popper": "^0.9.4",
         "bonecms/laravel-captcha": "^2.2",
+        "doctrine/dbal": "^3.3",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
         "hrace009/config-writer": "^1.1",

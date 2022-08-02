@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
 
 class AddIndexToUsersTable extends Migration
 {
@@ -11,9 +12,14 @@ class AddIndexToUsersTable extends Migration
      */
     public function up()
     {
-        DB::statement(
-            'ALTER TABLE users ADD FULLTEXT fulltext_index(name, email, truename)'
-        );
+        Schema::table('users', function (Blueprint $table) {
+            $sm = Schema::getConnection()->getDoctrineSchemaManager();
+            $indexesFound = $sm->listTableIndexes('fulltext_index');
+
+            if (!$indexesFound) {
+                $table->fullText(['name', 'email', 'truename'], 'fulltext_index');
+            }
+        });
     }
 
     /**
@@ -23,8 +29,14 @@ class AddIndexToUsersTable extends Migration
      */
     public function down()
     {
-        DB::statement(
-            'ALTER TABLE users DROP INDEX fulltext_index'
-        );
+        Schema::table('users', function (Blueprint $table) {
+            $sm = Schema::getConnection()->getDoctrineSchemaManager();
+            $doctrineTable = $sm->listTableDetails('users');
+            $indexesFound = $sm->listTableIndexes('fulltext_index');
+
+            if ($indexesFound) {
+                $table->dropFullText('fulltext_index');
+            }
+        });
     }
 }
