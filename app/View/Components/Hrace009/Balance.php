@@ -33,7 +33,7 @@ class Balance extends Component
      */
     public function render()
     {
-        $balance = Auth::user()->money . ' ' . config('pw-config.currency_name');
+        $balance = number_format((Auth::user()->money), 0, '', '.') . ' ' . config('pw-config.currency_name');
         return view('components.hrace009.balance', [
             'balance' => $balance,
         ]);
