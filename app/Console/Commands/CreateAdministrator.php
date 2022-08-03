@@ -65,18 +65,33 @@ class CreateAdministrator extends Command
             return 1;
         }
 
-        User::forceCreate([
-            'ID' => (User::all()->count() > 0) ? User::orderBy('ID', 'desc')->first()->ID + 16 : 1024,
-            'name' => $name,
-            'email' => $email,
-            'passwd' => Hash::make($name . $RandPass),
-            'passwd2' => Hash::make($name . $RandPass),
-            'role' => 'Administrator',
-            'answer' => $RandPass,
-            'truename' => ucwords($truename),
-            'qq' => $RandPin,
-            'creatime' => Carbon::now(),
-        ]);
+        if (config('app.debug')) {
+            User::forceCreate([
+                'ID' => (User::all()->count() > 0) ? User::orderBy('ID', 'desc')->first()->ID + 16 : 1024,
+                'name' => $name,
+                'email' => $email,
+                'passwd' => Hash::make($name . $RandPass),
+                'passwd2' => Hash::make($name . $RandPass),
+                'role' => 'Administrator',
+                'answer' => $RandPass,
+                'truename' => ucwords($truename),
+                'qq' => $RandPin,
+                'creatime' => Carbon::now(),
+            ]);
+        } else {
+            User::forceCreate([
+                'ID' => (User::all()->count() > 0) ? User::orderBy('ID', 'desc')->first()->ID + 16 : 1024,
+                'name' => $name,
+                'email' => $email,
+                'passwd' => Hash::make($name . $RandPass),
+                'passwd2' => Hash::make($name . $RandPass),
+                'role' => 'Administrator',
+                'truename' => ucwords($truename),
+                'qq' => $RandPin,
+                'creatime' => Carbon::now(),
+            ]);
+        }
+
 
         $this->info('Administraor has been created with details bellow');
         $this->info('Username: ' . $name);
