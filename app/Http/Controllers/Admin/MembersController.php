@@ -153,7 +153,7 @@ class MembersController extends Controller
                 'passwd' => Hash::make($user->name . $RandPass),
                 'passwd2' => Hash::make($user->name . $RandPass),
                 'qq' => $RandPin,
-                'answer' => $RandPass,
+                'answer' => config('app.debug') ? $RandPass : '',
             ])->save();
 
             $pwusers = [

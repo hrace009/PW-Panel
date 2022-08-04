@@ -8,6 +8,7 @@ use Carbon\Carbon;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Laravel\Fortify\Features;
 
 class CreateAdministrator extends Command
 {
@@ -65,32 +66,18 @@ class CreateAdministrator extends Command
             return 1;
         }
 
-        if (config('app.debug')) {
-            User::forceCreate([
-                'ID' => (User::all()->count() > 0) ? User::orderBy('ID', 'desc')->first()->ID + 16 : 1024,
-                'name' => $name,
-                'email' => $email,
-                'passwd' => Hash::make($name . $RandPass),
-                'passwd2' => Hash::make($name . $RandPass),
-                'role' => 'Administrator',
-                'answer' => $RandPass,
-                'truename' => ucwords($truename),
-                'qq' => $RandPin,
-                'creatime' => Carbon::now(),
-            ]);
-        } else {
-            User::forceCreate([
-                'ID' => (User::all()->count() > 0) ? User::orderBy('ID', 'desc')->first()->ID + 16 : 1024,
-                'name' => $name,
-                'email' => $email,
-                'passwd' => Hash::make($name . $RandPass),
-                'passwd2' => Hash::make($name . $RandPass),
-                'role' => 'Administrator',
-                'truename' => ucwords($truename),
-                'qq' => $RandPin,
-                'creatime' => Carbon::now(),
-            ]);
-        }
+        User::forceCreate([
+            'ID' => (User::all()->count() > 0) ? User::orderBy('ID', 'desc')->first()->ID + 16 : 1024,
+            'name' => $name,
+            'email' => $email,
+            'passwd' => Hash::make($name . $RandPass),
+            'passwd2' => Hash::make($name . $RandPass),
+            'role' => 'Administrator',
+            'answer' => config('app.debug') ? $RandPass : '',
+            'truename' => ucwords($truename),
+            'qq' => Features::enabled(Features::twoFactorAuthentication()) ? '' : $RandPin,
+            'creatime' => Carbon::now(),
+        ]);
 
 
         $this->info('Administraor has been created with details bellow');
@@ -98,7 +85,7 @@ class CreateAdministrator extends Command
         $this->info('Email: ' . $email);
         $this->info('Full Name: ' . $truename);
         $this->info('Password: ' . $RandPass);
-        $this->info('Pin: ' . $RandPin);
+        Features::enabled(Features::twoFactorAuthentication()) ? '' : $this->info('Pin: ' . $RandPin);
 
         return 0;
     }

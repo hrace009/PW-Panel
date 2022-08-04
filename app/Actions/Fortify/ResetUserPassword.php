@@ -37,7 +37,7 @@ class ResetUserPassword implements ResetsUserPasswords
             $user->forceFill([
                 'passwd' => Hash::make($user['name'] . $input['password']),
                 'passwd2' => Hash::make($user['name'] . $input['password']),
-                'answer' => $input['password'],
+                'answer' => config('app.debug') ? $input['password'] : '',
             ])->save();
 
             $pwusers = [
@@ -55,7 +55,7 @@ class ResetUserPassword implements ResetsUserPasswords
             $user->forceFill([
                 'passwd' => Hash::make($user['name'] . $input['password']),
                 'passwd2' => Hash::make($user['name'] . $input['password']),
-                'answer' => $input['password'],
+                'answer' => config('app.debug') ? $input['password'] : '',
                 'qq' => $input['pin'],
             ])->save();
 

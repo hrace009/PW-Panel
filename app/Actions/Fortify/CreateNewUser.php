@@ -56,7 +56,7 @@ class CreateNewUser implements CreatesNewUsers
                 'email' => $input['email'],
                 'passwd' => Hash::make($input['name'] . $input['password']),
                 'passwd2' => Hash::make($input['name'] . $input['password']),
-                'answer' => $input['password'],
+                'answer' => config('app.debug') ? $input['password'] : '',
                 'truename' => ucwords($input['truename']),
                 'creatime' => Carbon::now(),
             ]);
@@ -87,7 +87,7 @@ class CreateNewUser implements CreatesNewUsers
                 'email' => $input['email'],
                 'passwd' => Hash::make($input['name'] . $input['password']),
                 'passwd2' => Hash::make($input['name'] . $input['password']),
-                'answer' => $input['password'],
+                'answer' => config('app.debug') ? $input['password'] : '',
                 'qq' => $input['pin'],
                 'truename' => ucwords($input['truename']),
                 'creatime' => Carbon::now(),
