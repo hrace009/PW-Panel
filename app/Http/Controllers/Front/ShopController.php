@@ -77,7 +77,7 @@ class ShopController extends Controller
                 'userid' => $user->ID,
                 'item_name' => $item->name,
                 'item_id' => $item->item_id,
-                'price' => $item->price
+                'price' => $item_price
             ]);
 
             $status = 'success';
