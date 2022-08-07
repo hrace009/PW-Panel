@@ -19,7 +19,7 @@ class MD5Hash implements HasherContract
      */
     public function info($hashedValue)
     {
-        // TODO: Implement info() method.
+        // Implement info() method.
     }
 
     /**

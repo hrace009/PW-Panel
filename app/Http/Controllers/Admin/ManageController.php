@@ -103,7 +103,7 @@ class ManageController extends Controller
         );
 
         switch ($request->type) {
-            //TODO Add a parameter to the success message that tells the user how many players the item was sent to or their names
+            //Add a parameter to the success message that tells the user how many players the item was sent to or their names
 
             case 'list':
                 $roles = explode(',', str_replace(' ', '', $request->roles));

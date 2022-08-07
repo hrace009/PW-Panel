@@ -17,7 +17,7 @@ return [
     'index' => 'Melihat Berita',
     'edit' => 'Ubah Berita',
     'edit_desc' => 'Ubah :news',
-    'readmore' => 'Lanjut...',
+    'readmore' => 'Baca...',
     'readmore_desc' => 'Baca lebih lanjut untuk berita ini..',
     'fields' => [
         'title' => 'Judul',

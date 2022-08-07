@@ -22,6 +22,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
+        // TODO: Please add cront tab
         // $schedule->command('inspire')->hourly();
     }
 
