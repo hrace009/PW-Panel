@@ -9,6 +9,7 @@
 
 namespace App\Console;
 
+use App\Console\Commands\UpdateTransferCommand;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
@@ -22,8 +23,10 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // TODO: Please add cront tab
-        // $schedule->command('inspire')->hourly();
+        $schedule->command('pw:update-transfer')->everyMinute();
+        $schedule->command('pw:update-faction')->hourly();
+        $schedule->command('pw:update-players')->hourly();
+        $schedule->command('pw:update-territories')->hourly();
     }
 
     /**
