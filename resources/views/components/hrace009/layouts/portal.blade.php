@@ -12,6 +12,13 @@
             sizes="76x76"
             href="{{ asset(config('pw-config.logo')) }}"
         />
+    @elseif( ! config('pw-config.logo') )
+        <link rel="shortcut icon" href="{{ asset('img/logo/logo.png') }}"/>
+        <link
+            rel="apple-touch-icon"
+            sizes="76x76"
+            href="{{ asset('img/logo/logo.png') }}"
+        />
     @else
         <link rel="shortcut icon" href="{{ asset('uploads/logo/' . config('pw-config.logo') ) }}"/>
         <link

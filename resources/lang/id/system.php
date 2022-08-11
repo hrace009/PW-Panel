@@ -15,6 +15,7 @@ return [
     'logo' => 'Logo',
     'logo_desc' => 'Unggah logo Anda!',
     'current_logo' => 'Logo saat ini',
+    'logo_note' => 'Logo harus lebar 128px, tinggi 128px, dengan format png.',
     'application' => [
         'news' => 'Berita',
         'shop' => 'Toko',

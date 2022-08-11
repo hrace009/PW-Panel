@@ -9,6 +9,7 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Config;
+use Illuminate\Validation\Rule;
 
 class SystemController extends Controller
 {
@@ -72,6 +73,13 @@ class SystemController extends Controller
         ]);
 
         if ($request->hasFile('logo')) {
+            $request->validate([
+                'logo' => [
+                    'image',
+                    'mimes:png',
+                    Rule::dimensions()->ratio(1 / 1 )->width(128)->height(128)
+                ]
+            ]);
             $logo = $request->file('logo')->getClientOriginalName();
             Config::write('pw-config.logo', $logo);
             $request->file('logo')->storeAs('logo', $logo, config('filesystems.default'));

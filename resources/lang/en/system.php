@@ -14,7 +14,8 @@ return [
     'apps' => 'Applications',
     'logo' => 'Logo',
     'logo_desc' => 'Upload your logo!',
-    'current_logo' => 'Logo saat ini',
+    'current_logo' => 'Current Logo',
+    'logo_note' => 'Logo must be width 128px, height 128px, with png format.',
     'application' => [
         'news' => 'News',
         'shop' => 'Shop',

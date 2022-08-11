@@ -15,12 +15,15 @@
                     <img id="current_logo" src="
                     @if( config('pw-config.logo') === 'img/logo/logo.png' )
                         {{ asset(config('pw-config.logo')) }}
+                        @elseif( ! config('pw-config.logo') )
+                        {{ asset( 'img/logo/logo.png' ) }}
                         @else
                         {{ asset('uploads/logo/' . config('pw-config.logo') ) }}
                     @endif
                     "
-                     alt="{{ config('pw-config.server_name') }}"/>
+                     alt="{{ config('pw-config.server_name') }}" width="128" height="128"/>
                     <x-hrace009::label for="current_logo">{{ __('system.current_logo') }}</x-hrace009::label>
+                    <span class="text-sm text-gray-500 dark:text-cyan-400">{{ __('system.logo_note') }}</span>
                 </div>
                 <div class="relative z-0 mb-6 w-full group">
                     <x-hrace009::input-with-popover popover="{{ __('system.logo_desc') }}" id="logo" name="logo"
