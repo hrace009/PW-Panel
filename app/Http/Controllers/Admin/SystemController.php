@@ -33,7 +33,6 @@ class SystemController extends Controller
      */
     public function getSettings()
     {
-        //TODO: Add image preview on system settings
         return view('admin.system.settings');
     }
 
