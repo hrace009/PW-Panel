@@ -12,6 +12,17 @@
             <form method="post" action="{{ route('admin.settings.post') }}" enctype="multipart/form-data">
                 {!! csrf_field() !!}
                 <div class="relative z-0 mb-6 w-full group">
+                    <img id="current_logo" src="
+                    @if( config('pw-config.logo') === 'img/logo/logo.png' )
+                        {{ asset(config('pw-config.logo')) }}
+                        @else
+                        {{ asset('uploads/logo/' . config('pw-config.logo') ) }}
+                    @endif
+                    "
+                     alt="{{ config('pw-config.server_name') }}"/>
+                    <x-hrace009::label for="current_logo">{{ __('system.current_logo') }}</x-hrace009::label>
+                </div>
+                <div class="relative z-0 mb-6 w-full group">
                     <x-hrace009::input-with-popover popover="{{ __('system.logo_desc') }}" id="logo" name="logo"
                                                     type="file"/>
                     <x-hrace009::label for="logo">{{ __('system.logo') }}</x-hrace009::label>

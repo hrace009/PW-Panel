@@ -14,6 +14,7 @@ return [
     'apps' => 'Aplikasi',
     'logo' => 'Logo',
     'logo_desc' => 'Unggah logo Anda!',
+    'current_logo' => 'Logo saat ini',
     'application' => [
         'news' => 'Berita',
         'shop' => 'Toko',
