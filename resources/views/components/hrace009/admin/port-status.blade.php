@@ -16,7 +16,7 @@
             @if( $port['open'] )
                 <span>
                       <svg
-                          class="w-12 h-12 text-gray-300 dark:text-primary-dark"
+                          class="w-12 h-12 text-gray-300 dark:text-green-500"
                           xmlns="http://www.w3.org/2000/svg"
                           fill="none"
                           viewBox="0 0 24 24"
@@ -33,7 +33,7 @@
             @else
                 <span>
                       <svg
-                          class="w-12 h-12 text-gray-300 dark:text-primary-dark"
+                          class="w-12 h-12 text-gray-300 dark:text-red-500"
                           xmlns="http://www.w3.org/2000/svg"
                           fill="none"
                           viewBox="0 0 24 24"
