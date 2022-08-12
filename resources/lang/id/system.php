@@ -28,13 +28,13 @@ return [
         'captcha' => 'Captcha'
     ],
     'application_desc' => [
-        'news' => 'Aktifkan / Nonaktifkan berita untuk menulis informasi Anda untuk pemain.',
+        'news' => 'Aktifkan / Nonaktifkan berita untuk menulis informasi Anda kepada pemain.',
         'shop' => 'Aktifkan / Nonaktifkan toko untuk berdagang dengan pemain.',
         'donate' => 'Aktifkan / Nonaktifkan halaman donasi untuk menerima uang.',
         'voucher' => 'Aktifkan / Nonaktifkan voucher.',
-        'inGameService' => 'Aktifkan / Nonaktifkan dalam layanan game',
+        'inGameService' => 'Aktifkan / Nonaktifkan layanan di dalam game.',
         'ranking' => 'Aktifkan / Nonaktifkan peringkat',
-        'vote' => 'Aktifkan / Nonaktifkan peringkat',
+        'vote' => 'Aktifkan / Nonaktifkan voting',
         'bank' => 'Aktifkan / Nonaktifkan formulir transfer bank manual.',
         'captcha' => 'Aktifkan / Nonaktifkan captcha'
     ],

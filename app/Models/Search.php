@@ -29,14 +29,11 @@ trait Search
             return $term;
         }
 
-        // Strip MySQL reserved symbols
         $reservedSymbols = ['-', '+', '<', '>', '@', '(', ')', '~'];
         $term = str_replace($reservedSymbols, '', $term);
 
         $words = explode(' ', $term);
         foreach ($words as $idx => $word) {
-            // Add operators so we can leverage the boolean mode of
-            // fulltext indices.
             $words[$idx] = "+" . $word . "*";
         }
         return implode(' ', $words);

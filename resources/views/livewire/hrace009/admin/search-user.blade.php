@@ -1,7 +1,7 @@
 <div class="flex flex-col pl-6 pr-6 items-center justify-between">
     <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
         <div class="py-2 align-middle min-w-0 inline-block sm:px-6 lg:px-8">
-            <div class="shadow overflow-hidden border dark:border-primary-darker sm:rounded-lg">
+            <div class="shadow overflow-hidden border dark:bg-darker bg-white dark:border-primary-darker sm:rounded-lg">
                 <div
                     class="relative flex-shrink-0 px-4 py-8 text-gray-400 border-b dark:border-primary-darker dark:focus-within:text-light focus-within:text-gray-700">
                             <span class="absolute inset-y-0 inline-flex items-center px-4">
@@ -13,42 +13,42 @@
                             </span>
                     <form method="get">
                         <input
-                            class="w-full py-2 pl-10 pr-4 border rounded-full dark:bg-darker dark:border-transparent dark:text-light focus:outline-none focus:ring"
+                            class="w-full py-2 pl-10 pr-4 border rounded-full dark:bg-dark dark:border-transparent dark:text-light focus:outline-none focus:ring"
                             placeholder="{{ __('members.fields.search.placeholder') }}" wire:model="term">
                     </form>
                 </div>
-                <div wire:loading class="dark:text-cyan-400">{{ __('members.search') }}</div>
+                <div wire:loading class="dark:text-cyan-400 p-4">{{ __('members.search') }}</div>
                 <div wire:loading.remove class="dark:text-cyan-400"/>
                 <table class="w-full text-xs font-medium table-auto">
-                    <thead class="dark:bg-darker dark:text-light border-b dark:border-primary-darker uppercase">
-                    <tr>
-                        <th scope="col"
-                            class="px-2 py-3 tracking-wider border-r dark:border-primary-darker text-center">{{ __('members.table.id') }}</th>
-                        <th scope="col"
-                            class="px-2 py-3 tracking-wider border-r dark:border-primary-darker text-center">{{ __('members.table.name') }}</th>
-                        <th scope="col"
-                            class="px-2 py-3 tracking-wider border-r dark:border-primary-darker text-center">{{ __('members.table.email') }}</th>
-                        <th scope="col"
-                            class="px-2 py-3 tracking-wider border-r dark:border-primary-darker text-center">{{ __('members.table.truename') }}</th>
-                        <th scope="col"
-                            class="px-2 py-3 tracking-wider border-r dark:border-primary-darker text-center">{{ __('members.table.balance') }}</th>
-                        <th scope="col"
-                            class="px-2 py-3 tracking-wider border-r dark:border-primary-darker text-center">{{ __('members.table.role') }}</th>
-                        <th scope="col"
-                            class="px-2 py-3 tracking-wider text-center">{{ __('members.table.actions') }}</th>
-                    </tr>
-                    </thead>
-                    <tbody class="bg-transparent">
                     @if ($term === '')
-                        <div class="text-gray-500 text-sm">
+                        <div class="text-gray-500 text-sm p-4">
                             {{ __('members.empty') }}
                         </div>
                     @else
                         @if($users->isEmpty())
-                            <div class="text-gray-500 text-sm">
+                            <div class="text-gray-500 text-sm p-4">
                                 {{ __('members.notfound') }}
                             </div>
                         @else
+                            <thead class="dark:bg-darker dark:text-light border-b dark:border-primary-darker uppercase">
+                            <tr>
+                                <th scope="col"
+                                    class="px-2 py-3 tracking-wider border-r dark:border-primary-darker text-center">{{ __('members.table.id') }}</th>
+                                <th scope="col"
+                                    class="px-2 py-3 tracking-wider border-r dark:border-primary-darker text-center">{{ __('members.table.name') }}</th>
+                                <th scope="col"
+                                    class="px-2 py-3 tracking-wider border-r dark:border-primary-darker text-center">{{ __('members.table.email') }}</th>
+                                <th scope="col"
+                                    class="px-2 py-3 tracking-wider border-r dark:border-primary-darker text-center">{{ __('members.table.truename') }}</th>
+                                <th scope="col"
+                                    class="px-2 py-3 tracking-wider border-r dark:border-primary-darker text-center">{{ __('members.table.balance') }}</th>
+                                <th scope="col"
+                                    class="px-2 py-3 tracking-wider border-r dark:border-primary-darker text-center">{{ __('members.table.role') }}</th>
+                                <th scope="col"
+                                    class="px-2 py-3 tracking-wider text-center">{{ __('members.table.actions') }}</th>
+                            </tr>
+                            </thead>
+                            <tbody class="bg-transparent">
                             @foreach( $users as $user )
                                 <tr>
                                     <td class="px-2 py-3 whitespace-nowrap">
@@ -123,7 +123,7 @@
                                                     <!-- Modal -->
                                                     <div
                                                         x-show="{{ $user->name }}_Coin"
-                                                        class="dark:bg-dark rounded-xl shadow-2xl p-6 sm:w-full sm:max-w-lg mx-10"
+                                                        class="dark:bg-dark bg-white rounded-xl shadow-2xl p-6 sm:w-full sm:max-w-lg mx-10"
                                                         @click.away="{{ $user->name }}_Coin = false"
                                                         x-transition:enter="ease-out duration-300"
                                                         x-transition:enter-start="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
@@ -196,7 +196,7 @@
                                                     <!-- Modal -->
                                                     <div
                                                         x-show="{{ $user->name }}_Password"
-                                                        class="dark:bg-dark rounded-xl shadow-2xl p-6 sm:w-full sm:max-w-lg mx-10"
+                                                        class="dark:bg-dark bg-white rounded-xl shadow-2xl p-6 sm:w-full sm:max-w-lg mx-10"
                                                         @click.away="{{ $user->name }}_Password = false"
                                                         x-transition:enter="ease-out duration-300"
                                                         x-transition:enter-start="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
@@ -286,7 +286,7 @@
                                                     <!-- Modal -->
                                                     <div
                                                         x-show="{{ $user->name }}_Email"
-                                                        class="dark:bg-dark rounded-xl shadow-2xl p-6 sm:w-full sm:max-w-lg mx-10"
+                                                        class="dark:bg-dark bg-white rounded-xl shadow-2xl p-6 sm:w-full sm:max-w-lg mx-10"
                                                         @click.away="{{ $user->name }}_Email = false"
                                                         x-transition:enter="ease-out duration-300"
                                                         x-transition:enter-start="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
@@ -324,9 +324,10 @@
                                     </td>
                                 </tr>
                             @endforeach
+                            </tbody>
                         @endif
                     @endif
-                    </tbody>
+
                 </table>
             </div>
         </div>
