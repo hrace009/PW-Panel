@@ -2,7 +2,7 @@
 
 ![Version](https://img.shields.io/badge/version-1.0-blue.svg?cacheSeconds=2592000)
 [![Documentation](https://img.shields.io/badge/documentation-yes-brightgreen.svg)](https://doc)
-[![License: GPL](https://img.shields.io/badge/License-GPL-yellow.svg)](https://license)
+[![License: GPLv2 ](https://img.shields.io/badge/License-GPLv2-yellow.svg)](https://license)
 [![Twitter: hrace009](https://img.shields.io/twitter/follow/hrace009.svg?style=social)](https://twitter.com/hrace009)
 
 > Web Panel for Perfect World MMORPG, Powered with Laravel and Tailwindcss
