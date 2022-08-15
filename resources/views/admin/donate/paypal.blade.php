@@ -32,12 +32,32 @@
                 </div>
                 @if( config('pw-config.payment.paypal.status') === true )
                     <div class="relative z-0 mb-6 w-full group">
+                        <div id="sandbox_switch" class="flex ml-12">
+                            <div class="pretty p-switch">
+                                <input type="checkbox" id="sandbox" name="sandbox"
+                                       value="{{ config('pw-config.payment.paypal.sandbox') }}"
+                                       @if( config('pw-config.payment.paypal.sandbox') === true ) checked @endif
+                                    @popper({{ __('donate.paypal.sandbox_desc') }})
+                                />
+                                <div class="state p-info">
+                                    <label for="sandbox">
+                                        @if( config('pw-config.payment.paypal.sandbox') === true )
+                                            {{ __('donate.on') }}
+                                        @else
+                                            {{ __('donate.off') }}
+                                        @endif</label>
+                                </div>
+                            </div>
+                        </div>
+                        <x-hrace009::label for="status_switch">{{ __('donate.sandbox') }}</x-hrace009::label>
+                    </div>
+                    <div class="relative z-0 mb-6 w-full group">
                         <div id="double_switch" class="flex ml-12">
                             <div class="pretty p-switch">
                                 <input type="checkbox" id="double" name="double"
                                        value="{{ config('pw-config.payment.paypal.double') }}"
                                        @if( config('pw-config.payment.paypal.double') === true ) checked @endif
-                                       @popper({{ __('donate.paypal.double_desc') }})
+                                    @popper({{ __('donate.paypal.double_desc') }})
                                 />
                                 <div class="state p-info">
                                     <label for="status">

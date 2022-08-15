@@ -74,7 +74,8 @@ return [
             'secret' => '',
             'currency' => 'USD',
             'currency_per' => '1',
-            'minimum' => '1'
+            'minimum' => '1',
+            'sandbox' => true
         ]
     ],
 ];

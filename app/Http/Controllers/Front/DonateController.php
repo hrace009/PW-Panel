@@ -7,16 +7,86 @@ use App\Http\Requests\BanklogRequest;
 use App\Mail\BankTransfer;
 use App\Models\BankLog;
 use App\Models\Paymentwall;
+use App\Models\Paypal;
 use App\Models\ServiceLog;
 use App\Models\ShopLog;
 use App\Models\User;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
+use Omnipay\Omnipay;
 use Paymentwall_Config;
 use Paymentwall_Widget;
 
 class DonateController extends Controller
 {
+    protected $gateway;
+
+    public function __construct()
+    {
+        $this->gateway = Omnipay::create('PayPal_Rest');
+        $this->gateway->initialize([
+            'clientId' => config('pw-config.payment.paypal.client_id'),
+            'secret' => config('pw-config.payment.paypal.secret'),
+            'testMode' => config('pw-config.payment.paypal.sandbox'),
+        ]);
+    }
+
+
+    public function getPaypalIndex()
+    {
+        //TODO: Please make paypal running!
+        return view('front.donate.paypal.index');
+    }
+
+    public function postPaypalSubmit(Request $request)
+    {
+        $transaction = $this->gateway->purchase([
+            'amount' => number_format($request->dollars, 0),
+            'currency' => config('pw-config.payment.paypal.currency'),
+            'description' => __('donate.paypal.description', ['amount' => $request->dollars, 'currency' => config('pw-config.currency_name')]),
+            'returnUrl' => redirect()->route('app.donate.paypal.complete'),
+            'cancelUrl' => redirect()->route('app.donate.paypal'),
+        ]);
+
+        $response = $transaction->send();
+
+        if ($response->isRedirect()) {
+            $response->redirect();
+        } else {
+            echo $response->getMessage();
+        }
+    }
+
+    public function postPaypalComplete(Request $request)
+    {
+        $complete = $this->gateway->completePurchase([
+            'transactionReference' => $request->paymentId,
+            'payerId' => $request->PayerID,
+        ]);
+
+        $response = $complete->send();
+        $data = $response->getData();
+
+        if ($data['state'] === 'approved') {
+            $user = Auth::user();
+            $amount = round($data['transactions'][0]['amount']['total']);
+
+            $payment_amount = config('pw-config.payment.paypal.double') ? ($amount * config('pw-config.payment.paypal.currency_per')) * 2 : $amount * config('pw-config.payment.paypal.currency_per');
+
+            Paypal::create([
+                'user_id' => $user->ID,
+                'transaction_id' => $data['id'],
+                'amount' => $payment_amount
+            ]);
+
+            $user->money = $user->money + $payment_amount;
+            $user->save();
+        }
+
+        return redirect()->route('app.donate.paypal')->with('success', __('donate.paypal.success'));
+    }
+
     public function getBankIndex()
     {
         //$getPending = BankLog::where(['loginid' => Auth::user()->name, 'status' => 'pending'])->get();
@@ -89,16 +159,4 @@ class DonateController extends Controller
             'shoplogs' => $shoplogs
         ]);
     }
-
-    public function getPaypalIndex()
-    {
-        //TODO: Please make paypal running!
-        return view('front.donate.paypal.index');
-    }
-
-    public function paypalSubmit()
-    {
-        return redirect()->back()->with('error', 'This method still unfinish yet!');
-    }
-
 }

@@ -10,6 +10,7 @@ return [
 
     'title' => 'Donasi',
     'status' => 'Status',
+    'sandbox' => 'Sandbox',
     'on' => 'Aktif',
     'off' => 'Tidak Aktif',
     'paymentwall_title' => 'Paymentwall',
@@ -122,6 +123,8 @@ return [
         'title' => 'Paypal',
         'status' => 'Status',
         'status_desc' => 'Pindahkan sakelar ke kanan untuk mengaktifkan paypal',
+        'sandbox' => 'Sandbox',
+        'sandbox_desc' => 'Pindahkan sakelar ke kanan untuk mengaktifkan sandbox mode.',
         'double' => 'Dobel',
         'double_desc' => 'Donasi ganda aktif.',
         'client_id' => 'ID Klien',
@@ -133,7 +136,11 @@ return [
         'currency_per' => 'Currency per :currency',
         'currency_per_desc' => 'Masukan jumlah :coin per :currency',
         'minimum' => 'Jumlah minimal',
-        'minimum_desc' => 'Jumlah minimum untuk disumbangkan'
+        'minimum_desc' => 'Jumlah minimum untuk disumbangkan',
+        'description' => ':amount :currency',
+        'success' => 'Terima kasih telah mendukung server kami, kami sangat menghargai donasi Anda.',
+        'amount' => 'Jumlah yang dibayarkan.',
+        'amount_receive' => 'Jumlah :currency yang akan diterima.'
     ],
     'history' => [
         'title' => 'sejarah transaksi',

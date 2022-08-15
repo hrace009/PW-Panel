@@ -10,6 +10,7 @@ return [
 
     'title' => 'Donate',
     'status' => 'Status',
+    'sandbox' => 'Sandbox',
     'on' => 'On',
     'off' => 'Off',
     'paymentwall_title' => 'Paymentwall',
@@ -122,6 +123,8 @@ return [
         'title' => 'Paypal',
         'status' => 'Status',
         'status_desc' => 'Move switch to the right for activating paypal',
+        'sandbox' => 'Sandbox',
+        'sandbox_desc' => 'Move switch to active sandbox mode.',
         'double' => 'Double',
         'double_desc' => 'Active double donation.',
         'client_id' => 'Client ID',
@@ -133,7 +136,11 @@ return [
         'currency_per' => 'Currency per :currency',
         'currency_per_desc' => 'Enter amount :coin per :currency',
         'minimum' => 'Minimum amount',
-        'minimum_desc' => 'Minimum amount to donate'
+        'minimum_desc' => 'Minimum amount to donate',
+        'description' => ':amount :currency',
+        'success' => 'Thank you for supporting our server, we appreciate your donation.',
+        'amount' => 'Amount money you will pay.',
+        'amount_receive' => 'Amount :currency you will receive.'
     ],
     'history' => [
         'title' => 'Transaction History',

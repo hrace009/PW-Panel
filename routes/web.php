@@ -110,7 +110,13 @@ Route::group(['prefix' => 'dashboard', 'middleware' => ['web', 'auth', 'verified
         Route::post('paypal/submit', [
             'as' => 'app.donate.paypal.submit',
             'middleware' => 'paypal.active',
-            'uses' => 'App\Http\Controllers\Front\DonateController@paypalSubmit'
+            'uses' => 'App\Http\Controllers\Front\DonateController@postPaypalSubmit'
+        ]);
+
+        Route::post('paypal/complete', [
+            'as' => 'app.donate.paypal.complete',
+            'middleware' => 'paypal.active',
+            'uses' => 'App\Http\Controllers\Front\DonateController@postPaypalComplete'
         ]);
 
         Route::get('bank', [

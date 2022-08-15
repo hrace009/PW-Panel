@@ -167,6 +167,12 @@ class DonateController extends Controller
             Config::write('pw-config.payment.paypal.status', false);
         }
 
+        if ($request->has('sandbox')) {
+            Config::write('pw-config.payment.paypal.sandbox', true);
+        } else {
+            Config::write('pw-config.payment.paypal.sandbox', false);
+        }
+
         if ($request->has('double')) {
             Config::write('pw-config.payment.paypal.double', true);
         } else {

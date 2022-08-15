@@ -23,13 +23,13 @@
                 <x-hrace009::input-with-popover id="donation_dollars" name="dollars"
                                                 type="number"
                                                 placeholder=" "
-                                                popover="{{ __('donate.guide.bank.form.fullname_desc') }}"
+                                                popover="{{ __('donate.paypal.amount') }}"
                 />
                 <span class="my-4 mx-4">=</span>
                 <x-hrace009::input-with-popover id="donation_tokens" name="tokens"
                                                 type="number"
                                                 placeholder=" "
-                                                popover="{{ __('donate.guide.bank.form.fullname_desc') }}"
+                                                popover="{{ __('donate.paypal.amount_receive', ['currency' => config('pw-config.currency_name')]) }}"
                 />
                 <span class="my-4 mx-4">{{ config('pw-config.currency_name') }}</span>
             </div>
