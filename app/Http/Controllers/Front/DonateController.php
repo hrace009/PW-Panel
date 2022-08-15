@@ -35,7 +35,6 @@ class DonateController extends Controller
 
     public function getPaypalIndex()
     {
-        //TODO: Please make paypal running!
         return view('front.donate.paypal.index');
     }
 
