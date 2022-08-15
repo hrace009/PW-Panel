@@ -145,6 +145,7 @@ class DonateController extends Controller
 
     public function getHistoryIndex()
     {
+        //TODO: create paypal transaction history
         $logbank = BankLog::whereGameid(Auth::user()->ID)->paginate(10);
         $pws = Paymentwall::whereUserid(Auth::user()->ID)->paginate(10);
         $ingamelogs = ServiceLog::whereUserid(Auth::user()->ID)->paginate(10);
