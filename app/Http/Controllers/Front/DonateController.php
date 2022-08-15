@@ -45,8 +45,8 @@ class DonateController extends Controller
             'amount' => number_format($request->dollars, 0),
             'currency' => config('pw-config.payment.paypal.currency'),
             'description' => __('donate.paypal.description', ['amount' => $request->dollars, 'currency' => config('pw-config.currency_name')]),
-            'returnUrl' => redirect()->route('app.donate.paypal.complete'),
-            'cancelUrl' => redirect()->route('app.donate.paypal'),
+            'returnUrl' => route('app.donate.paypal.complete'),
+            'cancelUrl' => route('app.donate.paypal'),
         ]);
 
         $response = $transaction->send();

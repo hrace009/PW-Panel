@@ -113,7 +113,7 @@ Route::group(['prefix' => 'dashboard', 'middleware' => ['web', 'auth', 'verified
             'uses' => 'App\Http\Controllers\Front\DonateController@postPaypalSubmit'
         ]);
 
-        Route::post('paypal/complete', [
+        Route::get('paypal/complete', [
             'as' => 'app.donate.paypal.complete',
             'middleware' => 'paypal.active',
             'uses' => 'App\Http\Controllers\Front\DonateController@postPaypalComplete'
