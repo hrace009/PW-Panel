@@ -19,6 +19,8 @@
                         href="#store">{{ __('donate.history.store') }}</a></li>
                 <li class="flex flex-1 justify-center px-4 py-2 font-semibold rounded-t "><a
                         href="#bank">{{ __('donate.history.bank') }}</a></li>
+                <li class="flex flex-1 justify-center px-4 py-2 font-semibold rounded-t "><a
+                        href="#paypal">{{ __('donate.history.paypal') }}</a></li>
             </ul>
 
             <!-- Tab Contents -->
@@ -248,6 +250,46 @@
                             </tbody>
                             </table>
                             {{ $banks->render() }}
+                        </div>
+                    @else
+                        {{ __('donate.empty') }}
+                    @endif
+                </div>
+                <div id="paypal" class="hidden p-4 mx-auto">
+                    @if( $paypals->items() )
+                        <div
+                            class="bg-white dark:bg-primary shadow-md rounded border border-gray-300 dark:border-primary-light justify-items-center">
+                            <table class="w-full table-auto">
+                                <thead>
+                                <tr class="bg-gray-200 dark:bg-primary dark:text-light text-gray-600 uppercase text-xs leading-normal">
+                                    <th class="py-3 px-6 text-left">{{ __('donate.history.table.paypal.trans_id') }}</th>
+                                    <th class="py-3 px-6 text-left">{{ __('donate.history.table.paypal.amount') }}</th>
+                                    <th class="py-3 px-6 text-left">{{ __('donate.history.table.paypal.created_at') }}</th>
+                                </tr>
+                                </thead>
+                                <tbody class="text-gray-600 text-xs dark:text-light">
+                                @foreach( $paypals->sortByDesc('created_at') as $paypal)
+                                    <tr class="border-b border-gray-200 bg-gray-50 hover:bg-gray-100 dark:border-primary dark:bg-darker dark:hover:bg-primary-dark">
+                                        <td class="py-3 px-6 text-left">
+                                            <div class="flex items-center">
+                                                <span>#{{ $paypal->transaction_id }}</span>
+                                            </div>
+                                        </td>
+                                        <td class="py-3 px-6 text-left">
+                                            <div class="flex items-center">
+                                                <span>{{ number_format(($paypal->amount ),0,'','') . ' ' . config('pw-config.currency_name')  }}</span>
+                                            </div>
+                                        </td>
+                                        <td class="py-3 px-6 text-left">
+                                            <div class="flex items-center">
+                                                <span>{{ date_format($paypal->created_at, 'F j, Y') }}</span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                                </tbody>
+                            </table>
+                            {{ $paypals->render() }}
                         </div>
                     @else
                         {{ __('donate.empty') }}

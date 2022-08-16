@@ -20,5 +20,15 @@ class Paypal extends Model
      */
     protected $fillable = ['user_id', 'transaction_id', 'amount'];
 
+    /**
+     * The primary key for the model.
+     *
+     * @var string
+     */
     protected $primaryKey = 'transaction_id';
+
+    /**
+     * @var string
+     */
+    protected $keyType = 'string';
 }

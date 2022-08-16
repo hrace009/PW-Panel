@@ -76,6 +76,13 @@ return [
             'currency_per' => '1',
             'minimum' => '1',
             'sandbox' => true
+        ],
+        'ipaymu' => [
+            'status' => false,
+            'double' => false,
+            'va' => '',
+            'apikey' => '',
+            'sandbox' => true
         ]
     ],
 ];

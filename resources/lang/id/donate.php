@@ -142,12 +142,34 @@ return [
         'amount' => 'Jumlah yang dibayarkan.',
         'amount_receive' => 'Jumlah :currency yang akan diterima.'
     ],
+    'ipaymu' => [
+        'title' => 'iPaymu',
+        'status' => 'Status',
+        'status_desc' => 'Geser tombol ke kanan untuk mengaktifkan iPaymu',
+        'sandbox' => 'Sandbox',
+        'sandbox_desc' => 'Pindahkan sakelar ke mode kotak pasir aktif.',
+        'double' => 'Dobel',
+        'double_desc' => 'Donasi ganda aktif.',
+        'va' => 'Akun Virtual',
+        'va_desc' => 'Masukkan Akun Virtual iPaymu Anda',
+        'apikey' => 'Api Key',
+        'apikey_desc' => 'Masukkan api Key iPaymu Anda',
+        'currency_per' => 'Mata uang per :currency',
+        'currency_per_desc' => 'Masukan jumlah :coin per :currency',
+        'minimum' => 'Jumlah minimal',
+        'minimum_desc' => 'Jumlah minimum untuk donasi',
+        'description' => ':amount :currency',
+        'success' => 'Terima kasih telah mendukung server kami, kami menghargai donasi Anda.',
+        'amount' => 'Jumlah uang yang akan Anda bayar.',
+        'amount_receive' => 'Jumlah :currency yang akan Anda terima.'
+    ],
     'history' => [
-        'title' => 'sejarah transaksi',
+        'title' => 'Riwayat transaksi',
         'bank' => 'Bank',
         'ingame' => 'Dalam Game',
         'paymentwall' => 'Paymentwall',
         'store' => 'Toko',
+        'paypal' => 'Paypal',
         'table' => [
             'trid' => 'Tr. ID',
             'date' => 'Tanggal',
@@ -192,6 +214,11 @@ return [
                 'item_name' => 'Nama Item',
                 'price' => 'Jumlah',
                 'date' => 'Tanggal'
+            ],
+            'paypal' => [
+                'trans_id' => 'Id Transaksi',
+                'amount' => 'Jumlah',
+                'created_at' => 'Tanggal'
             ]
         ],
         'success' => 'Perubahan Anda telah disimpan!',

@@ -142,12 +142,34 @@ return [
         'amount' => 'Amount money you will pay.',
         'amount_receive' => 'Amount :currency you will receive.'
     ],
+    'ipaymu' => [
+        'title' => 'iPaymu',
+        'status' => 'Status',
+        'status_desc' => 'Move switch to the right for activating iPaymu',
+        'sandbox' => 'Sandbox',
+        'sandbox_desc' => 'Move switch to active sandbox mode.',
+        'double' => 'Double',
+        'double_desc' => 'Active double donation.',
+        'va' => 'Virtual Account',
+        'va_desc' => 'Enter your iPaymu Virtual Account',
+        'apikey' => 'Api Key',
+        'apikey_desc' => 'Enter your iPaymu Api Key',
+        'currency_per' => 'Currency per :currency',
+        'currency_per_desc' => 'Enter amount :coin per :currency',
+        'minimum' => 'Minimum amount',
+        'minimum_desc' => 'Minimum amount to donate',
+        'description' => ':amount :currency',
+        'success' => 'Thank you for supporting our server, we appreciate your donation.',
+        'amount' => 'Amount money you will pay.',
+        'amount_receive' => 'Amount :currency you will receive.'
+    ],
     'history' => [
         'title' => 'Transaction History',
         'bank' => 'Bank',
         'ingame' => 'Ingame',
         'paymentwall' => 'Paymentwall',
         'store' => 'Store',
+        'paypal' => 'Paypal',
         'table' => [
             'trid' => 'Tr. ID',
             'date' => 'Date',
@@ -192,6 +214,11 @@ return [
                 'item_name' => 'Item Name',
                 'price' => 'Amount',
                 'date' => 'Date'
+            ],
+            'paypal' => [
+                'trans_id' => 'Transaction Id',
+                'amount' => 'Amount',
+                'created_at' => 'Created At'
             ]
         ],
         'success' => 'Your change has been saved!',

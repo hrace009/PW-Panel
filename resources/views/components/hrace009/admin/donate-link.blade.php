@@ -52,6 +52,13 @@
             {{ __('donate.paypal.title') }}
         </a>
         <a
+            href="{{ route('admin.donate.ipaymu') }}"
+            role="menuitem"
+            class="block p-2 text-sm text-gray-{{ $textiPaymu }} transition-colors duration-200 rounded-md dark:{{ $lightiPaymu }} dark:hover:text-light hover:text-gray-700"
+        >
+            {{ __('donate.ipaymu.title') }}
+        </a>
+        <a
             href="{{ route('admin.donate.paymentwall') }}"
             role="menuitem"
             class="block p-2 text-sm text-gray-{{ $textPaymentwall }} transition-colors duration-200 rounded-md dark:{{ $lightPaymentwall }} dark:hover:text-light hover:text-gray-700"

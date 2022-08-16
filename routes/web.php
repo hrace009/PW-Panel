@@ -356,6 +356,16 @@ Route::group(['prefix' => 'admin', 'middleware' => ['web', 'auth', 'verified', '
             'as' => 'admin.donate.paypal.post',
             'uses' => 'App\Http\Controllers\Admin\DonateController@postPaypal'
         ]);
+
+        Route::get('ipaymu', [
+            'as' => 'admin.donate.ipaymu',
+            'uses' => 'App\Http\Controllers\Admin\DonateController@showIpaymu'
+        ]);
+
+        Route::post('ipaymuPost', [
+            'as' => 'admin.donate.ipaymu.post',
+            'uses' => 'App\Http\Controllers\Admin\DonateController@postIpaymu'
+        ]);
     });
 
     Route::resource('voucher', VoucherController::class)->middleware('voucher');

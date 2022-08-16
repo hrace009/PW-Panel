@@ -198,4 +198,48 @@ class DonateController extends Controller
         }
         return redirect()->back()->with('success', __('admin.configSaved'));
     }
+
+    public function showIpaymu()
+    {
+        return view('admin.donate.ipaymu');
+    }
+
+    public function postIpaymu(Request $request)
+    {
+        if ($request->has('status')) {
+            Config::write('pw-config.payment.ipaymu.status', true);
+        } else {
+            Config::write('pw-config.payment.ipaymu.status', false);
+        }
+
+        if ($request->has('sandbox')) {
+            Config::write('pw-config.payment.ipaymu.sandbox', true);
+        } else {
+            Config::write('pw-config.payment.ipaymu.sandbox', false);
+        }
+
+        if ($request->has('double')) {
+            Config::write('pw-config.payment.ipaymu.double', true);
+        } else {
+            Config::write('pw-config.payment.ipaymu.double', false);
+        }
+
+        if (config('pw-config.payment.ipaymu.status') === true) {
+            $configs = $request->validate([
+                'va' => 'required|string',
+                'apikey' => 'required|string',
+            ]);
+
+            foreach ($configs as $config => $value) {
+                if (!$value) {
+                    Config::write('pw-config.payment.ipaymu.' . $config, '');
+                } else {
+                    Config::write('pw-config.payment.ipaymu.' . $config, $value);
+                }
+            }
+        }
+
+        return redirect()->back()->with('success', __('admin.configSaved'));
+    }
+
 }
