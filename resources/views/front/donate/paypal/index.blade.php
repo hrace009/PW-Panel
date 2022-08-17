@@ -7,7 +7,6 @@
     </x-slot>
 
     <x-slot name="content">
-        NOTE: STILL UNFINISH AND CANNOT USED!
         <form action="{{ route('app.donate.paypal.submit') }}" onsubmit="return donation_check();" method="post">
             {!! csrf_field() !!}
             @if( config('pw-config.payment.paypal.double') )
