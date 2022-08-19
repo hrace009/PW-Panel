@@ -1,5 +1,9 @@
 <?php
-
+/*
+ * @author Harris Marfel <hrace009@gmail.com>
+ * @link https://www.hrace009.com
+ * @copyright Copyright (c) 2022.
+ */
 
 use Monolog\Handler\NullHandler;
 use Monolog\Handler\StreamHandler;

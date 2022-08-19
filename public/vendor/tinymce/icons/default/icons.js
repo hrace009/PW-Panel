@@ -1,3 +1,9 @@
+/*
+ * @author Harris Marfel <hrace009@gmail.com>
+ * @link https://www.hrace009.com
+ * @copyright Copyright (c) 2022.
+ */
+
 tinymce.IconManager.add('default', {
   icons: {
     'accessibility-check': '<svg width="24" height="24"><path d="M12 2a2 2 0 012 2 2 2 0 01-2 2 2 2 0 01-2-2c0-1.1.9-2 2-2zm8 7h-5v12c0 .6-.4 1-1 1a1 1 0 01-1-1v-5c0-.6-.4-1-1-1a1 1 0 00-1 1v5c0 .6-.4 1-1 1a1 1 0 01-1-1V9H4a1 1 0 110-2h16c.6 0 1 .4 1 1s-.4 1-1 1z" fill-rule="nonzero"/></svg>',

@@ -1,3 +1,9 @@
+/*
+ * @author Harris Marfel <hrace009@gmail.com>
+ * @link https://www.hrace009.com
+ * @copyright Copyright (c) 2022.
+ */
+
 // Source: npm package: emojilib
 // Images provided by twemoji: https://github.com/twitter/twemoji
 window.tinymce.Resource.add("tinymce.plugins.emoticons", {

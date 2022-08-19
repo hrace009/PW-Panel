@@ -1,5 +1,11 @@
 
 
+/*
+ * @author Harris Marfel <hrace009@gmail.com>
+ * @link https://www.hrace009.com
+ * @copyright Copyright (c) 2022.
+ */
+
 // All javascript code in this project for now is just for demo DON'T RELY ON IT
 
 const random = (max = 100) => {
