@@ -5,10 +5,6 @@
     'profile.logout-from-other-browser' => 'App\\Http\\Livewire\\Profile\\LogoutFromOtherBrowser',
     'profile.update-pin-form' => 'App\\Http\\Livewire\\Profile\\UpdatePinForm',
 );
-/*
- * @author Harris Marfel <hrace009@gmail.com>
- * @link https://www.hrace009.com
- * @copyright Copyright (c) 2022.
- */
+
 
 

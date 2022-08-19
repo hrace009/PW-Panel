@@ -1,10 +1,6 @@
 <?php
 
-/*
- * @author Harris Marfel <hrace009@gmail.com>
- * @link https://www.hrace009.com
- * @copyright Copyright (c) 2022.
- */
+
 
 return [
     'chat_log_path' => '/home/hrace009/Core/Wanmei2015/logs/',
