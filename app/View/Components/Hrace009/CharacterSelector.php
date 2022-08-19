@@ -5,6 +5,12 @@
  * @copyright Copyright (c) 2022.
  */
 
+/*
+ * @author Harris Marfel <hrace009@gmail.com>
+ * @link https://www.hrace009.com
+ * @copyright Copyright (c) 2022.
+ */
+
 namespace App\View\Components\Hrace009;
 
 use hrace009\PerfectWorldAPI\API;

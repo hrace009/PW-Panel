@@ -5,8 +5,16 @@
  * @copyright Copyright (c) 2022.
  */
 
+
+/*
+ * @author Harris Marfel <hrace009@gmail.com>
+ * @link https://www.hrace009.com
+ * @copyright Copyright (c) 2022.
+ */
+
 namespace App\Console;
 
+use App\Console\Commands\UpdateTransferCommand;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
