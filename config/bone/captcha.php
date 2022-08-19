@@ -1,6 +1,13 @@
 <?php
 
 
+
+/*
+ * @author Harris Marfel <hrace009@gmail.com>
+ * @link https://youtube.com/c/hrace009
+ * @copyright Copyright (c) 2022.
+ */
+
 use App\Http\Helper\CaptchaGenerator;
 use Igoshev\Captcha\Captcha\Code\SimpleCode;
 use Igoshev\Captcha\Captcha\Storage\SessionStorage;

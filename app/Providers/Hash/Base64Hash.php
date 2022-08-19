@@ -4,6 +4,13 @@
 
 
 
+
+/*
+ * @author Harris Marfel <hrace009@gmail.com>
+ * @link https://youtube.com/c/hrace009
+ * @copyright Copyright (c) 2022.
+ */
+
 namespace App\Providers\Hash;
 
 use Illuminate\Contracts\Hashing\Hasher as HasherContract;
