@@ -7,52 +7,47 @@
 
 > Web panel for Perfect World MMORPG private server, powered with laravel and tailwindcss
 
-### 🏠 [Homepage](home)
+### 🏠 [Homepage](https://youtube.com/c/hrace009)
 
-### ✨ [Demo](demo)
+## Requirements
+1. [Composer](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-macos) & [Git](https://github.com/git-guides/install-git)
+2. PHP 7.3 or higher
+3. PHP GD extension, not sure if you have it? Try to search it on [Google](https://gprivate.com/60ifz)
+
+## Setup Environtment
+1. Rename file `.env.example` to `.env`.
+2. Change your database configuration at `.env` with text editor.
+3. Change permissions for following folder / files:
+   - storage/app/
+   - storage/framework/
+   - storage/logs/
+   - bootstrap/cache/
+   - .env
 
 ## Install
-
+Note: Make sure your inside the `pw-panel` directory when you run the commands.
 ```sh
-npm install
+composer install
 ```
-
-## Usage
-
+Run the migration
 ```sh
-usage
+php artisan migrate
 ```
-
-## Run tests
-
+Seed database
 ```sh
-test
+php artisan db:seed --class=ServiceSeeder
+```
+Generate Application Key
+```sh
+php artisan key:generate
 ```
 
 ## Author
-
 👤 **Harris Marfel**
-
 * Website: https://youtube.com/hrace009
 * Twitter: [@hrace009](https://twitter.com/hrace009)
 * Github: [@hrace009](https://github.com/hrace009)
 * LinkedIn: [@harris-yogasara](https://linkedin.com/in/harris-yogasara)
 
-## 🤝 Contributing
-
-Contributions, issues and feature requests are welcome!
-
-Feel free to check [issues page](issue). You can also take a look at the [contributing guide](contrib).
-
-## Show your support
-
-Give a ⭐️ if this project helped you!
-
 ## 📝 License
-
 Copyright © 2022 [Harris Marfel](https://github.com/hrace009).
-
-This project is [GPLv2](lic) licensed.
-
-***
-_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
