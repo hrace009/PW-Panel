@@ -11,10 +11,18 @@
             {!! csrf_field() !!}
             @if( config('pw-config.payment.paypal.double') )
                 <div
-                    class="flex flex-row z-0 mb-6 w-full group bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded"
+                    class="flex flex-row z-0 mb-6 w-full group bg-blue-100 border border-blue-400 text-blue-700 px-4 py-3 rounded"
                     role="alert"
                 >
                     <span class="block sm:inline">{!! __('donate.double_notice') !!}</span>
+                </div>
+            @endif
+            @if( config('pw-config.payment.paypal.sandbox') )
+                <div
+                    class="flex flex-row z-0 mb-6 w-full group bg-yellow-100 border border-yellow-400 text-yellow-700 px-4 py-3 rounded"
+                    role="alert"
+                >
+                    <span class="block sm:inline">{!! __('donate.sandboxActive') !!}</span>
                 </div>
             @endif
             <div class="flex flex-row z-0 mb-6 w-full group">

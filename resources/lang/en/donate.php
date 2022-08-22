@@ -268,5 +268,6 @@ return [
         'USD' => "U.S. Dollar",
     ],
     'free' => 'Free',
-    'empty' => 'You not made any transaction yet!'
+    'empty' => 'You not made any transaction yet!',
+    'sandboxActive' => '<strong>WARNING:</strong> Sandbox is Active!'
 ];

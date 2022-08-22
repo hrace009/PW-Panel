@@ -268,5 +268,6 @@ return [
         'USD' => "U.S. Dollar",
     ],
     'free' => 'Gratis',
-    'empty' => 'Anda belum melakukan transaksi apa pun!'
+    'empty' => 'Anda belum melakukan transaksi apa pun!',
+    'sandboxActive' => '<strong>Peringatan:</strong> Mode Sandbox sedang aktif!'
 ];
