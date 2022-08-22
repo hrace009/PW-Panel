@@ -16,7 +16,7 @@
             </div>
         @else
             @foreach( $sites as $site )
-                <div>
+                <div class="mb-4">
                     <div
                         class="flex flex-row justify-between py-2 px-4 w-full bg-gray-200 border-gray-400 dark:bg-darker dark:border-primary border rounded rounded-b-none">
                         <span class="dark:text-primary-light">{{ $site->name }}</span>
