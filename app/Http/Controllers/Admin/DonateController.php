@@ -12,6 +12,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\BankLog;
+use App\Models\Paymentwall;
+use App\Models\Paypal;
 use App\Models\User;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
@@ -250,4 +252,12 @@ class DonateController extends Controller
         return redirect()->back()->with('success', __('admin.configSaved'));
     }
 
+    public function getHistory()
+    {
+        //TODO: create list income
+        $banks = BankLog::whereStatus('accept')->paginate();
+        return view ('admin.donate.history', [
+            'banks' => $banks
+        ]);
+    }
 }

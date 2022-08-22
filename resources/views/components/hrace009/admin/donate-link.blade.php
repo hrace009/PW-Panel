@@ -79,5 +79,12 @@
         >
             {{ __('donate.bank.confirm') }}
         </a>
+        <a
+            href="{{ route('admin.donate.history') }}"
+            role="menuitem"
+            class="block p-2 text-sm text-gray-{{ $textHistory }} transition-colors duration-200 rounded-md dark:{{ $lightHistory }} dark:hover:text-light hover:text-gray-700"
+        >
+            {{ __('donate.history.title') }}
+        </a>
     </div>
 </div>

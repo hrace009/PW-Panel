@@ -26,7 +26,7 @@ class Paypal extends Model
      *
      * @var array
      */
-    protected $fillable = ['user_id', 'transaction_id', 'amount'];
+    protected $fillable = ['user_id', 'transaction_id', 'amount', 'money'];
 
     /**
      * The primary key for the model.

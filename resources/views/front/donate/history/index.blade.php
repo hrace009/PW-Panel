@@ -127,7 +127,7 @@
                                         </td>
                                         <td class="py-3 px-6 text-left">
                                             <div class="flex items-center">
-                                                <span>{{ $pw->amount  }}</span>
+                                                <span>{{ number_format(($pw->amount ),0,'','.') . ' ' . config('pw-config.currency_name')  }}</span>
                                             </div>
                                         </td>
                                         <td class="py-3 px-6 text-left">
@@ -264,6 +264,7 @@
                                 <tr class="bg-gray-200 dark:bg-primary dark:text-light text-gray-600 uppercase text-xs leading-normal">
                                     <th class="py-3 px-6 text-left">{{ __('donate.history.table.paypal.trans_id') }}</th>
                                     <th class="py-3 px-6 text-left">{{ __('donate.history.table.paypal.amount') }}</th>
+                                    <th class="py-3 px-6 text-left">{{ __('donate.history.table.paypal.money') }}</th>
                                     <th class="py-3 px-6 text-left">{{ __('donate.history.table.paypal.created_at') }}</th>
                                 </tr>
                                 </thead>
@@ -278,6 +279,11 @@
                                         <td class="py-3 px-6 text-left">
                                             <div class="flex items-center">
                                                 <span>{{ number_format(($paypal->amount ),0,'','') . ' ' . config('pw-config.currency_name')  }}</span>
+                                            </div>
+                                        </td>
+                                        <td class="py-3 px-6 text-left">
+                                            <div class="flex items-center">
+                                                <span>{{ number_format(($paypal->money ),0,'','') . ' ' . config('pw-config.payment.paypal.currency')  }}</span>
                                             </div>
                                         </td>
                                         <td class="py-3 px-6 text-left">

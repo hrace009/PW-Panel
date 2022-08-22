@@ -226,6 +226,7 @@ return [
             'paypal' => [
                 'trans_id' => 'Id Transaksi',
                 'amount' => 'Jumlah',
+                'money' => 'Harga',
                 'created_at' => 'Tanggal'
             ]
         ],

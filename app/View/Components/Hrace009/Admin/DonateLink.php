@@ -43,6 +43,8 @@ class DonateLink extends Component
             $lightPaypal = 'text-gray-400';
             $textiPaymu = '400';
             $lightIpaymu = 'text-gray-400';
+            $textHistory = '400';
+            $lightHistory = 'text-gray-400';
         } elseif (request()->routeIs('admin.donate.banktransfer')) {
             $status = 'true';
             $textPaymentwall = '400';
@@ -55,6 +57,8 @@ class DonateLink extends Component
             $lightPaypal = 'text-gray-400';
             $textiPaymu = '400';
             $lightIpaymu = 'text-gray-400';
+            $textHistory = '400';
+            $lightHistory = 'text-gray-400';
         } elseif (request()->routeIs('admin.donate.bankconfirm')) {
             $status = 'true';
             $textPaymentwall = '400';
@@ -67,6 +71,8 @@ class DonateLink extends Component
             $lightPaypal = 'text-gray-400';
             $textiPaymu = '400';
             $lightIpaymu = 'text-gray-400';
+            $textHistory = '400';
+            $lightHistory = 'text-gray-400';
         } elseif (request()->routeIs('admin.donate.paypal')) {
             $status = 'true';
             $textPaymentwall = '400';
@@ -79,6 +85,8 @@ class DonateLink extends Component
             $lightPaypal = 'text-light';
             $textiPaymu = '400';
             $lightIpaymu = 'text-gray-400';
+            $textHistory = '400';
+            $lightHistory = 'text-gray-400';
         } elseif (request()->routeIs('admin.donate.ipaymu')) {
             $status = 'true';
             $textPaymentwall = '400';
@@ -91,6 +99,22 @@ class DonateLink extends Component
             $lightPaypal = 'text-gray-400';
             $textiPaymu = '700';
             $lightIpaymu = 'text-light';
+            $textHistory = '400';
+            $lightHistory = 'text-gray-400';
+        } elseif (request()->routeIs('admin.donate.history')) {
+            $status = 'true';
+            $textPaymentwall = '400';
+            $lightPaymentwall = 'text-gray-400';
+            $textBank = '400';
+            $lightBank = 'text-gray-400';
+            $textConfirm = '400';
+            $lightConfirm = 'text-gray-400';
+            $textPaypal = '400';
+            $lightPaypal = 'text-gray-400';
+            $textiPaymu = '400';
+            $lightIpaymu = 'text-gray-400';
+            $textHistory = '700';
+            $lightHistory = 'text-light';
         } else {
             $status = 'false';
             $textPaymentwall = '400';
@@ -103,6 +127,8 @@ class DonateLink extends Component
             $lightPaypal = 'text-gray-400';
             $textiPaymu = '400';
             $lightIpaymu = 'text-gray-400';
+            $textHistory = '400';
+            $lightHistory = 'text-gray-400';
         }
 
         return view('components.hrace009.admin.donate-link', [
@@ -116,7 +142,9 @@ class DonateLink extends Component
             'textPaypal' => $textPaypal,
             'lightPaypal' => $lightPaypal,
             'textiPaymu' => $textiPaymu,
-            'lightiPaymu' => $lightIpaymu
+            'lightiPaymu' => $lightIpaymu,
+            'textHistory' => $textHistory,
+            'lightHistory' => $lightHistory,
         ]);
     }
 }

@@ -369,6 +369,11 @@ Route::group(['prefix' => 'admin', 'middleware' => ['web', 'auth', 'verified', '
             'as' => 'admin.donate.ipaymu.post',
             'uses' => 'App\Http\Controllers\Admin\DonateController@postIpaymu'
         ]);
+
+        Route::get('history', [
+            'as' => 'admin.donate.history',
+            'uses' => 'App\Http\Controllers\Admin\DonateController@getHistory'
+        ]);
     });
 
     Route::resource('voucher', VoucherController::class)->middleware('voucher');
@@ -384,7 +389,6 @@ Route::group(['prefix' => 'admin', 'middleware' => ['web', 'auth', 'verified', '
             'uses' => 'App\Http\Controllers\Admin\VoteController@postArena',
         ]);
     });
-
     Route::resource('vote', VoteController::class)->parameter('vote', 'site')->middleware('vote');
 
     Route::group(['prefix' => 'service', 'middleware' => 'service'], static function () {

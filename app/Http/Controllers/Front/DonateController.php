@@ -84,7 +84,8 @@ class DonateController extends Controller
             Paypal::create([
                 'user_id' => $user->ID,
                 'transaction_id' => $data['id'],
-                'amount' => $payment_amount
+                'amount' => $payment_amount,
+                'money' => $amount
             ]);
 
             $user->money = $user->money + $payment_amount;
