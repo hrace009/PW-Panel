@@ -1,10 +1,11 @@
-
-/*
- * @author Harris Marfel <hrace009@gmail.com>
- * @link https://youtube.com/c/hrace009
- * @copyright Copyright (c) 2022.
+/**
+ * Copyright (c) Tiny Technologies, Inc. All rights reserved.
+ * Licensed under the LGPL or a commercial license.
+ * For LGPL see License.txt in the project root for license information.
+ * For commercial licenses see https://www.tiny.cloud/
+ *
+ * Version: 5.10.5 (2022-05-25)
  */
-
 (function () {
     'use strict';
 
@@ -26842,18 +26843,15 @@
         setupEvents(editor, targetElm, ui, toolbarPersist);
         editor.nodeChanged();
       };
-      var delayedRender = function () {
-        return global$f.setEditorTimeout(editor, render, 0);
-      };
       editor.on('show', render);
       editor.on('hide', ui.hide);
       if (!toolbarPersist) {
-        editor.on('focus', delayedRender);
+        editor.on('focus', render);
         editor.on('blur', ui.hide);
       }
       editor.on('init', function () {
         if (editor.hasFocus() || toolbarPersist) {
-          delayedRender();
+          render();
         }
       });
       setupReadonlyModeSwitch(editor, uiComponents);
