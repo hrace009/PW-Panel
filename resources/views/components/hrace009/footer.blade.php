@@ -12,7 +12,4 @@
         ><span id="copyright-by"></span>
         </a>
     </div>
-    <div>
-        Laravel v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }})
-    </div>
 </footer>
