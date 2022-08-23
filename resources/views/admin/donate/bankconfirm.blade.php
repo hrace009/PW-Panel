@@ -34,7 +34,7 @@
                             </td>
                             <td class="py-3 px-2 text-left">
                                 <div class="flex flex-row items-center">
-                                    <span>{{ date_format($log->created_at, 'F j, Y') }}</span>
+                                    <span>{{ \Carbon\Carbon::parse( $log->created_at)->translatedFormat('j F, Y h:i a') }}</span>
                                 </div>
                             </td>
                             <td class="py-3 px-2 text-left">
