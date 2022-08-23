@@ -17,7 +17,7 @@
 ## Setup Environtment
 1. Rename file `.env.example` to `.env`.
 2. Change your database configuration at `.env` with text editor.
-3. Change permissions for following folder / files:
+3. Change permissions to 777 for following folder / files:
    - storage/app/
    - storage/framework/
    - storage/logs/
