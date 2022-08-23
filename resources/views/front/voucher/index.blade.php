@@ -58,7 +58,7 @@
                                         {{ $log->voucher->amount  }}
                                     </td>
                                     <td class="px-2 py-3 whitespace-nowrap text-center">
-                                        {{ $log->created_at->format('F j, Y @h:m A') }}
+                                        {{ \Carbon\Carbon::parse( $log->created_at)->translatedFormat('j F, Y h:i a') }}
                                     </td>
                                 </tr>
                             @endforeach
