@@ -73,7 +73,7 @@
                                         </td>
                                         <td class="py-3 px-6 text-left">
                                             <div class="flex items-center">
-                                                {{ date_format($ingamelog->created_at, 'F j, Y') }}
+                                                {{ \Carbon\Carbon::parse( $ingamelog->created_at)->translatedFormat('j F, Y h:i a') }}
                                             </div>
                                         </td>
                                     </tr>
@@ -117,7 +117,7 @@
                                         </td>
                                         <td class="py-3 px-6 text-left">
                                             <div class="flex items-center">
-                                                <span>{{ date_format($pw->created_at, 'F j, Y')  }}</span>
+                                                <span>{{ \Carbon\Carbon::parse( $pw->created_at)->translatedFormat('j F, Y h:i a') }}</span>
                                             </div>
                                         </td>
                                         <td class="py-3 px-6 text-left">
@@ -179,7 +179,7 @@
                                         </td>
                                         <td class="py-3 px-6 text-left">
                                             <div class="flex items-center">
-                                                {{ date_format($shoplog->created_at, 'F j, Y')  }}
+                                                {{ \Carbon\Carbon::parse( $shoplog->created_at)->translatedFormat('j F, Y h:i a') }}
                                             </div>
                                         </td>
                                     </tr>
@@ -217,7 +217,7 @@
                                     </td>
                                     <td class="py-3 px-6 text-left">
                                         <div class="flex items-center">
-                                            <span>{{ date_format($bank->created_at, 'F j, Y') }}</span>
+                                            <span>{{ \Carbon\Carbon::parse( $bank->created_at)->translatedFormat('j F, Y h:i a') }}</span>
                                         </div>
                                     </td>
                                     <td class="py-3 px-6 text-left">
@@ -288,7 +288,7 @@
                                         </td>
                                         <td class="py-3 px-6 text-left">
                                             <div class="flex items-center">
-                                                <span>{{ date_format($paypal->created_at, 'F j, Y') }}</span>
+                                                <span>{{ \Carbon\Carbon::parse( $paypal->created_at)->translatedFormat('j F, Y h:i a') }}</span>
                                             </div>
                                         </td>
                                     </tr>
