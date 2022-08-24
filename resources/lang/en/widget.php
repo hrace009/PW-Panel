@@ -11,6 +11,7 @@
 return [
     'port' => 'Port',
     'players_online' => 'Players Online',
+    'server_time' => 'Server Time',
     'total_account' => 'Registered Account',
     'table' => [
         'gmonline' => 'GM\'s Online',

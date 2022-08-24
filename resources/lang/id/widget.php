@@ -11,6 +11,7 @@
 return [
     'port' => 'Port',
     'players_online' => 'Pemain Online',
+    'server_time' => 'Waktu server',
     'total_account' => 'Akun Terdaftar',
     'table' => [
         'gmonline' => 'GM Online',

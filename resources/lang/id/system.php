@@ -63,6 +63,8 @@ return [
     'server_version_desc' => 'Versi Perfect World Anda yang sedang berjalan.',
     'encrypt_type' => 'Tipe enkripsi',
     'encrypt_type_desc' => 'Jenis enkripsi kata sandi yang digunakan authd.',
+    'datetimezone' => 'Zona Waktu',
+    'datetimezone_desc' => 'Pilih zona waktu',
     'success' => 'Pengaturan Anda telah disimpan.',
     'releases' => [
         'new' => 'Baru',
@@ -70,6 +72,6 @@ return [
             'title' => 'Pra-rilis',
             'body' => 'Kami tidak menyarankan Anda menggunakan versi ini di server langsung karena masih dalam pengembangan. Jika Anda menerima kesalahan saat menggunakan versi ini, harap buat masalah dengan awalan <b>[:tag]</b>.'
         ]
-    ]
+    ],
 
 ];

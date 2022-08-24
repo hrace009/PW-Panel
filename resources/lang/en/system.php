@@ -63,6 +63,8 @@ return [
     'server_version_desc' => 'Version of Perfect World your running.',
     'encrypt_type' => 'Encryption Type',
     'encrypt_type_desc' => 'Type of password encryption the authd uses.',
+    'datetimezone' => 'Time Zone',
+    'datetimezone_desc' => 'Chose your time zone',
     'success' => 'Your settings have been saved.',
     'releases' => [
         'new' => 'New',

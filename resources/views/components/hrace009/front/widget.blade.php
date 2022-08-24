@@ -43,6 +43,16 @@
                 <h6
                     class="text-xs font-medium leading-none tracking-wider text-gray-500 uppercase dark:text-primary-light"
                 >
+                    {{ __('widget.server_time') }}
+                </h6>
+                <span class="text-sm font-semibold">{{ \Carbon\Carbon::now(config('app.timezone'))->translatedFormat('j F, Y h:i a') }}</span>
+            </div>
+        </div>
+        <div class="flex align-middle items-center justify-between p-2">
+            <div>
+                <h6
+                    class="text-xs font-medium leading-none tracking-wider text-gray-500 uppercase dark:text-primary-light"
+                >
                     {{ __('widget.table.server_status') }}
                 </h6>
                 <span

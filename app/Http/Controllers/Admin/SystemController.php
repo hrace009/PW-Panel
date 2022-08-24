@@ -96,6 +96,8 @@ class SystemController extends Controller
             Config::write('pw-config.' . $settings, $value);
         }
         Config::write('app.name', $request->get('server_name'));
+        Config::write('app.timezone', $request->get('datetimezone'));
+        Config::set('app.timezone', $request->get('datetimezone'));
         Config::set('app.name', $request->get('server_name'));
         return redirect()->back()->with('success', __('admin.configSaved'));
     }
