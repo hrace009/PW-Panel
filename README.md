@@ -41,6 +41,10 @@ Generate Application Key
 ```sh
 php artisan key:generate
 ```
+Create new Administrator
+```sh
+php artisan pw:createAdmin
+```
 
 ## Author
 👤 **Harris Marfel**
