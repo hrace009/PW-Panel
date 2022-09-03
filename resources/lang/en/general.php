@@ -12,6 +12,7 @@
 
 return [
     'loading' => 'Loading...',
+    'home' => 'Home',
     'dashboard' => [
         'profile' => [
             'header' => 'Profile',

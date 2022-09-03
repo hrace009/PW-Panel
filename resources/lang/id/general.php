@@ -10,6 +10,7 @@
 
 return [
     'loading' => 'Memuat...',
+    'home' => 'Beranda',
     'dashboard' => [
         'profile' => [
             'header' => 'Profil',

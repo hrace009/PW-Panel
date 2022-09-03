@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Laravel</title>
+    <title>Andrevan</title>
 
     @if( config('pw-config.logo') === 'img/logo/logo.png' )
         <link rel="shortcut icon" href="{{ asset(config('pw-config.logo')) }}"/>
