@@ -22,7 +22,7 @@
                     </div>
                     <div class="embed-item">
                         <svg class="svg-inline--fa fa-bookmark fa-w-12 meta-icon" aria-hidden="true" data-prefix="fa" data-icon="bookmark" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" data-fa-i2svg=""><path fill="currentColor" d="M0 512V48C0 21.49 21.49 0 48 0h288c26.51 0 48 21.49 48 48v464L192 400 0 512z"></path></svg><!-- <i class="fa fa-bookmark meta-icon"></i> -->
-                        {{ __('news.category.' . $article->category) }}
+                        <span class="label label-{{ $article->categoryColor($article->category) }}">{{ __('news.category.' . $article->category) }}</span>
                     </div>
                     <div class="tags">
                         @php($tags = explode(',', $article->keywords))

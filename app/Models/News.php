@@ -44,4 +44,16 @@ class News extends Model
         ];
         return $colors[$type];
     }
+
+    public function categoryColor( $type ): string
+    {
+        $colors = [
+            'update' => 'success',
+            'maintenance' => 'primary',
+            'event' => 'info',
+            'contest' => 'warning',
+            'other' => 'danger'
+        ];
+        return $colors[$type];
+    }
 }
