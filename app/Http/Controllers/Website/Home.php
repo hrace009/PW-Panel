@@ -21,10 +21,10 @@ class Home extends Controller
         return view('website.index');
     }
 
-    public function showPost(int $id)
+    public function showPost( string $slug )
     {
         return view( 'website.article', [
-            'article' => News::findOrFail($id),
+            'article' => News::whereSlug( $slug )->firstOrFail(),
             'user' => new User()
         ]);
     }

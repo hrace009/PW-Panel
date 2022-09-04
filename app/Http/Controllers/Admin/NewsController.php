@@ -63,6 +63,10 @@ class NewsController extends Controller
         $input = $request->all();
         $input['og_image'] = $image;
 
+        $slug = \Str::slug($request->title);
+        $count = News::where('slug', 'LIKE', '%' . $slug . '%')->count();
+        $input['slug'] = $count ? "{$slug}-{$count}" : $slug;
+
         News::create($input);
         return redirect(route('news.index'))->with('success', __('news.create_success'));
     }
@@ -106,6 +110,7 @@ class NewsController extends Controller
 
         News::whereId($id)->update([
             'title' => $request->get('title'),
+            'slug' => \Str::slug($request->title),
             'og_image' => $image,
             'description' => $request->get('description'),
             'keywords' => $request->get('keywords'),

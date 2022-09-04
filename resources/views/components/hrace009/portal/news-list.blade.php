@@ -4,7 +4,7 @@
         <div class="news-one">
             <div class="row vertical-gutter">
                 <div class="col-md-4">
-                    <a href="#" class="angled-img">
+                    <a href="{{ route('show.article', $article->slug) }}" class="angled-img">
                         <div class="img">
                             <img src="{{ asset('uploads/og_image') . '/' . $article->og_image }}" alt="">
 
@@ -17,7 +17,7 @@
                 </div>
                 <div class="col-md-8">
                     <div class="clearfix">
-                        <h3 class="h2 pull-left m-0"><a href="{{ route('show.article', $article->id ) }}">{{ strtoupper($article->title) }}</a></h3>
+                        <h3 class="h2 pull-left m-0"><a href="{{ route('show.article', $article->slug ) }}">{{ strtoupper($article->title) }}</a></h3>
                         <span class="date pull-right"><i class="fa fa-calendar"></i> {{ \Carbon\Carbon::parse($article->created_at)->translatedFormat('j F, Y') }}</span>
                     </div>
                     <div class="embed-item">
@@ -34,7 +34,7 @@
                     <div class="description">
                         {{ $article->description }}
                     </div>
-                    <a href="{{ route('show.article', $article->id ) }}" class="btn read-more pull-left">{{ __('news.readmore') }}</a>
+                    <a href="{{ route('show.article', $article->slug ) }}" class="btn read-more pull-left">{{ __('news.readmore') }}</a>
                 </div>
             </div>
         </div>

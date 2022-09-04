@@ -61,7 +61,7 @@ Route::group(['middleware' => 'web'], static function () {
         'uses' => 'App\Http\Controllers\Website\Home@index'
     ]);
 
-    Route::get('news/{id}', [
+    Route::get('news/{slug}', [
         'as' => 'show.article',
         'uses' => 'App\Http\Controllers\Website\Home@showPost'
     ]);
