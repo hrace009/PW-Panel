@@ -20,7 +20,7 @@
     </x-slot>
 
     <x-slot name="og_url">
-        {{ route('show.article', $article->id ) }}
+        {{ route('show.article', $article->slug ) }}
     </x-slot>
 
     <x-slot name="article_title">
