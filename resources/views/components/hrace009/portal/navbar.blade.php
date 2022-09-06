@@ -154,7 +154,7 @@
                                 @endif
 
                                 <div class="youplay-checkbox mb-15 ml-5">
-                                    <input type="checkbox" name="remember" value="forever" id="remember_me">
+                                    <input type="checkbox" name="remember" id="remember_me">
                                     <label for="remember_me">{{ __('auth.form.remember') }}</label>
                                 </div>
 
