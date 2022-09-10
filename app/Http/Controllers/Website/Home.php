@@ -18,13 +18,24 @@ class Home extends Controller
 {
     public function index()
     {
-        return view('website.index');
+        return view('website.index', [
+            'news' => News::orderBy('id', 'desc')->paginate(3),
+            'user' => new User()
+        ]);
     }
 
-    public function showPost( string $slug )
+    public function indexCategory(string $category)
     {
-        return view( 'website.article', [
-            'article' => News::whereSlug( $slug )->firstOrFail(),
+        return view('website.index', [
+            'news' => News::whereCategory($category)->paginate(3),
+            'user' => new User()
+        ]);
+    }
+
+    public function showPost(string $slug)
+    {
+        return view('website.article', [
+            'article' => News::whereSlug($slug)->firstOrFail(),
             'user' => new User()
         ]);
     }
