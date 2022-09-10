@@ -23,6 +23,7 @@ return [
             'online' => 'Online',
             'offline' => 'Offline',
         ],
+        'category' => 'Kategori',
     ],
     'nogm' => [
         'titel' => 'Tidak Ada GM Tersedia.',

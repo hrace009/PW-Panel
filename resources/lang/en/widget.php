@@ -23,6 +23,7 @@ return [
             'online' => 'Online',
             'offline' => 'Offline',
         ],
+        'category' => 'Category',
     ],
     'nogm' => [
         'titel' => 'No GM Available.',
