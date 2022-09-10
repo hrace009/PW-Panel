@@ -95,7 +95,7 @@
                     </div>
                     <div class="item">
                         <i class="fa fa-calendar meta-icon"></i>
-                        Published {{ $published }}
+                        {{ __('news.published') . ' ' .$published }}
                     </div>
                     <div class="item">
                         <i class="fa fa-bookmark meta-icon"></i>

@@ -22,7 +22,7 @@
                                 <h3 class="h2 pull-left m-0"><a
                                         href="{{ route('show.article', $article->slug ) }}">{{ strtoupper($article->title) }}</a>
                                 </h3>
-                                <span class="date pull-right"><i class="fa fa-calendar"></i> {{ (\Carbon\Carbon::parse($article->created_at)->diff(\Carbon\Carbon::now())->days < 30 ) ? \Carbon\Carbon::parse($article->created_at)->diffForHumans() : \Carbon\Carbon::parse($article->created_at)->translatedFormat('D j F, Y') }}</span>
+                                <span class="date pull-right"><i class="fa fa-calendar"></i> {{ $article->date( $article->created_at ) }}</span>
                             </div>
                             <div class="embed-item">
                                 <svg class="svg-inline--fa fa-bookmark fa-w-12 meta-icon" aria-hidden="true"

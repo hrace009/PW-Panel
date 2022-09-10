@@ -28,11 +28,14 @@
     </x-slot>
 
     <x-slot name="published">
-        {{ \Carbon\Carbon::parse($article->created_at)->translatedFormat('j F, Y') }}
+        {{ $article->date($article->created_at) }}
     </x-slot>
 
     <x-slot name="categories">
-        {{ __('news.category.' . $article->category) }}
+        <span class="label label-{{ $article->categoryColor($article->category) }}">
+        <a
+            href="{{ route('show.article.by.category', $article->category) }}">{{ __('news.category.' . $article->category) }}</a>
+        </span>
     </x-slot>
 
     <x-slot name="news">
