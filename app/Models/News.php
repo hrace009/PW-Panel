@@ -10,6 +10,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 class News extends Model
@@ -45,7 +46,7 @@ class News extends Model
         return $colors[$type];
     }
 
-    public function categoryColor( $type ): string
+    public function categoryColor($type ): string
     {
         $colors = [
             'update' => 'success',
@@ -55,5 +56,10 @@ class News extends Model
             'other' => 'danger'
         ];
         return $colors[$type];
+    }
+
+    public function date(string $date): string
+    {
+        return (Carbon::parse($date)->diff(Carbon::now())->days < 30) ? Carbon::parse($date)->diffForHumans() : Carbon::parse($date)->translatedFormat('D, j F, Y');
     }
 }
