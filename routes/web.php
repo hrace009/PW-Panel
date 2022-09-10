@@ -65,6 +65,11 @@ Route::group(['middleware' => 'web'], static function () {
         'as' => 'show.article',
         'uses' => 'App\Http\Controllers\Website\Home@showPost'
     ]);
+
+    Route::get('news/category/{category}', [
+        'as' => 'show.article.by.category',
+        'uses' => 'App\Http\Controllers\Website\Home@indexCategory'
+    ]);
 });
 
 Route::group(['prefix' => 'pingback', 'middleware' => 'web'], static function () {
