@@ -38,7 +38,7 @@
                              alt="{{ strtoupper( $article->title ) }}"/>
                         <div class="flex items-center justify-between dark:text-light mt-1">
                                     <span
-                                        class="text-sm font-light">{{ date_format($article->created_at, 'F j, Y @h:m A') }}</span>
+                                        class="text-sm font-light">{{ $article->date($article->created_at) }}</span>
                         </div>
                         <div
                             class="text-2xl font-bold text-gray-700 dark:text-white hover:text-gray-600 dark:hover:text-gray-200 hover:underline">{{ strtoupper($article->title) }}</div>
