@@ -19,6 +19,7 @@ return [
     |
     */
     'title' => 'News',
+    'by' => 'By',
     'published' => 'Published',
     'add' => 'Add a News',
     'view' => 'View News',
