@@ -19,6 +19,7 @@ return [
     |
     */
     'title' => 'Berita',
+    'published' => 'Diterbitkan',
     'add' => 'Tambah berita',
     'view' => 'Lihat berita',
     'create' => 'Buat berita baru',
