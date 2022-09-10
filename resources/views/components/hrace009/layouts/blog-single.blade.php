@@ -91,7 +91,7 @@
                 <div class="meta">
                     <div class="item">
                         <i class="fa fa-user meta-icon"></i>
-                        By: {{ $author  }}
+                        {{ $author  }}
                     </div>
                     <div class="item">
                         <i class="fa fa-calendar meta-icon"></i>

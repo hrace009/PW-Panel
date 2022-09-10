@@ -12,7 +12,7 @@
     </x-slot>
 
     <x-slot name="author">
-        {{ ucwords($user->findOrFail($article->author)->truename)  }}
+        {{ __('news.by') . ': ' . ucwords($user->findOrFail($article->author)->truename)  }}
     </x-slot>
 
     <x-slot name="og_image">
