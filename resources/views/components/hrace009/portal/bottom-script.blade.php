@@ -28,8 +28,7 @@
 <!-- Social Likes -->
 <script src="{{ asset('vendor/portal/social-likes/dist/social-likes.min.js') }}"></script>
 
-<!-- Youplay -->
-<script src="{{ asset('js/portal/youplay.js') }}"></script>
-<script src="{{ asset('js/portal/youplay-init.js') }}"></script>
+<!-- Main -->
+<script src="{{ asset('js/portal/portal.js') }}"></script>
 
 <!-- END: Scripts -->
