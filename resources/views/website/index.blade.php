@@ -35,10 +35,9 @@
                                         href="{{ route('show.article.by.category', $article->category) }}">{{ __('news.category.' . $article->category) }}</a></span>
                             </div>
                             <div class="tags">
-                                @php($tags = explode(',', $article->keywords))
                                 <i class="fa fa-tags"></i>
-                                @foreach( $tags as $tag )
-                                    <a href="#">{{ $tag }}</a>{{ $loop->last ? '' : ', ' }}
+                                @foreach( $article->tags($article->keywords) as $tag )
+                                    <a href="{{ route( 'show.article.tag', $tag ) }}">{{ $tag }}</a>{{ $loop->last ? '' : ', ' }}
                                 @endforeach
                             </div>
                             <div class="description">

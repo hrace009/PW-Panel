@@ -39,4 +39,12 @@ class Home extends Controller
             'user' => new User()
         ]);
     }
+
+    public function indexTags(string $tag)
+    {
+        return view('website.index', [
+            'news' => News::where('keywords', 'LIKE', '%' . $tag . '%')->orderByDesc('created_at')->paginate(3),
+            'user' => new User()
+        ]);
+    }
 }

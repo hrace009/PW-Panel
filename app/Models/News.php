@@ -62,4 +62,14 @@ class News extends Model
     {
         return (Carbon::parse($date)->diff(Carbon::now())->days < 30) ? Carbon::parse($date)->diffForHumans() : Carbon::parse($date)->translatedFormat('D, j F, Y');
     }
+
+    public function tags(string $keywords): array
+    {
+        $results = [];
+        $tags = explode(',', $keywords);
+        foreach ($tags as $tag) {
+            $results[] = $tag;
+        }
+        return $results;
+    }
 }
