@@ -85,7 +85,7 @@
                     @php($tags = explode(',', $keywords ))
                     <i class="fa fa-tags"></i>
                     @foreach( $tags as $tag )
-                        <a href="#">{{ $tag }}</a>{{ $loop->last ? '' : ', ' }}
+                        <a href="{{ route('show.article.tag', $tag) }}">{{ $tag }}</a>{{ $loop->last ? '' : ', ' }}
                     @endforeach
                 </div>
                 <div class="meta">
