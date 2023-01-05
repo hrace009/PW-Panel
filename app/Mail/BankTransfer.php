@@ -42,8 +42,7 @@ class BankTransfer extends Mailable
     {
         $bank = (object)$this->bank;
         return
-            $this->from($bank->email, $bank->fullname)
-                ->subject(__('donate.guide.bank.email.subject', ['bank' => strtoupper(config('pw-config.payment.bank_transfer.' . $bank->bankname)), 'name' => $bank->fullname]))
+            $this->subject(__('donate.guide.bank.email.subject', ['bank' => strtoupper(config('pw-config.payment.bank_transfer.' . $bank->bankname)), 'name' => $bank->fullname]))
                 ->markdown('emails.bank-transfer')
                 ->with([
                     'fullname' => $bank->fullname,
