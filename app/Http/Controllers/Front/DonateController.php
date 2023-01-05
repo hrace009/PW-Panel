@@ -117,7 +117,7 @@ class DonateController extends Controller
             'bankname' => $input['bankname'],
             'amount' => $input['amount'],
         ];
-        Mail::to(config('mail.from.address'))->locale(Auth::user()->language)->send(new BankTransfer($bank));
+        Mail::to(env('MAIL_GM'))->locale(Auth::user()->language)->send(new BankTransfer($bank));
         return redirect(route('app.donate.bank'))->with('success', __('donate.guide.bank.form.success'));
     }
 
