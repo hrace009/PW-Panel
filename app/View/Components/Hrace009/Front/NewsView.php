@@ -34,7 +34,8 @@ class NewsView extends Component
     public function render()
     {
         return view('front.news.view', [
-            'news' => News::orderBy('created_at', 'desc')->paginate(config('pw-config.news.page')),
+            //'news' => News::orderBy('created_at', 'desc')->paginate(config('pw-config.news.page')),
+            'news' => News::orderBy('created_at', 'desc')->whereNotIn('category', ['download', 'guide'])->paginate(config('pw-config.news.page')),
             'user' => new User(),
         ]);
     }

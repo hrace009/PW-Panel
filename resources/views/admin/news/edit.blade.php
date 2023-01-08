@@ -37,6 +37,12 @@
                                 value="contest" {{ $article->category === 'contest' ? 'selected' : null }} > {{ __('news.category.contest') }}
                         </option>
                         <option class="dark:text-gray-500"
+                                value="download" {{ $article->category === 'download' ? 'selected' : null }} > {{ __('news.category.download') }}
+                        </option>
+                        <option class="dark:text-gray-500"
+                                value="guide" {{ $article->category === 'guide' ? 'selected' : null }} > {{ __('news.category.guide') }}
+                        </option>
+                        <option class="dark:text-gray-500"
                                 value="other" {{ $article->category === 'other' ? 'selected' : null }} > {{ __('news.category.other') }}
                         </option>
                     </x-hrace009::select-with-popover>

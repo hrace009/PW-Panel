@@ -19,7 +19,7 @@ class Home extends Controller
     public function index()
     {
         return view('website.index', [
-            'news' => News::orderBy('id', 'desc')->paginate(3),
+            'news' => News::orderBy('id', 'desc')->whereNotIn('category', ['download', 'guide'])->paginate(3),
             'user' => new User()
         ]);
     }

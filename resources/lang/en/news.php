@@ -46,6 +46,8 @@ return [
         'maintenance' => 'Maintenance',
         'event' => 'Event',
         'contest' => 'Contest',
+        'download' => 'Download',
+        'guide' => 'Guide',
         'other' => 'Other'
     ],
     'add_button' => 'Create News',

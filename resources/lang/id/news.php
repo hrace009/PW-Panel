@@ -46,6 +46,8 @@ return [
         'maintenance' => 'Perawatan',
         'event' => 'Even',
         'contest' => 'Kontes',
+        'download' => 'Unduh',
+        'guide' => 'Guide',
         'other' => 'Lain Lain'
     ],
     'add_button' => 'Buat Berita',

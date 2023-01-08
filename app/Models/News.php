@@ -41,6 +41,8 @@ class News extends Model
             'maintenance' => 'bg-red-700 hover:bg-red-500',
             'event' => 'bg-green-700 hover:bg-green-500',
             'contest' => 'bg-yellow-700 hover:bg-yellow-500',
+            'download' => 'bg-primary hover:bg-primary-darker',
+            'guide' => 'bg-primary hover:bg-primary-darker',
             'other' => 'bg-blue-700 hover:bg-blue-500'
         ];
         return $colors[$type];
@@ -53,6 +55,8 @@ class News extends Model
             'maintenance' => 'primary',
             'event' => 'info',
             'contest' => 'warning',
+            'download' => 'info',
+            'guide' => 'info',
             'other' => 'danger'
         ];
         return $colors[$type];
