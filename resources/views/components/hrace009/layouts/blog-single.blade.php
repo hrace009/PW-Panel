@@ -106,7 +106,7 @@
                     {{ $news }}
                 </div>
                 <!-- Post Share -->
-                <div class="btn-group social-list social-likes" data-url="{{ route('show.article', $article_id ) }}"
+                <div class="btn-group social-list social-likes" data-url="{{ $og_url }}"
                      data-counters="no">
                     <span class="btn btn-default facebook" title="Share link on Facebook"></span>
                     <span class="btn btn-default twitter" title="Share link on Twitter"></span>
