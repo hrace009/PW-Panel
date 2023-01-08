@@ -64,6 +64,7 @@ return [
     'language' => 'Bahasa',
     'logout' => 'Keluar',
     'adminArea' => 'Area Admin',
+    'mainSite' => 'Kembali ke beranda',
     'memberArea' => 'Area Anggota',
     'balance' => 'Saldo',
     'config_save_desc' => 'Simpan konfigurasi.',

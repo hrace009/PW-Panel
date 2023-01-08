@@ -88,6 +88,7 @@
                         <x-hrace009::character-selector/>
                         <x-hrace009::balance/>
                         <x-hrace009::admin-button/>
+                        <x-hrace009::site-button/>
                         <x-hrace009::user-avatar/>
                     </x-slot>
                 </x-hrace009::desktop-right-button>
@@ -97,6 +98,7 @@
                         <x-hrace009::mobile-language-menu/>
                         <x-hrace009::character-selector/>
                         <x-hrace009::admin-button/>
+                        <x-hrace009::site-button/>
                         <x-hrace009::mobile-user-avatar/>
                     </x-slot>
                 </x-hrace009.mobile-sub-menu>

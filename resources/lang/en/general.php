@@ -66,6 +66,7 @@ return [
     'language' => 'Language',
     'logout' => 'Log Out',
     'adminArea' => 'Admin Area',
+    'mainSite' => 'Retrun to Main Site',
     'memberArea' => 'Member Area',
     'balance' => 'Balance',
     'config_save_desc' => 'Save configuration.',
