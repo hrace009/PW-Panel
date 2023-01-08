@@ -28,7 +28,7 @@ class CreatePwpNewsTable extends Migration
             $table->text('description');
             $table->text('keywords');
             $table->text('content');
-            $table->enum('category', ['update', 'maintenance', 'event', 'contest', 'other'])->default('other');
+            $table->enum('category', ['update', 'maintenance', 'event', 'contest', 'download', 'guide', 'other'])->default('other');
             $table->integer('author');
             $table->timestamps();
         });
