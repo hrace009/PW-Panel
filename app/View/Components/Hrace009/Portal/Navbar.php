@@ -2,6 +2,7 @@
 
 namespace App\View\Components\Hrace009\Portal;
 
+use App\Models\News;
 use Illuminate\View\Component;
 
 class Navbar extends Component
@@ -23,6 +24,9 @@ class Navbar extends Component
      */
     public function render()
     {
-        return view('components.hrace009.portal.navbar');
+        return view('components.hrace009.portal.navbar', [
+            'download' => News::whereCategory('download')->orderBy('id', 'asc'),
+            'guide' => News::whereCategory('guide')->orderBy('id', 'asc')
+        ]);
     }
 }

@@ -65,20 +65,78 @@
                 @endif
                 @if( config('pw-config.system.apps.vote') )
                     <li>
-                        <a href="{{ route('app.vote.index') }}" >
+                        <a href="{{ route('app.vote.index') }}">
                             {{ __('vote.title') }}
                         </a>
                     </li>
+                @endif
+                @if( $download->exists() )
+                    @if( $download->count() === 1 )
+                        <li>
+                            <a href="{{ route('show.article', $download->first()->slug ) }}">
+                                {{ $download->first()->title }}
+                            </a>
+                        </li>
+                    @else
+                        <li class=" dropdown dropdown-hover">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                               aria-expanded="false">
+                                {{ __('news.category.download') }}
+                                <span class="caret"></span>
+                            </a>
+                            <div class="dropdown-menu">
+                                <ul role="menu">
+                                    @foreach( $download->get() as $page )
+                                        <li>
+                                            <a href="{{ route('show.article', $page->slug ) }}">
+                                                {{ $page->title }}
+                                            </a>
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        </li>
+                    @endif
+                @endif
+                @if( $guide->exists() )
+                    @if( $guide->count() === 1 )
+                        <li>
+                            <a href="{{ route('show.article', $guide->first()->slug ) }}">
+                                {{ $guide->first()->title }}
+                            </a>
+                        </li>
+                    @else
+                        <li class=" dropdown dropdown-hover">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                               aria-expanded="false">
+                                {{ __('news.category.guide') }}
+                                <span class="caret"></span>
+                            </a>
+                            <div class="dropdown-menu">
+                                <ul role="menu">
+                                    @foreach( $guide->get() as $guidepage )
+                                        <li>
+                                            <a href="{{ route('show.article', $guidepage->slug ) }}">
+                                                {{ $guidepage->title }}
+                                            </a>
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        </li>
+                    @endif
                 @endif
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 @auth()
 
-                        <li class="dropdown dropdown-hover">
-                            @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                    <li class="dropdown dropdown-hover">
+                        @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                               aria-expanded="false">
                                 {{ Auth::user()->truename }}
-                                <img class="img-circle" width="32px" height="32" src="{{ Auth::user()->profile_photo_url }}"
+                                <img class="img-circle" width="32px" height="32"
+                                     src="{{ Auth::user()->profile_photo_url }}"
                                      alt="{{ Auth::user()->name }}"/>
                             </a>
                             @else
