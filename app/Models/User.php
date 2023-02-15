@@ -58,6 +58,7 @@ class User extends Authenticatable
         'ID',
         'name',
         'email',
+        'phonenumber',
         'passwd',
         'passwd2',
         'qq',
@@ -208,6 +209,22 @@ class User extends Authenticatable
     public function isAdministrator(): bool
     {
         return $this->role === 'Administrator';
+    }
+
+    /**
+     * @return bool
+     */
+    public function isGamemaster(): bool
+    {
+        return $this->role === 'Gamemaster';
+    }
+
+    /**
+     * @return bool
+     */
+    public function isPlayer(): bool
+    {
+        return $this->role === 'Player';
     }
 
     public function voucher_logs(): HasMany

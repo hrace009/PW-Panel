@@ -14,14 +14,17 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\BanklogRequest;
 use App\Mail\BankTransfer;
 use App\Models\BankLog;
+use App\Models\IpaymuLog;
 use App\Models\Paymentwall;
 use App\Models\Paypal;
 use App\Models\ServiceLog;
 use App\Models\ShopLog;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
+use iPaymu\iPaymu;
 use Omnipay\Omnipay;
 use Paymentwall_Config;
 use Paymentwall_Widget;
@@ -29,6 +32,8 @@ use Paymentwall_Widget;
 class DonateController extends Controller
 {
     protected $gateway;
+
+    protected $ipaymu;
 
     public function __construct()
     {
@@ -38,8 +43,14 @@ class DonateController extends Controller
             'secret' => config('pw-config.payment.paypal.secret'),
             'testMode' => config('pw-config.payment.paypal.sandbox'),
         ]);
-    }
 
+        if (!config('ipaymu.sandbox')) {
+            $production = true;
+        } else {
+            $production = false;
+        }
+        $this->ipaymu = new iPaymu(config('ipaymu.key'), config('ipaymu.va'), $production);
+    }
 
     public function getPaypalIndex()
     {
@@ -168,5 +179,75 @@ class DonateController extends Controller
             'shoplogs' => $shoplogs,
             'paypals' => $paypals
         ]);
+    }
+
+    public function getIpaymuIndex()
+    {
+        return view('front.donate.ipaymu.index');
+    }
+
+    public function postIpaymuSubmit(Request $request)
+    {
+        if (!Auth::user()->phonenumber) {
+            return redirect()->route('profile.show')->with('info', __('donate.ipaymu.no_phone'));
+        } else {
+            $this->ipaymu->setURL([
+                'ureturn' => route('app.donate.ipaymu.complete'),
+                'unotify' => route('api.ipaymu'),
+                'ucancel' => route('app.donate.ipaymu'),
+            ]);
+
+            $data = [
+                'status' => 1,
+                'startdate' => date('Y-m-d', time()),
+                'enddate' => date('Y-m-d', time() + 86400),
+                // 'page' => 1,
+                'order' => 'DESC',
+                'limit' => -1 // -1 : all trx
+            ];
+
+            $this->ipaymu->setBuyer([
+                'name' => Auth::user()->truename,
+                'phone' => Auth::user()->phonenumber,
+                'email' => Auth::user()->email
+            ]);
+
+            $this->ipaymu->addCart([
+                'product' => [
+                    config('pw-config.currency_name')
+                ],
+                'quantity' => [
+                    1
+                ],
+                'price' => [
+                    $request->input('dollars')
+                ],
+                'description' => [
+                    __('donate.ipaymu.desc_ipay', ['amount' => $request->input('tokens'), 'currency' => config('pw-config.currency_name'), 'pay' => $request->input('dollars'), 'loginid' => Auth::user()->ID])
+                ]
+            ]);
+            $refid = 'TRX-' . Carbon::now()->timestamp;
+            $paymentData = [
+                'referenceId' => $refid,
+            ];
+
+            $redirectPayment = $this->ipaymu->redirectPayment($paymentData);
+            IpaymuLog::create([
+                'reference_id' => $refid,
+                'user_id' => Auth::user()->ID,
+                'amount' => $request->input('tokens'),
+                'money' => $request->input('dollars'),
+                'status' => 'pending',
+                'status_code' => '0',
+                'sid' => $redirectPayment['Data']['SessionID']
+            ]);
+
+            return redirect($redirectPayment['Data']['Url']);
+        }
+    }
+
+    public function postIpaymuComplete(Request $request)
+    {
+        return redirect()->route('app.donate.ipaymu')->with('success', __('donate.ipaymu.success'));
     }
 }

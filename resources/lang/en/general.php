@@ -47,7 +47,8 @@ return [
             'bank' => 'Manual Bank Transfer',
             'history' => 'Transaction History',
             'paymentwall' => 'Paymentwall',
-            'paypal' => 'Paypal'
+            'paypal' => 'Paypal',
+            'ipaymu' => 'iPaymu'
         ],
         'vote' => 'Vote',
         'voucher' => 'Voucher',
@@ -66,6 +67,7 @@ return [
     'language' => 'Language',
     'logout' => 'Log Out',
     'adminArea' => 'Admin Area',
+    'gmArea' => 'Area GM',
     'mainSite' => 'Retrun to Main Site',
     'memberArea' => 'Member Area',
     'balance' => 'Balance',

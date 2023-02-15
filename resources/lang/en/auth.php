@@ -36,6 +36,7 @@ return [
         'email' => 'Email Address',
         'confirmPassword' => 'Confirm Password',
         'trueName' => 'Full Name',
+        'phonenumber' => 'Phone Number',
         'registered' => 'Already have an account?',
         'sendLinkPassword' => 'Email Password Reset Link',
         'forgotPasswordDescription' => 'Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.',

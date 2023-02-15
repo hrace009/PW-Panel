@@ -77,6 +77,8 @@ class SystemController extends Controller
             'server_ip' => 'required|ipv4',
             'server_version' => 'required|string',
             'encryption_type' => 'required|string',
+            'gmwa' => 'required|numeric',
+            'fakeonline' => 'required|numeric',
         ]);
 
         if ($request->hasFile('logo')) {

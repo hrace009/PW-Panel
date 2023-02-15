@@ -36,6 +36,7 @@ return [
         'email' => 'Alamat Email',
         'confirmPassword' => 'Konfirmasi sandi',
         'trueName' => 'Nama Lengkap',
+        'phonenumber' => 'Nomer Telepon / HP',
         'registered' => 'Sudah memiliki akun?',
         'sendLinkPassword' => 'Kirim tautan atur ulang sandi ke email',
         'forgotPasswordDescription' => 'Lupa kata sandi Anda? Tidak masalah. Cukup beri tahu kami alamat email Anda dan kami akan mengirimkan email kepada Anda tautan pengaturan ulang kata sandi yang memungkinkan Anda memilih yang baru.',

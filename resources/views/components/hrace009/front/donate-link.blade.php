@@ -53,6 +53,15 @@
                 {{ __('donate.paypal.title') }}
             </a>
         @endif
+        @if( config('ipaymu.status') )
+            <a
+                href="{{ route('app.donate.ipaymu') }}"
+                role="menuitem"
+                class="block p-2 text-sm text-gray-{{ $IpaymuText }} transition-colors duration-200 rounded-md dark:{{ $IpaymuLight }} dark:hover:text-light hover:text-gray-700"
+            >
+                {{ __('donate.ipaymu.title') }}
+            </a>
+        @endif
         @if ( config('pw-config.payment.paymentwall.status') )
             <a
                 href="{{ route('app.donate.paymentwall') }}"

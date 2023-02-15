@@ -12,8 +12,6 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\BankLog;
-use App\Models\Paymentwall;
-use App\Models\Paypal;
 use App\Models\User;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
@@ -217,34 +215,36 @@ class DonateController extends Controller
     public function postIpaymu(Request $request)
     {
         if ($request->has('status')) {
-            Config::write('pw-config.payment.ipaymu.status', true);
+            Config::write('ipaymu.status', true);
         } else {
-            Config::write('pw-config.payment.ipaymu.status', false);
+            Config::write('ipaymu.status', false);
         }
 
         if ($request->has('sandbox')) {
-            Config::write('pw-config.payment.ipaymu.sandbox', true);
+            Config::write('ipaymu.sandbox', true);
         } else {
-            Config::write('pw-config.payment.ipaymu.sandbox', false);
+            Config::write('ipaymu.sandbox', false);
         }
 
         if ($request->has('double')) {
-            Config::write('pw-config.payment.ipaymu.double', true);
+            Config::write('ipaymu.double', true);
         } else {
-            Config::write('pw-config.payment.ipaymu.double', false);
+            Config::write('ipaymu.double', false);
         }
 
-        if (config('pw-config.payment.ipaymu.status') === true) {
+        if (config('ipaymu.status') === true) {
             $configs = $request->validate([
                 'va' => 'required|string',
-                'apikey' => 'required|string',
+                'key' => 'required|string',
+                'currency_per' => 'required|numeric',
+                'minimum' => 'required|numeric'
             ]);
 
             foreach ($configs as $config => $value) {
                 if (!$value) {
-                    Config::write('pw-config.payment.ipaymu.' . $config, '');
+                    Config::write('ipaymu.' . $config, '');
                 } else {
-                    Config::write('pw-config.payment.ipaymu.' . $config, $value);
+                    Config::write('ipaymu.' . $config, $value);
                 }
             }
         }

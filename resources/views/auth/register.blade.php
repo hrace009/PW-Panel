@@ -15,6 +15,10 @@
                                placeholder="{{ __('auth.form.email') }}" autofocus
                                required autocomplete="email"/>
 
+        <x-hrace009::input-box id="phonenumber" type="phonenumber" name="phonenumber" :value="old('phonenumber')"
+                               placeholder="{{ __('auth.form.phonenumber') }}" autofocus
+                               required autocomplete="phonenumber"/>
+
         <x-hrace009::input-box id="password" type="password" name="password"
                                placeholder="{{ __('auth.form.password') }}" autofocus
                                required autocomplete="new-password"/>

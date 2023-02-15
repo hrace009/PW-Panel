@@ -10,8 +10,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\IpaymuLog;
 use App\Models\Paymentwall;
 use App\Models\User;
+use Illuminate\Http\Request;
 use Paymentwall_Config;
 use Paymentwall_Pingback;
 
@@ -70,5 +72,51 @@ class Pingback extends Controller
         } else {
             return $pingback->getErrorSummary();
         }
+    }
+
+    public function IpaymuCallback(Request $request)
+    {
+        $trx_id = $request->get('trx_id');
+        $status = $request->get('status');
+        $status_code = $request->get('status_code');
+        $sid = $request->get('sid');
+        $reference_id = $request->get('reference_id');
+
+        $trx = IpaymuLog::whereReferenceId($reference_id)->whereSid($sid)->whereStatus('pending')->whereStatusCode('0')->get()->all();
+        if ($trx) {
+            $checktrx = IpaymuLog::whereTrxId($trx_id)->get()->all();
+            if (!$checktrx) {
+                $update = IpaymuLog::whereSid($sid);
+                $update->update([
+                    'trx_id' => $trx_id,
+                    'status' => $status,
+                    'status_code' => $status_code
+                ]);
+                $user = $update->firstOrFail();
+                if (config('ipaymu.double')) {
+                    $this->updateMoney($user->user_id, $user->amount * 2);
+                } else {
+                    $this->updateMoney($user->user_id, $user->amount);
+                }
+                $message = 'ok';
+            } else {
+                $update = IpaymuLog::whereSid($sid);
+                $update->update([
+                    'status' => $status,
+                    'status_code' => $status_code
+                ]);
+                $user = $update->firstOrFail();
+                if (config('ipaymu.double')) {
+                    $this->updateMoney($user->user_id, $user->amount * 2);
+                } else {
+                    $this->updateMoney($user->user_id, $user->amount);
+                }
+                $message = 'ok';
+            }
+        } else {
+            $message = 'failed';
+        }
+
+        return $message;
     }
 }

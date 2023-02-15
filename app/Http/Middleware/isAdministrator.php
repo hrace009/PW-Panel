@@ -30,10 +30,10 @@ class isAdministrator
      */
     public function handle(Request $request, Closure $next)
     {
-        if (!Auth::user()->isAdministrator()) {
-            return redirect('/');
+        if (Auth::user()->isAdministrator()) {
+            return $next($request);
         }
 
-        return $next($request);
+        return redirect('/');
     }
 }

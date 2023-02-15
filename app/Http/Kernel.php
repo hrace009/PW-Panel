@@ -19,7 +19,9 @@ use App\Http\Middleware\DonateActive;
 use App\Http\Middleware\DonateAntiSpam;
 use App\Http\Middleware\EncryptCookies;
 use App\Http\Middleware\IngameService;
+use App\Http\Middleware\IpaymuActive;
 use App\Http\Middleware\isAdministrator;
+use App\Http\Middleware\isGamemaster;
 use App\Http\Middleware\NewsActive;
 use App\Http\Middleware\PaymentwallActive;
 use App\Http\Middleware\PaymentwallPingback;
@@ -119,6 +121,7 @@ class Kernel extends HttpKernel
          */
         'server.online' => ServerOnline::class,
         'admin' => isAdministrator::class,
+        'gm' => isGamemaster::class,
         'news' => NewsActive::class,
         'shop' => ShopActive::class,
         'donate' => DonateActive::class,
@@ -133,5 +136,6 @@ class Kernel extends HttpKernel
         'paymentwall.pingback' => PaymentwallPingback::class,
         'paypal.active' => PaypalActive::class,
         'service.enable' => ServiceEnabled::class,
+        'ipaymu.active' => IpaymuActive::class
     ];
 }

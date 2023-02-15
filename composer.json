@@ -25,8 +25,7 @@
         "league/omnipay": "^3.2",
         "livewire/livewire": "^2.5",
         "omnipay/paypal": "^3.0",
-        "paymentwall/paymentwall-php": "^2.2",
-        "wadeshuler/php-paypal-ipn": "^2.5"
+        "paymentwall/paymentwall-php": "^2.2"
     },
     "require-dev": {
         "facade/ignition": "^2.5",
@@ -77,7 +76,10 @@
     "config": {
         "optimize-autoloader": true,
         "preferred-install": "dist",
-        "sort-packages": true
+        "sort-packages": true,
+        "allow-plugins": {
+            "php-http/discovery": false
+        }
     },
     "minimum-stability": "dev",
     "prefer-stable": true

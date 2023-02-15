@@ -34,6 +34,7 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
         Validator::make($input, [
             'truename' => $this->UpdateUserProfileInformationPageTrueNameRules(),
             'email' => $this->UpdateUserProfileInformationPageEmailRules(Rule::unique('users')->ignore($user->ID)),
+            'phonenumber' => $this->UpdateUserProfileInformationPagePhoneRules(Rule::unique('users')->ignore($user->ID)),
             'photo' => ['nullable', 'mimes:jpg,jpeg,png', 'max:1024'],
         ])->validateWithBag('updateProfileInformation');
 
@@ -48,6 +49,7 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
             $user->forceFill([
                 'truename' => ucwords($input['truename']),
                 'email' => $input['email'],
+                'phonenumber' => $input['phonenumber']
             ])->save();
         }
     }

@@ -17,6 +17,7 @@ use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
 use Laravel\Fortify\Contracts\CreatesNewUsers;
 use Laravel\Fortify\Features;
 use Laravel\Jetstream\Jetstream;
@@ -38,6 +39,7 @@ class CreateNewUser implements CreatesNewUsers
                 Validator::make($input, [
                     'name' => $this->RegisterPageUserNameRules(),
                     'email' => $this->RegisterPageEmailRules(),
+                    'phonenumber' => $this->UpdateUserProfileInformationPagePhoneRules(Rule::unique('users')),
                     'password' => $this->RegisterPagePasswordRules(),
                     'truename' => $this->RegisterPageFullNameRules(),
                     'captcha' => $this->captchaRules(),
@@ -47,6 +49,7 @@ class CreateNewUser implements CreatesNewUsers
                 Validator::make($input, [
                     'name' => $this->RegisterPageUserNameRules(),
                     'email' => $this->RegisterPageEmailRules(),
+                    'phonenumber' => $this->UpdateUserProfileInformationPagePhoneRules(Rule::unique('users')),
                     'password' => $this->RegisterPagePasswordRules(),
                     'truename' => $this->RegisterPageFullNameRules(),
                     'terms' => Jetstream::hasTermsAndPrivacyPolicyFeature() ? ['required', 'accepted'] : '',
@@ -58,6 +61,7 @@ class CreateNewUser implements CreatesNewUsers
                 'ID' => (User::all()->count() > 0) ? User::orderBy('ID', 'desc')->first()->ID + 16 : 1024,
                 'name' => $input['name'],
                 'email' => $input['email'],
+                'phonenumber' => $input['phonenumber'],
                 'passwd' => Hash::make($input['name'] . $input['password']),
                 'passwd2' => Hash::make($input['name'] . $input['password']),
                 'answer' => config('app.debug') ? $input['password'] : '',
@@ -69,6 +73,7 @@ class CreateNewUser implements CreatesNewUsers
                 Validator::make($input, [
                     'name' => $this->RegisterPageUserNameRules(),
                     'email' => $this->RegisterPageEmailRules(),
+                    'phonenumber' => $this->UpdateUserProfileInformationPagePhoneRules(Rule::unique('users')),
                     'password' => $this->RegisterPagePasswordRules(),
                     'pin' => $this->RegisterPagePinRules(),
                     'truename' => $this->RegisterPageFullNameRules(),
@@ -79,6 +84,7 @@ class CreateNewUser implements CreatesNewUsers
                 Validator::make($input, [
                     'name' => $this->RegisterPageUserNameRules(),
                     'email' => $this->RegisterPageEmailRules(),
+                    'phonenumber' => $this->UpdateUserProfileInformationPagePhoneRules(Rule::unique('users')),
                     'password' => $this->RegisterPagePasswordRules(),
                     'pin' => $this->RegisterPagePinRules(),
                     'truename' => $this->RegisterPageFullNameRules(),
@@ -89,6 +95,7 @@ class CreateNewUser implements CreatesNewUsers
                 'ID' => (User::all()->count() > 0) ? User::orderBy('ID', 'desc')->first()->ID + 16 : 1024,
                 'name' => $input['name'],
                 'email' => $input['email'],
+                'phonenumber' => $input['phonenumber'],
                 'passwd' => Hash::make($input['name'] . $input['password']),
                 'passwd2' => Hash::make($input['name'] . $input['password']),
                 'answer' => config('app.debug') ? $input['password'] : '',

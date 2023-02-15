@@ -1,6 +1,10 @@
 <script>
     tinymce.init({
-        @if( request()->routeIs('news.create') || request()->routeIs('news.edit')  )
+        @if( request()->routeIs('news.create') || request()->routeIs('news.edit') )
+        selector: 'textarea.content',
+        @endif
+
+            @if( request()->routeIs('article.create') || request()->routeIs('article.edit') )
         selector: 'textarea.content',
         @endif
 
@@ -30,6 +34,9 @@
         @endif
             @if( request()->routeIs('shop.create') || request()->routeIs('shop.edit')  )
         images_upload_url: '{{ route('admin.shop.upload') }}',
+        @endif
+            @if( request()->routeIs('article.create') || request()->routeIs('article.edit')  )
+        images_upload_url: '{{ route('gm.article.upload') }}',
         @endif
         file_picker_types: 'image',
         file_picker_callback: function (cb, value, meta) {

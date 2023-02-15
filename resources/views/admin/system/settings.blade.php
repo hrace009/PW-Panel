@@ -45,6 +45,22 @@
                     <x-hrace009::label for="currency_name">{{ __('system.currency_name') }}</x-hrace009::label>
                 </div>
                 <div class="relative z-0 mb-6 w-full group">
+                    <x-hrace009::input-with-popover id="gmwa" name="gmwa"
+                                                    value="{{ config('pw-config.gmwa') }}" placeholder=" "
+                                                    required
+                                                    :popover="__('system.gmwa')"
+                    />
+                    <x-hrace009::label for="gmwa">{{ __('system.gmwa') }}</x-hrace009::label>
+                </div>
+                <div class="relative z-0 mb-6 w-full group">
+                    <x-hrace009::input-with-popover id="fakeonline" name="fakeonline"
+                                                    value="{{ config('pw-config.fakeonline') }}" placeholder=" "
+                                                    required
+                                                    :popover="__('system.fakeonline_desc')"
+                    />
+                    <x-hrace009::label for="gmwa">{{ __('system.fakeonline') }}</x-hrace009::label>
+                </div>
+                <div class="relative z-0 mb-6 w-full group">
                     <x-hrace009::input-with-popover id="server_ip" name="server_ip"
                                                     value="{{ config('pw-config.server_ip') }}"
                                                     placeholder=" " required :popover="__('system.server_ip_desc')"/>

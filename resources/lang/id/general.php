@@ -45,7 +45,8 @@ return [
             'bank' => 'Transfer Bank Manual',
             'history' => 'Riwayat Transaksi',
             'paymentwall' => 'Paymentwall',
-            'paypal' => 'Paypal'
+            'paypal' => 'Paypal',
+            'ipaymu' => 'iPaymu'
         ],
         'vote' => 'Voting',
         'voucher' => 'Kupon',
@@ -64,6 +65,7 @@ return [
     'language' => 'Bahasa',
     'logout' => 'Keluar',
     'adminArea' => 'Area Admin',
+    'gmArea' => 'Area GM',
     'mainSite' => 'Kembali ke beranda',
     'memberArea' => 'Area Anggota',
     'balance' => 'Saldo',

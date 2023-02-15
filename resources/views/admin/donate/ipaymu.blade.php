@@ -14,13 +14,13 @@
                     <div id="status_switch" class="flex ml-12">
                         <div class="pretty p-switch">
                             <input type="checkbox" id="status" name="status"
-                                   value="{{ config('pw-config.payment.ipaymu.status') }}"
-                                   @if( config('pw-config.payment.ipaymu.status') === true ) checked @endif
+                                   value="{{ config('ipaymu.status') }}"
+                                   @if( config('ipaymu.status') === true ) checked @endif
                                 @popper({{ __('donate.ipaymu.status_desc') }})
                             />
                             <div class="state p-info">
                                 <label for="status">
-                                    @if( config('pw-config.payment.ipaymu.status') === true )
+                                    @if( config('ipaymu.status') === true )
                                         {{ __('donate.on') }}
                                     @else
                                         {{ __('donate.off') }}
@@ -30,18 +30,18 @@
                     </div>
                     <x-hrace009::label for="status_switch">{{ __('donate.status') }}</x-hrace009::label>
                 </div>
-                @if( config('pw-config.payment.ipaymu.status') === true )
+                @if( config('ipaymu.status') === true )
                     <div class="relative z-0 mb-6 w-full group">
                         <div id="sandbox_switch" class="flex ml-12">
                             <div class="pretty p-switch">
                                 <input type="checkbox" id="sandbox" name="sandbox"
-                                       value="{{ config('pw-config.payment.ipaymu.sandbox') }}"
-                                       @if( config('pw-config.payment.ipaymu.sandbox') === true ) checked @endif
+                                       value="{{ config('ipaymu.sandbox') }}"
+                                       @if( config('ipaymu.sandbox') === true ) checked @endif
                                     @popper({{ __('donate.ipaymu.sandbox_desc') }})
                                 />
                                 <div class="state p-info">
                                     <label for="sandbox">
-                                        @if( config('pw-config.payment.ipaymu.sandbox') === true )
+                                        @if( config('ipaymu.sandbox') === true )
                                             {{ __('donate.on') }}
                                         @else
                                             {{ __('donate.off') }}
@@ -55,13 +55,13 @@
                         <div id="double_switch" class="flex ml-12">
                             <div class="pretty p-switch">
                                 <input type="checkbox" id="double" name="double"
-                                       value="{{ config('pw-config.payment.ipaymu.double') }}"
-                                       @if( config('pw-config.payment.ipaymu.double') === true ) checked @endif
+                                       value="{{ config('ipaymu.double') }}"
+                                       @if( config('ipaymu.double') === true ) checked @endif
                                     @popper({{ __('donate.ipaymu.double_desc') }})
                                 />
                                 <div class="state p-info">
                                     <label for="status">
-                                        @if( config('pw-config.payment.ipaymu.double') === true )
+                                        @if( config('ipaymu.double') === true )
                                             {{ __('donate.on') }}
                                         @else
                                             {{ __('donate.off') }}
@@ -73,15 +73,32 @@
                     </div>
                     <div class="relative z-0 mb-6 w-full group">
                         <x-hrace009::input-with-popover id="va" name="va"
-                                                        value="{{ config('pw-config.payment.ipaymu.va') }}"
+                                                        value="{{ config('ipaymu.va') }}"
                                                         placeholder=" " :popover="__('donate.ipaymu.va_desc')"/>
                         <x-hrace009::label for="va">{{ __('donate.ipaymu.va') }}</x-hrace009::label>
                     </div>
                     <div class="relative z-0 mb-6 w-full group">
-                        <x-hrace009::input-with-popover id="apikey" name="apikey"
-                                                        value="{{ config('pw-config.payment.ipaymu.apikey') }}"
+                        <x-hrace009::input-with-popover id="key" name="key"
+                                                        value="{{ config('ipaymu.key') }}"
                                                         placeholder=" " :popover="__('donate.ipaymu.apikey_desc')"/>
                         <x-hrace009::label for="secret">{{ __('donate.ipaymu.apikey') }}</x-hrace009::label>
+                    </div>
+                    <div class="flex flex-row gap-8">
+                        <div class="relative z-0 mb-6 w-full group">
+                            <x-hrace009::input-with-popover id="currency_per" name="currency_per"
+                                                            value="{{ config('ipaymu.currency_per') }}"
+                                                            placeholder=" "
+                                                            :popover="__('donate.ipaymu.currency_per_desc', ['coin' => config('pw-config.currency_name'), 'currency' => 'IDR' ])"/>
+                            <x-hrace009::label
+                                for="currency_per">{{ __('donate.ipaymu.currency_per', ['coin' => config('pw-config.currency_name'),'currency' => 'IDR' ]) }}</x-hrace009::label>
+                        </div>
+                        <div class="relative z-0 mb-6 w-full group">
+                            <x-hrace009::input-with-popover id="minimum" name="minimum"
+                                                            value="{{ config('ipaymu.minimum') }}"
+                                                            placeholder=" "
+                                                            :popover="__('donate.ipaymu.minimum_desc')"/>
+                            <x-hrace009::label for="minimum">{{ __('donate.ipaymu.minimum') }}</x-hrace009::label>
+                        </div>
                     </div>
                 @endif
                 <!-- Submit Button -->

@@ -29,4 +29,5 @@ return [
         'titel' => 'No GM Available.',
         'text' => 'Please send your CV.'
     ],
+    'gmwa' => 'GM WhatsApp'
 ];

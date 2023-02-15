@@ -29,4 +29,5 @@ return [
         'titel' => 'Tidak Ada GM Tersedia.',
         'text' => 'Silakan kirim CV Anda.'
     ],
+    'gmwa' => 'GM WhatsApp'
 ];

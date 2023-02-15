@@ -14,6 +14,8 @@
                     <tbody>
                     @foreach( $gms as $gm )
                         <tr>
+                            <td class="p-2"><img class="rounded" src="{{ $gm->profile_photo_url }}" width="48px"
+                                                 height="48px" alt="{{ $gm->truename }}"/></td>
                             <td class="p-2 text-left">{{ $gm->truename }}</td>
                             <td class="p-2 text-right">
                                 <span
@@ -45,7 +47,35 @@
                 >
                     {{ __('widget.server_time') }}
                 </h6>
-                <span class="text-sm font-semibold">{{ \Carbon\Carbon::now(config('app.timezone'))->translatedFormat('j F, Y h:i a') }}</span>
+                <span
+                    class="text-sm font-semibold">{{ \Carbon\Carbon::now(config('app.timezone'))->translatedFormat('j F, Y h:i a') }}</span>
+            </div>
+        </div>
+        <div class="flex align-middle items-center justify-between p-2">
+            <div>
+                <h6
+                    class="text-xs font-medium leading-none tracking-wider text-gray-500 uppercase dark:text-primary-light"
+                >
+                    {{ __('widget.gmwa') }}
+                </h6>
+                <span class="text-xl font-semibold"><a href="https://wa.me/{{ config('pw-config.gmwa') }}"
+                                                       target="_blank">+{{ config('pw-config.gmwa') }}</a></span>
+            </div>
+            <div>
+                <svg
+                    class="w-12 h-12 text-gray-300 dark:text-green-500"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                >
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1"
+                        d="M2.004 22l1.352-4.968A9.954 9.954 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10a9.954 9.954 0 0 1-5.03-1.355L2.004 22zM8.391 7.308a.961.961 0 0 0-.371.1 1.293 1.293 0 0 0-.294.228c-.12.113-.188.211-.261.306A2.729 2.729 0 0 0 6.9 9.62c.002.49.13.967.33 1.413.409.902 1.082 1.857 1.971 2.742.214.213.423.427.648.626a9.448 9.448 0 0 0 3.84 2.046l.569.087c.185.01.37-.004.556-.013a1.99 1.99 0 0 0 .833-.231c.166-.088.244-.132.383-.22 0 0 .043-.028.125-.09.135-.1.218-.171.33-.288.083-.086.155-.187.21-.302.078-.163.156-.474.188-.733.024-.198.017-.306.014-.373-.004-.107-.093-.218-.19-.265l-.582-.261s-.87-.379-1.401-.621a.498.498 0 0 0-.177-.041.482.482 0 0 0-.378.127v-.002c-.005 0-.072.057-.795.933a.35.35 0 0 1-.368.13 1.416 1.416 0 0 1-.191-.066c-.124-.052-.167-.072-.252-.109l-.005-.002a6.01 6.01 0 0 1-1.57-1c-.126-.11-.243-.23-.363-.346a6.296 6.296 0 0 1-1.02-1.268l-.059-.095a.923.923 0 0 1-.102-.205c-.038-.147.061-.265.061-.265s.243-.266.356-.41a4.38 4.38 0 0 0 .263-.373c.118-.19.155-.385.093-.536-.28-.684-.57-1.365-.868-2.041-.059-.134-.234-.23-.393-.249-.054-.006-.108-.012-.162-.016a3.385 3.385 0 0 0-.403.004z"
+                    />
+                </svg>
             </div>
         </div>
         <div class="flex align-middle items-center justify-between p-2">
@@ -105,7 +135,13 @@
                 >
                     {{ __('widget.players_online') }}
                 </h6>
-                <span class="text-xl font-semibold">{{ $api->online ? count($api->getOnlineList()) : 0 }}</span>
+                @if( count($api->getOnlineList()) >= 3)
+                    <span
+                        class="text-xl font-semibold">{{ $api->online ? count($api->getOnlineList()) + config('pw-config.fakeonline') : 0 }}</span>
+                @else
+                    <span class="text-xl font-semibold">{{ $api->online ? count($api->getOnlineList()) : 0 }}</span>
+                @endif
+
             </div>
             <div>
         <span>

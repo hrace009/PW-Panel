@@ -19,6 +19,7 @@ use App\Http\Controllers\Admin\VoucherController;
 use App\Http\Controllers\Auth\NewPasswordController;
 use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Front\UserProfileController;
+use App\Http\Controllers\Gamemaster\ArticleController;
 use App\Http\Middleware\VerifyCsrfToken;
 use App\View\Components\Hrace009\CharacterSelector;
 use Illuminate\Support\Facades\Route;
@@ -77,16 +78,8 @@ Route::group(['middleware' => 'web'], static function () {
     ]);
 });
 
-Route::group(['prefix' => 'pingback', 'middleware' => 'web'], static function () {
-    Route::get('paymentwall', [
-        'as' => 'pingback.paymentwall',
-        'middleware' => 'paymentwall.pingback',
-        'uses' => 'App\Http\Controllers\Pingback@paymentwall'
-    ]);
-});
-
 /* App Page */
-Route::group(['prefix' => 'dashboard', 'middleware' => ['web', 'auth', 'verified']], static function () {
+Route::group(['prefix' => 'dashboard', 'middleware' => ['auth', 'web', 'verified']], static function () {
 
     Route::get('/', [
         'as' => 'app.dashboard',
@@ -155,6 +148,24 @@ Route::group(['prefix' => 'dashboard', 'middleware' => ['web', 'auth', 'verified
         Route::get('history', [
             'as' => 'app.donate.history',
             'uses' => 'App\Http\Controllers\Front\DonateController@getHistoryIndex'
+        ]);
+
+        Route::get('ipaymu', [
+            'as' => 'app.donate.ipaymu',
+            'middleware' => 'ipaymu.active',
+            'uses' => 'App\Http\Controllers\Front\DonateController@getIpaymuIndex'
+        ]);
+
+        Route::post('ipaymu/submit', [
+            'as' => 'app.donate.ipaymu.submit',
+            'middleware' => 'ipaymu.active',
+            'uses' => 'App\Http\Controllers\Front\DonateController@postIpaymuSubmit'
+        ]);
+
+        Route::get('ipaymu/complete', [
+            'as' => 'app.donate.ipaymu.complete',
+            'middleware' => 'ipaymu.active',
+            'uses' => 'App\Http\Controllers\Front\DonateController@postIpaymuComplete'
         ]);
     });
 
@@ -241,7 +252,7 @@ Route::group(['middleware' => ['web', 'auth', 'verified', 'server.online']], sta
 });
 
 /* Admin Page */
-Route::group(['prefix' => 'admin', 'middleware' => ['web', 'auth', 'verified', 'admin']], static function () {
+Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'web', 'verified', 'admin']], static function () {
     Route::get('/', static function () {
         return view('admin.dashboard');
     })->name('admin.dashboard');
@@ -533,6 +544,22 @@ Route::group(['prefix' => 'admin', 'middleware' => ['web', 'auth', 'verified', '
             ]);
         }
     });
+});
+
+/* GM Page */
+Route::group(['prefix' => 'gm', 'middleware' => ['auth', 'web', 'verified', 'gm']], static function () {
+    Route::get('/', static function () {
+        return view('gm.dashboard');
+    })->name('gm.dashboard');
+
+    Route::group(['prefix' => 'article', 'middleware' => 'news'], static function () {
+        Route::post('upload', [
+            'as' => 'gm.article.upload',
+            'uses' => 'App\Http\Controllers\Admin\NewsController@upload'
+        ])->withoutMiddleware([VerifyCsrfToken::class]);
+    });
+    Route::resource('article', ArticleController::class)->middleware('news');
+
 });
 
 /* Fortify Route */

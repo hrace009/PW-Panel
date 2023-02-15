@@ -50,8 +50,9 @@ return [
             1 => 'Login to Paymentwall merchant Account.',
             2 => 'Go to My Projects > Settings',
             3 => 'Change pingback type to URL',
-            4 => 'Change URL to <code class="dark:text-cyan-400">' . url(config('pw-config.payment.paymentwall.pingback_path')) . '</code>',
-            5 => 'Set PINGBACK SIGNATURE VERSION to \'2\''
+            4 => 'Change URL to <code class="dark:text-cyan-400">' . url(route('api.paymentwall')) . '</code>',
+            5 => 'Set PINGBACK SIGNATURE VERSION to \'2\'',
+            6 => 'Make sure server online when testing pingback from paymentwall.'
         ]
     ],
     'guide' => [
@@ -162,14 +163,21 @@ return [
         'va_desc' => 'Enter your iPaymu Virtual Account',
         'apikey' => 'Api Key',
         'apikey_desc' => 'Enter your iPaymu Api Key',
-        'currency_per' => 'Currency per :currency',
+        'currency_per' => ':coin per :currency',
         'currency_per_desc' => 'Enter amount :coin per :currency',
         'minimum' => 'Minimum amount',
         'minimum_desc' => 'Minimum amount to donate',
         'description' => ':amount :currency',
         'success' => 'Thank you for supporting our server, we appreciate your donation.',
         'amount' => 'Amount money you will pay.',
-        'amount_receive' => 'Amount :currency you will receive.'
+        'amount_receive' => 'Amount :currency you will receive.',
+        'error' => [
+            'title' => 'Error',
+            'message' => 'Please enter the money amount you would like to donate <b>OR</b> the amount of :currency you would like to receive.',
+            'minimum' => 'You can\'t donate less than :min :currency.'
+        ],
+        'desc_ipay' => 'Login: :loginid | Amount: :amount :currency | Pay: :pay IDR',
+        'no_phone' => 'Please fill your phone number!'
     ],
     'history' => [
         'title' => 'Transaction History',

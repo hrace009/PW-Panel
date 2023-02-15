@@ -159,6 +159,17 @@ trait PasswordValidationRules
     }
 
     /**
+     * Validation for phone field.
+     * Use at Update User Profile Information Page
+     *
+     * @return string[]
+     */
+    protected function UpdateUserProfileInformationPagePhoneRules($option): array
+    {
+        return ['required', 'numeric', 'regex:/^[0-9]+$/', $option];
+    }
+
+    /**
      * Validation for email field.
      * Use at New Password Page
      *

@@ -51,6 +51,9 @@ return [
     'apps_edit_success' => 'Pengaturan aplikasi Anda telah disimpan.',
     'server_name' => 'Nama Server',
     'server_name_desc' => 'Nama server Anda.',
+    'gmwa' => 'Nomer Kontak GM, (WhatsApp / Phone), misal: 6281210333773',
+    'fakeonline' => 'Fake Online',
+    'fakeonline_desc' => 'Masukkan jumlah fake online.',
     'encrypt' => [
         'md5' => 'MD5',
         'base64' => 'Base64'

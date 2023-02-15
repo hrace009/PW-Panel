@@ -50,8 +50,9 @@ return [
             1 => 'Masuk ke Paymentwall akun pedagang.',
             2 => 'Pergi ke My Projects > Settings',
             3 => 'Ubah jenis pingback menjadi URL',
-            4 => 'Ubah URL menjadi <code class="dark:text-cyan-400">' . url(config('pw-config.payment.paymentwall.pingback_path')) . '</code>',
-            5 => 'Atur PINGBACK SIGNATURE VERSION ke \'2\''
+            4 => 'Ubah URL menjadi <code class="dark:text-cyan-400">' . url(route('api.paymentwall')) . '</code>',
+            5 => 'Atur PINGBACK SIGNATURE VERSION ke \'2\'',
+            6 => 'Pastikan server pw dalam keadaan online ketika melakukan test pingback dari server paymentwall.'
         ]
     ],
     'guide' => [
@@ -162,14 +163,21 @@ return [
         'va_desc' => 'Masukkan Akun Virtual iPaymu Anda',
         'apikey' => 'Api Key',
         'apikey_desc' => 'Masukkan api Key iPaymu Anda',
-        'currency_per' => 'Mata uang per :currency',
+        'currency_per' => ':coin per :currency',
         'currency_per_desc' => 'Masukan jumlah :coin per :currency',
         'minimum' => 'Jumlah minimal',
         'minimum_desc' => 'Jumlah minimum untuk donasi',
         'description' => ':amount :currency',
         'success' => 'Terima kasih telah mendukung server kami, kami menghargai donasi Anda.',
         'amount' => 'Jumlah uang yang akan Anda bayar.',
-        'amount_receive' => 'Jumlah :currency yang akan Anda terima.'
+        'amount_receive' => 'Jumlah :currency yang akan Anda terima.',
+        'error' => [
+            'title' => 'Kesalahan',
+            'message' => 'Silakan masukkan jumlah uang yang ingin Anda bayar <b>OR</b> jumlah :currency yang akan anda terima.',
+            'minimum' => 'Anda tidak dapat donate kurang dari :min :currency.'
+        ],
+        'desc_ipay' => 'Login: :loginid | Jumlah: :amount :currency | Bayar: :pay IDR',
+        'no_phone' => 'Mohon untuk mengisi nomer telepon / HP anda!'
     ],
     'history' => [
         'title' => 'Riwayat transaksi',
