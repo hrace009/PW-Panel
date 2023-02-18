@@ -12,6 +12,7 @@ namespace App\View\Components\Hrace009\Admin;
 
 use App\Models\Faction;
 use App\Models\Player;
+use App\Models\Point;
 use App\Models\User;
 use Illuminate\View\Component;
 
@@ -34,10 +35,12 @@ class GameStat extends Component
      */
     public function render()
     {
+        $point = new Point();
         return view('components.hrace009.admin.game-stat', [
             'totalUser' => User::count('name'),
             'totalRoles' => Player::count('name'),
             'totalFaction' => Faction::count('name'),
+            'totalOnline' => $point->getOnlinePlayer()
         ]);
     }
 }

@@ -82,39 +82,30 @@ class Pingback extends Controller
         $sid = $request->get('sid');
         $reference_id = $request->get('reference_id');
 
-        $trx = IpaymuLog::whereReferenceId($reference_id)->whereSid($sid)->whereStatus('pending')->whereStatusCode('0')->get()->all();
-        if ($trx) {
-            $checktrx = IpaymuLog::whereTrxId($trx_id)->get()->all();
-            if (!$checktrx) {
-                $update = IpaymuLog::whereSid($sid);
+        $check = IpaymuLog::whereSid($sid)->whereStatus('pending')->whereStatusCode('0')->firstOrFail();
+        if (!$check) {
+            $message = 'failed';
+        } else {
+            $update = IpaymuLog::whereSid($sid);
+            $update->update([
+                'trx_id' => $trx_id,
+            ]);
+            if ($status == 'berhasil' && $status_code == '1') {
                 $update->update([
                     'trx_id' => $trx_id,
-                    'status' => $status,
-                    'status_code' => $status_code
+                    'status' => 'berhasil',
+                    'status_code' => '1'
                 ]);
                 $user = $update->firstOrFail();
-                if (config('ipaymu.double')) {
-                    $this->updateMoney($user->user_id, $user->amount * 2);
-                } else {
+                if (!config('ipaymu.double')) {
                     $this->updateMoney($user->user_id, $user->amount);
+                } else {
+                    $this->updateMoney($user->user_id, $user->amount * 2);
                 }
-                $message = 'ok';
+                $message = 'success';
             } else {
-                $update = IpaymuLog::whereSid($sid);
-                $update->update([
-                    'status' => $status,
-                    'status_code' => $status_code
-                ]);
-                $user = $update->firstOrFail();
-                if (config('ipaymu.double')) {
-                    $this->updateMoney($user->user_id, $user->amount * 2);
-                } else {
-                    $this->updateMoney($user->user_id, $user->amount);
-                }
-                $message = 'ok';
+                $message = 'success update trx id';
             }
-        } else {
-            $message = 'failed';
         }
 
         return $message;

@@ -2,6 +2,7 @@
 
 namespace App\View\Components\Hrace009\Portal;
 
+use App\Models\Point;
 use App\Models\User;
 use hrace009\PerfectWorldAPI\API;
 use Illuminate\Support\Facades\DB;
@@ -30,10 +31,12 @@ class Widget extends Component
         foreach (DB::table('auth')->select('userid')->distinct()->get() as $gm) {
             $gms[] = User::find($gm->userid);
         }
+        $point = new Point();
         $api = new API();
         return view('components.hrace009.portal.widget', [
             'gms' => $gms,
             'totalUser' => User::count('name'),
+            'onlinePlayer' => $point->getOnlinePlayer(),
             'api' => $api
         ]);
     }

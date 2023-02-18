@@ -73,6 +73,9 @@
                                 value="07" {{ config('pw-config.server_version') === '07' ? 'selected' : null }}> v07
                         </option>
                         <option class="dark:text-gray-500"
+                                value="27" {{ config('pw-config.server_version') === '27' ? 'selected' : null }}> v27
+                        </option>
+                        <option class="dark:text-gray-500"
                                 value="63" {{ config('pw-config.server_version') === '63' ? 'selected' : null }}> v63
                         </option>
                         <option class="dark:text-gray-500"

@@ -135,12 +135,8 @@
                 >
                     {{ __('widget.players_online') }}
                 </h6>
-                @if( count($api->getOnlineList()) >= 3)
-                    <span
-                        class="text-xl font-semibold">{{ $api->online ? count($api->getOnlineList()) + config('pw-config.fakeonline') : 0 }}</span>
-                @else
-                    <span class="text-xl font-semibold">{{ $api->online ? count($api->getOnlineList()) : 0 }}</span>
-                @endif
+                <span
+                    class="text-xl font-semibold">{{ $api->online ? $onlinePlayer >= 100 ? $onlinePlayer + config('pw-config.fakeonline') : $onlinePlayer : 0 }}</span>
 
             </div>
             <div>

@@ -39,13 +39,8 @@
     </div>
     <div class="block-content">
         {{ __('widget.players_online') }}
-        @if( count($api->getOnlineList()) >= 3)
-            <span class="badge {{ (count($api->getOnlineList()) > 0 ? 'bg-success' : 'bg-danger') }}"
-                  style="float: right;">{{ $api->online ? count($api->getOnlineList()) : 0 + config('pw-config.fakeonline') }}</span>
-        @else
-            <span class="badge {{ (count($api->getOnlineList()) > 0 ? 'bg-success' : 'bg-danger') }}"
-                  style="float: right;">{{ $api->online ? count($api->getOnlineList()) : 0 }}</span>
-        @endif
+        <span class="badge {{ $api->online ? $onlinePlayer > 0 ? 'bg-success' : 'bg-danger' : 'bg-danger' }}"
+              style="float: right;">{{ $api->online ? $onlinePlayer >= 150 ? $onlinePlayer + config('pw-config.fakeonline') : $onlinePlayer : 0 }}</span>
     </div>
     <div class="block-content">
         {{ __('widget.total_account') }}

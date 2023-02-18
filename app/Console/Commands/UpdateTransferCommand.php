@@ -52,17 +52,26 @@ class UpdateTransferCommand extends Command
         foreach ( $transfers as $transfer ){
             if ( !DB::table( 'usecashnow' )->where( 'userid', $transfer->user_id )->where( 'zoneid', $transfer->zone_id )->take( 1 )->exists() )
             {
-                DB::table( 'usecashnow' )->insert([
-                    'userid' => $transfer->user_id,
-                    'zoneid' => $transfer->zone_id,
-                    'sn' => 0,
-                    'aid' => 1,
-                    'point' => 0,
-                    'cash' => $transfer->cash,
-                    'status' => 1,
-                    'creatime' => Carbon::now()
-                ]);
-                DB::table( 'pwp_transfer' )->where( 'user_id', $transfer->user_id )->where( 'zone_id', $transfer->zone_id )->where( 'cash', $transfer->cash )->take( 1 )->delete();
+                /**
+                 * DB::table( 'usecashnow' )->insert([
+                 * 'userid' => $transfer->user_id,
+                 * 'zoneid' => $transfer->zone_id,
+                 * 'sn' => 0,
+                 * 'aid' => 1,
+                 * 'point' => 0,
+                 * 'cash' => $transfer->cash,
+                 * 'status' => 1,
+                 * 'creatime' => Carbon::now()
+                 * ]);
+                 * **/
+                DB::select('call usecash(?,?,?,?,?,?,?,?)', array(
+                    $transfer->user_id, $transfer->zone_id, 0, 1, 0, $transfer->cash, 1, Carbon::now()
+                ));
+                DB::table('pwp_transfer')
+                    ->where('user_id', $transfer->user_id)
+                    ->where('zone_id', $transfer->zone_id)
+                    ->where('cash', $transfer->cash)
+                    ->take(1)->delete();
             }
         }
         return 0;

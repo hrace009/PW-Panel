@@ -10,6 +10,7 @@
 
 namespace App\View\Components\Hrace009\Front;
 
+use App\Models\Point;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\View\Component;
@@ -37,9 +38,11 @@ class Widget extends Component
         foreach (DB::table('auth')->select('userid')->distinct()->get() as $gm) {
             $gms[] = User::find($gm->userid);
         }
+        $point = new Point();
         return view('components.hrace009.front.widget', [
             'gms' => $gms,
             'totalUser' => User::count('name'),
+            'onlinePlayer' => $point->getOnlinePlayer()
         ]);
     }
 }

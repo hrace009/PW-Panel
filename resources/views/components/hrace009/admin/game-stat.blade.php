@@ -6,7 +6,7 @@
         >
             {{ __('admin.playerOnline') }}
         </h6>
-        <span class="text-xl font-semibold">{{ $api->online ? count($api->getOnlineList()) : 0 }}</span>
+        <span class="text-xl font-semibold">{{ $api->online ? $totalOnline : 0 }}</span>
     </div>
     <div>
         <span>
