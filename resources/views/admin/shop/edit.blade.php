@@ -28,8 +28,14 @@
                 </div>
                 <div class="relative z-0 mb-6 w-full group">
                     <x-hrace009::input-with-popover
-                        popover="{{ __('shop.fields.price_desc', ['currency' => config('pw-config.currency_name')]) }}"
-                        id="price" name="price" value="{{ $shops->price }}" type="text"/>
+                            popover="{{ __('shop.fields.point_desc') }}"
+                            id="poin" name="poin" value="{{ $shops->poin }}" type="text"/>
+                    <x-hrace009::label for="poin">{{ __('shop.fields.point') }}</x-hrace009::label>
+                </div>
+                <div class="relative z-0 mb-6 w-full group">
+                    <x-hrace009::input-with-popover
+                            popover="{{ __('shop.fields.price_desc', ['currency' => config('pw-config.currency_name')]) }}"
+                            id="price" name="price" value="{{ $shops->price }}" type="text"/>
                     <x-hrace009::label for="price">{{ __('shop.fields.price') }}</x-hrace009::label>
                 </div>
                 <div class="relative z-0 mb-6 w-full group">

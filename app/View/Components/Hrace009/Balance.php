@@ -37,8 +37,10 @@ class Balance extends Component
     public function render()
     {
         $balance = number_format((Auth::user()->money), 0, '', '.') . ' ' . config('pw-config.currency_name');
+        $poin = number_format((Auth::user()->bonuses), 0, '', '.') . ' ' . __('vote.create.type_bonusess');
         return view('components.hrace009.balance', [
             'balance' => $balance,
+            'poin' => $poin
         ]);
     }
 }

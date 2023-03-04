@@ -40,4 +40,10 @@ Route::group(['middleware' => 'api'], static function () {
         'middleware' => 'ipaymu.active',
         'uses' => 'App\Http\Controllers\Pingback@IpaymuCallback'
     ]);
+
+    Route::post('arenatop100', [
+        'as' => 'api.arenatop100',
+        'middleware' => 'arena.active',
+        'uses' => 'App\Http\Controllers\ArenaCallback@incentive'
+    ]);
 });

@@ -96,4 +96,9 @@ return [
         10 => 'Duskblade',
         11 => 'Stormbringer'
     ],
+
+    'arena' => [
+        'title' => 'Callback',
+        'info' => 'Callback is an url that receive information from Arena Top 100 server, enter url bellow at your postback account in Arena Top 100 user account.',
+    ],
 ];

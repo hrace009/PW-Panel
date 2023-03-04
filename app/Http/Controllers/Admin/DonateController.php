@@ -237,14 +237,19 @@ class DonateController extends Controller
                 'va' => 'required|string',
                 'key' => 'required|string',
                 'currency_per' => 'required|numeric',
-                'minimum' => 'required|numeric'
+                'minimum' => 'required|numeric',
+                'maximum' => 'required|numeric',
+                'refid' => 'required|string'
             ]);
-
-            foreach ($configs as $config => $value) {
-                if (!$value) {
-                    Config::write('ipaymu.' . $config, '');
-                } else {
-                    Config::write('ipaymu.' . $config, $value);
+            if ($configs['maximum'] < $configs['minimum']) {
+                return redirect()->back()->with('error', __('donate.ipaymu.error.smalmax'));
+            } else {
+                foreach ($configs as $config => $value) {
+                    if (!$value) {
+                        Config::write('ipaymu.' . $config, '');
+                    } else {
+                        Config::write('ipaymu.' . $config, $value);
+                    }
                 }
             }
         }

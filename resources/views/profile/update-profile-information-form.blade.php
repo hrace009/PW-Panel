@@ -1,10 +1,10 @@
 <x-jet-form-section submit="updateProfileInformation">
     <x-slot name="title">
-        {{ __('Profile Information') }}
+        {{ __('profile.info.title') }}
     </x-slot>
 
     <x-slot name="description">
-        {{ __('Update your account\'s profile information and email address.') }}
+        {{ __('profile.info.description') }}
     </x-slot>
 
     <x-slot name="form">
@@ -40,12 +40,12 @@
                 </div>
 
                 <x-jet-secondary-button class="mt-2 mr-2" type="button" x-on:click.prevent="$refs.photo.click()">
-                    {{ __('Select A New Photo') }}
+                    {{ __('profile.photo.selectnew') }}
                 </x-jet-secondary-button>
 
                 @if ($this->user->profile_photo_path)
                     <x-jet-secondary-button type="button" class="mt-2" wire:click="deleteProfilePhoto">
-                        {{ __('Remove Photo') }}
+                        {{ __('profile.photo.remove') }}
                     </x-jet-secondary-button>
                 @endif
 
@@ -80,11 +80,11 @@
 
     <x-slot name="actions">
         <x-jet-action-message class="mr-3" on="saved">
-            {{ __('Saved.') }}
+            {{ __('general.saved') }}
         </x-jet-action-message>
 
         <x-jet-button wire:loading.attr="disabled" wire:target="photo">
-            {{ __('Save') }}
+            {{ __('general.Save') }}
         </x-jet-button>
     </x-slot>
 </x-jet-form-section>

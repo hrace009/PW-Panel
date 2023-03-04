@@ -31,7 +31,7 @@ class ShopController extends Controller
      */
     public function index()
     {
-        $shops = Shop::paginate(config('pw-config.shop.page'));
+        $shops = Shop::orderBy('created_at', 'desc')->paginate(config('pw-config.shop.page'));
         return view('admin.shop.index', [
             'shops' => $shops,
         ]);
@@ -105,16 +105,37 @@ class ShopController extends Controller
      * @param int $id
      * @return Application|Redirector|RedirectResponse
      */
-    public function update(ShopRequest $request, int $id)
+    public function update(Request $request, int $id)
     {
-        $image = $request->file('image')->getClientOriginalName();
-        $icon = $request->file('icon')->getClientOriginalName();
-        $request->file('image')->storeAs('shops/image', $image, config('filesystems.default'));
-        $request->file('icon')->storeAs('shops/icon', $icon, config('filesystems.default'));
+        $validation = $request->validate([
+            'name' => 'required|min:3|max:255',
+            'image' => 'image',
+            'icon' => 'image',
+            'poin' => 'required|numeric|min:0',
+            'price' => 'required|numeric|min:0',
+            'item_id' => 'required|numeric|min:1',
+            'count' => 'required|numeric|min:1',
+            'max_count' => 'required|numeric|min:1',
+            'protection_type' => 'numeric|min:0',
+            'expire_date' => 'numeric',
+            'discount' => 'numeric',
+            'shareable' => 'required',
+            'description' => 'required|min:20',
+        ]);
 
         $input = $request->except(['_token', '_method']);
-        $input['image'] = $image;
-        $input['icon'] = $icon;
+        if ($request->has('image')) {
+            $image = $request->file('image')->getClientOriginalName();
+            $request->file('image')->storeAs('shops/image', $image, config('filesystems.default'));
+            $input['image'] = $image;
+        }
+
+        if ($request->has('icon')) {
+            $icon = $request->file('icon')->getClientOriginalName();
+            $request->file('icon')->storeAs('shops/icon', $icon, config('filesystems.default'));
+            $input['icon'] = $icon;
+        }
+
         if ($request->get('shareable') === 'yes') {
             $input['shareable'] = 1;
         } else {

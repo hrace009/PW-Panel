@@ -12,11 +12,11 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Donate Language Lines
+    | TopUp Language Lines
     |--------------------------------------------------------------------------
     */
 
-    'title' => 'Donate',
+    'title' => 'TopUp',
     'status' => 'Status',
     'sandbox' => 'Sandbox',
     'on' => 'On',
@@ -27,12 +27,12 @@ return [
     'submit' => 'Send',
     'error' => [
         'title' => 'Error',
-        'message' => 'Please enter the dollar amount you would like to donate <b>OR</b> the amount of :currency you would like to receive.',
-        'minimum' => 'You can\'t donate less than :min.'
+        'message' => 'Please enter the dollar amount you would like to TopUp <b>OR</b> the amount of :currency you would like to receive.',
+        'minimum' => 'You can\'t TopUp less than :min.'
     ],
     'double_notice' => '<b>Notice:</b> Double donation is active!',
     'double_donation' => 'Double',
-    'double_desc' => 'Make double donate to active.',
+    'double_desc' => 'Make double TopUp to active.',
     'paymentwall_link' => 'Widget Code',
     'paymentwall_link_desc' => 'Enter your paymentwall widget code.',
     'paymentwall_widget_width' => 'Widget Width',
@@ -145,7 +145,7 @@ return [
         'currency_per' => 'Currency per :currency',
         'currency_per_desc' => 'Enter amount :coin per :currency',
         'minimum' => 'Minimum amount',
-        'minimum_desc' => 'Minimum amount to donate',
+        'minimum_desc' => 'Minimum amount to TopUp',
         'description' => ':amount :currency',
         'success' => 'Thank you for supporting our server, we appreciate your donation.',
         'amount' => 'Amount money you will pay.',
@@ -166,15 +166,21 @@ return [
         'currency_per' => ':coin per :currency',
         'currency_per_desc' => 'Enter amount :coin per :currency',
         'minimum' => 'Minimum amount',
-        'minimum_desc' => 'Minimum amount to donate',
+        'minimum_desc' => 'Minimum amount',
+        'maximum' => 'Maximal amount',
+        'maximum_desc' => 'Maximal amount',
         'description' => ':amount :currency',
         'success' => 'Thank you for supporting our server, we appreciate your donation.',
         'amount' => 'Amount money you will pay.',
         'amount_receive' => 'Amount :currency you will receive.',
+        'refid' => 'Reference ID Prefix',
+        'refid_desc' => 'Enter your reference ID prefix, this will easy your management if you have multiple server with same gateway.',
         'error' => [
             'title' => 'Error',
-            'message' => 'Please enter the money amount you would like to donate <b>OR</b> the amount of :currency you would like to receive.',
-            'minimum' => 'You can\'t donate less than :min :currency.'
+            'message' => 'Please enter the money amount you would like to TopUp <b>OR</b> the amount of :currency you would like to receive.',
+            'minimum' => 'You can\'t TopUp less than :min :currency.',
+            'maximum' => 'You can\'t TopUp more than :max :currency.',
+            'smalmax' => 'Maximum amount must be greater than minimal amount.'
         ],
         'desc_ipay' => 'Login: :loginid | Amount: :amount :currency | Pay: :pay IDR',
         'no_phone' => 'Please fill your phone number!'
@@ -228,7 +234,8 @@ return [
             'shop' => [
                 'id' => 'Tr ID',
                 'item_name' => 'Item Name',
-                'price' => 'Amount',
+                'price' => 'Amount(:currency)',
+                'point' => 'Amount(:currency)',
                 'date' => 'Date'
             ],
             'paypal' => [

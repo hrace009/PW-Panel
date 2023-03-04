@@ -226,7 +226,7 @@ class DonateController extends Controller
                     __('donate.ipaymu.desc_ipay', ['amount' => $request->input('tokens'), 'currency' => config('pw-config.currency_name'), 'pay' => $request->input('dollars'), 'loginid' => Auth::user()->ID])
                 ]
             ]);
-            $refid = 'TRX-' . Carbon::now()->timestamp;
+            $refid = config('ipaymu.refid') . '-' . Carbon::now()->timestamp;
             $paymentData = [
                 'referenceId' => $refid,
             ];

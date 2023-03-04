@@ -38,6 +38,7 @@ return [
         'type' => 'Jenis Hadiah',
         'type_cubi' => 'Cuby',
         'type_virtual' => ':currency',
+        'type_bonusess' => 'Poin',
         'type_cubi_desc' => 'Pilih di sini jika Anda memberikan hadiah kubi.',
         'type_virtual_desc' => 'Pilih di sini jika Anda memberi hadiah :currency.',
         'reward_amount' => 'Hadiah',
@@ -64,10 +65,17 @@ return [
     ],
     'arena' => [
         'title' => 'Arena Top 100',
-        'header' => 'Arena Top 100 Configuration',
-        'status_desc' => 'Move switch to the right for activating Arena Top 100',
-        'arena_username' => 'User Name',
-        'arena_username_desc' => 'Enter your Arena Top 100 User Name.'
+        'header' => 'Konfigurasi Arena Top 100',
+        'status_desc' => 'Geser sakelar ke kanan untuk mengaktifkan Arena Top 100',
+        'arena_username' => 'Nama Pengguna',
+        'arena_username_desc' => 'Masukkan nama pengguna Arena Top 100 anda.',
+        'settings_save' => 'Pengaturan berhasil disimpan.',
+        'reward' => 'Jumlah Hadiah',
+        'reward_desc' => 'Masukkan jumlah hadiah',
+        'reward_type' => 'Jenis Hadiah',
+        'reward_type_desc' => 'Pilih jenis hadiah',
+        'time' => 'Batas Waktu',
+        'time_desc' => 'Batas waktu jeda untuk setiap voting (jam)'
     ],
 ];
 

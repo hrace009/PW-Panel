@@ -94,4 +94,8 @@ return [
         10 => 'Duskblade',
         11 => 'Stormbringer'
     ],
+    'arena' => [
+        'title' => 'Callback',
+        'info' => 'Callback adalah url yang akan menerima informasi voting dari server Arena Top 100, masukkan url dibawah ini ke kolom postback di akun Arena Top 100 anda.',
+    ],
 ];

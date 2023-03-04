@@ -12,11 +12,11 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Donate Language Lines
+    | TopUp Language Lines
     |--------------------------------------------------------------------------
     */
 
-    'title' => 'Donasi',
+    'title' => 'TopUp',
     'status' => 'Status',
     'sandbox' => 'Sandbox',
     'on' => 'Aktif',
@@ -28,11 +28,11 @@ return [
     'error' => [
         'title' => 'Kesalahan',
         'message' => 'Silakan masukkan jumlah dolar yang ingin Anda bayar <b>OR</b> jumlah :currency yang akan anda terima.',
-        'minimum' => 'Anda tidak dapat donate kurang dari :min.'
+        'minimum' => 'Anda tidak dapat melakukan TopUp kurang dari :min.'
     ],
-    'double_notice' => '<b>Catatan:</b> Double donate active!',
+    'double_notice' => '<b>Catatan:</b> Double TopUp active!',
     'double_donation' => 'Dobel',
-    'double_desc' => 'Lakukan donasi ganda untuk aktif.',
+    'double_desc' => 'Lakukan TopUp ganda untuk aktif.',
     'paymentwall_link' => 'Kode Widget',
     'paymentwall_link_desc' => 'Masukkan kode widget Paymentwall Anda.',
     'paymentwall_widget_width' => 'Lebar Widget',
@@ -64,10 +64,10 @@ return [
         'bank' => [
             'title' => 'Isi ulang :currency dengan Transfer Bank',
             'noData' => 'Tidak ada data pemegang bank yang tersedia, silakan hubungi Administrator!',
-            'text1' => 'Donasi digunakan untuk pemeliharaan server dan membeli beberapa alat untuk membuat pembaruan yang baik untuk Anda. Untuk melakukan donasi, silakan ikuti panduan di bawah ini :',
+            'text1' => 'Dana TopUp digunakan untuk pemeliharaan server dan membeli beberapa alat untuk membuat pembaruan yang baik untuk Anda. Untuk melakukan donasi, silakan ikuti panduan di bawah ini :',
             'text2' => 'Transfer sejumlah uang ke salah satu rekening bank kami di bawah ini.',
             'bankHolder' => 'Nama Pemilik Rekening Bank : :name',
-            'limit' => 'Batas donasi: :sign :number',
+            'limit' => 'Batas TopUp: :sign :number',
             'price_coin' => '1 :coin = :sign:currency',
             'multiply' => 'Kelipatan :currencySign:number',
             'text3' => 'Kemudian, isi formulir lengkap di bawah ini, dan tunggu sampai GM mengisi ulang saldo dompet Anda.',
@@ -93,7 +93,7 @@ return [
                 'other' => 'Lainnya',
                 'amount' => 'Jumlah',
                 'amount_desc' => 'Pilih jumlah uang yang Anda kirim.',
-                'success' => 'Formulir donasi Anda telah dikirim ke Game Master. Harap tunggu sampai dia menyetujui pembelian Anda.',
+                'success' => 'Formulir TopUp Anda telah dikirim ke Game Master. Harap tunggu sampai dia menyetujui pembelian Anda.',
                 'unfinish' => 'Anda masih memiliki transaksi yang belum selesai, harap selesaikan transaksi sebelumnya.'
             ],
             'email' => [
@@ -166,15 +166,21 @@ return [
         'currency_per' => ':coin per :currency',
         'currency_per_desc' => 'Masukan jumlah :coin per :currency',
         'minimum' => 'Jumlah minimal',
-        'minimum_desc' => 'Jumlah minimum untuk donasi',
+        'minimum_desc' => 'Jumlah minimum',
+        'maximum' => 'Jumlah maksimal',
+        'maximum_desc' => 'Jumlah maksimal',
         'description' => ':amount :currency',
         'success' => 'Terima kasih telah mendukung server kami, kami menghargai donasi Anda.',
         'amount' => 'Jumlah uang yang akan Anda bayar.',
         'amount_receive' => 'Jumlah :currency yang akan Anda terima.',
+        'refid' => 'Reference ID Prefix',
+        'refid_desc' => 'Masukkan prefix reference ID anda untuk memudahkan anda memilah pembayaran jika memiliki server lebih dari 1',
         'error' => [
             'title' => 'Kesalahan',
             'message' => 'Silakan masukkan jumlah uang yang ingin Anda bayar <b>OR</b> jumlah :currency yang akan anda terima.',
-            'minimum' => 'Anda tidak dapat donate kurang dari :min :currency.'
+            'minimum' => 'Anda tidak dapat TopUp kurang dari :min :currency.',
+            'maximum' => 'Anda tidak dapat TopUp lebih dari :max :currency.',
+            'smalmax' => 'Jumlah maksimal tidak boleh kecil dari jumlah minimal'
         ],
         'desc_ipay' => 'Login: :loginid | Jumlah: :amount :currency | Bayar: :pay IDR',
         'no_phone' => 'Mohon untuk mengisi nomer telepon / HP anda!'
@@ -228,7 +234,8 @@ return [
             'shop' => [
                 'id' => 'Tr ID',
                 'item_name' => 'Nama Item',
-                'price' => 'Jumlah',
+                'price' => 'Jumlah(:currency)',
+                'point' => 'Jumlah(:currency)',
                 'date' => 'Tanggal'
             ],
             'paypal' => [

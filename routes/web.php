@@ -98,6 +98,10 @@ Route::group(['prefix' => 'dashboard', 'middleware' => ['auth', 'web', 'verified
             'as' => 'app.shop.purchase.post',
             'uses' => 'App\Http\Controllers\Front\ShopController@postPurchase'
         ]);
+        Route::post('point/{shop}', [
+            'as' => 'app.shop.point.post',
+            'uses' => 'App\Http\Controllers\Front\ShopController@postPoint'
+        ]);
         Route::post('gift/{shop}', [
             'as' => 'app.shop.gift.post',
             'uses' => 'App\Http\Controllers\Front\ShopController@postGift'
@@ -192,6 +196,13 @@ Route::group(['prefix' => 'dashboard', 'middleware' => ['auth', 'web', 'verified
             'as' => 'app.vote.submit',
             'uses' => 'App\Http\Controllers\Front\VoteController@postSubmit'
         ]);
+
+        Route::group(['prefix' => 'arena', 'middleware' => 'arena.active'], static function () {
+            Route::post('submit', [
+                'as' => 'app.vote.arena.submit',
+                'uses' => 'App\Http\Controllers\Front\VoteController@arenaSubmit'
+            ]);
+        });
     });
 
     /***

@@ -13,7 +13,9 @@ return [
     'double' => false,
     'va' => '',
     'key' => '',
-    'currency_per' => '1',
-    'minimum' => '1',
+    'currency_per' => '0.001',
+    'minimum' => '100',
+    'maximum' => '5000',
+    'refid' => 'TRX',
     'sandbox' => true
 ];

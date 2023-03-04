@@ -39,8 +39,29 @@
         })
     }
 
+    function showMaximum() {
+        const Toast = Swal.mixin({
+            toast: false,
+            position: 'center',
+            showConfirmButton: false,
+            timer: 5000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer)
+                toast.addEventListener('mouseleave', Swal.resumeTimer)
+            }
+        })
+
+        Toast.fire({
+            icon: 'info',
+            animation: true,
+            title: '{{ __('donate.ipaymu.error.maximum', ['max' => config('ipaymu.maximum'), 'currency' => config('pw-config.currency_name') ]) }}',
+        })
+    }
+
     function donation_check() {
         dollar_minimum = "{{ config('ipaymu.minimum') }}";
+        dollar_maximum = "{{ config('ipaymu.maximum') }}";
         dollars_paypal = $('#donation_tokens').val();
         dollars = $('#donation_dollars').val();
         if (dollars == null || dollars === "" || dollars_paypal == null || dollars_paypal === "") {
@@ -48,6 +69,9 @@
             return false;
         } else if (parseFloat(dollars) < dollar_minimum || parseFloat(dollars_paypal) < dollar_minimum) {
             window.onload = showMinimum();
+            return false;
+        } else if (parseFloat(dollars) < dollar_maximum || parseFloat(dollars_paypal) > dollar_maximum) {
+            window.onload = showMaximum();
             return false;
         } else {
             return true;
@@ -74,7 +98,7 @@
         $("#donation_tokens").on('input', function () {
             format_number("donation_tokens", 0);
             $("#donation_dollars").val($("#donation_tokens").val() / (double_donation ? per_USD * 2 : per_USD));
-            format_number("donation_dollars", 2);
+            format_number("donation_dollars", 0);
         });
     });
 </script>

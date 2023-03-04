@@ -88,6 +88,8 @@ return [
         'image_desc' => 'Unggah pratinjau gambar item.',
         'price' => 'Harga (:currency)',
         'price_desc' => 'Masukkan harga barang dalam :currency.',
+        'point' => 'Harga Poin',
+        'point_desc' => 'Masukkan harga barang dalam poin',
         'item_id' => 'ID barang',
         'item_id_desc' => 'Masukkan ID item dari elements.data.',
         'octet' => 'Oktet',

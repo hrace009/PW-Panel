@@ -35,7 +35,7 @@ class ShopController extends Controller
     {
         $api = new API();
         return view('front.shops.index', [
-            'items' => Shop::paginate(config('pw-config.shop.page')),
+            'items' => Shop::orderBy('created_at', 'desc')->paginate(config('pw-config.shop.page')),
             'friends' => $api->getRoleFriends(Auth::user()->characterId()),
         ]);
     }
@@ -152,6 +152,54 @@ class ShopController extends Controller
         } else {
             $status = 'error';
             $message = __('general.not_enough', ['currency' => config('pw-config.currency_name')]);
+        }
+        return redirect()->back()->with($status, $message);
+    }
+
+    public function postPoint(Shop $shop): RedirectResponse
+    {
+        $user = Auth::user();
+        $item = $shop;
+        $item_price = $item->poin;
+
+        if ($user->bonuses >= $item_price) {
+            $api = new API();
+            $mail = array(
+                'title' => __('shop.mail_item.title', ['name' => config('app.name')]),
+                'message' => __('shop.mail_item.message', ['name' => $item->name, 'count' => $item->count, 'staff' => config('app.name')]),
+                'money' => 0,
+                'item' => array(
+                    'id' => $item->item_id,
+                    'pos' => 0,
+                    'count' => $item->count,
+                    'max_count' => $item->max_count,
+                    'data' => $item->octet,
+                    'proctype' => $item->protection_type,
+                    'expire_date' => $item->expire_date,
+                    'guid1' => 0,
+                    'guid2' => 0,
+                    'mask' => $item->mask,
+                ),
+            );
+            $api->sendMail(Auth::user()->characterId(), $mail['title'], $mail['message'], $mail['item'], $mail['money']);
+            $user->bonuses -= $item_price;
+            $user->save();
+
+            $item->times_bought += 1;
+            $item->save();
+
+            ShopLog::create([
+                'userid' => $user->ID,
+                'item_name' => $item->name,
+                'item_id' => $item->item_id,
+                'poin' => $item_price
+            ]);
+
+            $status = 'success';
+            $message = __('shop.purchase_complete', ['name' => $item->name]);
+        } else {
+            $status = 'error';
+            $message = __('general.not_enough', ['currency' => __('vote.create.type_bonusess')]);
         }
         return redirect()->back()->with($status, $message);
     }

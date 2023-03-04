@@ -30,6 +30,7 @@ class ShopLog extends Model
         'userid',
         'item_name',
         'item_id',
-        'price'
+        'price',
+        'poin'
     ];
 }

@@ -37,16 +37,27 @@
                                         <p class="text-gray-500 font-nunito">{!! $item->description !!}</p>
                                     </div>
                                     <div class="p-0 text-right">
-                                        <div
-                                            class="dark:text-light font-semibold text-lg font-poppins">{{ number_format( $item->price - ( ( $item->price / 100 ) * $item->discount ), 0, ',', '.') }}
-                                            <span class="text-xs">{{ config('pw-config.currency_name') }}</span></div>
-                                        <div
-                                            class="dark:text-light line-through font-semibold text-sm font-poppins">{{ $item->price }}
-                                            <span class="text-xs">{{ config('pw-config.currency_name') }}</span></div>
-                                        <div
-                                            class="dark:text-light font-semibold text-xs font-poppins">{{ __('shop.fields.discount') . ' ' . $item->discount }}
-                                            %
-                                        </div>
+                                        @if( $item->poin != 0)
+                                            <div
+                                                class="dark:text-light font-semibold text-lg font-poppins">{{ number_format( $item->poin, 0, ',', '.') }}
+                                                <span class="text-xs">{{ __('vote.create.type_bonusess') }}</span></div>
+                                        @endif
+                                        @if( $item->price != 0)
+                                            <div
+                                                class="dark:text-light font-semibold text-lg font-poppins">{{ number_format( $item->price - ( ( $item->price / 100 ) * $item->discount ), 0, ',', '.') }}
+                                                <span class="text-xs">{{ config('pw-config.currency_name') }}</span>
+                                            </div>
+                                        @endif
+                                        @if( $item->discount != 0 )
+                                            <div
+                                                class="dark:text-light line-through font-semibold text-sm font-poppins">{{ $item->price }}
+                                                <span class="text-xs">{{ config('pw-config.currency_name') }}</span>
+                                            </div>
+                                            <div
+                                                class="dark:text-light font-semibold text-xs font-poppins">{{ __('shop.fields.discount') . ' ' . $item->discount }}
+                                                %
+                                            </div>
+                                        @endif
                                         <div
                                             class="dark:text-light font-semibold text-xs font-poppins">
                                             {{ __('shop.fields.shareable.title') }}

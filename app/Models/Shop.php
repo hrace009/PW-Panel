@@ -20,6 +20,7 @@ class Shop extends Model
         'image',
         'icon',
         'description',
+        'poin',
         'price',
         'discount',
         'item_id',

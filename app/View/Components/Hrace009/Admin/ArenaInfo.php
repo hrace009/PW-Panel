@@ -1,10 +1,10 @@
 <?php
 
-namespace App\View\Components\Gamemaster;
+namespace App\View\Components\Hrace009\Admin;
 
 use Illuminate\View\Component;
 
-class NewsLink extends Component
+class ArenaInfo extends Component
 {
     /**
      * Create a new component instance.
@@ -23,6 +23,6 @@ class NewsLink extends Component
      */
     public function render()
     {
-        return view('components.gamemaster.news-link');
+        return view('components.hrace009.admin.arena-info');
     }
 }

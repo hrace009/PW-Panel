@@ -155,7 +155,8 @@
                                 <tr class="bg-gray-200 dark:bg-primary dark:text-light text-gray-600 uppercase text-xs leading-normal">
                                     <th class="py-3 px-6 text-left">{{ __('donate.history.table.shop.id') }}</th>
                                     <th class="py-3 px-6 text-left">{{ __('donate.history.table.shop.item_name') }}</th>
-                                    <th class="py-3 px-6 text-left">{{ __('donate.history.table.shop.price') }}</th>
+                                    <th class="py-3 px-6 text-left">{{ __('donate.history.table.shop.price', ['currency' => config('pw-config.currency_name')]) }}</th>
+                                    <th class="py-3 px-6 text-left">{{ __('donate.history.table.shop.point', ['currency' => __('vote.create.type_bonusess')]) }}</th>
                                     <th class="py-3 px-6 text-left">{{ __('donate.history.table.shop.date') }}</th>
                                 </tr>
                                 </thead>
@@ -175,6 +176,11 @@
                                         <td class="py-3 px-6 text-left">
                                             <div class="flex items-center">
                                                 {{ $shoplog->price }}
+                                            </div>
+                                        </td>
+                                        <td class="py-3 px-6 text-left">
+                                            <div class="flex items-center">
+                                                {{ $shoplog->poin }}
                                             </div>
                                         </td>
                                         <td class="py-3 px-6 text-left">

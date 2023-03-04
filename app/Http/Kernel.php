@@ -13,6 +13,7 @@
 
 namespace App\Http;
 
+use App\Http\Middleware\ArenaActive;
 use App\Http\Middleware\Authenticate;
 use App\Http\Middleware\BankTransferActive;
 use App\Http\Middleware\DonateActive;
@@ -136,6 +137,7 @@ class Kernel extends HttpKernel
         'paymentwall.pingback' => PaymentwallPingback::class,
         'paypal.active' => PaypalActive::class,
         'service.enable' => ServiceEnabled::class,
-        'ipaymu.active' => IpaymuActive::class
+        'ipaymu.active' => IpaymuActive::class,
+        'arena.active' => ArenaActive::class
     ];
 }

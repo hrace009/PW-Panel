@@ -85,12 +85,27 @@
                     </div>
                     <div class="flex flex-row gap-8">
                         <div class="relative z-0 mb-6 w-full group">
+                            <x-hrace009::input-with-popover id="refid" name="refid"
+                                                            value="{{ config('ipaymu.refid') }}"
+                                                            placeholder=" "
+                                                            :popover="__('donate.ipaymu.refid_desc')"/>
+                            <x-hrace009::label
+                                for="refid">{{ __('donate.ipaymu.refid') }}</x-hrace009::label>
+                        </div>
+                        <div class="relative z-0 mb-6 w-full group">
                             <x-hrace009::input-with-popover id="currency_per" name="currency_per"
                                                             value="{{ config('ipaymu.currency_per') }}"
                                                             placeholder=" "
                                                             :popover="__('donate.ipaymu.currency_per_desc', ['coin' => config('pw-config.currency_name'), 'currency' => 'IDR' ])"/>
                             <x-hrace009::label
                                 for="currency_per">{{ __('donate.ipaymu.currency_per', ['coin' => config('pw-config.currency_name'),'currency' => 'IDR' ]) }}</x-hrace009::label>
+                        </div>
+                        <div class="relative z-0 mb-6 w-full group">
+                            <x-hrace009::input-with-popover id="maximum" name="maximum"
+                                                            value="{{ config('ipaymu.maximum') }}"
+                                                            placeholder=" "
+                                                            :popover="__('donate.ipaymu.maximum_desc')"/>
+                            <x-hrace009::label for="maximum">{{ __('donate.ipaymu.maximum') }}</x-hrace009::label>
                         </div>
                         <div class="relative z-0 mb-6 w-full group">
                             <x-hrace009::input-with-popover id="minimum" name="minimum"

@@ -88,6 +88,8 @@ return [
         'image_desc' => 'Upload item image preview.',
         'price' => 'Price (:currency)',
         'price_desc' => 'Enter item price in :currency.',
+        'point' => 'Price Poin',
+        'point_desc' => 'Enter item price in point',
         'item_id' => 'Item ID',
         'item_id_desc' => 'Enter item ID from elements.data.',
         'octet' => 'Octets',

@@ -38,6 +38,7 @@ return [
         'type' => 'Reward Type',
         'type_cubi' => 'Cuby',
         'type_virtual' => ':currency',
+        'type_bonusess' => 'Point',
         'type_cubi_desc' => 'Select here if you give cubi reward.',
         'type_virtual_desc' => 'Select here if you give :currency reward.',
         'reward_amount' => 'Reward',
@@ -67,7 +68,14 @@ return [
         'header' => 'Arena Top 100 Configuration',
         'status_desc' => 'Move switch to the right for activating Arena Top 100',
         'arena_username' => 'User Name',
-        'arena_username_desc' => 'Enter your Arena Top 100 User Name.'
+        'arena_username_desc' => 'Enter your Arena Top 100 User Name.',
+        'settings_save' => 'Pengaturan berhasil disimpan.',
+        'reward' => 'Reward Amount',
+        'reward_desc' => 'Enter your reward amount',
+        'reward_type' => 'Reward Type',
+        'reward_type_desc' => 'Select reward type',
+        'time' => 'Time Limit',
+        'time_desc' => 'Limit time for each voting (hour)'
     ],
 ];
 
