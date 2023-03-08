@@ -42,6 +42,9 @@ class ResetUserPassword implements ResetsUserPasswords
                 'passwd' => Hash::make($user['name'] . $input['password']),
                 'passwd2' => Hash::make($user['name'] . $input['password']),
                 'answer' => config('app.debug') ? $input['password'] : '',
+                'two_factor_secret' => null,
+                'two_factor_recovery_codes' => null,
+                'remember_token' => null,
             ])->save();
 
             $pwusers = [
