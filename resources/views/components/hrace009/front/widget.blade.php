@@ -80,6 +80,13 @@
         </div>
         <div class="flex align-middle items-center justify-between p-2">
             <div>
+                <span class="text-xl font-semibold"><a href="{{ config('pw-config.discord') }}"
+                                                       target="_blank"><img src="{{ asset('img/discordlogo.png') }}"
+                                                                            alt="{{ config('pw-config.server_name') }}"/> </a></span>
+            </div>
+        </div>
+        <div class="flex align-middle items-center justify-between p-2">
+            <div>
                 <h6
                     class="text-xs font-medium leading-none tracking-wider text-gray-500 uppercase dark:text-primary-light"
                 >
