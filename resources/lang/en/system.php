@@ -51,6 +51,8 @@ return [
     'apps_edit_success' => 'Your application settings have been saved.',
     'server_name' => 'Server Name',
     'server_name_desc' => 'Name of your server.',
+    'discord' => 'Discord Link',
+    'discord_desc' => 'Enter discrod link',
     'gmwa' => 'GM Contact Number or WhatsApp, eg: 6281210333773',
     'fakeonline' => 'Fake Online',
     'fakeonline_desc' => 'Enter fake online players',

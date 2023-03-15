@@ -37,6 +37,12 @@
                     <x-hrace009::label for="server_name">{{ __('system.server_name') }}</x-hrace009::label>
                 </div>
                 <div class="relative z-0 mb-6 w-full group">
+                    <x-hrace009::input-with-popover id="discord" name="discord"
+                                                    value="{{ config('pw-config.discord') }}"
+                                                    placeholder=" " required :popover="__('system.discord_desc')"/>
+                    <x-hrace009::label for="discord">{{ __('system.discord') }}</x-hrace009::label>
+                </div>
+                <div class="relative z-0 mb-6 w-full group">
                     <x-hrace009::input-with-popover id="currency_name" name="currency_name"
                                                     value="{{ config('pw-config.currency_name') }}" placeholder=" "
                                                     required

@@ -88,4 +88,5 @@ return [
             'sandbox' => true
         ]
     ],
+    'discord' => 'link here'
 ];

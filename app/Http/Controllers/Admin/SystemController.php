@@ -73,6 +73,7 @@ class SystemController extends Controller
     {
         $validate = $request->validate([
             'server_name' => 'required|string',
+            'discord' => 'required|string',
             'currency_name' => 'required|string',
             'server_ip' => 'required|ipv4',
             'server_version' => 'required|string',
