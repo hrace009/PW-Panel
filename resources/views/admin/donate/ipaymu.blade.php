@@ -114,6 +114,17 @@
                                                             :popover="__('donate.ipaymu.minimum_desc')"/>
                             <x-hrace009::label for="minimum">{{ __('donate.ipaymu.minimum') }}</x-hrace009::label>
                         </div>
+                    </div>
+                    <div class="flex flex-row gap-8">
+                        <div class="relative z-0 mb-6 w-full group">
+                            <x-hrace009::input-with-popover id="mingetbonus" name="mingetbonus"
+                                                            value="{{ config('ipaymu.mingetbonus') }}"
+                                                            placeholder=" "
+                                                            :popover="__('donate.ipaymu.mingetbonus_desc', ['currency' => config('pw-config.currency_name')])"/>
+                            <x-hrace009::label
+                                for="mingetbonus">{{ __('donate.ipaymu.mingetbonus') }}</x-hrace009::label>
+                        </div>
+                        =>
                         <div class="relative z-0 mb-6 w-full group">
                             <x-hrace009::input-with-popover id="bonusess" name="bonusess"
                                                             value="{{ config('ipaymu.bonusess') }}"

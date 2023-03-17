@@ -17,6 +17,7 @@ return [
     'minimum' => '100',
     'maximum' => '5000',
     'bonusess' => '',
+    'mingetbonus' => '',
     'refid' => 'TRX',
     'sandbox' => true
 ];

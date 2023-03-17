@@ -31,6 +31,7 @@
                                                 type="number"
                                                 placeholder=" "
                                                 popover="{{ __('donate.ipaymu.amount') }}"
+                                                data-type="currency"
                 />
                 <span class="my-4 mx-4">=</span>
                 <x-hrace009::input-with-popover id="donation_tokens" name="tokens"
@@ -40,16 +41,25 @@
                 />
                 <span class="my-4 mx-4">{{ config('pw-config.currency_name') }}</span>
             </div>
-            <div class="flex flex-row z-0 mb-6 w-full group justify-between">
+            <div class="flex flex-row z-0 mb-6 gap-6 w-full group justify-between">
                 <div
-                    class="flex flex-row z-0 mb-6 w-auto group bg-blue-100 border border-blue-400 text-blue-700 px-4 py-3 rounded"
+                    class="flex flex-row z-0 mb-6 w-1/2 group bg-blue-100 border border-blue-400 text-blue-700 px-4 py-3 rounded"
                     role="alert"
                 >
                     <span
                         class="block sm:inline">{{ __('donate.ipaymu.minimum_desc') . ' : ' . config('ipaymu.minimum') . ' ' . config('pw-config.currency_name') . ' / IDR.' . number_format((config('ipaymu.minimum') / config('ipaymu.currency_per')),0,'.','.') }}</span>
                 </div>
+                @if( config('ipaymu.bonusess') )
+                    <div
+                        class="flex flex-row z-0 mb-6 w-1/2 group bg-blue-100 border border-blue-400 text-blue-700 px-4 py-3 rounded"
+                        role="alert"
+                    >
+                    <span
+                        class="block sm:inline">{{ __('donate.ipaymu.frontbonus', ['vc' => config('ipaymu.bonusess'), 'currency' => config('pw-config.currency_name'), 'mingetbonus' => config('ipaymu.mingetbonus')]) }}</span>
+                    </div>
+                @endif
                 <div
-                    class="flex flex-row z-0 mb-6 w-auto group bg-blue-100 border border-blue-400 text-blue-700 px-4 py-3 rounded"
+                    class="flex flex-row z-0 mb-6 w-1/2 group bg-blue-100 border border-blue-400 text-blue-700 px-4 py-3 rounded"
                     role="alert"
                 >
                     <span

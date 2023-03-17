@@ -232,10 +232,19 @@ class DonateController extends Controller
             ];
 
             $redirectPayment = $this->ipaymu->redirectPayment($paymentData);
+            if (config('ipaymu.bonusess')) {
+                if ($request->input('tokens') >= config('ipaymu.mingetbonus')) {
+                    $bonus = $request->input('tokens') * (config('ipaymu.bonusess') / 100);
+                } else {
+                    $bonus = 0;
+                }
+            } else {
+                $bonus = 0;
+            }
             IpaymuLog::create([
                 'reference_id' => $refid,
                 'user_id' => Auth::user()->ID,
-                'amount' => $request->input('tokens'),
+                'amount' => $request->input('tokens') + $bonus,
                 'money' => $request->input('dollars'),
                 'status' => 'pending',
                 'status_code' => '0',
