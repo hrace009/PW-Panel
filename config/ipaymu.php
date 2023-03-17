@@ -16,6 +16,7 @@ return [
     'currency_per' => '0.001',
     'minimum' => '100',
     'maximum' => '5000',
+    'bonusess' => '',
     'refid' => 'TRX',
     'sandbox' => true
 ];

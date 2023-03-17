@@ -169,6 +169,8 @@ return [
         'minimum_desc' => 'Minimum amount',
         'maximum' => 'Maximal amount',
         'maximum_desc' => 'Maximal amount',
+        'bonusess' => 'Bonus (%)',
+        'bonusess_desc' => 'Enter bonus in percent (%)',
         'description' => ':amount :currency',
         'success' => 'Thank you for supporting our server, we appreciate your donation.',
         'amount' => 'Amount money you will pay.',

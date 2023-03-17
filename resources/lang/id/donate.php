@@ -169,6 +169,8 @@ return [
         'minimum_desc' => 'Jumlah minimum',
         'maximum' => 'Jumlah maksimal',
         'maximum_desc' => 'Jumlah maksimal',
+        'bonusess' => 'Bonus (%)',
+        'bonusess_desc' => 'Masukkan jumlah bonus dalam persen (%)',
         'description' => ':amount :currency',
         'success' => 'Terima kasih telah mendukung server kami, kami menghargai donasi Anda.',
         'amount' => 'Jumlah uang yang akan Anda bayar.',

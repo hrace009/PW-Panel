@@ -114,6 +114,13 @@
                                                             :popover="__('donate.ipaymu.minimum_desc')"/>
                             <x-hrace009::label for="minimum">{{ __('donate.ipaymu.minimum') }}</x-hrace009::label>
                         </div>
+                        <div class="relative z-0 mb-6 w-full group">
+                            <x-hrace009::input-with-popover id="bonusess" name="bonusess"
+                                                            value="{{ config('ipaymu.bonusess') }}"
+                                                            placeholder=" "
+                                                            :popover="__('donate.ipaymu.bonusess_desc')"/>
+                            <x-hrace009::label for="bonusess">{{ __('donate.ipaymu.bonusess') }}</x-hrace009::label>
+                        </div>
                     </div>
                 @endif
                 <!-- Submit Button -->

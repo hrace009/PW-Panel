@@ -239,7 +239,8 @@ class DonateController extends Controller
                 'currency_per' => 'required|numeric',
                 'minimum' => 'required|numeric',
                 'maximum' => 'required|numeric',
-                'refid' => 'required|string'
+                'refid' => 'required|string',
+                'bonusess' => 'required|numeric|max:100'
             ]);
             if ($configs['maximum'] < $configs['minimum']) {
                 return redirect()->back()->with('error', __('donate.ipaymu.error.smalmax'));
