@@ -40,6 +40,31 @@
                 />
                 <span class="my-4 mx-4">{{ config('pw-config.currency_name') }}</span>
             </div>
+            <div class="flex flex-row z-0 mb-6 gap-6 w-full group justify-between">
+                <div
+                    class="flex flex-row z-0 mb-6 w-1/2 group bg-blue-100 border border-blue-400 text-blue-700 px-4 py-3 rounded"
+                    role="alert"
+                >
+                    <span
+                        class="block sm:inline">{{ __('donate.ipaymu.minimum_desc') . ' : ' . config('pw-config.payment.paypal.currency') . ' ' . config('pw-config.payment.paypal.minimum') . ' / ' . config('pw-config.currency_name') . number_format((config('pw-config.payment.paypal.minimum') * config('pw-config.payment.paypal.currency_per')),0,'.','.') }}</span>
+                </div>
+                @if( config('pw-config.payment.paypal.bonusess') )
+                    <div
+                        class="flex flex-row z-0 mb-6 w-1/2 group bg-blue-100 border border-blue-400 text-blue-700 px-4 py-3 rounded"
+                        role="alert"
+                    >
+                    <span
+                        class="block sm:inline">{{ __('donate.paypal.frontbonus', ['vc' => config('pw-config.payment.paypal.bonusess'), 'currency' => config('pw-config.currency_name'), 'mingetbonus' => config('pw-config.payment.paypal.mingetbonus'), 'money' => config('pw-config.payment.paypal.currency')]) }}</span>
+                    </div>
+                @endif
+                <div
+                    class="flex flex-row z-0 mb-6 w-1/2 group bg-blue-100 border border-blue-400 text-blue-700 px-4 py-3 rounded"
+                    role="alert"
+                >
+                    <span
+                        class="block sm:inline">{{ __('donate.ipaymu.maximum_desc') . ' : ' . config('pw-config.payment.paypal.currency')  . ' ' . config('pw-config.payment.paypal.maximum') . ' / ' . config('pw-config.currency_name') . number_format((config('pw-config.payment.paypal.maximum') * config('pw-config.payment.paypal.currency_per')),0,'.','.') }}</span>
+                </div>
+            </div>
             <div class="flex flex-row z-0 mb-6 w-full group justify-center">
                 <x-hrace009::button type="submit" class="w-1/2">
                     {{ __('shop.buy') }}

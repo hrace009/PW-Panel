@@ -194,6 +194,9 @@ class DonateController extends Controller
                 'currency' => 'required|string',
                 'currency_per' => 'required|numeric',
                 'minimum' => 'required|numeric',
+                'maximum' => 'required|numeric',
+                'mingetbonus' => 'required|numeric',
+                'bonusess' => 'required|numeric'
             ]);
 
             foreach ($configs as $config => $value) {

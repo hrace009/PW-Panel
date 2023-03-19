@@ -144,12 +144,15 @@ return [
         'currency_desc' => 'Select your currency',
         'currency_per' => 'Currency per :currency',
         'currency_per_desc' => 'Enter amount :coin per :currency',
-        'minimum' => 'Minimum amount',
-        'minimum_desc' => 'Minimum amount to TopUp',
+        'minimum' => 'Minimum $ Ammount',
+        'maximum' => 'Maximal $ Ammount',
+        'minimum_desc' => 'Minimum $ Topup',
+        'maximum_desc' => 'Maximum $ Topup',
         'description' => ':amount :currency',
         'success' => 'Thank you for supporting our server, we appreciate your donation.',
         'amount' => 'Amount money you will pay.',
-        'amount_receive' => 'Amount :currency you will receive.'
+        'amount_receive' => 'Amount :currency you will receive.',
+        'frontbonus' => 'Bonus: :vc% :currency with minimum buying :mingetbonus :money',
     ],
     'ipaymu' => [
         'title' => 'iPaymu',

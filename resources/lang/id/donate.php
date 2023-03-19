@@ -144,12 +144,15 @@ return [
         'currency_desc' => 'Pilih mata uang Anda',
         'currency_per' => 'Currency per :currency',
         'currency_per_desc' => 'Masukan jumlah :coin per :currency',
-        'minimum' => 'Jumlah minimal',
-        'minimum_desc' => 'Jumlah minimum untuk disumbangkan',
+        'minimum' => 'Jumlah minimal $',
+        'maximum' => 'Jumlah maximal $',
+        'minimum_desc' => 'Jumlah minimum $ untuk topup',
+        'maximum_desc' => 'Jumlah maximal $ untuk topup',
         'description' => ':amount :currency',
         'success' => 'Terima kasih telah mendukung server kami, kami sangat menghargai donasi Anda.',
         'amount' => 'Jumlah yang dibayarkan.',
-        'amount_receive' => 'Jumlah :currency yang akan diterima.'
+        'amount_receive' => 'Jumlah :currency yang akan diterima.',
+        'frontbonus' => 'Bonus: :vc% :currency dengan minimal pembelian :mingetbonus :money',
     ],
     'ipaymu' => [
         'title' => 'iPaymu',

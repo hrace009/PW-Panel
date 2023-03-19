@@ -78,6 +78,9 @@ return [
             'currency' => 'USD',
             'currency_per' => '1',
             'minimum' => '1',
+            'maximum' => '50',
+            'mingetbonus' => '500',
+            'bonusess' => '10',
             'sandbox' => true
         ],
         'ipaymu' => [

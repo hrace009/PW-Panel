@@ -62,7 +62,7 @@ class DonateController extends Controller
         $transaction = $this->gateway->purchase([
             'amount' => number_format($request->dollars, 0),
             'currency' => config('pw-config.payment.paypal.currency'),
-            'description' => __('donate.paypal.description', ['amount' => $request->dollars, 'currency' => config('pw-config.currency_name')]),
+            'description' => __('donate.paypal.description', ['amount' => $request->tokens, 'currency' => config('pw-config.currency_name')]),
             'returnUrl' => route('app.donate.paypal.complete'),
             'cancelUrl' => route('app.donate.paypal'),
         ]);
@@ -99,7 +99,17 @@ class DonateController extends Controller
                 'money' => $amount
             ]);
 
-            $user->money = $user->money + $payment_amount;
+            if (config('pw-config.payment.paypal.bonusess')) {
+                if ($amount >= config('pw-config.payment.paypal.mingetbonus')) {
+                    $bonus = $payment_amount * (config('pw-config.payment.paypal.bonusess') / 100);
+                } else {
+                    $bonus = 0;
+                }
+            } else {
+                $bonus = 0;
+            }
+
+            $user->money = $user->money + ($payment_amount + $bonus);
             $user->save();
         }
 
