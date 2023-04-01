@@ -200,6 +200,7 @@ return [
         'paymentwall' => 'Paymentwall',
         'store' => 'Store',
         'paypal' => 'Paypal',
+        'ipaymu' => 'iPaymu',
         'table' => [
             'trid' => 'Tr. ID',
             'date' => 'Date',
@@ -251,6 +252,13 @@ return [
                 'amount' => 'Amount',
                 'money' => 'Price',
                 'created_at' => 'Created At'
+            ],
+            'ipaymu' => [
+                'trans_id' => 'Trx ID',
+                'date' => 'Date',
+                'vc' => ':currency',
+                'money' => 'Price',
+                'status' => 'Status'
             ]
         ],
         'success' => 'Your change has been saved!',

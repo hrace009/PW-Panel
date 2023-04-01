@@ -180,6 +180,7 @@ class DonateController extends Controller
         $ingamelogs = ServiceLog::whereUserid(Auth::user()->ID)->paginate(10);
         $shoplogs = ShopLog::whereUserid(Auth::user()->ID)->paginate(10);
         $paypals = Paypal::whereUserId(Auth::user()->ID)->paginate(10);
+        $ipaymu = IpaymuLog::whereUserId(Auth::user()->ID)->paginate(10);
         $user = new User();
         return view('front.donate.history.index', [
             'banks' => $logbank,
@@ -187,7 +188,8 @@ class DonateController extends Controller
             'user' => $user,
             'ingamelogs' => $ingamelogs,
             'shoplogs' => $shoplogs,
-            'paypals' => $paypals
+            'paypals' => $paypals,
+            'ipaymu' => $ipaymu
         ]);
     }
 

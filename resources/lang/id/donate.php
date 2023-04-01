@@ -200,6 +200,7 @@ return [
         'paymentwall' => 'Paymentwall',
         'store' => 'Toko',
         'paypal' => 'Paypal',
+        'ipaymu' => 'iPaymu',
         'table' => [
             'trid' => 'Tr. ID',
             'date' => 'Tanggal',
@@ -251,6 +252,13 @@ return [
                 'amount' => 'Jumlah',
                 'money' => 'Harga',
                 'created_at' => 'Tanggal'
+            ],
+            'ipaymu' => [
+                'trans_id' => 'Trx ID',
+                'date' => 'Tanggal',
+                'vc' => ':currency',
+                'money' => 'Harga',
+                'status' => 'Status'
             ]
         ],
         'success' => 'Perubahan Anda telah disimpan!',
