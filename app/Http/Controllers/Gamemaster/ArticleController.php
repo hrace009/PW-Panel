@@ -34,6 +34,16 @@ class ArticleController extends Controller
     }
 
     /**
+     * Show the form for creating a new resource.
+     *
+     * @return Application|Factory|View
+     */
+    public function create()
+    {
+        return view('gm.article.create');
+    }
+
+    /**
      * Store a newly created resource in storage.
      *
      * @param NewsRequest $request
@@ -53,16 +63,6 @@ class ArticleController extends Controller
 
         News::create($input);
         return redirect(route('article.index'))->with('success', __('news.create_success'));
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return Application|Factory|View
-     */
-    public function create()
-    {
-        return view('gm.article.create');
     }
 
     public function show($id)
