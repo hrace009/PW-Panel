@@ -49,7 +49,9 @@ class DonateController extends Controller
         } else {
             $production = false;
         }
-        $this->ipaymu = new iPaymu(config('ipaymu.key'), config('ipaymu.va'), $production);
+        if (config('ipaymu.key') || config('ipaymu.va')) {
+            $this->ipaymu = new iPaymu(config('ipaymu.key'), config('ipaymu.va'), $production);
+        }
     }
 
     public function getPaypalIndex()
