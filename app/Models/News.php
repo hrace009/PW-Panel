@@ -43,6 +43,7 @@ class News extends Model
             'contest' => 'bg-yellow-700 hover:bg-yellow-500',
             'download' => 'bg-primary hover:bg-primary-darker',
             'guide' => 'bg-primary hover:bg-primary-darker',
+            'luckybox' => 'bg-green-700 hover:bg-green-500',
             'other' => 'bg-blue-700 hover:bg-blue-500'
         ];
         return $colors[$type];
@@ -57,6 +58,7 @@ class News extends Model
             'contest' => 'warning',
             'download' => 'info',
             'guide' => 'info',
+            'luckybox' => 'warning',
             'other' => 'danger'
         ];
         return $colors[$type];

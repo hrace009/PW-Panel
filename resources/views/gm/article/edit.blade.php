@@ -43,6 +43,9 @@
                                 value="guide" {{ $article->category === 'guide' ? 'selected' : null }} > {{ __('news.category.guide') }}
                         </option>
                         <option class="dark:text-gray-500"
+                                value="luckybox" {{ $article->category === 'luckybox' ? 'selected' : null }} > {{ __('news.category.luckybox') }}
+                        </option>
+                        <option class="dark:text-gray-500"
                                 value="other" {{ $article->category === 'other' ? 'selected' : null }} > {{ __('news.category.other') }}
                         </option>
                     </x-hrace009::select-with-popover>

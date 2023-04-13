@@ -48,6 +48,7 @@ return [
         'contest' => 'Contest',
         'download' => 'Download',
         'guide' => 'Guide',
+        'luckybox' => 'Lucky Box',
         'other' => 'Other'
     ],
     'add_button' => 'Create News',

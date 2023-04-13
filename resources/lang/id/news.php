@@ -48,6 +48,7 @@ return [
         'contest' => 'Kontes',
         'download' => 'Unduh',
         'guide' => 'Guide',
+        'luckybox' => 'Lucky Box',
         'other' => 'Lain Lain'
     ],
     'add_button' => 'Buat Berita',
