@@ -81,7 +81,7 @@ return [
             'complete' => 'Your broadcast has been sent.',
         ],
         'virtual_to_cubi' => [
-            'title' => config('pw-config.currency_name') . ' for Cubi',
+            'title' => config('pw-config.currency_name') . ' for Item Mall Coin',
             'description' => 'Exchange your website currency for cubi in-game.',
             'requirements' => [
                 0 => 'logged_out'

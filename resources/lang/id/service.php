@@ -81,7 +81,7 @@ return [
             'complete' => 'Pesan siaran Anda telah mengudara.',
         ],
         'virtual_to_cubi' => [
-            'title' => config('pw-config.currency_name') . ' untuk cubi',
+            'title' => config('pw-config.currency_name') . ' untuk Koin Item Mall',
             'description' => 'Tukarkan ' . config('pw-config.currency_name') . ' Menjadi cubi. ',
             'requirements' => [
                 0 => 'logged_out'
