@@ -82,12 +82,13 @@
                                         <!-- Modal -->
                                         <div class="flex flex-row">
                                             <!-- Give Coin Modal -->
-                                            <div x-data="{ {{ $user->name }}_Coin : false }">
-                                                <!-- Button Give Coin -->
-                                                <x-hrace009::button
-                                                    @click="{{ $user->name }}_Coin = !{{ $user->name }}_Coin"
-                                                    class="w-auto ml-1"
-                                                >
+                                            @if( ( Auth::user()->isAdministrator() === true ) )
+                                                <div x-data="{ {{ $user->name }}_Coin : false }">
+                                                    <!-- Button Give Coin -->
+                                                    <x-hrace009::button
+                                                        @click="{{ $user->name }}_Coin = !{{ $user->name }}_Coin"
+                                                        class="w-auto ml-1"
+                                                    >
                                                         <span @popper(
                                                               {{ __('members.actions.give', ['currency' => config('pw-config.currency_name')]) . ': ' . $user->name }} )>
                                                             <svg class="w-5 h-5"
@@ -106,55 +107,56 @@
                                                             />
                                                         </svg>
                                                         </span>
-                                                </x-hrace009::button>
+                                                    </x-hrace009::button>
 
-                                                <!-- Modal Give Coin -->
-                                                <div
-                                                    x-show="{{ $user->name }}_Coin"
-                                                    class="fixed dark:text-light flex items-center justify-center overflow-auto z-50 bg-gray-500 bg-opacity-40 left-0 right-0 top-0 bottom-0"
-                                                    x-transition:enter="ease-out duration-300"
-                                                    x-transition:enter-start="opacity-0"
-                                                    x-transition:enter-end="opacity-100"
-                                                    x-transition:leave="ease-in duration-200"
-                                                    x-transition:leave-start="opacity-100"
-                                                    x-transition:leave-end="opacity-0"
-                                                    style="display: none;"
-                                                >
-                                                    <!-- Modal -->
+                                                    <!-- Modal Give Coin -->
                                                     <div
                                                         x-show="{{ $user->name }}_Coin"
-                                                        class="dark:bg-dark bg-white rounded-xl shadow-2xl p-6 sm:w-full sm:max-w-lg mx-10"
-                                                        @click.away="{{ $user->name }}_Coin = false"
+                                                        class="fixed dark:text-light flex items-center justify-center overflow-auto z-50 bg-gray-500 bg-opacity-40 left-0 right-0 top-0 bottom-0"
                                                         x-transition:enter="ease-out duration-300"
-                                                        x-transition:enter-start="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-                                                        x-transition:enter-end="opacity-100 translate-y-0 sm:scale-100"
+                                                        x-transition:enter-start="opacity-0"
+                                                        x-transition:enter-end="opacity-100"
                                                         x-transition:leave="ease-in duration-200"
-                                                        x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100"
-                                                        x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                                                        x-transition:leave-start="opacity-100"
+                                                        x-transition:leave-end="opacity-0"
                                                         style="display: none;"
                                                     >
-                                                        <div class="text-lg font-semibold">
-                                                            {{ __('members.actions.give', ['currency' => config('pw-config.currency_name')]) . ': ' . $user->name }}
+                                                        <!-- Modal -->
+                                                        <div
+                                                            x-show="{{ $user->name }}_Coin"
+                                                            class="dark:bg-dark bg-white rounded-xl shadow-2xl p-6 sm:w-full sm:max-w-lg mx-10"
+                                                            @click.away="{{ $user->name }}_Coin = false"
+                                                            x-transition:enter="ease-out duration-300"
+                                                            x-transition:enter-start="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                                                            x-transition:enter-end="opacity-100 translate-y-0 sm:scale-100"
+                                                            x-transition:leave="ease-in duration-200"
+                                                            x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100"
+                                                            x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                                                            style="display: none;"
+                                                        >
+                                                            <div class="text-lg font-semibold">
+                                                                {{ __('members.actions.give', ['currency' => config('pw-config.currency_name')]) . ': ' . $user->name }}
+                                                            </div>
+                                                            <form
+                                                                action="{{ route('admin.manage.balance', $user->ID ) }}"
+                                                                method="post">
+                                                                {!! csrf_field() !!}
+                                                                <div class="mt-4">
+                                                                    <x-hrace009::input-box id="amount" name="amount"
+                                                                                           placeholder="{{ __('members.fields.amount.label') }}"
+                                                                                           required/>
+                                                                </div>
+                                                                <div
+                                                                    class="flex flex-row justify-end px-6 py-4 dark:bg-dark text-right">
+                                                                    <x-hrace009::button class="w-auto">
+                                                                        {{ __('members.actions.give', ['currency' => config('pw-config.currency_name')])  }}
+                                                                    </x-hrace009::button>
+                                                                </div>
+                                                            </form>
                                                         </div>
-                                                        <form
-                                                            action="{{ route('admin.manage.balance', $user->ID ) }}"
-                                                            method="post">
-                                                            {!! csrf_field() !!}
-                                                            <div class="mt-4">
-                                                                <x-hrace009::input-box id="amount" name="amount"
-                                                                                       placeholder="{{ __('members.fields.amount.label') }}"
-                                                                                       required/>
-                                                            </div>
-                                                            <div
-                                                                class="flex flex-row justify-end px-6 py-4 dark:bg-dark text-right">
-                                                                <x-hrace009::button class="w-auto">
-                                                                    {{ __('members.actions.give', ['currency' => config('pw-config.currency_name')])  }}
-                                                                </x-hrace009::button>
-                                                            </div>
-                                                        </form>
                                                     </div>
                                                 </div>
-                                            </div>
+                                            @endif
                                             <!-- Reset Password & Pin Modal -->
                                             <div x-data="{ {{ $user->name }}_Password : false }">
                                                 <!-- Button Force Reset Password -->

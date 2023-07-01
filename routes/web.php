@@ -20,6 +20,7 @@ use App\Http\Controllers\Auth\NewPasswordController;
 use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Front\UserProfileController;
 use App\Http\Controllers\Gamemaster\ArticleController;
+use App\Http\Controllers\Gamemaster\PlayersController;
 use App\Http\Middleware\VerifyCsrfToken;
 use App\View\Components\Hrace009\CharacterSelector;
 use Illuminate\Support\Facades\Route;
@@ -570,6 +571,7 @@ Route::group(['prefix' => 'gm', 'middleware' => ['auth', 'web', 'verified', 'gm'
         ])->withoutMiddleware([VerifyCsrfToken::class]);
     });
     Route::resource('article', ArticleController::class)->middleware('news');
+    Route::resource('players', PlayersController::class);
 
 });
 
