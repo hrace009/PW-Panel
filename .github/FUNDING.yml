@@ -1,2 +1,2 @@
 # These are supported funding model platforms
-custom: [Paypal, "https://paypal.me/HarrisYogasara?country.x=ID&locale.x=en_US"]
+paypal: ['https://paypal.me/HarrisYogasara?country.x=ID&locale.x=en_US']
