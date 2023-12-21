@@ -17,7 +17,7 @@ return [
     'logo' => 'img/logo/logo.png',
     'server_ip' => '127.0.0.1',
     'server_name' => 'PW Panel',
-    'gmwa' => '081210333773',
+    'gmwa' => '62879456123',
     'fakeonline' => '',
     'server_version' => '156',
     'teleport_world_tag' => '1',
