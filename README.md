@@ -1,6 +1,6 @@
 # Welcome to PW-Panel 👋
 
-![Version](https://img.shields.io/badge/version-1.0-blue.svg?cacheSeconds=2592000)
+![Version](https://img.shields.io/badge/version-1.1-blue.svg?cacheSeconds=2592000)
 [![Documentation](https://img.shields.io/badge/documentation-yes-brightgreen.svg)](doc)
 [![License: GPLv2](https://img.shields.io/badge/License-GPLv2-yellow.svg)](lic)
 [![Twitter: hrace009](https://img.shields.io/twitter/follow/hrace009.svg?style=social)](https://twitter.com/hrace009)
