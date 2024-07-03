@@ -6,6 +6,8 @@
 [![Twitter: hrace009](https://img.shields.io/twitter/follow/hrace009.svg?style=social)](https://twitter.com/hrace009)
 
 > Web panel for Perfect World MMORPG private server, powered with laravel and tailwindcss
+>
+> NOTE: THIS PANEL STILL HAVE A LOT OF BUG, YOU SHOULD FIX IT BY YOUR SELF, I DON'T HAVE TIME TO FIX IT
 
 ### 🏠 [Homepage](https://youtube.com/c/hrace009)
 
