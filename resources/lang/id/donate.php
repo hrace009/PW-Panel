@@ -191,7 +191,9 @@ return [
             'smalmax' => 'Jumlah maksimal tidak boleh kecil dari jumlah minimal'
         ],
         'desc_ipay' => 'Login: :loginid | Jumlah: :amount :currency | Bayar: :pay IDR',
-        'no_phone' => 'Mohon untuk mengisi nomer telepon / HP anda!'
+        'no_phone' => 'Mohon untuk mengisi nomer telepon / HP anda!',
+        'route_desc' => 'URL Callback iPaymu, Harap ganti saat pertama installasi',
+        'route' => 'Route'
     ],
     'history' => [
         'title' => 'Riwayat transaksi',

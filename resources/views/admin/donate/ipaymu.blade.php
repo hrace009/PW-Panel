@@ -133,6 +133,22 @@
                             <x-hrace009::label for="bonusess">{{ __('donate.ipaymu.bonusess') }}</x-hrace009::label>
                         </div>
                     </div>
+                    <div class="flex flex-row gap-8">
+                        <div class="relative z-0 mb-6 w-full group">
+                            <x-hrace009::input-with-popover id="route" name="route"
+                                                            value="{{ config('ipaymu.route') }}"
+                                                            placeholder=" "
+                                                            :popover="__('donate.ipaymu.route_desc')"/>
+                            <x-hrace009::label
+                                for="route">{{ __('donate.ipaymu.route') }}</x-hrace009::label>
+                        </div>
+                    </div>
+                    <div class="flex flex-row gap-8">
+                        <code>Your current Route for Callback is: {{ route('api.ipaymu') }}</code>
+                    </div>
+                    <div class="flex flex-row gap-8">
+                        <code>NOTE: Please change this route regular to avoid hacking or injection </code>
+                    </div>
                 @endif
                 <!-- Submit Button -->
                 <x-hrace009::button-with-popover class="w-auto" popover="{{ __('general.config_save_desc') }}">

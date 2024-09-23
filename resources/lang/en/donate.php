@@ -191,7 +191,9 @@ return [
             'smalmax' => 'Maximum amount must be greater than minimal amount.'
         ],
         'desc_ipay' => 'Login: :loginid | Amount: :amount :currency | Pay: :pay IDR',
-        'no_phone' => 'Please fill your phone number!'
+        'no_phone' => 'Please fill your phone number!',
+        'route_desc' => 'URL Callback iPaymu, Please change in the first installation',
+        'route' => 'Route'
     ],
     'history' => [
         'title' => 'Transaction History',

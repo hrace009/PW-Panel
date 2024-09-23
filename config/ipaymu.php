@@ -19,5 +19,6 @@ return [
     'bonusess' => '',
     'mingetbonus' => '',
     'refid' => 'TRX',
-    'sandbox' => true
+    'sandbox' => true,
+    'route' => 'ipaymu'
 ];

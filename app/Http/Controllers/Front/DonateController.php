@@ -226,6 +226,8 @@ class DonateController extends Controller
                 'email' => Auth::user()->email
             ]);
 
+            $vc_amount = $request->input('dollars') * config('ipaymu.currency_per');
+
             $this->ipaymu->addCart([
                 'product' => [
                     config('pw-config.currency_name')
@@ -237,7 +239,7 @@ class DonateController extends Controller
                     $request->input('dollars')
                 ],
                 'description' => [
-                    __('donate.ipaymu.desc_ipay', ['amount' => $request->input('tokens'), 'currency' => config('pw-config.currency_name'), 'pay' => $request->input('dollars'), 'loginid' => Auth::user()->ID])
+                    __('donate.ipaymu.desc_ipay', ['amount' => $vc_amount, 'currency' => config('pw-config.currency_name'), 'pay' => $request->input('dollars'), 'loginid' => Auth::user()->ID])
                 ]
             ]);
             $refid = config('ipaymu.refid') . '-' . Carbon::now()->timestamp;
@@ -248,7 +250,7 @@ class DonateController extends Controller
             $redirectPayment = $this->ipaymu->redirectPayment($paymentData);
             if (config('ipaymu.bonusess')) {
                 if ($request->input('tokens') >= config('ipaymu.mingetbonus')) {
-                    $bonus = $request->input('tokens') * (config('ipaymu.bonusess') / 100);
+                    $bonus = $vc_amount * (config('ipaymu.bonusess') / 100);
                 } else {
                     $bonus = 0;
                 }
@@ -258,7 +260,7 @@ class DonateController extends Controller
             IpaymuLog::create([
                 'reference_id' => $refid,
                 'user_id' => Auth::user()->ID,
-                'amount' => $request->input('tokens') + $bonus,
+                'amount' => $vc_amount + $bonus,
                 'money' => $request->input('dollars'),
                 'status' => 'pending',
                 'status_code' => '0',

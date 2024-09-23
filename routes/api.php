@@ -35,7 +35,7 @@ Route::group(['middleware' => 'api'], static function () {
         'uses' => 'App\Http\Controllers\Pingback@paymentwall'
     ]);
 
-    Route::post('ipaymu', [
+    Route::post(config('ipaymu.route'), [
         'as' => 'api.ipaymu',
         'middleware' => 'ipaymu.active',
         'uses' => 'App\Http\Controllers\Pingback@IpaymuCallback'
