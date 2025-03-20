@@ -7,7 +7,9 @@
 
 > Web panel for Perfect World MMORPG private server, powered with laravel and tailwindcss
 >
-> NOTE: THIS PANEL STILL HAVE A LOT OF BUG, YOU SHOULD FIX IT BY YOUR SELF, I DON'T HAVE TIME TO FIX IT
+> NOTE:
+> - THIS PANEL STILL HAVE A LOT OF BUG, YOU SHOULD FIX IT BY YOUR SELF, I DON'T HAVE TIME TO FIX IT
+> - THIS PANEL NOT COMPATIBLE WITH VERSION 1.6.X OR 1.7.X
 
 ### 🏠 [Homepage](https://youtube.com/c/hrace009)
 
