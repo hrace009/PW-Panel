@@ -77,7 +77,44 @@ server {
     }
 }
 ```
+## Apache
+If you are deploying your application to a server that is running apache2, you may use the following configuration file as a starting point for configuring your web server. Most likely, this file will need to be customized depending on your server's
 
+Please ensure, like the configuration below, your web server directs all requests to your application's `public/index.php` file. You should never attempt to move the `index.php` file to your project's root, as serving the application from the project root will expose many sensitive configuration files to the public Internet:
+```
+# cd /etc/apache2/sites-available
+# nano pwpanel.conf
+```
+Fill this configuration (Replace example.com to your domain)
+```
+<VirtualHost *:80>
+	ServerAdmin webmaster@localhost
+	DocumentRoot /var/www/example.com/public
+	ServerName example.com
+
+	<Directory /var/www/example.com>
+       		AllowOverride All
+   	</Directory>
+
+	ErrorLog /var/www/logs/example.com-error.log
+	CustomLog /var/www/logs/example.com-access.log combined
+</VirtualHost>
+```
+Save and close the file.
+
+Disable the virtual host configuration file in Apache by running this command: 
+```
+a2dissite 000-default.conf
+```
+Activate the new virtual host:
+```
+a2ensite pwpanel.conf
+```
+Enable the Apache rewrite module, then restart the Apache service:
+```
+a2enmod rewrite
+systemctl restart apache2
+```
 # Optimization
 ## Autoloader Optimization
 When deploying to production, make sure that you are optimizing Composer's class autoloader map so Composer can quickly find the proper file to load for a given class:
