@@ -179,7 +179,6 @@ php artisan pw:createAdmin
 * Website: https://youtube.com/hrace009
 * Twitter: [@hrace009](https://twitter.com/hrace009)
 * Github: [@hrace009](https://github.com/hrace009)
-* LinkedIn: [@harris-yogasara](https://linkedin.com/in/harris-yogasara)
 
 ## 📝 License
 Copyright © 2022 [Harris Marfel](https://github.com/hrace009).
