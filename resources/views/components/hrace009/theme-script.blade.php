@@ -70,7 +70,7 @@
         }
 
         return {
-            loading: true,
+            loadingState: true,
             isDark: getTheme(),
             toggleTheme() {
                 this.isDark = !this.isDark
